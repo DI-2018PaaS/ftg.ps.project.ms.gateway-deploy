@@ -1,0 +1,84 @@
+<div fxLayout="column" fxFlex="100">
+  <app-main-carousel [slides]="slides"></app-main-carousel>
+    <app-breadcrumb></app-breadcrumb>
+  <div class="page-layout carded left-sidebar">
+
+    <!-- TOP BACKGROUND -->
+    <!-- / TOP BACKGROUND -->
+
+    <!-- SIDEBAR -->
+    <fuse-sidebar class="sidebar" name="carded-left-sidebar-1" position="left" lockedOpen="gt-md">
+
+        <!-- SIDEBAR CONTENT -->
+        <div class="content p-24">
+            <fuse-demo-sidebar></fuse-demo-sidebar>
+        </div>
+        <!-- / SIDEBAR CONTENT -->
+
+    </fuse-sidebar>
+    <!-- / SIDEBAR -->
+
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <!-- CONTENT TOOLBAR -->
+            <div class="toolbar px-24 py-8">
+
+                <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-left-sidebar-1')">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <span>
+                    <h1 style="font-weight: bold">Domaine</h1>
+                </span>
+
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+            <div content class="content p-24">
+
+              <div fxLayout="row">
+                <h2>Description Appel d'Offre</h2>
+              </div>
+              <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="40px">
+                  
+                  <mat-grid-list cols="2" rowHeight="50px">
+                    <mat-grid-tile fxLayoutAlign="start"><h3><span style="float:left">Nom</span> </h3></mat-grid-tile>
+                    <mat-grid-tile>Engrais (Référence 00011111)</mat-grid-tile>
+                    <mat-grid-tile><h3>Description</h3></mat-grid-tile>
+                    <mat-grid-tile>Engrais haute qualité</mat-grid-tile>
+                    <mat-grid-tile><h3>Origine</h3></mat-grid-tile>
+                    <mat-grid-tile>casamance</mat-grid-tile>
+                    <mat-grid-tile><h3>Emetteur Offre</h3></mat-grid-tile>
+                    <mat-grid-tile>Amadou Thiam</mat-grid-tile>
+                    <mat-grid-tile><h3>Contact</h3></mat-grid-tile>
+                    <mat-grid-tile>774858685</mat-grid-tile>
+                    <mat-grid-tile><h3>Date début</h3></mat-grid-tile>
+                    <mat-grid-tile>14/10/2000</mat-grid-tile>
+                    <mat-grid-tile><h3>Date fin</h3></mat-grid-tile>
+                    <mat-grid-tile>14/10/2010</mat-grid-tile>
+                  </mat-grid-list>
+              </div>
+            <br>
+        </div>
+  
+    </div>
+    </div>
+    <!-- / CONTENT CARD -->
+    <!-- / CENTER -->
+    <!-- SIDEBAR -->
+    <fuse-sidebar class="sidebar" name="carded-right-sidebar-1" position="end" lockedOpen="gt-md">
+    
+      <!-- SIDEBAR CONTENT -->
+      <div class="content p-24">
+        <chbot-sidebar></chbot-sidebar>
+      </div>
+      <!-- / SIDEBAR CONTENT -->
+    
+    </fuse-sidebar>
+    <!-- / SIDEBAR -->
+  </div>
+</div>

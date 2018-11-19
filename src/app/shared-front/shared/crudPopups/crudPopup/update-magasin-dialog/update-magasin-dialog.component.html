@@ -1,0 +1,220 @@
+
+<mat-dialog-content class="mat-typography">
+        <div class="title">
+            <h2 mat-dialog-title >Modification Magasin</h2>
+            </div>
+            
+
+    <form class="example-container">
+          <div fxLayout="column" fxFlex="50px">
+              
+              <div fxLayout="row" style="margin-top: 10%;" fxLayout.xs="column" fxLayoutGap="5px">
+                  <div>
+                      <mat-form-field >
+                          <input matInput placeholder="Nom Magasin">
+                        </mat-form-field>
+                  </div>
+                  <div style="margin-left: 130%;">
+                      <mat-form-field >
+                          <input matInput placeholder="Reference" >
+                        </mat-form-field>
+                  </div>
+              </div>
+              <div fxLayout="row" style="margin-top: -38%;"fxLayout.xs="column" fxLayoutGap="5px">
+                  <div>
+                        <mat-form-field style="width: 200%;">
+                                <textarea matInput placeholder="Description "></textarea>
+                         </mat-form-field>
+                        
+                  </div>
+                  
+              </div>
+              <div fxLayout="row" style="margin-top: 40%;">
+                   
+                    <div>     <h3 mat-dialog-title >Ajout Logo</h3>
+                      <mat-dialog-actions style="margin-left: 88px;margin-top: -46%;">
+                              <input  style="display: none" 
+                              type="file" (change)="onFileChanged($event)" 
+                              #fileInput>
+                            <button  mat-fab color="primary"  (click)="fileInput.click()"><mat-icon matPrefix>import_export</mat-icon></button>
+                              <!--<button mat-fab color="primary" class="">Ajout</button>-->
+                      </mat-dialog-actions>   
+                    </div>
+                    <div style="margin-left:29%">
+                        
+                          <mat-form-field>
+                              
+                                  <mat-select placeholder="Proprietaire" >
+                                    <mat-option value="option">Fournisseur N</mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                        
+                    </div>
+                </div>
+        
+                <div fxLayout="row" style="margin-top: 10%;"fxLayout.xs="column" fxLayoutGap="5px">
+                        <div>
+                            <mat-form-field >
+                                <mat-select placeholder="Ajout Produits" >
+                                  <mat-option value="option">Produit</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                      <div >
+                              <mat-dialog-actions style="margin-left: 2%;margin-top: -8%;">
+                                      <button  mat-raised-button color="primary" class="add">+ Ajouter</button>
+                                    </mat-dialog-actions>
+                        </div>
+                
+
+                        <div style="margin-left:25%">
+                            <mat-form-field>
+                                <mat-select placeholder="Supprimer Produits" >
+                                  <mat-option value="option">Produit</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                      <div >
+                              <mat-dialog-actions style="margin-top:-5%;margin-left:2%">
+                                      <button  mat-raised-button color="primary" class="add">- Supprimer</button>
+                                    </mat-dialog-actions>
+                        </div>
+                </div>
+              <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
+                  
+                    <div>
+                                    <h2 mat-dialog-title>Modifier Adresse Emplacement</h2>
+                                    <form class="add-adresscontainer">
+                                            <div fxLayout="column" fxFlex="100px">
+                                                <div fxLayout="row">
+                                                    <div>
+                                                    <mat-form-field style ="width: 35%; margin-left: 6%;">
+                                                        <input matInput placeholder="No">
+                                                    </mat-form-field>
+                                                    </div>
+                                                
+                                                <div>
+                                                
+                                                      <mat-form-field style="width: 200%;">
+                                                        <textarea matInput placeholder="Rue"></textarea>
+                                                      </mat-form-field>
+                                                
+                                                </div>
+                                            </div>
+                                            <div fxLayout="row" style="margin-top: -20%;">
+                                                    <div>
+                                                            <mat-form-field style ="width: 55%; margin-left: 6%;">
+                                                                    <input matInput placeholder=" Code postal">
+                                                                  </mat-form-field>
+                                                    </div>
+                                                    <div>
+                                                            <mat-form-field style ="width: 55%">
+                                                                    <input matInput placeholder="Ville">
+                                                                  </mat-form-field>
+                                                    </div>
+                                             </div>
+                                                <div fxLayout="row" style="margin-top: -23%;margin-left: 11%">
+                                                                <div>
+                                                                                <mat-form-field >
+                                                                                <mat-select placeholder="Pays"   >
+                                                                                        <mat-option>-- None --</mat-option>
+                                                                                        <mat-option value="option">Senegal</mat-option>
+                                                                                        <mat-option value="option">France</mat-option>
+                                                                                        <mat-option value="option">Canada</mat-option>
+                                                                                </mat-select>
+                                                                                </mat-form-field>
+                                                                 </div>
+                                                        
+                                                </div>
+                                             </div>
+                                     </form>
+                          
+                                    </div>
+                                   
+                </div>
+                <div fxLayout="row" >
+                        <div>
+                                        <h2 mat-dialog-title>Modifier/Ajouter Contact</h2>
+                                        <form class="add-adresscontainer">
+                                                <div fxLayout="column" fxFlex="100px">
+                                                    <div fxLayout="row">
+                                                        <div>
+                                                        <mat-form-field style ="width: 35%; margin-left: 6%;">
+                                                            <input matInput placeholder="No">
+                                                        </mat-form-field>
+                                                        </div>
+                                                    
+                                                    <div>
+                                                    
+                                                          <mat-form-field style="width: 200%;">
+                                                            <textarea matInput placeholder="Rue"></textarea>
+                                                          </mat-form-field>
+                                                    
+                                                    </div>
+                                                </div>
+                                                <div fxLayout="row" style="margin-top: -20%;">
+                                                        <div>
+                                                                <mat-form-field style ="width: 55%; margin-left: 6%;">
+                                                                        <input matInput placeholder=" Code postal">
+                                                                      </mat-form-field>
+                                                        </div>
+                                                        <div>
+                                                                <mat-form-field style ="width: 55%">
+                                                                        <input matInput placeholder="Ville">
+                                                                      </mat-form-field>
+                                                        </div>
+                                                 </div>
+                                                    <div fxLayout="row" style="margin-top: -13%;margin-left: 11%">
+                                                                <div style="width: 100%; margin-left: 1%">
+                                                                                <mat-form-field >
+                                                                                <mat-select placeholder="Pays"   >
+                                                                                        <mat-option>-- None --</mat-option>
+                                                                                        <mat-option value="option">Senegal</mat-option>
+                                                                                        <mat-option value="option">France</mat-option>
+                                                                                        <mat-option value="option">Canada</mat-option>
+                                                                                </mat-select>
+                                                                                </mat-form-field>
+                                                                 </div>
+                                                            <div style="margin-left: 99%;" >
+                                                                    <mat-form-field  hintLabel="Max 10 chiffres" >
+                                                                        <input matInput placeholder="Telephone" #input maxlength="10" >
+                                                                        <mat-icon matSuffix>phone</mat-icon>
+                                                                      </mat-form-field>
+                                                                </div>
+                                                    </div>
+                                                    <div fxLayout="row" style="margin-top: -12%;">
+                                                            <div style=" margin-left: 6%;">
+                                                                    <mat-form-field>
+                                                                      <input matInput placeholder="Enter your email" [formControl]="email" required>
+                                                                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                                                    </mat-form-field>
+                                                            </div>
+                                                            <div>
+                                                                    <mat-dialog-actions style="margin-left:195px;">
+                                                                            <button mat-raised-button color="accent" class="">Modifier</button>
+                                                                          </mat-dialog-actions>
+                                                              
+                                                            </div>
+                                                            <div>
+                                                                    <mat-dialog-actions style="margin-left:6px;">
+                                                                            <button mat-raised-button color="accent" class="">Ajouter</button>
+                                                                          </mat-dialog-actions>
+                                                              
+                                                            </div>
+                                                            
+                                                        </div>
+                                                 </div>
+                                         </form>
+                              
+                                        </div>
+                </div>
+            </div>
+       
+      
+    </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+            <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Delete</button>
+            <button mat-raised-button class="save" color="" [mat-dialog-close]="true" cdkFocusInitial><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
+    </mat-dialog-actions>

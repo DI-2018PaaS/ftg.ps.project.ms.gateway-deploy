@@ -1,0 +1,341 @@
+<div fxLayout="column" fxFlex="100">
+    <app-main-carousel [slides]="slides"></app-main-carousel>
+    <app-breadcrumb></app-breadcrumb>
+    <div class="page-layout carded left-sidebar">
+
+        <!-- TOP BACKGROUND -->
+        <!-- / TOP BACKGROUND -->
+
+        <!-- SIDEBAR -->
+        <fuse-sidebar class="sidebar" name="carded-left-sidebar-1" position="left" lockedOpen="gt-md">
+
+            <!-- SIDEBAR CONTENT -->
+            <div class="content p-24">
+                <fuse-demo-sidebar></fuse-demo-sidebar>
+            </div>
+            <!-- / SIDEBAR CONTENT -->
+
+        </fuse-sidebar>
+        <!-- / SIDEBAR -->
+
+
+        <!-- CENTER -->
+        <div class="center">
+
+            <!-- CONTENT CARD -->
+            <div class="content-card">
+
+                <!-- CONTENT TOOLBAR -->
+                <div class="toolbar px-24 py-8">
+
+                    <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-left-sidebar-1')">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+
+                    <span>
+                        <h1 style="font-weight: bold">Domaine</h1>
+                    </span>
+
+                </div>
+                <!-- / CONTENT TOOLBAR -->
+                <div content class="content p-24">
+                    <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-between center" class="filter-row mat-elevation-z1 text-muted">
+                        <div fxLayout="row" fxLayout.xs="column">
+                            <h1>Domaine 1</h1>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div fxLayout="row" fxLayoutGap.xs="10px" fxLayout.xs="column">
+
+                            <div fxFlex="100px" fxFlex.gt-xs="50" ngClass.xs="mt-2">
+                                <mat-card class="panel-domaine-ag">
+                                    <mat-card-header>
+                                        <a [routerLink]="['/Enchere','Engrais']">
+                                            <img src="assets/images/Produit/FineTech_PS_Elmt_Produit_Photo_Bg.png" alt="">
+                                        </a>
+                                    </mat-card-header>  
+                                    <mat-card-title>
+                                        <div fxLayout="row" fxLayoutAlign="center center">Engrais</div>
+                                    </mat-card-title>
+                                    <mat-card-subtitle>
+
+
+                                    </mat-card-subtitle>
+                                    <mat-card-content>
+                                        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+                                            <div>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                            </div>
+                                            <div>
+                                                Origine(Casamance)
+                                            </div>
+                                            <div>
+                                                Quantité : 100kg
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                    <mat-card-footer>
+                                        <div fxLayout="row" fxLayoutGap="60px">
+                                            <div fxLayoutAlign="end">
+                                                <a mat-raised-button color="primary" href="#">participer</a>
+                                            </div>
+                                        </div>
+                                    </mat-card-footer>
+                                </mat-card>
+                            </div>
+                            <div fxFlex="100px" fxFlex.gt-xs="50" ngClass.xs="mt-2">
+                                <mat-card class="panel-domaine-ag">
+                                    <mat-card-header>
+                                        <a href="#">
+                                            <img src="assets/images/Produit/FineTech_PS_Elmt_Produit_Photo_Bg.png" alt="">
+                                        </a>
+                                    </mat-card-header>
+                                    <mat-card-title>
+                                        <div fxLayout="row" fxLayoutAlign="center center">Engrais</div>
+                                    </mat-card-title>
+                                    <mat-card-subtitle>
+
+
+                                    </mat-card-subtitle>
+                                    <mat-card-content>
+                                        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+                                            <div>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                            </div>
+                                            <div>
+                                                Origine(Casamance)
+                                            </div>
+                                            <div>
+                                                Quantité : 100kg
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                    <mat-card-footer>
+                                        <div fxLayout="row" fxLayoutGap="60px">
+                                            <div fxLayoutAlign="end">
+                                                <a mat-raised-button color="primary" href="#">participer</a>
+                                            </div>
+                                        </div>
+                                    </mat-card-footer>
+                                </mat-card>
+                            </div>
+                            <div fxFlex="100px" fxFlex.gt-xs="50" ngClass.xs="mt-2">
+                                <mat-card class="panel-domaine-ag">
+                                    <mat-card-header>
+                                        <a href="#">
+                                            <img src="assets/images/Produit/FineTech_PS_Elmt_Produit_Photo_Bg.png" alt="">
+                                        </a>
+                                    </mat-card-header>
+                                    <mat-card-title>
+                                        <div fxLayout="row" fxLayoutAlign="center center">Engrais</div>
+                                    </mat-card-title>
+                                    <mat-card-content>
+                                        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+                                            <div>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                            </div>
+                                            <div>
+                                                Origine(Casamance)
+                                            </div>
+                                            <div>
+                                                Quantité : 100kg
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                    <mat-card-footer>
+                                        <div fxLayout="row" fxLayoutGap="60px">
+                                            <div fxLayoutAlign="end">
+                                                <a mat-raised-button color="primary" href="#">particper</a>
+                                            </div>
+                                        </div>
+                                    </mat-card-footer>
+                                </mat-card>
+                            </div>
+                        </div>
+                        <br>
+                        <mat-divider></mat-divider>
+                        <div fxLayout="row" fxLayout.xs="column">
+                            <h1>Domaine 2</h1>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div fxLayout="row" fxLayoutGap.xs="10px" fxLayout.xs="column">
+
+                            <div fxFlex="100px" fxFlex.gt-xs="50" ngClass.xs="mt-2">
+                                <mat-card class="panel-domaine-ag">
+                                    <mat-card-header>
+                                        <img src="assets/images/Produit/FineTech_PS_Elmt_Produit_Photo_Bg.png" alt="">
+                                    </mat-card-header>
+                                    <mat-card-title>
+                                        <div fxLayout="row" fxLayoutAlign="center center">Engrais</div>
+                                    </mat-card-title>
+                                    <mat-card-subtitle>
+
+
+                                    </mat-card-subtitle>
+                                    <mat-card-content>
+                                        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+                                            <div>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                            </div>
+                                            <div>
+                                                Origine(Casamance)
+                                            </div>
+                                            <div>
+                                                Quantité : 100kg
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                    <mat-card-footer>
+                                        <div fxLayout="row" fxLayoutGap="60px">
+                                            <div fxLayoutAlign="end">
+                                                <a mat-raised-button color="primary" href="#">répondre</a>
+                                            </div>
+                                        </div>
+                                    </mat-card-footer>
+                                </mat-card>
+                            </div>
+                            <div fxFlex="100px" fxFlex.gt-xs="50" ngClass.xs="mt-2">
+                                <mat-card class="panel-domaine-ag">
+                                    <mat-card-header>
+                                        <img src="assets/images/Produit/FineTech_PS_Elmt_Produit_Photo_Bg.png" alt="">
+                                    </mat-card-header>
+                                    <mat-card-title>
+                                        <div fxLayout="row" fxLayoutAlign="center center">Engrais</div>
+                                    </mat-card-title>
+                                    <mat-card-subtitle>
+
+
+                                    </mat-card-subtitle>
+                                    <mat-card-content>
+                                        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+                                            <div>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                            </div>
+                                            <div>
+                                                Origine(Casamance)
+                                            </div>
+                                            <div>
+                                                Quantité : 100kg
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                    <mat-card-footer>
+                                        <div fxLayout="row" fxLayoutGap="60px">
+                                            <div fxLayoutAlign="end">
+                                                <a mat-raised-button color="primary" href="#">participer</a>
+                                            </div>
+                                        </div>
+                                    </mat-card-footer>
+                                </mat-card>
+                            </div>
+                            <div fxFlex="100px" fxFlex.gt-xs="50" ngClass.xs="mt-2">
+                                <mat-card class="panel-domaine-ag">
+                                    <mat-card-header>
+                                        <img src="assets/images/Produit/FineTech_PS_Elmt_Produit_Photo_Bg.png" alt="">
+                                    </mat-card-header>
+                                    <mat-card-title>
+                                        <div fxLayout="row" fxLayoutAlign="center center">Engrais</div>
+                                    </mat-card-title>
+                                    <mat-card-content>
+                                        <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px">
+                                            <div>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                                <mat-icon>star_border</mat-icon>
+                                            </div>
+                                            <div>
+                                                Origine(Casamance)
+                                            </div>
+                                            <div>
+                                                Quantité : 100kg
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                            <div>
+                                                <span style="font-size:12px">Début Enchere 13/10/2018</span>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                    <mat-card-footer>
+                                        <div fxLayout="row" fxLayoutGap="60px">
+                                            <div fxLayoutAlign="end">
+                                                <a mat-raised-button color="primary" href="#">participer</a>
+                                            </div>
+                                        </div>
+                                    </mat-card-footer>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- / CONTENT CARD -->
+        <!-- / CENTER -->
+        <!-- SIDEBAR -->
+        <fuse-sidebar class="sidebar" name="carded-right-sidebar-1" position="end" lockedOpen="gt-md">
+
+            <!-- SIDEBAR CONTENT -->
+            <div class="content p-24">
+                <chbot-sidebar></chbot-sidebar>
+            </div>
+            <!-- / SIDEBAR CONTENT -->
+
+        </fuse-sidebar>
+        <!-- / SIDEBAR -->
+    </div>
+</div>
+                
