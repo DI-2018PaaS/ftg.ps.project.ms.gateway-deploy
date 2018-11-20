@@ -95,51 +95,6 @@ var AppSimulationComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/commons/simulation/simulation.module.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/commons/simulation/simulation.module.ts ***!
-  \*********************************************************/
-/*! exports provided: AppSimulationModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppSimulationModule", function() { return AppSimulationModule; });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _simulation_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./simulation.component */ "./src/app/commons/simulation/simulation.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var AppSimulationModule = /** @class */ (function () {
-    function AppSimulationModule() {
-    }
-    AppSimulationModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            declarations: [
-                _simulation_component__WEBPACK_IMPORTED_MODULE_1__["AppSimulationComponent"]
-            ],
-            imports: [
-                _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]
-            ],
-            exports: [
-                _simulation_component__WEBPACK_IMPORTED_MODULE_1__["AppSimulationComponent"]
-            ]
-        })
-    ], AppSimulationModule);
-    return AppSimulationModule;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/espace/fournisseur/four-simulations/fournisseur-simulations.module.ts":
 /*!***************************************************************************************!*\
   !*** ./src/app/espace/fournisseur/four-simulations/fournisseur-simulations.module.ts ***!
@@ -159,7 +114,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm5/input.es5.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_commons_simulation_simulation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/commons/simulation/simulation.component */ "./src/app/commons/simulation/simulation.component.ts");
-/* harmony import */ var app_commons_simulation_simulation_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/commons/simulation/simulation.module */ "./src/app/commons/simulation/simulation.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -175,7 +129,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 //import { FoSimulationListComponent } from './simulation-list/fourn-simulation-list.component';
 
-
+//import { AppSimulationModule } from 'app/commons/simulation/simulation.module';
 var routes = [
     { path: '', component: app_commons_simulation_simulation_component__WEBPACK_IMPORTED_MODULE_7__["AppSimulationComponent"], pathMatch: 'full' }
 ];
@@ -190,10 +144,10 @@ var SimulationsFournisseurModule = /** @class */ (function () {
                 _shared_front_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
                 _angular_material_badge__WEBPACK_IMPORTED_MODULE_4__["MatBadgeModule"],
                 _angular_material_input__WEBPACK_IMPORTED_MODULE_5__["MatInputModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild(routes),
-                app_commons_simulation_simulation_module__WEBPACK_IMPORTED_MODULE_8__["AppSimulationModule"]
-            ]
-            //,  declarations: [AppSimulationComponent]
+                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild(routes)
+                //,AppSimulationModule
+            ],
+            declarations: [app_commons_simulation_simulation_component__WEBPACK_IMPORTED_MODULE_7__["AppSimulationComponent"]]
         })
     ], SimulationsFournisseurModule);
     return SimulationsFournisseurModule;

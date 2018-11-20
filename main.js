@@ -679,12 +679,12 @@ var AuthenticationComponent = /** @class */ (function () {
         if (this.username === 'admin' && this.password === 'admin') {
             console.log("auth admin");
             this.globals.role = "administrateur";
-            this.router.navigate(['']);
+            this.router.navigate(['main']);
         }
         else if (this.username === 'banq' && this.password === 'banq') {
             console.log("auth banq");
             this.globals.role = "banque";
-            this.router.navigate(['main']);
+            this.router.navigate(['banque']);
         }
         else if (this.username === 'acheteur' && this.password === 'acheteur') {
             console.log("auth acheteur");
@@ -11141,7 +11141,7 @@ var MuserHomeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">   \r\n    <div class=\"px-24 py-8\">\r\n        <div fxLayout=\"row\" fxLayoutGap=\"100px\">\r\n            <div style=\"display:inline-flex\">\r\n                <mat-form-field>\r\n                    <mat-select placeholder=\"Domaine\" disableRipple>\r\n                        <mat-option value=\"1\">Domaine 1</mat-option>\r\n                        <mat-option value=\"2\">Domaine 2</mat-option>\r\n                        <mat-option value=\"3\">Domaine 3</mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n            <div style=\"display:inline-flex\">\r\n                <mat-form-field>\r\n                    <input matInput placeholder=\"rechercher\">\r\n                </mat-form-field>\r\n            </div>\r\n\t\t\t<div style=\"display:inline-flex\" *ngIf=\"role=='multiuser'\">\r\n                <mat-form-field>\r\n                    <mat-select placeholder=\"Role\" (selectionChange)=\"changeNavigation($event.value)\">\r\n                        <mat-option *ngFor=\"let rol of roles\" [value]=\"rol.value\">\r\n                            {{ rol.Name }}\r\n                        </mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-layout carded left-sidebar\">\r\n         <fuse-sidebar class=\"sidebar\" name=\"carded-right-sidebar-1\" position=\"end\" lockedOpen=\"gt-md\">\r\n                <div class=\"content p-24\">\r\n                    <mat-grid-list cols=\"1\" rowHeight=\"2:1\">\r\n                            <mat-grid-tile><button mat-button class=\"block\" (click)=\"crudComp.openCreateCompte()\"><mat-icon>brightness_low</mat-icon> Creer Boutique</button></mat-grid-tile>\r\n                            <mat-grid-tile><button mat-button class=\"block\" (click)=\"crudComp.openCreateProduit()\"><mat-icon>done_outline</mat-icon> Creer Produit</button></mat-grid-tile>\r\n                            <mat-grid-tile><button mat-button class=\"block\" (click)=\"crudComp.openCreateMagasin()\"><mat-icon>graphic_eq</mat-icon> Creer Magasin</button></mat-grid-tile>\r\n                          </mat-grid-list>\r\n                          <filter-sidebar></filter-sidebar>\r\n                </div>\r\n            </fuse-sidebar>\r\n        <div class=\"center pb-4\" style=\"margin-left:10px !important\">\r\n            <div class=\"content-card px-5\">\r\n               <div class=\"toolbar px-24 py-8\">\r\n                    <ng-marquee duration=\"20\">\r\n                        <mark>\r\n                            Echec remboursement<mat-icon>error</mat-icon>    Fin de Stock produit<mat-icon>error</mat-icon>    Retard livraison<mat-icon>error</mat-icon>   Retard Paiement<mat-icon>error</mat-icon>    Echéance Pret<mat-icon>error</mat-icon>\r\n                        </mark>\r\n                    </ng-marquee>\r\n                </div>\r\n                <div content class=\"content p-24\">\r\n                  <!--router-outlet></router-outlet--> \r\n                  <div fxFlex=\"100\"> \r\n                        <div class=\"anim-box info-box general\" fxLayout=\"column\">\r\n                            <!--div class=\"content\"-->\r\n                            <mat-form-field>\r\n                              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtre\">\r\n                            </mat-form-field>\r\n                              <div class=\"mat-elevation-z8\">\r\n                              <table mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <!-- ID Column -->\r\n                                <ng-container matColumnDef=\"id\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>\r\n                                  <td mat-cell *matCellDef=\"let row\"> {{row.id}} </td>\r\n                                </ng-container>\r\n                    \r\n                                <!-- Progress Column -->\r\n                                <ng-container matColumnDef=\"progress\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>\r\n                                  <!--td mat-cell *matCellDef=\"let row\"> {{row.progress}}% </td-->\r\n                                  <td mat-cell *matCellDef=\"let row\"> {{row.progress}}</td>\r\n                                </ng-container>\r\n                    \r\n                                <!-- Name Column -->\r\n                                <ng-container matColumnDef=\"name\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\r\n                                  <td mat-cell *matCellDef=\"let row\"> {{row.name}} </td>\r\n                                </ng-container>\r\n                    \r\n                                <!-- Color Column -->\r\n                                <ng-container matColumnDef=\"color\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>\r\n                                  <!--td mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.color}} </td-->\r\n                                  <td mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> <mat-icon>how_to_reg</mat-icon></td>\r\n                                </ng-container>\r\n                    \r\n                                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                </tr>\r\n                              </table>\r\n                              <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\r\n                            </div>\r\n                        </div>\r\n                    </div> \r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!--fuse-sidebar class=\"sidebar\" name=\"carded-right-sidebar-1\" position=\"end\" lockedOpen=\"gt-md\">\r\n            <div class=\"content p-24\">\r\n                <admin-sidebar></admin-sidebar>\r\n            </div>\r\n        </fuse-sidebar-->\r\n    </div>\r\n</div>"
+module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">   \r\n    <div class=\"px-24 py-8\">\r\n        <div fxLayout=\"row\" fxLayoutGap=\"100px\">\r\n            <div style=\"display:inline-flex\">\r\n                <mat-form-field>\r\n                    <mat-select placeholder=\"Domaine\" disableRipple>\r\n                        <mat-option value=\"1\">Domaine 1</mat-option>\r\n                        <mat-option value=\"2\">Domaine 2</mat-option>\r\n                        <mat-option value=\"3\">Domaine 3</mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n            <div style=\"display:inline-flex\">\r\n                <mat-form-field>\r\n                    <input matInput placeholder=\"rechercher\">\r\n                </mat-form-field>\r\n            </div>\r\n\t\t\t<div style=\"display:inline-flex\" *ngIf=\"role=='multiuser'\">\r\n                <mat-form-field>\r\n                    <mat-select placeholder=\"Role\" (selectionChange)=\"changeNavigation($event.value)\">\r\n                        <mat-option *ngFor=\"let rol of roles\" [value]=\"rol.value\">\r\n                            {{ rol.Name }}\r\n                        </mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"page-layout carded left-sidebar\">\r\n         <fuse-sidebar class=\"sidebar\" name=\"carded-right-sidebar-1\" position=\"end\" lockedOpen=\"gt-md\">\r\n                <div class=\"content p-24\">\r\n                    <mat-grid-list cols=\"1\" rowHeight=\"2:1\">\r\n                            <mat-grid-tile><button mat-button class=\"block\" (click)=\"crudComp.openCreateCompte()\"><mat-icon>brightness_low</mat-icon> Creer Boutique</button></mat-grid-tile>\r\n                            <mat-grid-tile><button mat-button class=\"block\" (click)=\"crudComp.openCreateProduit()\"><mat-icon>done_outline</mat-icon> Creer Produit</button></mat-grid-tile>\r\n                            <mat-grid-tile><button mat-button class=\"block\" (click)=\"crudComp.openCreateMagasin()\"><mat-icon>graphic_eq</mat-icon> Creer Magasin</button></mat-grid-tile>\r\n                          </mat-grid-list>\r\n                          <filter-sidebar></filter-sidebar>\r\n                </div>\r\n            </fuse-sidebar>\r\n        <div class=\"center pb-4\" style=\"margin-left:10px !important\">\r\n            <div class=\"content-card px-5\">\r\n               <div class=\"toolbar px-24 py-8\">\r\n                    <ng-marquee duration=\"20\">\r\n                        <mark>\r\n                            Echec remboursement<mat-icon>error</mat-icon>    Fin de Stock produit<mat-icon>error</mat-icon>    Retard livraison<mat-icon>error</mat-icon>   Retard Paiement<mat-icon>error</mat-icon>    Echéance Pret<mat-icon>error</mat-icon>\r\n                        </mark>\r\n                    </ng-marquee>\r\n                </div>\r\n                <!--div content class=\"content\"-->\r\n                  <!--router-outlet></router-outlet--> \r\n                  <div fxFlex=\"100\"> \r\n                        <div class=\"anim-box info-box general\" fxLayout=\"column\">\r\n                            <!--div class=\"content\"-->\r\n                            <mat-form-field>\r\n                              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtre\">\r\n                            </mat-form-field>\r\n                              <div class=\"mat-elevation-z8\">\r\n                              <table mat-table [dataSource]=\"dataSource\" matSort>\r\n                               <!-- ID Column -->\r\n                                <ng-container matColumnDef=\"id\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>\r\n                                  <td mat-cell *matCellDef=\"let row\"> {{row.id}} </td>\r\n                                </ng-container>\r\n                    \r\n                                <!-- Progress Column -->\r\n                                <ng-container matColumnDef=\"progress\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>\r\n                                  <!--td mat-cell *matCellDef=\"let row\"> {{row.progress}}% </td-->\r\n                                  <td mat-cell *matCellDef=\"let row\"> {{row.progress}}</td>\r\n                                </ng-container>\r\n                    \r\n                                <!-- Name Column -->\r\n                                <ng-container matColumnDef=\"name\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\r\n                                  <td mat-cell *matCellDef=\"let row\"> {{row.name}} </td>\r\n                                </ng-container>\r\n                    \r\n                                <!-- Color Column -->\r\n                                <ng-container matColumnDef=\"color\">\r\n                                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>\r\n                                  <!--td mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.color}} </td-->\r\n                                  <td mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> <mat-icon>how_to_reg</mat-icon></td>\r\n                                </ng-container>\r\n                    \r\n                                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n                                </tr>\r\n                              </table>\r\n                              <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\r\n                            </div>\r\n                        </div>\r\n                    </div> \r\n                <!--/div-->\r\n            </div>\r\n        </div>\r\n        <!--fuse-sidebar class=\"sidebar\" name=\"carded-right-sidebar-1\" position=\"end\" lockedOpen=\"gt-md\">\r\n            <div class=\"content p-24\">\r\n                <admin-sidebar></admin-sidebar>\r\n            </div>\r\n        </fuse-sidebar-->\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -11152,7 +11152,7 @@ module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">   \r\n    <div class=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/**\n * Applies styles for users in high contrast mode. Note that this only applies\n * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n * attribute, however Chrome handles high contrast differently.\n * @param target Which kind of high contrast setting to target. Defaults to `active`, can be\n *    `white-on-black` or `black-on-white`.\n */\n/* Theme for the ripple elements.*/\n/* stylelint-disable material/no-prefixes */\n/* stylelint-enable */\n.toolbar-separator {\n  height: 64px;\n  width: 1px; }\n@media (max-width: 599px) {\n    .toolbar-separator {\n      height: 56px; } }\n.toolbar {\n  background-color: #dadad2; }\n"
+module.exports = "/**\n * Applies styles for users in high contrast mode. Note that this only applies\n * to Microsoft browsers. Chrome can be included by checking for the `html[hc]`\n * attribute, however Chrome handles high contrast differently.\n * @param target Which kind of high contrast setting to target. Defaults to `active`, can be\n *    `white-on-black` or `black-on-white`.\n */\n/* Theme for the ripple elements.*/\n/* stylelint-disable material/no-prefixes */\n/* stylelint-enable */\ntable {\n  width: 100%; }\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\ntd,\nth {\n  width: 25%; }\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n.title {\n  font-weight: bold; }\n.title-top {\n  background-color: #134ae4ba; }\n"
 
 /***/ }),
 
@@ -11176,6 +11176,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/globals/Globals.element */ "./src/app/globals/Globals.element.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
+/* harmony import */ var _fuse_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fuse/animations */ "./src/@fuse/animations/index.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var app_main_apps_dashboards_project_project_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! app/main/apps/dashboards/project/project.service */ "./src/app/main/apps/dashboards/project/project.service.ts");
+/* harmony import */ var _muser_home_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./muser-home.service */ "./src/app/espace/multiuser/muser-home.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11195,12 +11201,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+var COLORS = ['red', 'orange', 'green'];
+var NAMES = ['Binta', 'Aziz', 'Kine', 'Mohamed', 'Khady', 'Thierno',
+    'Fatou', 'Amadou', 'Malick', 'Babacar', 'Massamba', 'Pape',
+    'Coura', 'Alassane', 'Massamba', 'Alioune', 'Sady', 'Kader', 'Momar'];
+var ACTEURTYPES = ['Client', 'Fournisseur', 'Animateur'];
 var MultiUserComponent = /** @class */ (function () {
-    function MultiUserComponent(_fuseNavigationService, globals, router, parCrud) {
+    function MultiUserComponent(_fuseNavigationService, globals, router, parCrud, _proj, _muserService) {
         this._fuseNavigationService = _fuseNavigationService;
         this.globals = globals;
         this.router = router;
         this.parCrud = parCrud;
+        this._proj = _proj;
+        this._muserService = _muserService;
         this.roles = [
             { Name: 'Acheteur', value: '1', routing: '/shopping' },
             { Name: 'Banque', value: '2', routing: '/banque' },
@@ -11208,6 +11227,9 @@ var MultiUserComponent = /** @class */ (function () {
             { Name: 'Animateur', value: '4', routing: '/main-anim' },
             { Name: 'Administrateur', value: '5', routing: '/main' }
         ];
+        this.displayedColumns = ['id', 'name', 'progress', 'color'];
+        this.length = 100;
+        this.pageSize = 10;
         this.navigation = _fournisseur_navigation_fourniss_navigation__WEBPACK_IMPORTED_MODULE_4__["fournissNavigation"];
         this.role = this.globals.role;
         this.crudComp = this.parCrud;
@@ -11216,8 +11238,42 @@ var MultiUserComponent = /** @class */ (function () {
         this._fuseNavigationService.register('muser', this.navigation);
         // Set the main navigation as our current navigation
         this._fuseNavigationService.setCurrentNavigation('muser');
+        this.widgets = _proj.getWidgets();
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_11__["Subject"]();
+        // Create 100 users
+        var users = Array.from({ length: 100 }, function (_, k) { return createNewUser(k + 1); });
+        // Assign the data to the data source for the table to render
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatTableDataSource"](users);
     }
-    MultiUserComponent.prototype.ngOnInit = function () { };
+    /**
+    * On init
+    */
+    MultiUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log("MultiUserComponent ngOnInit");
+        this.widgets = this._muserService.widgets;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this._muserService.homeMainOnChanged
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_15__["takeUntil"])(this._unsubscribeAll))
+            .subscribe(function (home) {
+            _this.home = home;
+        });
+    };
+    /**
+     * On destroy
+     */
+    MultiUserComponent.prototype.ngOnDestroy = function () {
+        // Unsubscribe from all subscriptions
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    };
+    MultiUserComponent.prototype.applyFilter = function (filterValue) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    };
     MultiUserComponent.prototype.changeNavigation = function (value) {
         console.log("MultiUserComponent changeNavigation :" + value);
         if (value == "1") {
@@ -11261,17 +11317,87 @@ var MultiUserComponent = /** @class */ (function () {
             //this.router.navigate(["'/main'"]);
         }
     };
+    /**
+     * Register a custom plugin
+     */
+    MultiUserComponent.prototype._registerCustomChartJSPlugin = function () {
+        window.Chart.plugins.register({
+            afterDatasetsDraw: function (chart, easing) {
+                // Only activate the plugin if it's made available
+                // in the options
+                if (!chart.options.plugins.xLabelsOnTop ||
+                    (chart.options.plugins.xLabelsOnTop && chart.options.plugins.xLabelsOnTop.active === false)) {
+                    return;
+                }
+                // To only draw at the end of animation, check for easing === 1
+                var ctx = chart.ctx;
+                chart.data.datasets.forEach(function (dataset, i) {
+                    var meta = chart.getDatasetMeta(i);
+                    if (!meta.hidden) {
+                        meta.data.forEach(function (element, index) {
+                            // Draw the text in black, with the specified font
+                            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                            var fontSize = 13;
+                            var fontStyle = 'normal';
+                            var fontFamily = 'Roboto, Helvetica Neue, Arial';
+                            ctx.font = window.Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                            // Just naively convert to string for now
+                            var dataString = dataset.data[index].toString() + 'k';
+                            // Make sure alignment settings are correct
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            var padding = 15;
+                            var startY = 24;
+                            var position = element.tooltipPosition();
+                            ctx.fillText(dataString, position.x, startY);
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.setLineDash([5, 3]);
+                            ctx.moveTo(position.x, startY + padding);
+                            ctx.lineTo(position.x, position.y - padding);
+                            ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+                            ctx.stroke();
+                            ctx.restore();
+                        });
+                    }
+                });
+            }
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_12__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatPaginator"])
+    ], MultiUserComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_12__["MatSort"])
+    ], MultiUserComponent.prototype, "sort", void 0);
     MultiUserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-muser',
             template: __webpack_require__(/*! ./muser.component.html */ "./src/app/espace/multiuser/muser.component.html"),
-            styles: [__webpack_require__(/*! ./muser.component.scss */ "./src/app/espace/multiuser/muser.component.scss")]
+            styles: [__webpack_require__(/*! ./muser.component.scss */ "./src/app/espace/multiuser/muser.component.scss")],
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+            animations: _fuse_animations__WEBPACK_IMPORTED_MODULE_10__["fuseAnimations"]
         }),
-        __metadata("design:paramtypes", [_fuse_components_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__["FuseNavigationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_7__["Globals"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [_fuse_components_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__["FuseNavigationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_7__["Globals"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__["CrudPopupComponent"], app_main_apps_dashboards_project_project_service__WEBPACK_IMPORTED_MODULE_13__["ProjectDashboardService"], _muser_home_service__WEBPACK_IMPORTED_MODULE_14__["MuserHomeService"]])
     ], MultiUserComponent);
     return MultiUserComponent;
 }());
 
+function createNewUser(id) {
+    var name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+        NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+    return {
+        id: id.toString(),
+        name: name,
+        //progress: name+"_"+Math.round(Math.random() * 100).toString()+"@mail.com"
+        progress: ACTEURTYPES[Math.round(Math.random() * (ACTEURTYPES.length - 1))]
+        //progress: "77 400 500"
+        ,
+        color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+    };
+}
 
 
 /***/ }),
@@ -15974,12 +16100,12 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 14,880.00',
+                            'value': 'XOF 14,880.00',
                             'classes': 'text-bold',
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 14,000.00',
+                            'value': 'XOF 14,000.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -15989,7 +16115,7 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': 'trending_up'
                         },
                         {
-                            'value': 'EUR 880.00',
+                            'value': 'XOF 880.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -16006,12 +16132,12 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 21,080.00',
+                            'value': 'XOF 21,080.00',
                             'classes': 'text-bold',
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 17,240.34',
+                            'value': 'XOF 17,240.34',
                             'classes': '',
                             'icon': ''
                         },
@@ -16021,7 +16147,7 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': 'trending_up'
                         },
                         {
-                            'value': 'EUR 3,839.66',
+                            'value': 'XOF 3,839.66',
                             'classes': '',
                             'icon': ''
                         },
@@ -16038,12 +16164,12 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 34,720.00',
+                            'value': 'XOF 34,720.00',
                             'classes': 'text-bold',
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 3,518.00',
+                            'value': 'XOF 3,518.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -16053,7 +16179,7 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': 'trending_down'
                         },
                         {
-                            'value': 'EUR 31,202.00',
+                            'value': 'XOF 31,202.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -16070,12 +16196,12 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 34,720.00',
+                            'value': 'XOF 34,720.00',
                             'classes': 'text-bold',
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 0.00',
+                            'value': 'XOF 0.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -16085,7 +16211,7 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': 'trending_flat'
                         },
                         {
-                            'value': 'EUR 34,720.00',
+                            'value': 'XOF 34,720.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -16102,12 +16228,12 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 18,600.00',
+                            'value': 'XOF 18,600.00',
                             'classes': 'text-bold',
                             'icon': ''
                         },
                         {
-                            'value': 'EUR 0.00',
+                            'value': 'XOF 0.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -16117,7 +16243,7 @@ var ProjectDashboardDb = /** @class */ (function () {
                             'icon': 'trending_flat'
                         },
                         {
-                            'value': 'EUR 34,720.00',
+                            'value': 'XOF 34,720.00',
                             'classes': '',
                             'icon': ''
                         },
@@ -32072,7 +32198,7 @@ var RouterEffects = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/store/index.ts ***!
   \********************************/
-/*! exports provided: reducers, getRouterState, CustomSerializer, GO, BACK, FORWARD, Go, Back, Forward, effects, RouterEffects */
+/*! exports provided: reducers, getRouterState, CustomSerializer, effects, GO, BACK, FORWARD, Go, Back, Forward, RouterEffects */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
