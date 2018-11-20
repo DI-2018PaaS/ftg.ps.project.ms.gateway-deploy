@@ -1626,12 +1626,12 @@ export class ProjectDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 14,880.00',
+                            'value'  : 'XOF 14,880.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 14,000.00',
+                            'value'  : 'XOF 14,000.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1641,7 +1641,7 @@ export class ProjectDashboardDb
                             'icon'   : 'trending_up'
                         },
                         {
-                            'value'  : 'EUR 880.00',
+                            'value'  : 'XOF 880.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1658,12 +1658,12 @@ export class ProjectDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 21,080.00',
+                            'value'  : 'XOF 21,080.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 17,240.34',
+                            'value'  : 'XOF 17,240.34',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1673,7 +1673,7 @@ export class ProjectDashboardDb
                             'icon'   : 'trending_up'
                         },
                         {
-                            'value'  : 'EUR 3,839.66',
+                            'value'  : 'XOF 3,839.66',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1690,12 +1690,12 @@ export class ProjectDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 34,720.00',
+                            'value'  : 'XOF 34,720.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 3,518.00',
+                            'value'  : 'XOF 3,518.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1705,7 +1705,7 @@ export class ProjectDashboardDb
                             'icon'   : 'trending_down'
                         },
                         {
-                            'value'  : 'EUR 31,202.00',
+                            'value'  : 'XOF 31,202.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1722,12 +1722,12 @@ export class ProjectDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 34,720.00',
+                            'value'  : 'XOF 34,720.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 0.00',
+                            'value'  : 'XOF 0.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1737,7 +1737,7 @@ export class ProjectDashboardDb
                             'icon'   : 'trending_flat'
                         },
                         {
-                            'value'  : 'EUR 34,720.00',
+                            'value'  : 'XOF 34,720.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1754,12 +1754,12 @@ export class ProjectDashboardDb
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 18,600.00',
+                            'value'  : 'XOF 18,600.00',
                             'classes': 'text-bold',
                             'icon'   : ''
                         },
                         {
-                            'value'  : 'EUR 0.00',
+                            'value'  : 'XOF 0.00',
                             'classes': '',
                             'icon'   : ''
                         },
@@ -1769,7 +1769,7 @@ export class ProjectDashboardDb
                             'icon'   : 'trending_flat'
                         },
                         {
-                            'value'  : 'EUR 34,720.00',
+                            'value'  : 'XOF 34,720.00',
                             'classes': '',
                             'icon'   : ''
                         },

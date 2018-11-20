@@ -61,7 +61,7 @@
                                           <div fxFlex="0 1 auto">
                                               <div class="h4 secondary-text">{{widgets.widget9.weeklySpent.title}}</div>
                                               <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                  <span class="secondary-text">EUR </span>
+                                                  <span class="secondary-text">XOF </span>
                                                   <span>{{widgets.widget9.weeklySpent.count[widget9.currentRange]}}</span>
                                               </div>
                                           </div>
@@ -89,7 +89,7 @@
                                           <div fxFlex="0 1 auto">
                                               <div class="h4 secondary-text">{{widgets.widget9.totalSpent.title}}</div>
                                               <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                  <span class="secondary-text">EUR </span>
+                                                  <span class="secondary-text">XOF </span>
                                                   <span>{{widgets.widget9.totalSpent.count[widget9.currentRange]}}</span>
                                               </div>
                                           </div>
@@ -117,7 +117,7 @@
                                           <div fxFlex="0 1 auto">
                                               <div class="h4 secondary-text">{{widgets.widget9.remaining.title}}</div>
                                               <div class="pt-8 mat-display-1 m-0 font-weight-300 text-nowrap">
-                                                  <span class="secondary-text">EUR </span>
+                                                  <span class="secondary-text">XOF </span>
                                                   <span>{{widgets.widget9.remaining.count[widget9.currentRange]}}</span>
                                               </div>
                                           </div>
@@ -142,7 +142,7 @@
                                       <div class="px-16 py-24 border-top">
                                           <div class="h4 secondary-text">{{widgets.widget9.totalBudget.title}}</div>
                                           <div class="pt-8 mat-display-1 m-0 font-weight-300">
-                                              <span class="secondary-text">EUR </span>
+                                              <span class="secondary-text">XOF </span>
                                               <span>{{widgets.widget9.totalBudget.count}}</span>
                                           </div>
                                       </div>
@@ -202,7 +202,7 @@
             <div fxLayout="column" fxLayoutGap="30px" class="px-24">
   
                     <div fxLayout="row" fxLayout.xs="column">
-                      <div fxFlex="50" class="">
+                      <mat-card><div fxFlex="50" class="">
                         <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" style="color:black; font-weight:bold">
                           
                           <div class="title2" style="margin-bottom:1%">Agreement</div>
@@ -235,8 +235,8 @@
                             </section>
                           </div>
                         </div>
-                      </div>
-                      <div fxFlex="50" class="">
+                      </div></mat-card>
+                      <mat-card><div fxFlex="50" class="">
                   
                         <div fxLayout="column" fxLayoutGap="10px" style="color:black; font-weight:bold" fxLayoutAlign="center center">
                         
@@ -266,9 +266,9 @@
                             </section>
                           </div>
                         </div>
-                      </div>
+                      </div></mat-card>
                   
-                      <div fxFlex="50" class="" style="color:black; font-weight:bold" fxLayoutAlign="center center">
+                      <mat-card><div fxFlex="50" class="" style="color:black; font-weight:bold" fxLayoutAlign="center center">
                   
                         <div fxLayout="column" fxLayoutGap="10px">
                           
@@ -298,9 +298,9 @@
                             </section>
                           </div>
                         </div>
-                      </div>
+                      </div></mat-card>
                 
-                      <div fxFlex="50" class="" style="color:black; font-weight:bold" fxLayoutAlign="center center">
+                      <mat-card><div fxFlex="50" class="" style="color:black; font-weight:bold" fxLayoutAlign="center center">
                   
                         <div fxLayout="column" fxLayoutGap="10px">
                           
@@ -329,7 +329,7 @@
                               <mat-icon class="orange600">star</mat-icon>
                             </section>
                           </div>
-                        </div>
+                        </div></mat-card>
                       </div>
                   
                     </div>

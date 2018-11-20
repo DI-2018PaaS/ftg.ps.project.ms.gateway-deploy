@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './top-menu.component.html'
 })
 export class TopMenuComponent implements OnInit {
-  public currencies = ['USD', 'EUR'];
+  public currencies = ['USD', 'XOF'];
   public currency:any;
   public flags = [
     { name:'English', image: 'assets/images/flags/gb.svg' },

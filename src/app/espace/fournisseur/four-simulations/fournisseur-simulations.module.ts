@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 //import { FoSimulationListComponent } from './simulation-list/fourn-simulation-list.component';
 import { AppSimulationComponent } from 'app/commons/simulation/simulation.component';
-import { AppSimulationModule } from 'app/commons/simulation/simulation.module';
+//import { AppSimulationModule } from 'app/commons/simulation/simulation.module';
 
 
 export const routes = [
@@ -21,9 +21,9 @@ export const routes = [
     SharedModule,
     MatBadgeModule,
     MatInputModule,
-    RouterModule.forChild(routes),
-    AppSimulationModule
+    RouterModule.forChild(routes)
+    //,AppSimulationModule
   ]
-  //,  declarations: [AppSimulationComponent]
+  ,  declarations: [AppSimulationComponent]
 })
 export class SimulationsFournisseurModule { }
