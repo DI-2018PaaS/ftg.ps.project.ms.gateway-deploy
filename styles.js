@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\pihdi\template_yeewu_web\work_yeewu\gateway_cli_yeewu\ftg.ps.project.ms.gateway-deploy\src\styles.scss */"./src/styles.scss");
-module.exports = __webpack_require__(/*! C:\Users\pihdi\template_yeewu_web\work_yeewu\gateway_cli_yeewu\ftg.ps.project.ms.gateway-deploy\node_modules\@swimlane\ngx-datatable\release\themes\material.css */"./node_modules/@swimlane/ngx-datatable/release/themes/material.css");
+__webpack_require__(/*! F:\finapps\java project\ftg.ps.project.ms.jgateway-bis\ftg.ps.project.ms.gateway-deploy\src\styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! F:\finapps\java project\ftg.ps.project.ms.jgateway-bis\ftg.ps.project.ms.gateway-deploy\node_modules\@swimlane\ngx-datatable\release\themes\material.css */"./node_modules/@swimlane/ngx-datatable/release/themes/material.css");
 
 
 /***/ })

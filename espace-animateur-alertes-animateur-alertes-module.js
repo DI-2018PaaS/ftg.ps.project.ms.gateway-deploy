@@ -341,7 +341,7 @@ var AlertesAnimComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dialog-content-wrapper\">\n\n    <mat-toolbar matDialogTitle class=\"mat-accent m-0\">\n        <mat-toolbar-row>\n            <span class=\"title dialog-title\">{{_data.article.title}}</span>\n        </mat-toolbar-row>\n    </mat-toolbar>\n\n    <div mat-dialog-content class=\"p-24 m-0\" fusePerfectScrollbar>\n        <div [innerHTML]=\"_data.article.content\"></div>\n    </div>\n\n    <div mat-dialog-actions class=\"m-0 p-16\" fxLayout=\"row\" fxLayoutAlign=\"end center\">\n        <button mat-button (click)=\"matDialogRef.close()\" class=\"mat-accent\" aria-label=\"Close\">\n            CLOSE\n        </button>\n    </div>\n\n</div>\n"
+module.exports = "<div class=\"dialog-content-wrapper\">\r\n\r\n    <mat-toolbar matDialogTitle class=\"mat-accent m-0\">\r\n        <mat-toolbar-row>\r\n            <span class=\"title dialog-title\">{{_data.article.title}}</span>\r\n        </mat-toolbar-row>\r\n    </mat-toolbar>\r\n\r\n    <div mat-dialog-content class=\"p-24 m-0\" fusePerfectScrollbar>\r\n        <div [innerHTML]=\"_data.article.content\"></div>\r\n    </div>\r\n\r\n    <div mat-dialog-actions class=\"m-0 p-16\" fxLayout=\"row\" fxLayoutAlign=\"end center\">\r\n        <button mat-button (click)=\"matDialogRef.close()\" class=\"mat-accent\" aria-label=\"Close\">\r\n            CLOSE\r\n        </button>\r\n    </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 

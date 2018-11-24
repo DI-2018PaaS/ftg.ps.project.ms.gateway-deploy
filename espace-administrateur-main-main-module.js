@@ -33,6 +33,7 @@ module.exports = ""
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainAdminComponent", function() { return MainAdminComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,8 +44,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var MainAdminComponent = /** @class */ (function () {
-    function MainAdminComponent() {
+    function MainAdminComponent(parCrud) {
+        this.parCrud = parCrud;
+        this.crudComp = this.parCrud;
     }
     MainAdminComponent.prototype.ngOnInit = function () {
     };
@@ -54,7 +58,7 @@ var MainAdminComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./main-admin.component.html */ "./src/app/espace/administrateur/main/main-admin/main-admin.component.html"),
             styles: [__webpack_require__(/*! ./main-admin.component.scss */ "./src/app/espace/administrateur/main/main-admin/main-admin.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_1__["CrudPopupComponent"]])
     ], MainAdminComponent);
     return MainAdminComponent;
 }());

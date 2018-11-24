@@ -60,7 +60,7 @@ var ClientModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\r\n  <div>\r\n    <h2 class=\"title\">LISTE CLIENT</h2>\r\n  </div>\r\n</div>\r\n<div class=\"py-8\">\r\n  <button mat-raised-button color=\"accent\">Ajouter un client</button>\r\n</div>\r\n<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!-- ID Column -->\r\n    <ng-container matColumnDef=\"Matricule\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Matricule </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Matricule}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"Client\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Client </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Client}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"Type\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Type}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Modifier\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}\r\n        <button mat-raised-button>\r\n          <mat-icon class=\"orange600\">edit</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Supprimer\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Supprimer}}\r\n        <button mat-raised-button>\r\n          <mat-icon class=\"red600\">delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n</div>"
+module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\r\n  <div>\r\n    <h2 class=\"title\">LISTE CLIENT</h2>\r\n  </div>\r\n</div>\r\n<div class=\"py-8\">\r\n  <button mat-raised-button color=\"accent\" (click)=\"crudComp.openCreateAcheteur()\">Ajouter un client</button>\r\n</div>\r\n<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!-- ID Column -->\r\n    <ng-container matColumnDef=\"Matricule\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Matricule </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Matricule}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"Client\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Client </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Client}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"Type\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Type}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Modifier\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}\r\n        <button mat-raised-button>\r\n          <mat-icon class=\"orange600\" (click)=\"crudComp.openUpdateAcheteur()\">edit</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Supprimer\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Supprimer}}\r\n        <button mat-raised-button>\r\n          <mat-icon class=\"red600\">delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n</div>"
 
 /***/ }),
 
@@ -87,6 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClientComponent", function() { return ClientComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -98,10 +99,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ClientComponent = /** @class */ (function () {
-    function ClientComponent() {
+    function ClientComponent(parCrud) {
+        this.parCrud = parCrud;
         this.displayedColumns = ['Matricule', 'Client', 'Type', 'Modifier', 'Supprimer'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](ELEMENT_DATA);
+        this.crudComp = this.parCrud;
     }
     ClientComponent.prototype.ngOnInit = function () {
         this.dataSource.paginator = this.paginator;
@@ -126,7 +130,8 @@ var ClientComponent = /** @class */ (function () {
             selector: 'app-client',
             template: __webpack_require__(/*! ./client.component.html */ "./src/app/espace/banque/client/client/client.component.html"),
             styles: [__webpack_require__(/*! ./client.component.scss */ "./src/app/espace/banque/client/client/client.component.scss")]
-        })
+        }),
+        __metadata("design:paramtypes", [app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__["CrudPopupComponent"]])
     ], ClientComponent);
     return ClientComponent;
 }());

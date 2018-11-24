@@ -110,8 +110,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HistoriqueCmdAcheteurComponent = /** @class */ (function () {
     function HistoriqueCmdAcheteurComponent() {
     }
-    HistoriqueCmdAcheteurComponent.prototype.ngOnInit = function () {
-    };
+    HistoriqueCmdAcheteurComponent.prototype.ngOnInit = function () { };
     HistoriqueCmdAcheteurComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-historique-cmd-acheteur',
