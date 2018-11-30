@@ -1,0 +1,16 @@
+.mat-list .mat-list-item,
+.mat-list .mat-list-option,
+.mat-nav-list .mat-list-item,
+.mat-nav-list .mat-list-option,
+.mat-selection-list .mat-list-item,
+.mat-selection-list .mat-list-option {
+    display: block;
+    height: 34px !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.plus{
+    font-size: 12px;
+    color: red;
+    text-decoration: none !important;
+}

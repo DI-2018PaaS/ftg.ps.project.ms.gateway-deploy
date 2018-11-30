@@ -85,12 +85,6 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
                     'type' : 'item',
                     'icon' : 'home',
                     'url'  : '/'
-                } ,
-                {
-                    'title': 'Panier',
-                    'type' : 'item',
-                    'icon': 'shopping_cart',
-                    'url': 'cart'
                 }
             ];
         }

@@ -7,6 +7,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { SharedModule } from '../../../shared-front/shared/shared.module';
 import { ToolbarComponent } from 'app/layout/components/toolbar/toolbar.component';
 import { CoreModule } from '../../../../@core/components/core/core.module';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { CoreModule } from '../../../../@core/components/core/core.module';
         FuseSearchBarModule,
         FuseShortcutsModule,
         SharedModule,
-        CoreModule
+        CoreModule,
+        MatBadgeModule
     ],
     exports     : [
         ToolbarComponent

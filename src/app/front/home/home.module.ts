@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { FuseSidebarModule } from '@fuse/components';
 import { FuseDemoModule } from '@fuse/components/demo/demo.module';
 import { FuseSharedModule } from '@fuse/shared.module';
+import { FuseSearchBarModule } from '@fuse/components/search-bar/search-bar.module';
 
 export const routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'  }
@@ -18,7 +19,8 @@ export const routes = [
     SharedModule,
     FuseSidebarModule,
     FuseDemoModule,
-    FuseSharedModule   
+    FuseSharedModule,
+    FuseSearchBarModule   
   ],
   declarations: [
     HomeComponent
