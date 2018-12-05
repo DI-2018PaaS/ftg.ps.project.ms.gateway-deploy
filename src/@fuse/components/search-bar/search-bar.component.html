@@ -1,4 +1,4 @@
-<!-- <div class="fuse-search-bar" [ngClass]="{'expanded':!collapsed}">
+<div class="fuse-search-bar" [ngClass]="{'expanded':!collapsed}">
 
     <div class="fuse-search-bar-content">
 
@@ -9,32 +9,15 @@
             </button>
         </label>
 
-        <input id="fuse-search-bar-input" class="ml-24" type="text" placeholder="Search" (input)="search($event)"
+        <input id="fuse-search-bar-input" class="ml-24" type="text" placeholder="Que recherchez-vous" (input)="search($event)"
                fxFlex>
 
         <button mat-icon-button class="fuse-search-bar-collapser" (click)="collapse()"
                 aria-label="Collapse Search Bar">
             <mat-icon class="s-24 secondary-text">close</mat-icon>
         </button>
-
     </div>
-
-</div>  -->
-
-<div class="row">
-    <form role="form" id="form-buscar">
-        <div class="form-group">
-            <div class="input-group">
-                <input id="1" class="form-control" type="text" name="search" placeholder="Search..." required/>
-                <span class="input-group-btn">
-                    <button class="btn btn-success" type="submit">
-                        <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
-                    </button>
-                </span>
-            </div>
-        </div>
-    </form>
-</div>
+</div> 
 
 
 
