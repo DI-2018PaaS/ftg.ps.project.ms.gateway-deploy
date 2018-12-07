@@ -7,6 +7,7 @@ import { FuseSidebarModule } from '@fuse/components';
 import { FuseDemoModule } from '@fuse/components/demo/demo.module';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseSearchBarModule } from '@fuse/components/search-bar/search-bar.module';
+import {MatButtonModule} from '@angular/material/button';
 
 export const routes = [
   { path: '', component: HomeComponent, pathMatch: 'full'  }
@@ -20,7 +21,8 @@ export const routes = [
     FuseSidebarModule,
     FuseDemoModule,
     FuseSharedModule,
-    FuseSearchBarModule   
+    FuseSearchBarModule,
+    MatButtonModule   
   ],
   declarations: [
     HomeComponent

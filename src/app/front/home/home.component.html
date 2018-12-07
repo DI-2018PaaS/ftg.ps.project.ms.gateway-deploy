@@ -25,14 +25,24 @@
             <div class="content-card">
 
                 <!-- CONTENT TOOLBAR -->
-                <div class="toolbar px-24 py-8">
-                     
-                    <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-left-sidebar-1')">
-                        <mat-icon>menu</mat-icon>
-                    </button>
-
-                    <fuse-search-bar></fuse-search-bar>
-
+                <div class="toolbar px-24 py-8" fxLayout="row" fxLayoutAlign="right"> 
+                    <div>
+                        <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-left-sidebar-1')">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </div> 
+                    
+                    <div>
+                        <div fxFlex fxFlexOffset.gt-sm="20" fxShow="false" fxShow.gt-sm>
+                            <form method="get"  class="search-form" fxLayout="row" fxLayoutAlign="center center">
+                                <button mat-raised-button [matMenuTriggerFor]="categoriesMenu" #categoriesMenuTrigger="matMenuTrigger" type="button" class="mat-elevation-z0 categories text-truncate text-muted">filtre<mat-icon>arrow_drop_down</mat-icon></button>
+                                <input type="text" placeholder="Que recherchez-vous ?" fxFlex>
+                                <button mat-mini-fab type="button" class="search-btn mat-elevation-z0 text-muted">
+                                    <mat-icon>search</mat-icon>
+                                </button> 
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <!-- / CONTENT TOOLBAR -->
                 <div content class="content p-24">
