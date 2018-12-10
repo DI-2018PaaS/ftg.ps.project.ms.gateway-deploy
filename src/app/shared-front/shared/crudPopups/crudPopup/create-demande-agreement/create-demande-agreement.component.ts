@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { Agreement } from 'app/models/acteur/agreement/agreement.model';
+import { AngularFireList } from 'angularfire2/database';
+import { AgreementService } from 'app/service/agreement.service';
 
 @Component({
   selector: 'app-create-demande-agreement',
@@ -8,19 +11,40 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class CreateDemandeAgrementDialogComponent implements OnInit {
   hide = true;
-
-  constructor() { }
+  agreement = {} as Agreement;
+  agreementRef$ : AngularFireList<Agreement>;
+  constructor(private agreementService : AgreementService) { }
 
   ngOnInit() {
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'Vous devez entrer une adresse!' :
-        this.email.hasError('email') ? 'Email invalide!' :
-            '';
-  }
+
   onFileChanged(event) {
     const file = event.target.files[0]
   }
+
+  dateDebValidite = new FormControl();
+  niveauAgreement = new FormControl();
+
+ 
+
+  createNewAgreement (){
+    console.log(this.agreement);
+    this.agreementService.createAgreement({
+      agreementId:0,
+      numeroAgrement: '0', 
+      dateAttibution: this.agreement.dateDebValidite,
+      dateDebValidite: this.agreement.dateDebValidite,
+      dateFinValidite: this.agreement.dateDebValidite,
+      status: true,
+      userCreated: 0,
+      userLastModif: 0,
+      dateCreated: this.agreement.dateDebValidite,
+      dateLastModif: this.agreement.dateDebValidite,
+      niveauAgreement: this.agreement.niveauAgreement,
+      animateurID:0,
+      fournisseurID:0
+    });
+    this.agreement = {} as Agreement;
+     }
  
 }
