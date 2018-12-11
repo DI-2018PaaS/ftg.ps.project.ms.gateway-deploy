@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { DemandePretListComponent } from './demande-pret-list/demande-pret-list.component';
 import { DemandeLcreditListComponent } from './demande-lcredit-list/demande-lcredit-list.component';
 import { DemandeLdepotListComponent } from './demande-ldepot-list/demande-ldepot-list.component';
+import { DemandeAgrementListComponent } from './demande-agrement-list/demande-agrement-list.component';
 
 export const routes = [
   { path: '', component: DemandeComponent, pathMatch: 'full' },
   { path: 'demande-pret-list', component: DemandePretListComponent, pathMatch: 'full' },
   { path: 'demande-ligne-credit-list', component: DemandeLcreditListComponent, pathMatch: 'full' },
   { path: 'demande-ligne-depot-list', component: DemandeLdepotListComponent, pathMatch: 'full' },
+  { path: 'demande-agrement-list', component: DemandeAgrementListComponent, pathMatch: 'full' }
 ];
 
 
@@ -24,6 +26,6 @@ export const routes = [
     SharedModule,
     
   ],
-  declarations: [DemandeComponent, DemandePretListComponent, DemandeLcreditListComponent, DemandeLdepotListComponent]
+  declarations: [DemandeComponent, DemandePretListComponent, DemandeLcreditListComponent, DemandeLdepotListComponent, DemandeAgrementListComponent]
 })
 export class DemandeModule { }
