@@ -13,6 +13,7 @@ export class AuthenticationComponent implements OnInit {
 
   username: string;
   password: string;
+  islogin: boolean = false;
 
   ngOnInit() {
     
@@ -20,7 +21,8 @@ export class AuthenticationComponent implements OnInit {
  
   login (): void {
     if (this.username === 'admin' && this.password === 'admin'){
-		console.log("auth admin");
+    console.log("auth admin");
+    this.islogin=true;
 		this.globals.role="administrateur";
       this.router.navigate(['main']);
     }
