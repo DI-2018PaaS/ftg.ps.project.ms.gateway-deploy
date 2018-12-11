@@ -1,7 +1,11 @@
 export class Boutique {
     key?: string;
     nIdProprietaire: number;
+    nom: string;
     ref: string;
-    adresse: string;
     description: string;
+    no: String;
+    rue: String;
+    codep: String;
+    ville: String;
 }

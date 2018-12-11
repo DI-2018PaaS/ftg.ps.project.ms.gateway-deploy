@@ -49,6 +49,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ProduitService } from './service/produit.service';
 import { MagasinService } from './service/magasin.service';
+import { BoutiqueService } from './service/boutique.service';
+import { AgreementService } from './service/agreement.service';
 
 const appRoutes: Routes = [
     {
@@ -382,7 +384,7 @@ const appRoutes: Routes = [
         AppComponent
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
-        ProduitService,MagasinService
+        ProduitService,MagasinService,BoutiqueService, AgreementService
     ] 
 })
 export class AppModule

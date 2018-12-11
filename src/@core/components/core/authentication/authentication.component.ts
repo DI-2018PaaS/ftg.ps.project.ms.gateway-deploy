@@ -13,6 +13,7 @@ export class AuthenticationComponent implements OnInit {
 
   username: string;
   password: string;
+  islogin: boolean = false;
 
   ngOnInit() {
     
@@ -20,36 +21,42 @@ export class AuthenticationComponent implements OnInit {
  
   login (): void {
     if (this.username === 'admin' && this.password === 'admin'){
-		console.log("auth admin");
+    console.log("auth admin");
+    this.islogin=true;
 		this.globals.role="administrateur";
       this.router.navigate(['main']);
     }
     else if (this.username === 'banq' && this.password === 'banq') {
-		console.log("auth banq");
+    console.log("auth banq");
+    this.islogin=true;
 		this.globals.role="banque";
       this.router.navigate(['banque']);
      
     }
     else if (this.username === 'acheteur' && this.password === 'acheteur') {
-		console.log("auth acheteur");
+    console.log("auth acheteur");
+    this.islogin=true;
 		this.globals.role="acheteur";
       this.router.navigate(['shopping']);
       
     }
 	else if (this.username === 'anim' && this.password === 'anim') {
-		console.log("auth anim");
+    console.log("auth anim");
+    this.islogin=true;
 		this.globals.role="animateur";
       this.router.navigate(['main-anim']);
      
     }
     else if (this.username === 'fourniss' && this.password === 'fourniss') {
-		console.log("auth fournisseur");
+    console.log("auth fournisseur");
+    this.islogin=true;
 		this.globals.role="fournisseur";
       this.router.navigate(['main-magasin']);
       
     }
 	else if (this.username === 'multi' && this.password === 'multi') {
-		console.log("auth multiuser");
+    console.log("auth multiuser");
+    this.islogin=true;
 		  this.globals.role="multiuser";
       this.router.navigate(['muser-main']);
       //this.router.navigate(['main-muser-entry']);
