@@ -21,7 +21,7 @@ export class CreateMagasinDialogComponent implements OnInit {
   onFileChanged(event) {
     const file = event.target.files[0]
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl();
   nom = new FormControl();
   ref = new FormControl();
   description = new FormControl();
