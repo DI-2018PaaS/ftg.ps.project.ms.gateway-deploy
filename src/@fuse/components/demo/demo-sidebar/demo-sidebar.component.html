@@ -4,7 +4,7 @@
             <span style="display:inline-flex">
                 <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_HeaderMark.png" alt="">
             </span>  
-            Filtres
+            Domaine
         </h1>
 
         <mat-list-item>
@@ -12,7 +12,7 @@
                <span style="display:inline-flex">
                    <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_1.png">
                 </span>
-                <span>Domaines</span> 
+                <span>Agriculture</span> 
             </mat-checkbox>
         </mat-list-item>
 
@@ -22,7 +22,7 @@
             <span>
                 <mat-checkbox color="primary">
                     <span style="display:inline-flex"><img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_2.png"></span> 
-                    <span>Activités</span>
+                    <span>Pèche</span>
                 </mat-checkbox>
             </span>
         </mat-list-item>
@@ -35,7 +35,7 @@
                     <span style="display:inline-flex">
                         <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_3.png">
                     </span>
-                    <span>Boutiques</span>
+                    <span>Artisanat</span>
                 </mat-checkbox>
             </span>
         </mat-list-item>
@@ -48,7 +48,7 @@
                     <span style="display:inline-flex">
                         <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_4.png">
                     </span>
-                    <span>Localités</span>
+                    <span>Elevage</span>
                 </mat-checkbox>
             </span>
         </mat-list-item>
@@ -60,7 +60,7 @@
                 <span style="display:inline-flex">
                     <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_5.png">
                 </span>
-                <span>Références</span>
+                <span>Technologie</span>
             </mat-checkbox>
         </mat-list-item>
 
@@ -71,35 +71,31 @@
                 <span style="display:inline-flex">
                     <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_5.png">
                 </span>
-                <span>Prix</span>
+                <span>Commerce</span>
             </mat-checkbox>
         </mat-list-item>
-
         <mat-divider></mat-divider>
-
-        <mat-list-item>
-            <mat-checkbox color="primary">
-                <span style="display:inline-flex">
-                    <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_TagLegend_Clr_6.png">
-                </span>
-                <span>Disponibilités</span>
-            </mat-checkbox>
-        </mat-list-item>
-
-        <mat-divider></mat-divider>
-
+        <div fxLayoutAlign="end">
+            <a class="plus" [routerLink]="['.']">
+                <div style="display:inline-flex">
+                    <span style=" padding-top: 4px;">Plus de Filtres</span>     
+                    <mat-icon>expand_more</mat-icon>
+                </div>
+            </a><br>
+        </div>
     </mat-list>
+    
     <mat-list>
         <h1>
             <span style="display:inline-flex">
                 <img src="assets/images/FilterCat/FineTech_PS_Elmt_FilterCat_HeaderMark.png" alt="">
             </span>
-            Catégories
+             Filière
         </h1>
         
         <mat-list-item>
             <span>
-                BUSINESS
+                 Riz
             </span>
         </mat-list-item>
     
@@ -107,7 +103,7 @@
     
         <mat-list-item>
             <span>
-                TECHNOLOGIE
+                Coton
             </span>
         </mat-list-item>
     
@@ -115,7 +111,7 @@
     
         <mat-list-item>
             <span>
-                WEB
+                Pisciculture
             </span>
         </mat-list-item>
     
@@ -123,19 +119,18 @@
     
         <mat-list-item>
             <span>
-                E-COMMERCE
+                Aviculture
             </span>
         </mat-list-item>
-    
         <mat-divider></mat-divider>
-    
-        <mat-list-item>
-            <span>
-                MOBILE
-            </span>
-        </mat-list-item>
-
-        <mat-divider></mat-divider>
-    
+        <div fxLayoutAlign="end">
+            <a class="plus" [routerLink]="['.']">
+                <div style="display:inline-flex">
+                    <span style=" padding-top: 4px;">Plus de Filtres</span>
+                    <mat-icon>expand_more</mat-icon>
+                </div>
+            </a>
+            <br>
+        </div>
     </mat-list>
 </div>
