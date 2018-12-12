@@ -1,4 +1,4 @@
-import { NgModule} from '@angular/core';
+import { NgModule,Component} from '@angular/core';
 //import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,6 +51,8 @@ import { ProduitService } from './service/produit.service';
 import { MagasinService } from './service/magasin.service';
 import { BoutiqueService } from './service/boutique.service';
 import { AgreementService } from './service/agreement.service';
+import { RegistrationComponent } from './registration/registration.component';
+
 
 const appRoutes: Routes = [
     {
@@ -104,6 +106,10 @@ const appRoutes: Routes = [
     {
         path      : 'popups',
         loadChildren: './front/popups/popups.module#PopupsModule'
+    },
+    {
+        path: 'registration',
+        component: RegistrationComponent
     },
     {
         path: '',
@@ -339,7 +345,9 @@ const appRoutes: Routes = [
         BanqueComponent,
         AcheteurComponent,
         AnimateurComponent,
-        FournisseurComponent//,
+        FournisseurComponent,
+        RegistrationComponent
+       //,
         //MultiUserComponent
         //,AppFilterSidebarComponent
 
@@ -354,6 +362,7 @@ const appRoutes: Routes = [
             delay             : 0,
             passThruUnknownUrl: true
         }),
+       
 
         // Material moment date module
         MatMomentDateModule,
@@ -382,7 +391,8 @@ const appRoutes: Routes = [
         //MainMultiAnimModule,
         //MainMultiFournissModule,
         AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
-        AngularFireDatabaseModule, AngularFireAuthModule	
+        AngularFireDatabaseModule, AngularFireAuthModule,
+        	
     ],
     bootstrap   : [
         AppComponent
