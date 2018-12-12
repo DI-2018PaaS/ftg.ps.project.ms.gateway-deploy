@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class RegistrationComponent implements OnInit {
 
   constructor() { }
+
+  hide: boolean = true;
+  selectFormControl = new FormControl('', Validators.required);
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   ngOnInit() {
   }
