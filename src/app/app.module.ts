@@ -121,6 +121,10 @@ const appRoutes: Routes = [
                 loadChildren: './espace/administrateur/suivi-historique/suivi-historique.module#SuiviHistoriqueModule'
             },
             {
+                path: 'gestion-credit',
+                loadChildren: './espace/administrateur/credit-admin/credit-admin.module#CreditAdminModule'
+            },
+            {
                 path: 'statistique',
                 loadChildren: './espace/administrateur/statistique/statistique.module#StatistiqueModule'
             },

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { banqueNavigation } from 'app/espace/banque/navigation/banqueNavigation';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 
