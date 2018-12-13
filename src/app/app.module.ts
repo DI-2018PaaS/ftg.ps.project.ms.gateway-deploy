@@ -250,9 +250,6 @@ const appRoutes: Routes = [
             },
             {
 											
-																							 
-				
-			
 			  
                 path: 'muser-shopping',
                 loadChildren: './espace/acheteur/shopping/shopping.module#ShoppingModule'

@@ -32,6 +32,7 @@ export class AgreementService {
   }
  
   getAgreementList(): AngularFireList<Agreement> {
+    console.log(this.agreementRef.query.orderByChild);
     return this.agreementRef;
   }
  
