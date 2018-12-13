@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 
 @Component({
     selector   : 'admin-sidebar',
@@ -10,7 +11,10 @@ export class AdminSidebarComponent
     /**
      * Constructor
      */
-    constructor()
+    constructor( private parCrud: CrudPopupComponent )
     {
+        this.crudComp = this.parCrud;
     }
+    crudComp: CrudPopupComponent;
+
 }

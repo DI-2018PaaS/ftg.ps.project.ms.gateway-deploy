@@ -24,6 +24,20 @@ export const adminNavigation: FuseNavigation[] = [
         url     : 'suivi'
     },
     {
+        id      : 'credit',
+        title   : 'Gestion credit',
+        type    : 'collapsable',
+        icon    : 'all_inbox',
+        url     : 'gestion-credit'
+    },
+    {
+        id      : 'acces',
+        title   : 'Gestion accés',
+        type    : 'collapsable',
+        icon    : 'https',
+        url     : 'gestion-acces'
+    },
+    {
         id      : 'angular-material-elements',
         title   : 'Statistique',
         type    : 'group',

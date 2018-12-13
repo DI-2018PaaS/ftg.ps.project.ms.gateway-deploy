@@ -65,5 +65,14 @@ export class AuthenticationComponent implements OnInit {
       alert('login ou mot de passe invalide');
     }
   }
+  
+  signUp (): void {
+    this.router.navigate(['registration']);
+  }
+
+  logOut(): void {
+    this.islogin = false;
+    this.router.navigate(['']);
+  }
 
 }

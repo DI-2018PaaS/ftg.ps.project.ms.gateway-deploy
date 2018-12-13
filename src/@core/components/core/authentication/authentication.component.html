@@ -23,7 +23,7 @@
       <mat-icon class="margin-right-icon">perm_identity</mat-icon>
       <span>Profile</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="logOut()">
       <mat-icon class="margin-right-icon">input</mat-icon>
       <span>Déconneter</span>
     </button>
@@ -55,10 +55,10 @@
           </tr>
         </table>
       </form>
-
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="login()">Login</button>
-    </mat-card-actions>
+      <button  class="color-button-registration mat-raised-button"  (click)="signUp()">Registration</button>
+      </mat-card-actions>
   </mat-card>
 </mat-menu>
