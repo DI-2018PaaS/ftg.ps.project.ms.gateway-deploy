@@ -1,4 +1,3 @@
-
 <mat-dialog-content class="mat-typography">
         <div class="title">
             <h2 mat-dialog-title >Creation Role</h2>
@@ -8,7 +7,7 @@
               <div fxLayout="row">
                   <div>
                       <mat-form-field>
-                          <input matInput placeholder="Nom Role" >
+                          <input [(ngModel)]="role.roleName" matInput placeholder="Nom Role" [formControl]="roleName">
                         </mat-form-field>
                      
                   </div>
@@ -17,7 +16,7 @@
               <div fxLayout="row" style="margin-top: -3%;">
                   <div>
                         <mat-form-field style="width: 200%;">
-                                <textarea matInput placeholder="Description Role"></textarea>
+                                <textarea [(ngModel)]="role.roleDescription" [formControl]="roleDescription" matInput placeholder="Description Role"></textarea>
                          </mat-form-field>
                      
                   </div>
@@ -54,5 +53,5 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-      <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
+      <button (click)="createNewRole()" mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
     </mat-dialog-actions>
