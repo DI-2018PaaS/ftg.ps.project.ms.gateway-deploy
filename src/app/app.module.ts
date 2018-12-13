@@ -51,7 +51,9 @@ import { ProduitService } from './service/produit.service';
 import { MagasinService } from './service/magasin.service';
 import { BoutiqueService } from './service/boutique.service';
 import { AgreementService } from './service/agreement.service';
+import { RoleService } from './service/role.service';
 import { RegistrationComponent } from './registration/registration.component';
+import { BreadcrumbsModule } from "ng6-breadcrumbs";
 
 
 const appRoutes: Routes = [
@@ -116,27 +118,49 @@ const appRoutes: Routes = [
         component: AdministrateurComponent, children: [
             {
                 path: 'main',
-                loadChildren: './espace/administrateur/main/main.module#MainModule'
+                loadChildren: './espace/administrateur/main/main.module#MainModule',
+                data: {
+                    breadcrumb:'main'
+                }
             },
             {
                 path: 'alertes',
-                loadChildren: './espace/administrateur/alertes/alertes.module#AlertesModule'
+                loadChildren: './espace/administrateur/alertes/alertes.module#AlertesModule',
+                data: {
+                    breadcrumb:'alertes'
+                }
             },
             {
                 path: 'suivi',
-                loadChildren: './espace/administrateur/suivi-historique/suivi-historique.module#SuiviHistoriqueModule'
+                loadChildren: './espace/administrateur/suivi-historique/suivi-historique.module#SuiviHistoriqueModule',
+                data: {
+                    breadcrumb:'suivi'
+                }
             },
             {
                 path: 'gestion-credit',
-                loadChildren: './espace/administrateur/credit-admin/credit-admin.module#CreditAdminModule'
+                loadChildren: './espace/administrateur/credit-admin/credit-admin.module#CreditAdminModule',data: {
+                    breadcrumb:'gestion credit'
+                }
             },
             {
                 path: 'statistique',
-                loadChildren: './espace/administrateur/statistique/statistique.module#StatistiqueModule'
+                loadChildren: './espace/administrateur/statistique/statistique.module#StatistiqueModule',data: {
+                    breadcrumb:'statistique'
+                }
             },
             {
                 path: 'sauvegarde',
-                loadChildren: './espace/administrateur/sauvegarde/sauvegarde.module#SauvegardeModule'
+                loadChildren: './espace/administrateur/sauvegarde/sauvegarde.module#SauvegardeModule',data: {
+                    breadcrumb:'sauvegarde'
+                }
+                
+            },
+            {
+                path: 'gestion-acces',
+                loadChildren: './espace/administrateur/gestion-acces/gestion-acces.module#GestionAccesModule',data: {
+                    breadcrumb:'gestion acces'
+                }
             }
 
         ]
@@ -390,14 +414,14 @@ const appRoutes: Routes = [
         //MainMultiAnimModule,
         //MainMultiFournissModule,
         AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
-        AngularFireDatabaseModule, AngularFireAuthModule,
+        AngularFireDatabaseModule, AngularFireAuthModule,BreadcrumbsModule
         	
     ],
     bootstrap   : [
         AppComponent
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
-        ProduitService,MagasinService,BoutiqueService, AgreementService
+        ProduitService,MagasinService,BoutiqueService, AgreementService,RoleService
     ] 
 })
 export class AppModule

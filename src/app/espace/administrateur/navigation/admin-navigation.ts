@@ -31,6 +31,13 @@ export const adminNavigation: FuseNavigation[] = [
         url     : 'gestion-credit'
     },
     {
+        id      : 'acces',
+        title   : 'Gestion accés',
+        type    : 'collapsable',
+        icon    : 'https',
+        url     : 'gestion-acces'
+    },
+    {
         id      : 'angular-material-elements',
         title   : 'Statistique',
         type    : 'group',
