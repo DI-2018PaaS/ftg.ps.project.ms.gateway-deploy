@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient  } from "@angular/common/http";
 import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 
+import { AngularFireModule } from 'angularfire2';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+
 
 /*
   Generated class for the ProduitService Service.
@@ -13,12 +16,15 @@ import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 @Injectable()
 export class ProduitService {
   private dbPath = 'produits-db';
- 
+  produits:FirebaseListObservable<Produit> = null;
   produitRef: AngularFireList<Produit> = null;
 
   constructor(public http: HttpClient,public db: AngularFireDatabase) {
     console.log('Hello ProduitService Service');
     this.produitRef = this.db.list(this.dbPath);
+
+    this.produits = this.produitRef.valueChanges();
+       this.produits.subscribe(res=> console.log(res));
   }
 
  
@@ -35,7 +41,7 @@ export class ProduitService {
   }
  
   getProduitList(): AngularFireList<Produit> {
-    return this.produitRef;
+    return this.produits.subscribe();;
   }
  
   deleteAll(): void {

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
+import { AngularFireList } from 'angularfire2/database';
 import { ProduitService } from 'app/service/produit.service';
-import {Http, Response} from '@angular/http';
 
 @Component({
   selector: 'app-produit-list',
@@ -11,10 +11,8 @@ import {Http, Response} from '@angular/http';
 })
 export class ProduitListComponent implements OnInit {
 
-  data: Object;
-
   displayedColumns: string[] = ['NoFoProduit', 'Code', 'Designation', 'PrixUnitaire','Description', 'Details', 'Modifier', 'Supprimer'];
-  dataSource = new MatTableDataSource<FoProduitElement>(ELEMENT_DATA);
+  //dataSource = new MatTableDataSource<FoProduitElement>(ELEMENT_DATA);
 
   // this.produi.getData().then(taskList => {
   //   this.datasource = taskList;
@@ -24,37 +22,27 @@ export class ProduitListComponent implements OnInit {
 
   // });
 
+  hide = true;
 
-  crudComp: CrudPopupComponent;
+  produit = {} as Produit;
+  produitRef$ : AngularFireList<Produit>;
+  constructor(private produitService : ProduitService) { 
+    console.log('Produits ',this.produitService.getProduitList());
+  }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  constructor(public http: Http)
-	{
-    this.http.request('http://api.themoviedb.org/3/movie/top_rated?api_key=API-KEY')
-    .subscribe((res: Response) => {
-      this.data = res.json()['status_code'];
-      console.log(this.data);
-    });	}
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
+  
 }
 
 const ELEMENT_DATA: FoProduitElement[] = [
-
   
-
+  { NoFoProduit: '1', Code: 'BOU0001', Designation: '10/01/18', PrixUnitaire: '500',Description: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
+  { NoFoProduit: '2', Code: 'MAG0002', Designation: '10/01/18', PrixUnitaire: '500',Description: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
+  { NoFoProduit: '3', Code: 'BOU0001', Designation: '10/01/18', PrixUnitaire: '1000',Description: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
+  { NoFoProduit: '4', Code: 'BOU0001', Designation: '10/01/18', PrixUnitaire: '1000',Description: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
+  
 ];
 
 export interface FoProduitElement {
