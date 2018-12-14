@@ -54,6 +54,9 @@ import { AgreementService } from './service/agreement.service';
 import { RoleService } from './service/role.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { RegistrationService } from './service/registration.service';
+import { AcheteurService } from './service/acheteur.service';
+import { AnimateurService } from './service/animateur.service';
+import { FournisseurService } from './service/fournisseur.service';
 
 
 const appRoutes: Routes = [
@@ -419,11 +422,8 @@ const appRoutes: Routes = [
         AppComponent
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
-<<<<<<< HEAD
-        ProduitService,MagasinService,BoutiqueService, AgreementService,RegistrationService
-=======
-        ProduitService,MagasinService,BoutiqueService, AgreementService,RoleService
->>>>>>> 51f6b6c7577bf31be8aa84e32176f0625615d677
+        ProduitService,MagasinService,BoutiqueService, AgreementService,RegistrationService,
+        AcheteurService,AnimateurService,FournisseurService
     ] 
 })
 export class AppModule
