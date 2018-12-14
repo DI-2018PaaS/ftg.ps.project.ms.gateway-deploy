@@ -12,27 +12,27 @@
   <table mat-table [dataSource]="dataSource" matSort>
 
     <!-- ID Column -->
-    <ng-container matColumnDef="Numero_Agreement">
+    <ng-container matColumnDef="numeroAgrement">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero_Agreement </th>
-      <td mat-cell *matCellDef="let row"> {{row.Denomination}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.numeroAgrement}} </td>
     </ng-container>
 
     <!-- Progress Column -->
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> status </th>
-      <td mat-cell *matCellDef="let row"> {{row.Montant_Initial}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.status}} </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="niveauAgreement">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> niveauAgreement </th>
-      <td mat-cell *matCellDef="let row"> {{row.Date_Creation}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.niveauAgreement}} </td>
     </ng-container>
 
     <!-- Color Column -->
-    <ng-container matColumnDef="date">
+    <ng-container matColumnDef="dateAttibution">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> date </th>
-      <td mat-cell *matCellDef="let row"> {{row.Attribue}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.dateAttibution}} </td>
     </ng-container>
 
     <!-- Color Column -->
@@ -47,8 +47,8 @@
 
     <!-- Color Column -->
     <ng-container matColumnDef="Supprimer">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>
-      <td mat-cell *matCellDef="let row"> {{row.Supprimer}}
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>
+      <td mat-cell *matCellDef="let row" > {{row.Supprimer}}
         <button mat-raised-button>
           <mat-icon class="red600">delete</mat-icon>
         </button>

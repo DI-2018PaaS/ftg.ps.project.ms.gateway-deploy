@@ -25,8 +25,6 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
   dateDebValidite = new FormControl();
   niveauAgreement = new FormControl();
 
- 
-
   updateNewAgreement (){
     console.log(this.agreement);
     this.agreementService.createAgreement({
@@ -46,7 +44,5 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
     });
     this.agreement = {} as Agreement;
      }
-     deleteNewAgreement (){
-       
-     }
+    
 }
