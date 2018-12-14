@@ -24,20 +24,13 @@
               </div>
            
               <div fxLayout="row" style="margin-top: 40%;">
-                   
-                  <div>     <h4 mat-dialog-title >Ajout Logo</h4>
-                    <mat-dialog-actions style="margin-left: 88px;margin-top: -46%;">
-                            <input  style="display: none" 
-                            type="file" (change)="onFileChanged($event)" 
-                            #fileInput>
-                          <button  mat-fab color="primary"  (click)="fileInput.click()"><mat-icon matPrefix>import_export</mat-icon></button>
-                            <!--<button mat-fab color="primary" class="">Ajout</button>-->
-                    </mat-dialog-actions>   
-                  </div>
-                  <div style="margin-left: 45%">
+                  <div >
                         <mat-form-field style="margin-top:-66%;">
-                                    <mat-select placeholder="Type Acteur">
-                                      <mat-option value="option">Type Acteur</mat-option>
+                                    <mat-select placeholder="Type Acteur" [formControl]="acteurTypeID" [(ngModel)]="role.acteurTypeID">
+                                      <mat-option value="">Type Acteur</mat-option>
+                                      <mat-option value="1">acheteur</mat-option>
+                                      <mat-option value="2">acheteur</mat-option>
+                                      <mat-option value="3">fournisseur</mat-option>
                                     </mat-select>
                              </mat-form-field>
                   </div>

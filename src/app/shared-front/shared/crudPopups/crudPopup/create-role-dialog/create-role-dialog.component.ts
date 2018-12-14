@@ -3,7 +3,6 @@ import { AngularFireList} from 'angularfire2/database';
 import { RoleService } from 'app/service/role.service';
 import { Role } from 'app/models/user/role/role.model';
 import {FormControl, Validators} from '@angular/forms';
-import { Moment } from 'moment';
 import * as moment from 'moment';
 
 @Component({
@@ -15,15 +14,18 @@ export class CreateRoleDialogComponent implements OnInit {
   hide = true;
   role = {} as Role;
   roleRef$ : AngularFireList<RoleService>;
-
+  id ="";
 
   roleName = new FormControl();
   roleDescription = new FormControl();
+  acteurTypeID = new FormControl();
+
 
   constructor(private roleService : RoleService) { 
   }
 
   ngOnInit() {
+    
   }
   
   onFileChanged(event) {
@@ -33,11 +35,11 @@ export class CreateRoleDialogComponent implements OnInit {
    
     this.roleService.createRole({
       key: "",
-      roleUniqueID: 1,
+      roleUniqueID: this.roleService.makeid(),
       roleName: this.role.roleName,
       roleDescription : this.role.roleDescription,
       roleCreatedDate: moment().toString(),
-      acteurTypeID: 1
+      acteurTypeID: this.role.acteurTypeID
     });
     this.role = {} as Role;
      }

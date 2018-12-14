@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject , ViewChild , Input , Output, EventEmitter , AfterViewInit} from '@angular/core';
+import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material';
+import {FormControl, Validators} from '@angular/forms';
+import { Role } from 'app/models/user/role/role.model';
 
 @Component({
   selector: 'app-update-role-dialog',
@@ -8,14 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateRoleDialogComponent implements OnInit {
   hide = true;
+  roleName = new FormControl();
+  roleDescription = new FormControl();
+  role = {} as Role;
+  row :any;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
+    this.row = data.row;
+  }
 
   ngOnInit() {
+    
   }
   
   onFileChanged(event) {
     const file = event.target.files[0]
+  }
+
+  updateRole(){
+
   }
  
 }
