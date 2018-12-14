@@ -24,6 +24,13 @@ export const fournissNavigation: FuseNavigation[] = [
         url     : 'main-boutique'
     },
     {
+        id      : 'produit-fourniss',
+        title   : 'Produit',
+        type    : 'collapsable',
+        icon    : 'add_shopping_cart',
+        url     : 'main-produit'
+    },
+    {
         id      : 'offres-fourniss',
         title   : 'Offres Public',
         type    : 'collapsable',

@@ -4,6 +4,7 @@ import { HttpClient  } from "@angular/common/http";
 import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 
 
+
 /*
   Generated class for the ProduitService Service.
 
@@ -13,12 +14,12 @@ import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 @Injectable()
 export class ProduitService {
   private dbPath = 'produits-db';
- 
   produitRef: AngularFireList<Produit> = null;
 
   constructor(public http: HttpClient,public db: AngularFireDatabase) {
     console.log('Hello ProduitService Service');
     this.produitRef = this.db.list(this.dbPath);
+
   }
 
  

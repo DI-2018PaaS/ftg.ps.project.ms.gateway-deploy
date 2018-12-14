@@ -8,7 +8,7 @@
               <div fxLayout="row">
                   <div>
                       <mat-form-field>
-                          <input matInput placeholder="Code" >
+                          <input matInput placeholder="Code" [(ngModel)]="produit.code" [formControl]="code">
                         </mat-form-field>
                      
                   </div>
@@ -20,7 +20,7 @@
               <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                     <div>
                           <mat-form-field style="width: 200%;">
-                                  <textarea matInput placeholder="Designation"></textarea>
+                                  <textarea matInput placeholder="Designation" [(ngModel)]="produit.designation" [formControl]="designation"></textarea>
                            </mat-form-field>
                        
                     </div>
@@ -29,7 +29,7 @@
               <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                   <div>
                         <mat-form-field style="width: 200%;">
-                                <textarea matInput placeholder="Description "></textarea>
+                                <textarea matInput placeholder="Description " [(ngModel)]="produit.descriptionProduit" [formControl]="descriptionProduit"></textarea>
                          </mat-form-field>
                      
                   </div>
@@ -41,7 +41,7 @@
                   <div>    
                         <mat-form-field>
                         <label> Prix Unitaire</label><br>
-                        <input matInput>
+                        <input matInput [(ngModel)]="produit.prixUnitaire" [formControl]="prixUnitaire">
                         </mat-form-field>
                   </div>
                  
@@ -104,5 +104,5 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
       <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-      <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
+      <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial (click)="createNewProduit()">Enregistrer</button>
     </mat-dialog-actions>

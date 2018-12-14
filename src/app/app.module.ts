@@ -268,6 +268,10 @@ const appRoutes: Routes = [
                 loadChildren: './espace/fournisseur/four-boutiques/fournisseur-boutiques.module#BoutiquesFournisseurModule'
             },
             {
+                path: 'main-produit',
+                loadChildren: './espace/fournisseur/four-produit/four-produit.module#FourProduitModule'
+            },
+            {
                 path: 'main-offre',
                 loadChildren: './espace/fournisseur/four-offres/fournisseur-offres.module#OffresFournisseurModule'
             },
@@ -289,8 +293,6 @@ const appRoutes: Routes = [
                 loadChildren: './espace/multiuser/muser.module#MultiUserModule'
             },
             {
-											
-			  
                 path: 'muser-shopping',
                 loadChildren: './espace/acheteur/shopping/shopping.module#ShoppingModule'
             },
