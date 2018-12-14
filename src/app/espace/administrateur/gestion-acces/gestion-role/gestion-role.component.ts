@@ -1,6 +1,7 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
+import { Component, OnInit , ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { RoleService } from 'app/service/role.service';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 
 @Component({
   selector: 'app-gestion-role',
@@ -9,13 +10,16 @@ import { RoleService } from 'app/service/role.service';
 })
 export class GestionRoleComponent implements OnInit {
 
-  displayedColumns: string[] = ['roleName', 'roleDescription', 'roleCreatedDate', 'Details', 'Modifier', 'Supprimer'];
+  displayedColumns: string[] = ['roleName', 'roleDescription', 'roleCreatedDate', 'Modifier', 'Supprimer'];
   dataSource = new MatTableDataSource<any>();
   roleList = [];
+  crudComp: CrudPopupComponent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @Input() rowProperty: any;
 
-  constructor( private roleService : RoleService){
+  constructor( private roleService : RoleService, private parCrud: CrudPopupComponent){
+    this.crudComp = this.parCrud;
     this.roleService.getRoleList().valueChanges().subscribe(res => {
       this.roleList.push(res);
       this.dataSource.data = res;
@@ -35,6 +39,10 @@ export class GestionRoleComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  edit(row : any){
+    this.crudComp.openUpdateRole(row);
+    
+  }
   ELEMENT_DATA: CommandeElement[] = this.roleList;
 }
 
@@ -46,7 +54,6 @@ export interface CommandeElement {
   roleUniqueID: string;
   roleCreatedDate: string;
   roleDescription: string;
-  Details: string;
   Modifier: string;
   Supprimer: string;
 }

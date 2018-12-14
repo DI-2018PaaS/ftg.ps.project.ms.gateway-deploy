@@ -6,45 +6,46 @@
             <mat-card-title>
                <h2>Inscription</h2>
             </mat-card-title>
-            <form>
+            
             <mat-card-content>
+                <form>
                 <mat-form-field class="example-full-width">
-                   <input matInput placeholder="Nom" required>
+                    <input matInput placeholder="login" [(ngModel)]="utilisateur.username" name="username">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                   <input matInput placeholder="Nom"  [(ngModel)]="utilisateur.lastName" name="lastName" required>
                 </mat-form-field >
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Prenom" required>
+                  <input matInput placeholder="Prenom"  [(ngModel)] ="utilisateur.firstName" name="firstName" required>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Email" [formControl]="email" required>
+                  <input matInput placeholder="Email" [formControl]="email"  [(ngModel)]="utilisateur.mail" name="mail" required>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Mot de Passe" [type]="hide ? 'password' : 'text'" required>
+                  <input matInput placeholder="Mot de Passe" [type]="hide ? 'password' : 'text'"  [(ngModel)]="utilisateur.password" name= "password" required>
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
+              <!--   <mat-form-field class="example-full-width">
                   <input matInput placeholder="Confirmer le Mot de Passe" [type]="hide ? 'password' : 'text'" required>
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </mat-form-field>
+                </mat-form-field> -->
                 <mat-form-field class="example-full-width">
-                  <mat-select placeholder="Selectioner" disableRipple required [formControl]="selectFormControl">
-                    <mat-option value="anim">Animateur</mat-option>
-                    <mat-option value="fourni">Fournissaur</mat-option>
-                    <mat-option value="achet">Acheteur</mat-option>
+                  <mat-select placeholder="Selectioner"  [(value)]="selectedType" name="type" disableRipple required [formControl]="selectFormControl">
+                    <mat-option *ngFor="let type of typeActeurs" [value]="type.libelleActeur">{{type.libelleActeur}}</mat-option>
                 </mat-select>
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Adress">
-                </mat-form-field>
+                
                 <mat-form-field class="example-full-width"> 
-                  <input matInput placeholder="Téléphone" required>
+                  <input matInput placeholder="Téléphone"  [(ngModel)]="utilisateur.phoneNumber" name="phoneNumber" required>
                 </mat-form-field>
+              </form>
             </mat-card-content>
             
               <mat-card-actions>
-                <button mat-raised-button class="color-button-validate">Enregistrer</button>
+                <button mat-raised-button class="color-button-validate" (click)="createUser()">Enregistrer</button>
                 <button mat-button color="warn">Annuler</button>
               </mat-card-actions>
-            </form>
+            
         </mat-card> 
 </div>
 
