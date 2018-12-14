@@ -7,6 +7,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule, MatIconModule } from '@angular/material';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { TranslateModule } from '@ngx-translate/core';
+import { BreadcrumbsModule } from "ng6-breadcrumbs";
 import 'hammerjs';
 
 import { FuseModule } from '@fuse/fuse.module';
@@ -53,7 +54,12 @@ import { BoutiqueService } from './service/boutique.service';
 import { AgreementService } from './service/agreement.service';
 import { RoleService } from './service/role.service';
 import { RegistrationComponent } from './registration/registration.component';
-import { BreadcrumbsModule } from "ng6-breadcrumbs";
+
+import { AcheteurService } from './service/acheteur.service';
+import { AnimateurService } from './service/animateur.service';
+import { FournisseurService } from './service/fournisseur.service';
+import { RegistrationService } from './service/registration.service';
+
 
 
 const appRoutes: Routes = [
@@ -284,9 +290,6 @@ const appRoutes: Routes = [
             },
             {
 											
-																							 
-				
-			
 			  
                 path: 'muser-shopping',
                 loadChildren: './espace/acheteur/shopping/shopping.module#ShoppingModule'
@@ -422,7 +425,8 @@ const appRoutes: Routes = [
         AppComponent
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
-        ProduitService,MagasinService,BoutiqueService, AgreementService,RoleService
+        ProduitService,MagasinService,BoutiqueService, AgreementService,RoleService,RegistrationService,
+        AcheteurService,AnimateurService,FournisseurService
     ] 
 })
 export class AppModule

@@ -16,6 +16,7 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
   constructor(private agreementService : AgreementService) { }
 
   ngOnInit() {
+    
   }
 
   onFileChanged(event) {
@@ -24,9 +25,7 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
 
   dateDebValidite = new FormControl();
   niveauAgreement = new FormControl();
-
  
-
   createNewAgreement (){
     console.log(this.agreement);
     this.agreementService.createAgreement({
