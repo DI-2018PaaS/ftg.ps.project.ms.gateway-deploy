@@ -8,11 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FournisseurService {
   private dbPath = 'fournisseur-db';
-  refServiceRef: AngularFireList<Fournisseur> = null;
+  refFournisseurRef: AngularFireList<Fournisseur> = null;
 
-  constructor(public http: HttpClient,public db: AngularFireDatabase) { }
+  constructor(public http: HttpClient,public db: AngularFireDatabase) { 
+    this.refFournisseurRef=this.db.list(this.dbPath);
+  }
   
   createFournisseur(f: Fournisseur): void{
-    this.refServiceRef.push(f);}
+    this.refFournisseurRef.push(f);}
 
 }

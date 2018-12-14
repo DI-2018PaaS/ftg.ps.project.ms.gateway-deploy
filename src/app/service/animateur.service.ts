@@ -8,10 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AnimateurService {
   private dbPath = 'animateur-db';
-  refServiceRef: AngularFireList<Animateur> = null;
+  refAnimateurRef: AngularFireList<Animateur> = null;
 
-  constructor(public http: HttpClient,public db: AngularFireDatabase) { }
+  constructor(public http: HttpClient,public db: AngularFireDatabase) { 
+    this.refAnimateurRef = this.db.list(this.dbPath);
+  }
 
   createAnimateur(m: Animateur): void{
-    this.refServiceRef.push(m);}
+    this.refAnimateurRef.push(m);
+  }
 }

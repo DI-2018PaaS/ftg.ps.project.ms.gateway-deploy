@@ -8,10 +8,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AcheteurService {
   private dbPath = 'acheteur-db';
-  refServiceRef: AngularFireList<Acheteur> = null;
+  refAcheteurRef: AngularFireList<Acheteur> = null;
 
-  constructor(public http: HttpClient,public db: AngularFireDatabase) { }
+  constructor(public http: HttpClient,public db: AngularFireDatabase) { 
+    this.refAcheteurRef=this.db.list(this.dbPath);
+  }
 
   createAcheteur(c: Acheteur): void{
-    this.refServiceRef.push(c);}
+    this.refAcheteurRef.push(c);}
 }

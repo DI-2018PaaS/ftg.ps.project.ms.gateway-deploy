@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Globals } from 'app/globals/Globals.element';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 @Component({
   selector: 'app-authentication',
@@ -9,14 +12,18 @@ import { Globals } from 'app/globals/Globals.element';
 })
 export class AuthenticationComponent implements OnInit {
 
-  constructor( private router: Router, private globals: Globals) { }
+  constructor( private router: Router, private route: ActivatedRoute,private globals: Globals) { }
 
   username: string;
   password: string;
   islogin: boolean = false;
+  islog: string;
+ 
 
   ngOnInit() {
-    
+    this.username=this.route.snapshot.paramMap.get("login");
+    this.islog=this.route.snapshot.paramMap.get('islogin');
+    console.log(this.route.queryParams);
   }
  
   login (): void {

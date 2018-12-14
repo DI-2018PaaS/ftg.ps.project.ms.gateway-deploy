@@ -14,7 +14,7 @@ export class RegistrationService{
 
 createUser(u: Utilisateur): void{
   
-  this.utilisateurRef.push(u);5
+  this.utilisateurRef.push(u);
   console.log("user create"+ ":" + this.utilisateurRef);
 }
 }

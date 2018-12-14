@@ -13,13 +13,13 @@
                     <input matInput placeholder="login" [(ngModel)]="utilisateur.username" name="username">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                   <input matInput placeholder="Nom"  [(ngModel)]="animateur.nom" name="nom" required>
+                   <input matInput placeholder="Nom"  [(ngModel)]="utilisateur.lastName" name="lastName" required>
                 </mat-form-field >
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Prenom"  [(ngModel)] ="animateur.prenom" name="prenom" required>
+                  <input matInput placeholder="Prenom"  [(ngModel)] ="utilisateur.firstName" name="firstName" required>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Email" [formControl]="email"  [(ngModel)]="animateur.email" name="email" required>
+                  <input matInput placeholder="Email" [formControl]="email"  [(ngModel)]="utilisateur.mail" name="mail" required>
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Mot de Passe" [type]="hide ? 'password' : 'text'"  [(ngModel)]="utilisateur.password" name= "password" required>
@@ -30,13 +30,13 @@
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field> -->
                 <mat-form-field class="example-full-width">
-                  <mat-select placeholder="Selectioner"  [(ngModel)] = "animateur.type" name="type" disableRipple required [formControl]="selectFormControl">
-                    <mat-option *ngFor="let type of typeActeurs" [value]="type.idActeurType" [class.selected]="type.idActeurType===selectedType">{{type.libelleActeur}}</mat-option>
+                  <mat-select placeholder="Selectioner"  [(value)]="selectedType" name="type" disableRipple required [formControl]="selectFormControl">
+                    <mat-option *ngFor="let type of typeActeurs" [value]="type.libelleActeur">{{type.libelleActeur}}</mat-option>
                 </mat-select>
                 </mat-form-field>
                 
                 <mat-form-field class="example-full-width"> 
-                  <input matInput placeholder="Téléphone"  [(ngModel)]="animateur.telephone" name="telephone" required>
+                  <input matInput placeholder="Téléphone"  [(ngModel)]="utilisateur.phoneNumber" name="phoneNumber" required>
                 </mat-form-field>
               </form>
             </mat-card-content>
