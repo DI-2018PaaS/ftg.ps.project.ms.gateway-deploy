@@ -257,12 +257,16 @@ export class CrudPopupComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openUpdateRole() {
-    const dialogCreateCpt = this.dialog.open(UpdateRoleDialogComponent);
-
+  openUpdateRole(row) {
+    const dialogCreateCpt = this.dialog.open(UpdateRoleDialogComponent, {
+        data : {
+          row : row
+        }
+    });
     dialogCreateCpt.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+    
   }
   openUpdateRemboursement() {
     const dialogCreateCpt = this.dialog.open(UpdateRemboursementDialogComponent);

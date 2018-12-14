@@ -17,6 +17,7 @@ export class RoleService{
   constructor(public http: HttpClient,public db: AngularFireDatabase) {
     console.log('Hello ServiceService Service');
     this.refServiceRef = this.db.list(this.dbPath);
+    
   }
 
   createRole(p: Role): void {
@@ -41,6 +42,16 @@ export class RoleService{
  
   private handleError(error) {
     console.log(error);
+  }
+
+  makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < 8; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
   }
 
 }
