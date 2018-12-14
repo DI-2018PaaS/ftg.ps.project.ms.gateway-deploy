@@ -23,7 +23,6 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit() {
     this.username=this.route.snapshot.paramMap.get("login");
     this.islog=this.route.snapshot.paramMap.get('islogin');
-    console.log(this.route.queryParams);
   }
  
   login (): void {
