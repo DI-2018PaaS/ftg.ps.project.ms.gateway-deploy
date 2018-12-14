@@ -52,6 +52,7 @@ import { MagasinService } from './service/magasin.service';
 import { BoutiqueService } from './service/boutique.service';
 import { AgreementService } from './service/agreement.service';
 import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationService } from './service/registration.service';
 
 
 const appRoutes: Routes = [
@@ -398,7 +399,7 @@ const appRoutes: Routes = [
         AppComponent
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
-        ProduitService,MagasinService,BoutiqueService, AgreementService
+        ProduitService,MagasinService,BoutiqueService, AgreementService,RegistrationService
     ] 
 })
 export class AppModule
