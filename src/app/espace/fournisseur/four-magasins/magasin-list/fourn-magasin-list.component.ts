@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
-
+import { Magasin } from 'app/models/msmagasindomains/magasin/magasin.model';
+import { AngularFireList } from 'angularfire2/database';
+import { MagasinService } from 'app/service/magasin.service';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-fomagasin-list',
@@ -10,15 +12,23 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 })
 
 export class FoMagasinListComponent implements OnInit {
-  displayedColumns: string[] = ['NoFoMagasin', 'Nom', 'Date_Emission', 'Adresse','Contact', 'Details', 'Modifier', 'Supprimer'];
-  dataSource = new MatTableDataSource<FoMagasinElement>(ELEMENT_DATA);
-crudComp: CrudPopupComponent;
+  displayedColumns: string[] = ['nom', 'ref', 'description','email', 'adresse','Details', 'Modifier', 'Supprimer'];
+  dataSource = new MatTableDataSource<any>();
+  magasinList = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-constructor(private parCrud: CrudPopupComponent)
+  hide = true;
+
+  magasin = {} as Magasin;
+  magasinRef$ : AngularFireList<Magasin>;
+constructor(private magazinService : MagasinService)
 	{
-		this.crudComp=this.parCrud;
+		this.magazinService.getMagasinList().valueChanges().subscribe(res => {
+      this.magasinList.push(res);
+      this.dataSource.data = res;
+    })
+    console.log("magasins: ", this.magasinList)
 	}
 	
   ngOnInit(){
@@ -35,35 +45,13 @@ constructor(private parCrud: CrudPopupComponent)
     }
   }
 }
-const ELEMENT_DATA: FoMagasinElement[] = [
-  { NoFoMagasin: '1', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sangaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '2', Nom: 'MAG0002', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '3', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '4', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '5', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '6', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '7', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sangaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '8', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '9', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '10', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '11', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '12', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '13', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '14', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '15', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '16', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '17', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '18', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '19', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoMagasin: '20', Nom: 'MAG0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-];
 
 export interface FoMagasinElement {
-  NoFoMagasin: string;
-  Nom: string;
-  Date_Emission: string;
-  Adresse: string;
-  Contact: string;
+  nom: string;
+  ref: string;
+  description: string;
+  email: string;
+  adresse: String;
   Details: string;
   Modifier: string;
   Supprimer: string;
