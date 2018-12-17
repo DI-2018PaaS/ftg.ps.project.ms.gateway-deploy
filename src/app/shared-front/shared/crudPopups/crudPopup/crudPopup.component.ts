@@ -44,6 +44,7 @@ import { AjoutPretDialogComponent } from './ajout-pret-popup/ajout-pret-dialog.c
 import { AjoutLigneCreditComponent } from './Ajout-ligne-credit/ajout-ligne-credit.component';
 import { SuiviReglementCommandeComponent } from './Suivi-reglement-commande/Suivi-reglement-commande.component';
 import { RechercherProduitComponent } from './Rechercher-produit/rechercher-produit-dialog.component';
+import { ListeDemandeAgrementDialogComponent } from './liste-demande-agreement/liste-demande-agreement.component';
 
 @Component({
   selector: 'app-crudpopup',
@@ -203,6 +204,16 @@ export class CrudPopupComponent implements OnInit {
     });
   }
 
+  openListeDemandeAgreement(row) {
+    const dialogCreateCpt = this.dialog.open(ListeDemandeAgrementDialogComponent, {
+      data : {
+        row : row
+      }
+  });
+    dialogCreateCpt.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
   openAjoutPret() {
     const dialogCreateCpt = this.dialog.open(AjoutPretDialogComponent);
 
