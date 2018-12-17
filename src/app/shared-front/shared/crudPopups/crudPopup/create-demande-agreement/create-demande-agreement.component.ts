@@ -45,7 +45,7 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
       niveauAgreement: this.agreement.niveauAgreement,
       animateurID:"animateur",
       fournisseurID:"",
-      destinataireID:"banq",
+      destinataireID:this.agreement.destinataireID,
       description:this.agreement.description
     });
     this.agreement = {} as Agreement;

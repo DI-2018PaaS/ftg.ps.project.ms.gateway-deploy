@@ -39,8 +39,12 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
       dateCreated: this.agreement.dateDebValidite,
       dateLastModif: this.agreement.dateDebValidite,
       niveauAgreement: this.agreement.niveauAgreement,
-      animateurID:0,
-      fournisseurID:0
+      animateurID:"",
+      fournisseurID:"",
+      destinataireID:"",
+      description:""
+
+      
     });
     this.agreement = {} as Agreement;
      }

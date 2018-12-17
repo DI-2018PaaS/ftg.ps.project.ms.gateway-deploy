@@ -3,6 +3,8 @@ import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { query } from '@angular/core/src/render3/query';
 
 @Component({
   selector: 'app-demande-agrement-list',
@@ -12,18 +14,29 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 export class DemandeAgrementListComponent implements OnInit {
   displayedColumns: string[] = ['numeroAgrement', 'status', 'niveauAgreement', 'dateAttibution','Modifier', 'Supprimer'];
   dataSource = new MatTableDataSource<any>();
+  private dbPath = 'agreement-db';
   agreementList = []
+  agreementRef: AngularFireList<Agreement> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
-  constructor(private agreementService: AgreementService) {
-    console.log(this.agreementService.getAgreementList())
-    this.agreementService.getAgreementList().valueChanges().subscribe(res => {
+  constructor(private agreementService: AgreementService, public db: AngularFireDatabase) {
+    this.db.list(this.dbPath, ref => ref.orderByChild('destinataireID').equalTo('banq'))
+    .valueChanges()
+    .subscribe(res => {
       this.agreementList.push(res);
       this.dataSource.data = res;
     })
+
+    var keyArray = [];
+    this.db.database.ref(this.dbPath).once('value', data =>{
+      data.forEach(item => {
+        
+      })
+    })
+
    }
 
 
