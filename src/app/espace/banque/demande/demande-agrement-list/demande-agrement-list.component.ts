@@ -23,20 +23,14 @@ export class DemandeAgrementListComponent implements OnInit {
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
   constructor(private agreementService: AgreementService, public db: AngularFireDatabase) {
-    this.db.list(this.dbPath, ref => ref.orderByChild('destinataireID').equalTo('banq'))
+    this.db.list(this.dbPath, ref => ref
+    .orderByChild('destinataireID')
+    .equalTo('banque'))
     .valueChanges()
     .subscribe(res => {
       this.agreementList.push(res);
       this.dataSource.data = res;
     })
-
-    var keyArray = [];
-    this.db.database.ref(this.dbPath).once('value', data =>{
-      data.forEach(item => {
-        
-      })
-    })
-
    }
 
 

@@ -21,7 +21,9 @@ export class AgreementService {
   }
   createAgreement(p: Agreement): void {
     console.log('creation agreement service', p);
-    this.agreementRef.push(p);
+    const key = this.db.createPushId();
+    p.key = key;
+    this.agreementRef.set(key,p)
   }
   updateAgreement(key: string, value: any): void {
     this.agreementRef.update(key, value).catch(error => this.handleError(error));
