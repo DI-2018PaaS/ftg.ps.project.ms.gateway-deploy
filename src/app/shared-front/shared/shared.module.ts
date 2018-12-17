@@ -102,6 +102,8 @@ import { AjoutPretDialogComponent } from './crudPopups/crudPopup/ajout-pret-popu
 import { AjoutLigneCreditComponent } from './crudPopups/crudPopup/Ajout-ligne-credit/ajout-ligne-credit.component';
 import { SuiviReglementCommandeComponent } from './crudPopups/crudPopup/Suivi-reglement-commande/Suivi-reglement-commande.component';
 import { RechercherProduitComponent } from './crudPopups/crudPopup/Rechercher-produit/rechercher-produit-dialog.component';
+import { ListeDemandeAgrementDialogComponent } from './crudPopups/crudPopup/liste-demande-agreement/liste-demande-agreement.component';
+
 
 @NgModule({
   imports: [
@@ -232,7 +234,8 @@ import { RechercherProduitComponent } from './crudPopups/crudPopup/Rechercher-pr
     AjoutPretDialogComponent,
     AjoutLigneCreditComponent,
     SuiviReglementCommandeComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    ListeDemandeAgrementDialogComponent
   ],
   declarations: [
     BreadcrumbComponent,
@@ -287,7 +290,8 @@ import { RechercherProduitComponent } from './crudPopups/crudPopup/Rechercher-pr
     AjoutPretDialogComponent,
     AjoutLigneCreditComponent,
     SuiviReglementCommandeComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    ListeDemandeAgrementDialogComponent
   ],
   entryComponents: [
     ProductDialogComponent,
@@ -334,7 +338,8 @@ import { RechercherProduitComponent } from './crudPopups/crudPopup/Rechercher-pr
     AjoutPretDialogComponent,
     AjoutLigneCreditComponent,
     SuiviReglementCommandeComponent,
-    RechercherProduitComponent
+    RechercherProduitComponent,
+    ListeDemandeAgrementDialogComponent
   ],
   providers: [
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }

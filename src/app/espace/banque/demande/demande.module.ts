@@ -14,8 +14,8 @@ export const routes = [
   { path: 'demande-pret-list', component: DemandePretListComponent, pathMatch: 'full' },
   { path: 'demande-ligne-credit-list', component: DemandeLcreditListComponent, pathMatch: 'full' },
   { path: 'demande-ligne-depot-list', component: DemandeLdepotListComponent, pathMatch: 'full' },
-  { path: 'demande-agrement-list', component: DemandeAgrementListComponent, pathMatch: 'full' }
-];
+  { path: 'demande-agrement-list', component: DemandeAgrementListComponent, pathMatch: 'full' },
+  ];
 
 
 @NgModule({
