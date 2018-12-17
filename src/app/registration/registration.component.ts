@@ -11,6 +11,7 @@ import { AnimateurService } from 'app/service/animateur.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { AcheteurService } from 'app/service/acheteur.service';
 import { FournisseurService } from 'app/service/fournisseur.service';
+import { RoleService } from 'app/service/role.service';
 
 @Component({
   selector: 'app-registration',
@@ -42,7 +43,7 @@ export class RegistrationComponent implements OnInit {
 
 
   constructor(private registrationService: RegistrationService, private animateurService: AnimateurService, private acheteurService: AcheteurService
-     , private fournisseurService: FournisseurService,private router:Router) { }
+     , private fournisseurService: FournisseurService, private serviceRole: RoleService,private router:Router) { }
 
   ngOnInit() {
     this.typeActeurs;
@@ -77,7 +78,7 @@ export class RegistrationComponent implements OnInit {
           userActeurID: 0
         });
         let navigationExtras: NavigationExtras = {
-          queryParams: {'login': this.utilisateur.username,'islogin':true },
+          queryParams: { 'login': this.utilisateur.username, 'islogin':true },
           fragment: 'animateur'
         };
         this.utilisateur = {} as Utilisateur;

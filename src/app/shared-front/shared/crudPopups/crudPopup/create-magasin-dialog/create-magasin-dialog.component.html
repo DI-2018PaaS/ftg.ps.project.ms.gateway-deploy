@@ -46,7 +46,19 @@
                               </mat-form-field>
                     </div>
                 </div>
-              <div fxLayout="row" >
+                <div>
+                        <mat-form-field >
+                            <input matInput placeholder="Email Fournisseur" [(ngModel)]="magasin.email" [formControl]="nom">
+                          </mat-form-field>
+                    </div>
+                 
+                    <div>
+                        <mat-form-field >
+                            <input matInput placeholder="Adresse Magasin" [(ngModel)]="magasin.adresse" [formControl]="nom">
+                          </mat-form-field>
+                    </div>
+
+              <!-- <div fxLayout="row" >
                   
                     <div>
                                     <h2 mat-dialog-title>Adresse Emplacement</h2>
@@ -154,7 +166,7 @@
                                                                     <mat-form-field>
                                                                       <input matInput placeholder="Enter your email" [(ngModel)]="magasin.email" name="email" [formControl]="email" required>
                                                                       <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                                                                    </mat-form-field>
+                                                                    <!-- </mat-form-field>
                                                             </div>
                                                             <div>
                                                                     <mat-dialog-actions style="margin-left:6px; margin-top: 2%">
@@ -168,7 +180,7 @@
                                          </form>
                               
                                         </div>
-                </div>
+                </div>  -->
             </div>
        
       

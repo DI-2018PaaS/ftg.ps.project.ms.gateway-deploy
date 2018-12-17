@@ -30,7 +30,7 @@
   </mat-menu>
 </div>
 
-<div *ngIf="islog == true" >
+<!-- <div *ngIf="islog == true" >
   <span class="username mr-5" fxHide fxShow.gt-sm style="color:white" >{{username}}</span>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon style="color:white">keyboard_arrow_down</mat-icon>
@@ -46,7 +46,7 @@
     </button>
   </mat-menu>
 </div>
-
+ -->
 <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
   <mat-card class="example-card" (click)="$event.stopPropagation();">
     <mat-card-header>

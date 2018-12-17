@@ -40,6 +40,7 @@ export class CreateMagasinDialogComponent implements OnInit {
       ref: this.magasin.ref,
       description: this.magasin.description,
       email: this.magasin.email,
+      adresse: this.magasin.adresse,
       nIdProprietaire: 0
      });
      this.magasin = {} as Magasin;
