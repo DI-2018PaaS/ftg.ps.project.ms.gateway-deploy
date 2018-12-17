@@ -16,8 +16,8 @@ export class RoleService{
 
   constructor(public http: HttpClient,public db: AngularFireDatabase) {
     console.log('Hello ServiceService Service');
-    this.refServiceRef = this.db.list(this.dbPath);
-    
+    this.refServiceRef = this.db.list(this.dbPath);    
+    this.db.object
   }
 
   createRole(p: Role): void {

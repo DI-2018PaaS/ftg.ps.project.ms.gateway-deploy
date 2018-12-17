@@ -23,25 +23,30 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
     const file = event.target.files[0]
   }
 
-  dateDebValidite = new FormControl();
+  destinataireID = new FormControl();
   niveauAgreement = new FormControl();
+  description = new FormControl();
+ 
+
  
   createNewAgreement (){
     console.log(this.agreement);
     this.agreementService.createAgreement({
       agreementId:0,
       numeroAgrement: '0', 
-      dateAttibution: this.agreement.dateDebValidite,
-      dateDebValidite: this.agreement.dateDebValidite,
-      dateFinValidite: this.agreement.dateDebValidite,
+      dateAttibution: "",
+      dateDebValidite: "",
+      dateFinValidite: "",
       status: true,
       userCreated: 0,
       userLastModif: 0,
-      dateCreated: this.agreement.dateDebValidite,
-      dateLastModif: this.agreement.dateDebValidite,
+      dateCreated: new Date().toString(),
+      dateLastModif: "",
       niveauAgreement: this.agreement.niveauAgreement,
-      animateurID:0,
-      fournisseurID:0
+      animateurID:"animateur",
+      fournisseurID:"",
+      destinataireID:"banq",
+      description:this.agreement.description
     });
     this.agreement = {} as Agreement;
      }

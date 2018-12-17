@@ -6,12 +6,15 @@ export class Agreement
     dateAttibution: string;
     dateDebValidite: string;
     dateFinValidite: string;
-    status: true;
+    status: boolean;
     userCreated: number;
     userLastModif: number;
     dateCreated: string;
     dateLastModif: string;
     niveauAgreement: number;
-    animateurID: number;
-    fournisseurID: number;
+    animateurID: string;
+    fournisseurID: string;
+    destinataireID:string;
+    description:string
+
 }

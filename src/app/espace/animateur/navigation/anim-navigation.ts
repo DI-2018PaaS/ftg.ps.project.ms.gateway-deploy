@@ -31,6 +31,13 @@ export const animNavigation: FuseNavigation[] = [
         url     : 'anim-gestion'
     },
     {
+        id      : 'agrement-animateur',
+        title   : 'Demande agrément',
+        icon    : 'launch',
+        type    : 'group',
+        url     : 'agrement-animateur'
+    },
+    {
         id      : 'anim-statistique',
         title   : 'Statistique & Notes',
         type    : 'group',

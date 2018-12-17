@@ -2,6 +2,7 @@ import { Component, OnInit , ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { RoleService } from 'app/service/role.service';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-gestion-role',
@@ -18,12 +19,12 @@ export class GestionRoleComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @Input() rowProperty: any;
 
-  constructor( private roleService : RoleService, private parCrud: CrudPopupComponent){
+  constructor( private roleService : RoleService, private parCrud: CrudPopupComponent,public db: AngularFireDatabase){
     this.crudComp = this.parCrud;
     this.roleService.getRoleList().valueChanges().subscribe(res => {
       this.roleList.push(res);
       this.dataSource.data = res;
-    })
+    });
   }
 
   ngOnInit(){

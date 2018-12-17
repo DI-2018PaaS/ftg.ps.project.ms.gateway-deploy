@@ -2,6 +2,8 @@ import { Component, OnInit, Inject , ViewChild , Input , Output, EventEmitter , 
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
 import { Role } from 'app/models/user/role/role.model';
+import { AngularFireList} from 'angularfire2/database';
+import { RoleService } from 'app/service/role.service';
 
 @Component({
   selector: 'app-update-role-dialog',
@@ -15,8 +17,9 @@ export class UpdateRoleDialogComponent implements OnInit {
   role = {} as Role;
   row :any;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
+  constructor(@Inject(MAT_DIALOG_DATA, ) public data:any, private roleService : RoleService) {
     this.row = data.row;
+    
   }
 
   ngOnInit() {

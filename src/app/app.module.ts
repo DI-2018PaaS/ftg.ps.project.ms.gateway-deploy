@@ -223,8 +223,11 @@ const appRoutes: Routes = [
             {
                 path: 'anim-gestion',
                 loadChildren: './espace/animateur/gestion/gestion.module#GestionAnimModule'
+            },
+            {
+                path: 'agrement-animateur',
+                loadChildren: './espace/animateur/demande-agremment/demande-agremment.module#DemandeAgremmentModule'
             }
-
         ]
     },
 	{

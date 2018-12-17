@@ -12,7 +12,7 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 export class CommandeListComponent implements OnInit {
   displayedColumns: string[] = ['NoCommande', 'Emetteur', 'Date_Emission', 'Reglement', 'Details', 'Modifier', 'Supprimer'];
   dataSource = new MatTableDataSource<CommandeElement>(ELEMENT_DATA);
-crudComp: CrudPopupComponent;
+  crudComp: CrudPopupComponent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
