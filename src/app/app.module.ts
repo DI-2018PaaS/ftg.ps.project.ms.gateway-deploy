@@ -9,6 +9,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { TranslateModule } from '@ngx-translate/core';
 import { BreadcrumbsModule } from "ng6-breadcrumbs";
 import 'hammerjs';
+import { AngularWebStorageModule } from 'angular-web-storage';
 
 import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
@@ -371,14 +372,15 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        AppComponent,
+        AppComponent,    
         AdministrateurComponent,
         AcheteurComponent, 
         BanqueComponent,
         AcheteurComponent,
         AnimateurComponent,
         FournisseurComponent,
-        RegistrationComponent
+        RegistrationComponent,
+        
        //,
         //MultiUserComponent
         //,AppFilterSidebarComponent
@@ -394,6 +396,7 @@ const appRoutes: Routes = [
             delay             : 0,
             passThruUnknownUrl: true
         }),
+        AngularWebStorageModule,
        
 
         // Material moment date module
