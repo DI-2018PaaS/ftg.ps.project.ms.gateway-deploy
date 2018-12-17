@@ -12,7 +12,7 @@ import { Key } from 'protractor';
 })
 export class ProduitListComponent implements OnInit {
 
-  displayedColumns: string[] = ['NoFoProduit', 'code', 'designation', 'prixUnitaire','descriptionProduit', 'Details', 'Modifier', 'Supprimer'];
+  displayedColumns: string[] = ['code', 'designation', 'prixUnitaire','descriptionProduit', 'Details', 'Modifier', 'Supprimer'];
   dataSource = new MatTableDataSource<any>();
   produitList = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -44,15 +44,16 @@ export class ProduitListComponent implements OnInit {
     }
   }
 
-  deleteProduit(){
-     
+  deleteProduit(msg:string){
+
+    //console.log(this.produitList.indexOf(msg);
+
   }
 
 
 }
 
 export interface FoProduitElement {
-  NoFoProduit: string;
   code: string;
   designation: string;
   prixUnitaire: string;

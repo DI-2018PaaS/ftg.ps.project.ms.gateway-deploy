@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
-
+import { Boutique } from 'app/models/msmagasindomains/boutique/boutique.model';
+import { AngularFireList } from 'angularfire2/database';
+import { BoutiqueService } from 'app/service/boutique.service';
 
 @Component({
   selector: 'app-foboutique-list',
@@ -10,16 +11,23 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 })
 
 export class FoBoutiqueListComponent implements OnInit {
-  displayedColumns: string[] = ['NoFoBoutique', 'Nom', 'Date_Emission', 'Adresse','Contact', 'Details', 'Modifier', 'Supprimer'];
-  dataSource = new MatTableDataSource<FoBoutiqueElement>(ELEMENT_DATA);
-  crudComp: CrudPopupComponent;
-
+  displayedColumns: string[] = ['nom', 'ref', 'description','ville', 'Details', 'Modifier', 'Supprimer'];
+  dataSource = new MatTableDataSource<any>();
+  boutiqueList = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-	constructor(private parCrud: CrudPopupComponent)
+
+  hide = true;
+
+  boutique = {} as Boutique;
+  boutiqueRef$ : AngularFireList<Boutique>;
+	constructor(private boutiqueService : BoutiqueService)
 	{
-		this.crudComp=this.parCrud;
-	}
+    this.boutiqueService.getBoutiqueList().valueChanges().subscribe(res => {
+      this.boutiqueList.push(res);
+      this.dataSource.data = res;
+    })
+    console.log("boutiques: ", this.boutiqueList)	}
 
   ngOnInit(){
 
@@ -35,35 +43,13 @@ export class FoBoutiqueListComponent implements OnInit {
     }
   }
 }
-const ELEMENT_DATA: FoBoutiqueElement[] = [
-  { NoFoBoutique: '1', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sangaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '2', Nom: 'MAG0002', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '3', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '4', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '5', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '6', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '7', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sangaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '8', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '9', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '10', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '11', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '12', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '13', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '14', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '15', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '16', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '17', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '18', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '19', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoBoutique: '20', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C',Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-];
 
 export interface FoBoutiqueElement {
   NoFoBoutique: string;
-  Nom: string;
-  Date_Emission: string;
-  Adresse: string;
-  Contact: string;
+  nom: string;
+  ref: string;
+  description: string;
+  ville: string;
   Details: string;
   Modifier: string;
   Supprimer: string;
