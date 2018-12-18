@@ -9,7 +9,7 @@
                     <div fxLayout="row">
                         <div>
                             <mat-form-field>
-                                <input matInput placeholder="Code" >
+                                <input matInput placeholder="Code" value="{{row.code}}">
                               </mat-form-field>
                            
                         </div>
@@ -21,7 +21,7 @@
                     <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                           <div>
                                 <mat-form-field style="width: 200%;">
-                                        <textarea matInput placeholder="Designation"></textarea>
+                                        <textarea matInput placeholder="Designation" value="{{row.designation}}"></textarea>
                                  </mat-form-field>
                              
                           </div>
@@ -30,7 +30,7 @@
                     <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                         <div>
                               <mat-form-field style="width: 200%;">
-                                      <textarea matInput placeholder="Description "></textarea>
+                                      <textarea matInput placeholder="Description " value="{{row.descriptionProduit}}"></textarea>
                                </mat-form-field>
                            
                         </div>
@@ -42,7 +42,7 @@
                         <div>    
                               <mat-form-field>
                               <label> Prix Unitaire</label><br>
-                              <input matInput>
+                              <input matInput value="{{row.prixUnitaire}}">
                               </mat-form-field>
                         </div>
                        

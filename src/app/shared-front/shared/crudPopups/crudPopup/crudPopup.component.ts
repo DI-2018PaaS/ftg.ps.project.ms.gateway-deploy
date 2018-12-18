@@ -214,6 +214,16 @@ export class CrudPopupComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+  openInfosProduit(row) {
+    const dialogCreateCpt = this.dialog.open(UpdateProduitDialogComponent, {
+      data : {
+        row : row
+      }
+  });
+    dialogCreateCpt.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
   openAjoutPret() {
     const dialogCreateCpt = this.dialog.open(AjoutPretDialogComponent);
 

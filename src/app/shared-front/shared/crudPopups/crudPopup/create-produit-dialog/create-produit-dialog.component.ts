@@ -4,6 +4,22 @@ import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 import { AngularFireList } from 'angularfire2/database';
 import { ProduitService } from 'app/service/produit.service';
 
+import { AngularFireStorage } from 'angularfire2/storage';
+
+@Component({
+  selector: 'app-root',
+  template: `
+   <label for="file">File:</label>
+   <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+  `
+ })
+ export class AppComponent {
+   constructor(private afStorage: AngularFireStorage) { }
+   upload(event) {
+     this.afStorage.upload('/upload/to/this-path', event.target.files[0]);  
+   }
+ }
+ 
 @Component({
   selector: 'app-create-produit-dialog',
   templateUrl: './create-produit-dialog.component.html',
@@ -11,6 +27,7 @@ import { ProduitService } from 'app/service/produit.service';
 })
 export class CreateProduitDialogComponent implements OnInit {
   hide = true;
+  url = '';
 
   produit = {} as Produit;
   produitRef$ : AngularFireList<Produit>;
@@ -42,5 +59,17 @@ export class CreateProduitDialogComponent implements OnInit {
     });
     this.produit = {} as Produit;
      }
+
+     onSelectFile(event) {
+      if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+  
+        reader.readAsDataURL(event.target.files[0]); // read file as data url
+  
+        reader.onload = (event) => { // called once readAsDataURL is completed
+          this.url = event.target.result;
+        }
+      }
+    }
 
 }
