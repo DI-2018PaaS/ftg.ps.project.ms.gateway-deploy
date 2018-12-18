@@ -37,7 +37,8 @@ export class CreateProduitDialogComponent implements OnInit {
      designation: this.produit.designation,
      prixUnitaire: this.produit.prixUnitaire,
      descriptionProduit: this.produit.descriptionProduit,
-     zoneGeographiqueId: 0
+     zoneGeographiqueId: 0,
+     isValid:false
     });
     this.produit = {} as Produit;
      }

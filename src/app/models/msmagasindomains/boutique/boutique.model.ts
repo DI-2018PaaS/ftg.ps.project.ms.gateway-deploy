@@ -8,4 +8,5 @@ export class Boutique {
     rue: String;
     codep: String;
     ville: String;
+    isValid:boolean;
 }

@@ -5,4 +5,5 @@ export class Produit {
     prixUnitaire: number;
     descriptionProduit: string;
     zoneGeographiqueId: number;
+    isValid:boolean;
 }

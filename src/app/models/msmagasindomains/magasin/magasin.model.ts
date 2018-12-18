@@ -6,4 +6,6 @@ export class Magasin {
     adresse: string;
     description: string;
     email: string;
+    isValid:boolean;
+
 }
