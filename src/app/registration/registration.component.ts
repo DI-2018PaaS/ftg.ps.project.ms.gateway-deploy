@@ -75,10 +75,10 @@ export class RegistrationComponent implements OnInit {
           password: this.utilisateur.password,
           creationDateUser: null,
           lastConnectionDate: null,
-          userActeurID: 0
+          userActeurID: this.typeActeurs[0].idActeurType
         });
         let navigationExtras: NavigationExtras = {
-          queryParams: { 'login': this.utilisateur.username, 'islogin':true },
+          queryParams: { 'login': this.utilisateur.username},
           fragment: 'animateur'
         };
         this.utilisateur = {} as Utilisateur;
@@ -108,14 +108,15 @@ export class RegistrationComponent implements OnInit {
           password: this.utilisateur.password,
           creationDateUser: null,
           lastConnectionDate: null,
-          userActeurID: 0
+          userActeurID: this.typeActeurs[1].idActeurType
         });
-      this.acheteur = {} as Acheteur;  
-      this.utilisateur = {} as Utilisateur;
+      
       let navigationExtras: NavigationExtras = {
-        queryParams: { 'login': this.utilisateur.username,'islogin':true },
+        queryParams: { 'login': this.utilisateur.username},
         fragment: 'acheteur'
       };
+      this.acheteur = {} as Acheteur;  
+      this.utilisateur = {} as Utilisateur;
       this.router.navigate(['shopping'],navigationExtras);
     }else if(this.selectedType=="Fournisseur"){
       this.fournisseurService.createFournisseur({
@@ -141,15 +142,16 @@ export class RegistrationComponent implements OnInit {
           password: this.utilisateur.password,
           creationDateUser: null,
           lastConnectionDate: null,
-          userActeurID: 0
+          userActeurID: this.typeActeurs[2].idActeurType
         });
-      this.fournisseur = {} as Fournisseur;
-      this.utilisateur = {} as Utilisateur;
+      
 
       let navigationExtras: NavigationExtras = {
-        queryParams: { 'login': this.utilisateur.username,'islogin':true },
+        queryParams: { 'login': this.utilisateur.username},
         fragment: 'fournisseur'
       };
+      this.fournisseur = {} as Fournisseur;
+      this.utilisateur = {} as Utilisateur;
       this.router.navigate(['main-magasin'],navigationExtras);
     }else{
       console.log("type doesn't exit");

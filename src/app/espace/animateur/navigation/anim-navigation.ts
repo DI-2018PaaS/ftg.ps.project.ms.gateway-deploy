@@ -43,6 +43,14 @@ export const animNavigation: FuseNavigation[] = [
         type    : 'group',
         icon    : 'trending_up',
         url     : 'anim-statistique'
-    }
+    },
+    {
+        id      : 'anim-valid',
+        title   : 'Validation',
+        type    : 'group',
+        icon    : 'check_circle_outline',
+        url     : 'anim-valid'
+    },
+
 
 ];
