@@ -15,6 +15,8 @@ export class Agreement
     animateurID: string;
     fournisseurID: string;
     destinataireID:string;
-    description:string
+    description:string;
+    statutDemande:string;
+    plafond:string
 
 }

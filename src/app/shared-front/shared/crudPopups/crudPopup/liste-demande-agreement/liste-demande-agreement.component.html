@@ -16,32 +16,10 @@
                               </mat-select>
                           </mat-form-field>
                     </div> 
-                     <div >
-                            <!--<mat-form-field>
-                                  
-                                   <mat-select placeholder="Niveau Agreement"  [(ngModel)]="agreement.niveauAgreement" [formControl]="niveauAgreement" >
-                                     <mat-option  value="{{row.niveauAgreement}}">Niveau agreement 3</mat-option>
-                                   </mat-select>
-                               </mat-form-field> -->
-                               <mat-form-field>
-                                    <input matInput placeholder="Niveau Agreement " value="{{row.niveauAgreement}}">
-                                </mat-form-field>
-                     </div> 
                   </div>
-                  <div fxLayout="row" >
-                        <div style="margin-top:33%">
-                                <mat-slide-toggle> Urgent</mat-slide-toggle>
-                        </div>
-                        <div style="margin-left:91%">
-                            <mat-form-field>
-                                <input matInput placeholder="Numero Agreement " value="{{row.numeroAgrement}}">
-                              </mat-form-field>
-                          </div>
-                  </div> 
                   
              
-                    <div fxLayout="row"fxLayout.xs="column" fxLayoutGap="5px">
-                      
+                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
                         <div>
                             <mat-form-field  style="margin-top: -75%;"> 
                                 <label>Date Debut</label><br>
@@ -50,26 +28,22 @@
                             </mat-form-field>
                         </div>
                         <div>
-                                <mat-form-field  style="margin-left: 7%;margin-top: -75%;"> 
-                                    <label>Date Fin</label><br>
-                                    <input matInput type="date"  [(ngModel)]="agreement.dateDebValidite" [formControl]="dateDebValidite" >
-                                    <mat-icon matSuffix>date_range</mat-icon>
-                                </mat-form-field>
-                            </div>
+                            <mat-form-field  style="margin-left: 7%;margin-top: -75%;"> 
+                                <label>Date Fin</label><br>
+                                <input matInput type="date"  [(ngModel)]="agreement.dateFinValidite" [formControl]="dateFinValidite" >
+                                <mat-icon matSuffix>date_range</mat-icon>
+                            </mat-form-field>
+                        </div>
                     </div>
                     <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                             <div>
                                   <mat-form-field>
-                                      <mat-select placeholder="Soumission" >
-                                        <mat-option value="option">Valider</mat-option>
-                                        <mat-option value="option">Rejeter</mat-option>
+                                      <mat-select placeholder="statut" [formControl]="statutDemande" [(ngModel)]="agreement.statutDemande">
+                                        <mat-option value="valider">Valider</mat-option>
+                                        <mat-option value="rejeter">Rejeter</mat-option>
                                       </mat-select>
                                   </mat-form-field>
                             </div> 
-                            <div  >
-                                    <mat-slide-toggle style="margin-top: 30%;margin-left:33%"
-                                    ngDefaultControl (change)="onChange($event)" [checked]="device"> Statut</mat-slide-toggle>
-                            </div>
                             
                     </div>
               </div>
@@ -78,5 +52,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
-  <button mat-raised-button color="accent" [mat-dialog-close]="true"><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
+  <button mat-raised-button color="accent" (click)=updateAgrement() [mat-dialog-close]="true"><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
 </mat-dialog-actions>

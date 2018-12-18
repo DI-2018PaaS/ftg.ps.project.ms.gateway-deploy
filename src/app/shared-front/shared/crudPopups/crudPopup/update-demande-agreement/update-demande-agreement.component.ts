@@ -27,25 +27,6 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
 
   updateNewAgreement (){
     console.log(this.agreement);
-    this.agreementService.createAgreement({
-      agreementId:0,
-      numeroAgrement: '0', 
-      dateAttibution: this.agreement.dateDebValidite,
-      dateDebValidite: this.agreement.dateDebValidite,
-      dateFinValidite: this.agreement.dateDebValidite,
-      status: true,
-      userCreated: 0,
-      userLastModif: 0,
-      dateCreated: this.agreement.dateDebValidite,
-      dateLastModif: this.agreement.dateDebValidite,
-      niveauAgreement: this.agreement.niveauAgreement,
-      animateurID:"",
-      fournisseurID:"",
-      destinataireID:"",
-      description:""
-
-      
-    });
     this.agreement = {} as Agreement;
      }
     

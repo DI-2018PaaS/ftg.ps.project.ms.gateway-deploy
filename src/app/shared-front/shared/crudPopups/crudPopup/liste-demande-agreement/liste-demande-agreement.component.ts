@@ -11,8 +11,7 @@ import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./liste-demande-agreement.component.scss']
 })
 export class ListeDemandeAgrementDialogComponent implements OnInit {
-    device:number = 1;
-
+  device:number = 1;
   onChange(e: Event) {
         if (e.returnValue == true) {
           this.device = 1;
@@ -26,6 +25,7 @@ export class ListeDemandeAgrementDialogComponent implements OnInit {
   row :any;
   constructor(private agreementService : AgreementService,@Inject(MAT_DIALOG_DATA) public data:any) { 
     this.row = data.row;
+    console.log(this.row.key)
   }
 
   ngOnInit() {
@@ -38,8 +38,16 @@ export class ListeDemandeAgrementDialogComponent implements OnInit {
 
   dateDebValidite = new FormControl();
   niveauAgreement = new FormControl();
- 
+  dateFinValidite = new FormControl();
+  statutDemande = new FormControl();
 
+  updateAgrement(){
+    this.agreementService.updateAgreement(this.row.key, {
+      dateDebValidite: this.agreement.dateDebValidite,
+      dateFinValidite: this.agreement.dateFinValidite,
+      statutDemande: this.agreement.statutDemande
+    })
+  }
 
 
   

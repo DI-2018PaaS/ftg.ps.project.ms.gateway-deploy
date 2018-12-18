@@ -26,6 +26,7 @@ export class DemandeAgrementListComponent implements OnInit {
   agreementRef$ : AngularFireList<Agreement>;
 
   constructor(private agreementService: AgreementService, public db: AngularFireDatabase,private parCrud: CrudPopupComponent) {
+    this.crudComp = parCrud;
     this.db.list(this.dbPath, ref => ref
     .orderByChild('destinataireID')
     .equalTo('banque'))
