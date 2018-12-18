@@ -1,0 +1,84 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="title-top">
+  <div>
+    <h2 class="title">LISTE BOUTIQUE A VALIDER</h2>
+  </div>
+</div>
+<div class="py-8"><button mat-raised-button color="accent" (click)="crudComp.openCreateLigneCredit()">Ajouter une ligne de credit</button></div>
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="nIdProprietaire">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> nIdProprietaire </th>
+      <td mat-cell *matCellDef="let row"> {{row.nIdProprietaire}} </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> nom </th>
+      <td mat-cell *matCellDef="let row"> {{row.nom}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="ref">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ref </th>
+      <td mat-cell *matCellDef="let row"> {{row.ref}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>
+      <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+    </ng-container>
+      <!-- Color Column -->
+      <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> no </th>
+        <td mat-cell *matCellDef="let row"> {{row.no}} </td>
+      </ng-container>
+       <!-- Color Column -->
+       <ng-container matColumnDef="rue">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> rue </th>
+        <td mat-cell *matCellDef="let row"> {{row.rue}} </td>
+      </ng-container>
+       <!-- Color Column -->
+       <ng-container matColumnDef="codep">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> codep </th>
+        <td mat-cell *matCellDef="let row"> {{row.codep}} </td>
+      </ng-container>
+       <!-- Color Column -->
+       <ng-container matColumnDef="ville">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ville </th>
+        <td mat-cell *matCellDef="let row"> {{row.ville}} </td>
+      </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Valider">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Valider </th>
+      <td mat-cell *matCellDef="let row"> {{row.Valider}}
+        <button mat-raised-button >
+          <mat-icon class="orange600">edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Supprimer">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>
+      <td mat-cell *matCellDef="let row" > {{row.Supprimer}}
+        <button mat-raised-button>
+          <mat-icon class="red600">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
