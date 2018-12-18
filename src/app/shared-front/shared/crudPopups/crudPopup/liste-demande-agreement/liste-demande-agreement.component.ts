@@ -40,6 +40,7 @@ export class ListeDemandeAgrementDialogComponent implements OnInit {
   niveauAgreement = new FormControl();
   dateFinValidite = new FormControl();
   statutDemande = new FormControl();
+  
 
   updateAgrement(){
     this.agreementService.updateAgreement(this.row.key, {

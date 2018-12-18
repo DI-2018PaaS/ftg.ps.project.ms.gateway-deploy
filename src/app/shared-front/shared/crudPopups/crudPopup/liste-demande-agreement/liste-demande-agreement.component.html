@@ -4,49 +4,57 @@
         <h2 mat-dialog-title >Details Demande Agreement</h2>
         </div>
 <form class="example-container">
-        <div fxLayout="column" fxFlex="50px">
-               
-             
-                  <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
+        <div fxLayout="column">
                     <div>
-                          <mat-form-field>
-                              <mat-select placeholder="Role demandé" >
-                                <mat-option value="option">Fournisseur</mat-option>
-                                <mat-option value="option">Acheteur</mat-option>
-                              </mat-select>
-                          </mat-form-field>
+                        <mat-form-field style="width:50%">
+                            <input matInput type="text"  value="{{row.animateurID}}" disabled>
+                        </mat-form-field>
                     </div> 
-                  </div>
-                  
-             
-                    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
                         <div>
-                            <mat-form-field  style="margin-top: -75%;"> 
-                                <label>Date Debut</label><br>
-                                <input matInput type="date"  [(ngModel)]="agreement.dateDebValidite" [formControl]="dateDebValidite" >
-                                <mat-icon matSuffix>date_range</mat-icon>
+                            <mat-form-field style="width:100%"> 
+                                <textarea matInput value="{{row.description}}" disabled></textarea>
                             </mat-form-field>
                         </div>
-                        <div>
-                            <mat-form-field  style="margin-left: 7%;margin-top: -75%;"> 
-                                <label>Date Fin</label><br>
-                                <input matInput type="date"  [(ngModel)]="agreement.dateFinValidite" [formControl]="dateFinValidite" >
-                                <mat-icon matSuffix>date_range</mat-icon>
-                            </mat-form-field>
+                        <div fxLayout="row">
+                            <div style="width:50%">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput [matDatepicker]="picker1" placeholder="Date de début" [formControl]="dateDebValidite" [(ngModel)]="agreement.dateDebValidite">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div style="width:50%">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput [matDatepicker]="picker2" placeholder="Date de fin" [formControl]="dateFinValidite" [(ngModel)]="agreement.dateFinValidite">
+                                    <mat-datepicker-toggle matSuffix [for]="picker2">
+                                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                            </div> 
                         </div>
-                    </div>
-                    <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
-                            <div>
-                                  <mat-form-field>
-                                      <mat-select placeholder="statut" [formControl]="statutDemande" [(ngModel)]="agreement.statutDemande">
+                        <div fxLayout="row">
+                                <div style="width:50%">
+                                    <mat-form-field style="width:50%">
+                                        <mat-select placeholder="statut" [formControl]="statutDemande" [(ngModel)]="agreement.statutDemande">
                                         <mat-option value="valider">Valider</mat-option>
                                         <mat-option value="rejeter">Rejeter</mat-option>
-                                      </mat-select>
-                                  </mat-form-field>
-                            </div> 
-                            
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div style="width:50%">
+                                    <mat-form-field style="width:100%">
+                                        <mat-select placeholder="Plafond" [formControl]="niveauAgreement" [(ngModel)]="agreement.niveauAgreement">
+                                        <mat-option value="1">découvert périodique</mat-option>
+                                        <mat-option value="2">refinancement crédit</mat-option>
+                                        <mat-option value="3">dépôt périodique</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div> 
+                        </div>
                     </div>
-              </div>
   
 </form>
 </mat-dialog-content>

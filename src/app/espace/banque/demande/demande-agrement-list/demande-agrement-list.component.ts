@@ -13,7 +13,7 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
   styleUrls: ['./demande-agrement-list.component.scss']
 })
 export class DemandeAgrementListComponent implements OnInit {
-  displayedColumns: string[] = ['numeroAgrement', 'status', 'niveauAgreement', 'dateAttibution','Details','Modifier', 'Supprimer'];
+  displayedColumns: string[] = ['emetteur', 'description','createdDate','Details', 'Supprimer'];
   dataSource = new MatTableDataSource<any>();
   private dbPath = 'agreement-db';
   agreementList = []
@@ -56,14 +56,11 @@ export class DemandeAgrementListComponent implements OnInit {
 }
 
 export interface AgreementElement {
-    agreementId: string;
-    key: string;
-    numeroAgrement: string;
-    dateAttibution: string;
-    status: true;
-    niveauAgreement: number;
+    emetteur:string;
+    description: string;
+    createdDate: string;
     Details:string;
-    Modifier: string;
+    // Modifier: string;
     Supprimer: string;
 }
 

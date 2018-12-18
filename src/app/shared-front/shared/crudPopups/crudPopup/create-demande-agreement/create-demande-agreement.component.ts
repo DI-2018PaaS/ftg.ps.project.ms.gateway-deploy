@@ -42,12 +42,12 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
       userLastModif: 0,
       dateCreated: new Date().toString(),
       dateLastModif: "",
-      niveauAgreement: this.agreement.niveauAgreement,
+      niveauAgreement: 0,
       animateurID:"animateur",
       fournisseurID:"",
       destinataireID:this.agreement.destinataireID,
       description:this.agreement.description,
-      statutDemande:this.agreement.statutDemande,
+      statutDemande:"",
       plafond:""
 
     });
