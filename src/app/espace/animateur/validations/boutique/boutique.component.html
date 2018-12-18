@@ -3,20 +3,13 @@
     <h2 class="title">LISTE BOUTIQUE A VALIDER</h2>
   </div>
 </div>
-<div class="py-8"><button mat-raised-button color="accent" (click)="crudComp.openCreateLigneCredit()">Ajouter une ligne de credit</button></div>
+<div class="py-8"><button mat-raised-button color="accent" >Ajouter une Boutique</button></div>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
-
-    <!-- ID Column -->
-    <ng-container matColumnDef="nIdProprietaire">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> nIdProprietaire </th>
-      <td mat-cell *matCellDef="let row"> {{row.nIdProprietaire}} </td>
-    </ng-container>
-
     <!-- Progress Column -->
     <ng-container matColumnDef="nom">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> nom </th>
@@ -60,7 +53,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Valider </th>
       <td mat-cell *matCellDef="let row"> {{row.Valider}}
         <button mat-raised-button >
-          <mat-icon class="orange600">edit</mat-icon>
+          <mat-icon class="orange600">check_circle_outline</mat-icon>
         </button>
       </td>
     </ng-container>
