@@ -22,7 +22,10 @@ export class BoutiqueService {
 
  
   createBoutique(p: Boutique): void {
-    this.boutiqueRef.push(p);
+    const key = this.db.createPushId();
+    p.key = key;
+    p.isValid= false;
+    this.boutiqueRef.set(key,p)
   }
  
   updateBoutique(key: string, value: any): void {

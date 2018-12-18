@@ -24,7 +24,10 @@ export class ProduitService {
 
  
   createProduit(p: Produit): void {
-    this.produitRef.push(p);
+    const key = this.db.createPushId();
+    p.key = key;
+    p.isValid= false;
+    this.produitRef.set(key,p)
   }
  
   updateProduit(key: string, value: any): void {
