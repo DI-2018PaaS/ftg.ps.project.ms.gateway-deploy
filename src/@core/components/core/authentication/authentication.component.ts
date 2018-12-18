@@ -3,7 +3,12 @@ import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Globals } from 'app/globals/Globals.element';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { LocalStorageService, SessionStorageService } from 'angular-web-storage';
+import {SessionStorageService } from 'angular-web-storage';
+import { RegistrationService } from 'app/service/registration.service';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import { AngularFireList, AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
+import { MatTableDataSource } from '@angular/material';
+import { Util } from 'prismjs';
 
 
 @Component({
@@ -12,18 +17,25 @@ import { LocalStorageService, SessionStorageService } from 'angular-web-storage'
   styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
-
-  constructor(private router: Router, private route: ActivatedRoute, private local: LocalStorageService, private session: SessionStorageService,private globals: Globals) { }
-
   username: string;
   password: string;
   islogin: boolean = false;
-  islog: boolean=false;
   user: Observable<string>;
   token: Observable<string>;
   KEY: string='';
+  utilisateur = {} as Utilisateur
+
+  private dbPath = 'utilisateur-db';
+
+  
   
 
+
+  constructor(private router: Router, private route: ActivatedRoute, private session: SessionStorageService, 
+    private registrationService: RegistrationService ,private globals: Globals, private db: AngularFireDatabase) { 
+      
+    }
+    
   ngOnInit() {
     this.user=this.route
     .queryParamMap
@@ -41,6 +53,7 @@ export class AuthenticationComponent implements OnInit {
         this.session.set(this.KEY, params);
       }
     });
+
   }
     
   
@@ -48,7 +61,7 @@ export class AuthenticationComponent implements OnInit {
   login (): void {
     if (this.username === 'admin' && this.password === 'admin'){
     console.log("auth admin");
-    this.islogin=true;
+    //this.islogin=true;
     this.globals.role="administrateur";
     let navigationExtras: NavigationExtras = {
       queryParams: { 'login': this.username ,'islogin':true },
@@ -122,6 +135,45 @@ export class AuthenticationComponent implements OnInit {
     this.islogin = false;
     this.router.navigate(['']);
     this.session.remove(this.KEY);
+  }
+
+  signIn(): void{
+    this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.username).limitToFirst(1))
+    .valueChanges()
+    .subscribe(res => {
+      this.utilisateur=res[0] as Utilisateur;  
+      if(this.username==this.utilisateur.username && this.password==this.utilisateur.password){
+        if(this.utilisateur.userActeurID==1){
+          this.islogin=true;
+          let navigationExtras: NavigationExtras = {
+            queryParams: { 'login': this.username ,'islogin':true },
+            fragment: 'animateur'
+          };
+          this.router.navigate(['main-anim'], navigationExtras);
+        }
+        else if(this.utilisateur.userActeurID==2){
+          this.islogin=true;
+          let navigationExtras: NavigationExtras = {
+          queryParams: { 'login': this.username ,'islogin':true },
+          fragment: 'shopping'
+         };
+         this.router.navigate(['shopping'], navigationExtras);
+        }
+        else if(this.utilisateur.userActeurID==3){
+            this.islogin=true;
+            let navigationExtras: NavigationExtras = {
+            queryParams: { 'login': this.username ,'islogin':true },
+            fragment: 'fournisseur'
+            };
+            this.router.navigate(['main-magasin'], navigationExtras);
+        }
+      }else{
+        alert('login ou mot de passe invalide');
+      }
+    });
+   
+   
+     
   }
 
 }
