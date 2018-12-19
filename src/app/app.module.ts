@@ -218,6 +218,10 @@ const appRoutes: Routes = [
                 loadChildren: './espace/animateur/suivi-historique/suivi-historique.module#SuiviHistoriqueModule'
             },
             {
+                path: 'anim-valid',
+                loadChildren: './espace/animateur/validations/validations.module#ValidationsModule'
+            },
+            {
                 path: 'anim-statistique',
                 loadChildren: './espace/animateur/statistique/anim-statistique.module#StatistiqueAnimModule'
             },
