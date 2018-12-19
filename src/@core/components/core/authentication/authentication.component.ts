@@ -166,6 +166,20 @@ export class AuthenticationComponent implements OnInit {
             fragment: 'fournisseur'
             };
             this.router.navigate(['main-magasin'], navigationExtras);
+        }else if(this.utilisateur.userActeurID==4){
+          this.islogin=true;
+            let navigationExtras: NavigationExtras = {
+            queryParams: { 'login': this.username ,'islogin':true },
+            fragment: 'administrateur'
+            };
+            this.router.navigate(['main'], navigationExtras);
+        }else if(this.utilisateur.userActeurID==5){
+          this.islogin=true;
+            let navigationExtras: NavigationExtras = {
+            queryParams: { 'login': this.username ,'islogin':true },
+            fragment: 'banque'
+            };
+            this.router.navigate(['banque'], navigationExtras);
         }
       }else{
         alert('login ou mot de passe invalide');

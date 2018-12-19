@@ -1,30 +1,31 @@
 import { Moment } from 'moment';
 import { IPret } from '../pret/pret.model';
 
-export interface ILigneCredit {
+export class LigneCredit {
     id?: number;
-    idLigneCredit?: number;
+    key:string;
+    idLigneCredit?: string;
     libelle?: string;
     description?: string;
-    dateCreation?: Moment;
-    dateMisAjour?: Moment;
-    montant?: number;
+    dateCreation?: string;
+    dateMisAjour?: string;
+    montant?: string;
     idOwner?: number;
     nomFinancier?: string;
-    ligneCredits?: IPret[];
+    // ligneCredits?: IPret[];
 }
 
-export class LigneCredit implements ILigneCredit {
-    constructor(
-        public id?: number,
-        public idLigneCredit?: number,
-        public libelle?: string,
-        public description?: string,
-        public dateCreation?: Moment,
-        public dateMisAjour?: Moment,
-        public montant?: number,
-        public idOwner?: number,
-        public nomFinancier?: string,
-        public ligneCredits?: IPret[]
-    ) {}
-}
+// export class LigneCredit implements ILigneCredit {
+//     constructor(
+//         public id?: number,
+//         public idLigneCredit?: number,
+//         public libelle?: string,
+//         public description?: string,
+//         public dateCreation?: Moment,
+//         public dateMisAjour?: Moment,
+//         public montant?: number,
+//         public idOwner?: number,
+//         public nomFinancier?: string,
+//         public ligneCredits?: IPret[]
+//     ) {}
+// }

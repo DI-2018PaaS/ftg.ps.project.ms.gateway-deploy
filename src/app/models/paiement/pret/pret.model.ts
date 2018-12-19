@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { ILigneCredit } from '../ligne-credit/ligne-credit.model';
+// import { ILigneCredit } from '../ligne-credit/ligne-credit.model';
 import { IEtatPret } from '../etat-pret/etat-pret.model';
 import { IReglementCommande } from '../reglement-commande/reglement-commande.model';
 export class TypePret{
@@ -17,7 +17,7 @@ export interface IPret {
     capitalRestant?: number;
     dateDernierRemb?: Moment;
     idOwner?: number;
-    ligneCredit?: ILigneCredit;
+    // ligneCredit?: ILigneCredit;
     pret?: IEtatPret;
     reglementCommande?: IReglementCommande;
 }
@@ -31,7 +31,7 @@ export class Pret implements IPret {
         public capitalRestant?: number,
         public dateDernierRemb?: Moment,
         public idOwner?: number,
-        public ligneCredit?: ILigneCredit,
+        // public ligneCredit?: ILigneCredit,
         public pret?: IEtatPret,
         public reglementCommande?: IReglementCommande
     ) {}
