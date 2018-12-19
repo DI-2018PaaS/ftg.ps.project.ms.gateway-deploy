@@ -12,7 +12,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class BoutiqueComponent implements OnInit {
 
-  displayedColumns: string[] = ['nIdProprietaire', 'nom', 'ref', 'description','no','rue', 'codep','ville','Valider'];
+  displayedColumns: string[] = ['nom', 'ref', 'description','no','rue', 'codep','ville','Valider'];
   dataSource = new MatTableDataSource<any>();
   private dbPath = 'boutique-db';
   boutiqueList = []
