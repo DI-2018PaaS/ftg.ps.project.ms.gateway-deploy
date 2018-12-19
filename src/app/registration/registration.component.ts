@@ -52,7 +52,7 @@ export class RegistrationComponent implements OnInit {
   createUser(){
     
     if(this.selectedType=="Animateur"){
-      this.animateurService.createAnimateur({
+       var AFK =  this.animateurService.createAnimateur({
         animateurId: 0,
         type: "animateur",
         nom: this.utilisateur.lastName,
@@ -75,7 +75,8 @@ export class RegistrationComponent implements OnInit {
           password: this.utilisateur.password,
           creationDateUser: null,
           lastConnectionDate: null,
-          userActeurID: this.typeActeurs[0].idActeurType
+          userActeurID: this.typeActeurs[0].idActeurType,
+          fkey: AFK.key
         });
         let navigationExtras: NavigationExtras = {
           queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[0].idActeurType},
@@ -85,7 +86,7 @@ export class RegistrationComponent implements OnInit {
         this.animateur = {} as Animateur;
         this.router.navigate(['main-anim'],navigationExtras);
     }else if (this.selectedType=="Acheteur"){
-      this.acheteurService.createAcheteur({
+      var ACFK =  this.acheteurService.createAcheteur({
         acheteurId: 0,
         type:"acheteur",
         nom: this.utilisateur.lastName,
@@ -108,7 +109,8 @@ export class RegistrationComponent implements OnInit {
           password: this.utilisateur.password,
           creationDateUser: null,
           lastConnectionDate: null,
-          userActeurID: this.typeActeurs[1].idActeurType
+          userActeurID: this.typeActeurs[1].idActeurType,
+          fkey:ACFK.key
         });
       
       let navigationExtras: NavigationExtras = {
@@ -119,7 +121,7 @@ export class RegistrationComponent implements OnInit {
       this.utilisateur = {} as Utilisateur;
       this.router.navigate(['shopping'],navigationExtras);
     }else if(this.selectedType=="Fournisseur"){
-      this.fournisseurService.createFournisseur({
+      var FFK =  this.fournisseurService.createFournisseur({
         fournisseurId: 0,
         type:"fournisseur",
         nom: this.utilisateur.lastName,
@@ -142,7 +144,8 @@ export class RegistrationComponent implements OnInit {
           password: this.utilisateur.password,
           creationDateUser: null,
           lastConnectionDate: null,
-          userActeurID: this.typeActeurs[2].idActeurType
+          userActeurID: this.typeActeurs[2].idActeurType,
+          fkey:FFK.key
         });
       
 
@@ -156,8 +159,6 @@ export class RegistrationComponent implements OnInit {
     }else{
       console.log("type doesn't exit");
     }
-  
-
   }
 
 
