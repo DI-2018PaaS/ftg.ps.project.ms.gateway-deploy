@@ -103,7 +103,7 @@ import { AjoutLigneCreditComponent } from './crudPopups/crudPopup/Ajout-ligne-cr
 import { SuiviReglementCommandeComponent } from './crudPopups/crudPopup/Suivi-reglement-commande/Suivi-reglement-commande.component';
 import { RechercherProduitComponent } from './crudPopups/crudPopup/Rechercher-produit/rechercher-produit-dialog.component';
 import { ListeDemandeAgrementDialogComponent } from './crudPopups/crudPopup/liste-demande-agreement/liste-demande-agreement.component';
-
+import { AngularWebStorageModule } from 'angular-web-storage';
 
 @NgModule({
   imports: [
@@ -111,6 +111,7 @@ import { ListeDemandeAgrementDialogComponent } from './crudPopups/crudPopup/list
     RouterModule,
     SwiperModule,
     FlexLayoutModule,
+    AngularWebStorageModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -145,7 +146,8 @@ import { ListeDemandeAgrementDialogComponent } from './crudPopups/crudPopup/list
     PerfectScrollbarModule,
     PipesModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
 
   ],
   exports: [

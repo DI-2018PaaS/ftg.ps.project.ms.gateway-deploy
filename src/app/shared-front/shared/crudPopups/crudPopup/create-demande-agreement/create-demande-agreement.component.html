@@ -6,11 +6,26 @@
 <form class="example-container">
         <div fxLayout="column" fxFlex="50px">
                 <div fxLayout="row"fxLayout.xs="column" fxLayoutGap="5px">
-                    <div style="margin-left:461%;margin-top:-17%">
+                    <div style="margin-left:461%;margin-top:-17%" *ngIf="iDTypeActeur == 1">
                         <mat-form-field >
                             <mat-select placeholder="Destiné à" [(ngModel)]="agreement.destinataireID" [formControl]="destinataireID">
                             <mat-option value="banque">Banque</mat-option>
-                            <mat-option value="animateur">Animateur</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="margin-left:461%;margin-top:-17%" *ngIf="iDTypeActeur == 2">
+                        <mat-form-field >
+                            <mat-select placeholder="Destiné à" [(ngModel)]="agreement.destinataireID" [formControl]="destinataireID">
+                            <mat-option value="banque">Banque</mat-option>
+                            <mat-option value="banque">Animateur</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                      <div style="margin-left:461%;margin-top:-17%" *ngIf="iDTypeActeur == 3">
+                        <mat-form-field >
+                            <mat-select placeholder="Destiné à" [(ngModel)]="agreement.destinataireID" [formControl]="destinataireID">
+                            <mat-option value="banque">Banque</mat-option>
+                            <mat-option value="banque">Animateur</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
