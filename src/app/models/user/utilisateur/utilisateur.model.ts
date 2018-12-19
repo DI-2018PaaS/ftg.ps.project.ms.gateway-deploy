@@ -10,4 +10,5 @@ export class Utilisateur {
     creationDateUser: string;
     lastConnectionDate: string;
     userActeurID: number;
+    fkey:string;
 }

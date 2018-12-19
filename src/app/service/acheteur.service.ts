@@ -14,6 +14,11 @@ export class AcheteurService {
     this.refAcheteurRef=this.db.list(this.dbPath);
   }
 
-  createAcheteur(c: Acheteur): void{
-    this.refAcheteurRef.push(c);}
+  createAcheteur(c: Acheteur){
+    const key = this.db.createPushId();
+    c.key = key;
+    let ref  =  this.refAcheteurRef.push(c);
+    ref.update({key : ref.key})
+    return ref;
+  }
 }

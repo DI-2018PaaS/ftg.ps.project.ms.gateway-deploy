@@ -14,7 +14,11 @@ export class FournisseurService {
     this.refFournisseurRef=this.db.list(this.dbPath);
   }
   
-  createFournisseur(f: Fournisseur): void{
-    this.refFournisseurRef.push(f);}
-
+  createFournisseur(f: Fournisseur){
+    const key = this.db.createPushId();
+    f.key = key;
+    let ref  =  this.refFournisseurRef.push(f);
+    ref.update({key : ref.key})
+    return ref;
+  } 
 }

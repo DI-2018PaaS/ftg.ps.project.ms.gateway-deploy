@@ -27,10 +27,6 @@ export class AuthenticationComponent implements OnInit {
 
   private dbPath = 'utilisateur-db';
 
-  
-  
-
-
   constructor(private router: Router, private route: ActivatedRoute, private session: SessionStorageService, 
     private registrationService: RegistrationService ,private globals: Globals, private db: AngularFireDatabase) { 
       
@@ -142,6 +138,7 @@ export class AuthenticationComponent implements OnInit {
     .valueChanges()
     .subscribe(res => {
       this.utilisateur=res[0] as Utilisateur;  
+      this.session.set('utilisateur', res[0])
       if(this.username==this.utilisateur.username && this.password==this.utilisateur.password){
         if(this.utilisateur.userActeurID==1){
           this.islogin=true;
