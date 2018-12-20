@@ -21,12 +21,15 @@ export class MagasinService {
   }
 
  
-  createMagasin(p: Magasin): void {
+  createMagasin(p: Magasin) {
     console.log('creation magasin service', p);
     const key = this.db.createPushId();
     p.key = key;
+    p.idMagasin = key;
     p.isValid= false;
-    this.magasinRef.set(key,p)
+    let ref = this.magasinRef.push(p)
+    ref.update({key : ref.key})
+    return ref;
   }
  
   updateMagasin(key: string, value: any): void {

@@ -3,6 +3,13 @@ import {FormControl, Validators} from '@angular/forms';
 import { Boutique } from 'app/models/msmagasindomains/boutique/boutique.model';
 import { AngularFireList } from 'angularfire2/database';
 import { BoutiqueService } from 'app/service/boutique.service';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Magasin } from 'app/models/msmagasindomains/magasin/magasin.model';
+import { MagasinService } from 'app/service/magasin.service';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-create-boutique-dialog',
@@ -10,10 +17,19 @@ import { BoutiqueService } from 'app/service/boutique.service';
   styleUrls: ['./create-boutique-dialog.component.scss']
 })
 export class CreateBoutiqueDialogComponent implements OnInit {
+
+  private dbPath = 'magasins-db';
+  utilisateur = {} as Utilisateur;
   hide = true;
+  crudComp: CrudPopupComponent;
+  magasinList = [];
+  dataSource = new MatTableDataSource<any>();
+
   boutique = {} as Boutique;
   boutiqueRef$ : AngularFireList<Boutique>;
-  constructor(private boutiqueService : BoutiqueService) { }
+  magasin = {} as Magasin;
+  magasinRef$ : AngularFireList<Magasin>;
+  constructor(private boutiqueService : BoutiqueService, public db: AngularFireDatabase,private parCrud: CrudPopupComponent,private session: SessionStorageService) { }
 
   ngOnInit() {
   }
@@ -38,6 +54,17 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   //           '';
   // }
 
+  getBoutique(){
+    this.utilisateur = this.session.get("utilisateur")
+    this.db.list(this.dbPath, ref => ref
+    .orderByChild('nIdProprietaire')
+    .equalTo(this.utilisateur.fkey))
+    .valueChanges()
+    .subscribe(res => {
+      this.magasinList.push(res);
+      this.dataSource.data = res;
+    })
+  }
 
   createNewBoutique (){
     console.log(this.boutique);
@@ -49,7 +76,9 @@ export class CreateBoutiqueDialogComponent implements OnInit {
      rue: this.boutique.no,
      codep: this.boutique.codep,
      ville: this.boutique.ville,
-     nIdProprietaire: 0,
+     nIdProprietaire: "",
+     idBoutique: "",
+     fidMagasin: "",
      isValid:false
     });
     this.boutique = {} as Boutique;
