@@ -6,33 +6,48 @@
 <form class="example-container">
         <div fxLayout="column" fxFlex="50px">
                 <div fxLayout="row"fxLayout.xs="column" fxLayoutGap="5px">
-                    <div style="margin-left:461%;margin-top:-17%">
+                    <div style="margin-left:461%;margin-top:-17%" *ngIf="iDTypeActeur == 1">
                         <mat-form-field >
                             <mat-select placeholder="Destiné à" [(ngModel)]="agreement.destinataireID" [formControl]="destinataireID">
                             <mat-option value="banque">Banque</mat-option>
-                            <mat-option value="animateur">Animateur</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="margin-left:461%;margin-top:-17%" *ngIf="iDTypeActeur == 2">
+                        <mat-form-field >
+                            <mat-select placeholder="Destiné à" [(ngModel)]="agreement.destinataireID" [formControl]="destinataireID">
+                            <mat-option value="banque">Banque</mat-option>
+                            <mat-option value="banque">Animateur</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                      <div style="margin-left:461%;margin-top:-17%" *ngIf="iDTypeActeur == 3">
+                        <mat-form-field >
+                            <mat-select placeholder="Destiné à" [(ngModel)]="agreement.destinataireID" [formControl]="destinataireID">
+                            <mat-option value="banque">Banque</mat-option>
+                            <mat-option value="banque">Animateur</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
                 </div>
              
                   <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
-                    <div>
+                    <!-- <div>
                           <mat-form-field>
                               <mat-select placeholder="Role demandé" >
                                 <mat-option value="option">Fournisseur</mat-option>
                               </mat-select>
                           </mat-form-field>
-                    </div> 
-                     <div >
-                               <mat-form-field >
-                                   <mat-select placeholder="Niveau Agreement"  [(ngModel)]="agreement.niveauAgreement" [formControl]="niveauAgreement" >
-                                    <mat-option value="1">Niveau agreement 1</mat-option>
-                                    <mat-option value="2">Niveau agreement 2</mat-option> 
-                                    <mat-option value="3">Niveau agreement 3</mat-option>
-                                   </mat-select>
-                               </mat-form-field>
-                     </div> 
+                    </div>  -->
+                    <!-- <div>
+                        <mat-form-field >
+                            <mat-select placeholder="Niveau Agreement"  [(ngModel)]="agreement.niveauAgreement" [formControl]="niveauAgreement" >
+                            <mat-option value="1">Niveau agreement 1</mat-option>
+                            <mat-option value="2">Niveau agreement 2</mat-option> 
+                            <mat-option value="3">Niveau agreement 3</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>  -->
                   </div>
                     <div fxLayout="row" style="margin-top: 40%;"fxLayout.xs="column" fxLayoutGap="5px">
                         <div style="margin-left: 287%;margin-top: -68%;">

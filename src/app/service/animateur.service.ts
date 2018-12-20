@@ -14,7 +14,11 @@ export class AnimateurService {
     this.refAnimateurRef = this.db.list(this.dbPath);
   }
 
-  createAnimateur(m: Animateur): void{
-    this.refAnimateurRef.push(m);
+  createAnimateur(m: Animateur) {
+    const key = this.db.createPushId();
+    m.key = key;
+    let ref  =  this.refAnimateurRef.push(m);
+    ref.update({key : ref.key})
+    return ref;
   }
 }

@@ -15,9 +15,11 @@ export class RegistrationService{
       this.utilisateurRef = this.db.list(this.dbPath);
     }
 
-createUser(u: Utilisateur): void{
-  
-  this.utilisateurRef.push(u);
-  console.log("user create"+ ":" + this.utilisateurRef);
-}
+createUser(u: Utilisateur){
+  const key = this.db.createPushId();
+    u.key = key;
+    let ref  =  this.utilisateurRef.push(u);
+    ref.update({key : ref.key})
+    return ref;
+  }
 }
