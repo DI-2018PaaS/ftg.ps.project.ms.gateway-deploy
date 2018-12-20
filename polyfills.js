@@ -10398,7 +10398,7 @@ if (typeof SVGElement.prototype.contains === 'undefined') {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\finapps\java project\ftg.ps.project.ms.jgateway-bis\ftg.ps.project.ms.gateway-deploy\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/finetech/Documents/finapps/project/yewuuna/yewuuna-workspace/ftg.ps.project.ms.gateway-deploy/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

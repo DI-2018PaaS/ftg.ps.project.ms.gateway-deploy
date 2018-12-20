@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  livraison-acheteur works!\r\n</p>\r\n"
+module.exports = "<p>\n  livraison-acheteur works!\n</p>\n"
 
 /***/ }),
 

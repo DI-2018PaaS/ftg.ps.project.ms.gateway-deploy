@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\r\n  <div><h2 class=\"title\">SUIVI BOUTIQUES</h2></div>\r\n</div>\r\n<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!-- ID Column -->\r\n    <ng-container matColumnDef=\"NoFoBoutique\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> # Boutique </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.NoFoBoutique}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"Nom\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Nom}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"Date_Emission\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Creation </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Date_Emission}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Adresse\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Adresse </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Adresse}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Contact\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>\r\n        <td mat-cell *matCellDef=\"let row\"> {{row.Contact}} </td>\r\n      </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Details\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Details}}<button mat-icon-button><mat-icon>dehaze</mat-icon></button></td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Modifier\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}<button mat-icon-button (click)=\"crudComp.openUpdateBoutique()\"><i class=\"material-icons s-16\">edit</i></button> </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"Supprimer\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.Supprimer}} <button mat-icon-button><i class=\"material-icons s-16\">delete</i></button></td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n  <button mat-raised-button color=\"primary\" (click)=\"crudComp.openCreateBoutique()\">\r\n      <span>AJOUT + BOUTIQUE</span>\r\n  </button>\r\n</div>"
+module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n  <div><h2 class=\"title\">SUIVI BOUTIQUES</h2></div>\n</div>\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"NoFoBoutique\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> # Boutique </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.NoFoBoutique}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"nom\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.nom}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"ref\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Référence </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.ref}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"ville\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Adresse </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.ville}} </td>\n      </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Details\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Details}}<button mat-icon-button><mat-icon>dehaze</mat-icon></button></td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Modifier\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}<button mat-icon-button (click)=\"crudComp.openUpdateBoutique()\"><i class=\"material-icons s-16\">edit</i></button> </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Supprimer\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Supprimer}} <button mat-icon-button><i class=\"material-icons s-16\">delete</i></button></td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n  <!-- <button mat-raised-button color=\"primary\" (click)=\"crudComp.openCreateBoutique()\">\n      <span>AJOUT + BOUTIQUE</span>\n  </button> -->\n</div>"
 
 /***/ }),
 
@@ -34,7 +34,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FoBoutiqueListComponent", function() { return FoBoutiqueListComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
+/* harmony import */ var app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/service/boutique.service */ "./src/app/service/boutique.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -48,11 +48,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var FoBoutiqueListComponent = /** @class */ (function () {
-    function FoBoutiqueListComponent(parCrud) {
-        this.parCrud = parCrud;
-        this.displayedColumns = ['NoFoBoutique', 'Nom', 'Date_Emission', 'Adresse', 'Contact', 'Details', 'Modifier', 'Supprimer'];
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](ELEMENT_DATA);
-        this.crudComp = this.parCrud;
+    function FoBoutiqueListComponent(boutiqueService) {
+        var _this = this;
+        this.boutiqueService = boutiqueService;
+        this.displayedColumns = ['nom', 'ref', 'description', 'ville', 'Details', 'Modifier', 'Supprimer'];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"]();
+        this.boutiqueList = [];
+        this.hide = true;
+        this.boutique = {};
+        this.boutiqueService.getBoutiqueList().valueChanges().subscribe(function (res) {
+            _this.boutiqueList.push(res);
+            _this.dataSource.data = res;
+        });
+        console.log("boutiques: ", this.boutiqueList);
     }
     FoBoutiqueListComponent.prototype.ngOnInit = function () {
         this.dataSource.paginator = this.paginator;
@@ -78,33 +86,11 @@ var FoBoutiqueListComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./fourn-boutique-list.component.html */ "./src/app/espace/fournisseur/four-boutiques/boutique-list/fourn-boutique-list.component.html"),
             styles: [__webpack_require__(/*! ./fourn-boutique-list.component.scss */ "./src/app/espace/fournisseur/four-boutiques/boutique-list/fourn-boutique-list.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__["BoutiqueService"]])
     ], FoBoutiqueListComponent);
     return FoBoutiqueListComponent;
 }());
 
-var ELEMENT_DATA = [
-    { NoFoBoutique: '1', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sangaga A', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '2', Nom: 'MAG0002', Date_Emission: '10/01/18', Adresse: 'Sandaga C', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '3', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '4', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '5', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '6', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '7', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sangaga A', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '8', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '9', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga F', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '10', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '11', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '12', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '13', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '14', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga B', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '15', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '16', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '17', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '18', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga A', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '19', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-    { NoFoBoutique: '20', Nom: 'BOU0001', Date_Emission: '10/01/18', Adresse: 'Sandaga C', Contact: 'addr@mail.com', Details: '', Modifier: '', Supprimer: '' },
-];
 
 
 /***/ }),

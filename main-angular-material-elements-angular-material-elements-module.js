@@ -92,7 +92,7 @@ var FuseCopierService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-layout simple fullwidth angular-material-elements\">\r\n\r\n    <!-- HEADER -->\r\n    <div class=\"header accent p-24 h-160\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"row\"\r\n         fxLayoutAlign.gt-xs=\"space-between center\">\r\n\r\n        <div fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"column\" fxLayoutAlign.gt-xs=\"center start\">\r\n            <div class=\"black-fg\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n                <mat-icon class=\"secondary-text s-18\">home</mat-icon>\r\n                <mat-icon class=\"secondary-text s-16\">chevron_right</mat-icon>\r\n                <span class=\"secondary-text\">Components</span>\r\n                <mat-icon class=\"secondary-text s-16\">chevron_right</mat-icon>\r\n                <span class=\"secondary-text\">Angular Material Elements</span>\r\n            </div>\r\n            <div class=\"h2 mt-16\">{{title}}</div>\r\n        </div>\r\n\r\n        <a mat-raised-button class=\"reference-button mt-16 mt-sm-0\" href=\"https://material.angular.io/\"\r\n           target=\"_blank\">\r\n            <mat-icon class=\"mr-8\">link</mat-icon>\r\n            <span>Reference</span>\r\n        </a>\r\n    </div>\r\n    <!-- / HEADER -->\r\n\r\n    <!-- CONTENT -->\r\n    <div class=\"content p-24\">\r\n        <div *ngFor=\"let example of examples\">\r\n            <example-viewer [example]=\"example\"></example-viewer>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"page-layout simple fullwidth angular-material-elements\">\n\n    <!-- HEADER -->\n    <div class=\"header accent p-24 h-160\" fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"row\"\n         fxLayoutAlign.gt-xs=\"space-between center\">\n\n        <div fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayout.gt-xs=\"column\" fxLayoutAlign.gt-xs=\"center start\">\n            <div class=\"black-fg\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n                <mat-icon class=\"secondary-text s-18\">home</mat-icon>\n                <mat-icon class=\"secondary-text s-16\">chevron_right</mat-icon>\n                <span class=\"secondary-text\">Components</span>\n                <mat-icon class=\"secondary-text s-16\">chevron_right</mat-icon>\n                <span class=\"secondary-text\">Angular Material Elements</span>\n            </div>\n            <div class=\"h2 mt-16\">{{title}}</div>\n        </div>\n\n        <a mat-raised-button class=\"reference-button mt-16 mt-sm-0\" href=\"https://material.angular.io/\"\n           target=\"_blank\">\n            <mat-icon class=\"mr-8\">link</mat-icon>\n            <span>Reference</span>\n        </a>\n    </div>\n    <!-- / HEADER -->\n\n    <!-- CONTENT -->\n    <div class=\"content p-24\">\n        <div *ngFor=\"let example of examples\">\n            <example-viewer [example]=\"example\"></example-viewer>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1746,7 +1746,7 @@ var EXAMPLE_LIST = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-viewer-wrapper mat-card mat-elevation-z2\">\r\n\r\n    <div class=\"example-viewer-header\">\r\n\r\n        <div class=\"example-viewer-title\">{{exampleData?.title}}</div>\r\n\r\n        <button mat-icon-button type=\"button\" (click)=\"toggleSourceView()\"\r\n                [matTooltip]=\"'View source'\">\r\n            <mat-icon>\r\n                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fit=\"\"\r\n                     preserveAspectRatio=\"xMidYMid meet\" focusable=\"false\">\r\n                    <path fill=\"none\" d=\"M0 0h24v24H0V0z\"></path>\r\n                    <path\r\n                        d=\"M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\"></path>\r\n                </svg>\r\n            </mat-icon>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"example-viewer-source\" [fxShow]=\"showSource\">\r\n\r\n        <mat-tab-group [(selectedIndex)]=\"selectedIndex\">\r\n            <mat-tab label=\"HTML\"></mat-tab>\r\n            <mat-tab label=\"TS\"></mat-tab>\r\n            <mat-tab label=\"CSS\"></mat-tab>\r\n        </mat-tab-group>\r\n        <div class=\"tab-content\">\r\n            <section class=\"tab\" *ngIf=\"selectedIndex === 0\"\r\n                     [@animate]=\"{value:'*',params:{opacity:'0',duration:'200ms'}}\">\r\n                <button mat-icon-button type=\"button\" class=\"example-source-copy\"\r\n                        title=\"Copy example source\" aria-label=\"Copy example source to clipboard\"\r\n                        (click)=\"copySource(htmlView.el.nativeElement.innerText)\">\r\n                    <mat-icon>content_copy</mat-icon>\r\n                </button>\r\n                <fuse-highlight lang=\"html\"\r\n                                [path]=\"'/assets/angular-material-examples/'+example+'/'+example+'-example.html'\">\r\n                </fuse-highlight>\r\n            </section>\r\n\r\n            <section class=\"tab\" *ngIf=\"selectedIndex === 1\"\r\n                     [@animate]=\"{value:'*',params:{opacity:'0',duration:'200ms'}}\">\r\n                <button mat-icon-button type=\"button\" class=\"example-source-copy\"\r\n                        title=\"Copy example source\" aria-label=\"Copy example source to clipboard\"\r\n                        (click)=\"copySource(tsView.el.nativeElement.innerText)\">\r\n                    <mat-icon>content_copy</mat-icon>\r\n                </button>\r\n                <fuse-highlight lang=\"typescript\"\r\n                                [path]=\"'/assets/angular-material-examples/'+example+'/'+example+'-example.ts'\">\r\n                </fuse-highlight>\r\n            </section>\r\n\r\n            <section class=\"tab\" *ngIf=\"selectedIndex === 2\"\r\n                     [@animate]=\"{value:'*',params:{opacity:'0',duration:'200ms'}}\">\r\n                <button mat-icon-button type=\"button\" class=\"example-source-copy\"\r\n                        title=\"Copy example source\" aria-label=\"Copy example source to clipboard\"\r\n                        (click)=\"copySource(cssView.el.nativeElement.innerText)\">\r\n                    <mat-icon>content_copy</mat-icon>\r\n                </button>\r\n                <fuse-highlight lang=\"css\"\r\n                                [path]=\"'/assets/angular-material-examples/'+example+'/'+example+'-example.css'\">\r\n                </fuse-highlight>\r\n            </section>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"example-viewer-body\" [fxHide]=\"showSource\">\r\n        <!--<ng-template [cdkPortalOutlet]=\"selectedPortal\"></ng-template>-->\r\n        <!--<ng-template [cdkPortalOutlet]=\"selectedPortal\"></ng-template>-->\r\n        <div #previewContainer></div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"example-viewer-wrapper mat-card mat-elevation-z2\">\n\n    <div class=\"example-viewer-header\">\n\n        <div class=\"example-viewer-title\">{{exampleData?.title}}</div>\n\n        <button mat-icon-button type=\"button\" (click)=\"toggleSourceView()\"\n                [matTooltip]=\"'View source'\">\n            <mat-icon>\n                <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fit=\"\"\n                     preserveAspectRatio=\"xMidYMid meet\" focusable=\"false\">\n                    <path fill=\"none\" d=\"M0 0h24v24H0V0z\"></path>\n                    <path\n                        d=\"M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\"></path>\n                </svg>\n            </mat-icon>\n        </button>\n    </div>\n\n    <div class=\"example-viewer-source\" [fxShow]=\"showSource\">\n\n        <mat-tab-group [(selectedIndex)]=\"selectedIndex\">\n            <mat-tab label=\"HTML\"></mat-tab>\n            <mat-tab label=\"TS\"></mat-tab>\n            <mat-tab label=\"CSS\"></mat-tab>\n        </mat-tab-group>\n        <div class=\"tab-content\">\n            <section class=\"tab\" *ngIf=\"selectedIndex === 0\"\n                     [@animate]=\"{value:'*',params:{opacity:'0',duration:'200ms'}}\">\n                <button mat-icon-button type=\"button\" class=\"example-source-copy\"\n                        title=\"Copy example source\" aria-label=\"Copy example source to clipboard\"\n                        (click)=\"copySource(htmlView.el.nativeElement.innerText)\">\n                    <mat-icon>content_copy</mat-icon>\n                </button>\n                <fuse-highlight lang=\"html\"\n                                [path]=\"'/assets/angular-material-examples/'+example+'/'+example+'-example.html'\">\n                </fuse-highlight>\n            </section>\n\n            <section class=\"tab\" *ngIf=\"selectedIndex === 1\"\n                     [@animate]=\"{value:'*',params:{opacity:'0',duration:'200ms'}}\">\n                <button mat-icon-button type=\"button\" class=\"example-source-copy\"\n                        title=\"Copy example source\" aria-label=\"Copy example source to clipboard\"\n                        (click)=\"copySource(tsView.el.nativeElement.innerText)\">\n                    <mat-icon>content_copy</mat-icon>\n                </button>\n                <fuse-highlight lang=\"typescript\"\n                                [path]=\"'/assets/angular-material-examples/'+example+'/'+example+'-example.ts'\">\n                </fuse-highlight>\n            </section>\n\n            <section class=\"tab\" *ngIf=\"selectedIndex === 2\"\n                     [@animate]=\"{value:'*',params:{opacity:'0',duration:'200ms'}}\">\n                <button mat-icon-button type=\"button\" class=\"example-source-copy\"\n                        title=\"Copy example source\" aria-label=\"Copy example source to clipboard\"\n                        (click)=\"copySource(cssView.el.nativeElement.innerText)\">\n                    <mat-icon>content_copy</mat-icon>\n                </button>\n                <fuse-highlight lang=\"css\"\n                                [path]=\"'/assets/angular-material-examples/'+example+'/'+example+'-example.css'\">\n                </fuse-highlight>\n            </section>\n        </div>\n    </div>\n\n    <div class=\"example-viewer-body\" [fxHide]=\"showSource\">\n        <!--<ng-template [cdkPortalOutlet]=\"selectedPortal\"></ng-template>-->\n        <!--<ng-template [cdkPortalOutlet]=\"selectedPortal\"></ng-template>-->\n        <div #previewContainer></div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -2049,7 +2049,7 @@ var MaterialModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -2060,7 +2060,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n    <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\r\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n        {{option}}\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n    <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n        {{option}}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -2123,7 +2123,7 @@ var AutocompleteAutoActiveFirstOptionExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -2134,7 +2134,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input type=\"text\" placeholder=\"Assignee\" aria-label=\"Assignee\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n    <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\r\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n        {{option.name}}\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input type=\"text\" placeholder=\"Assignee\" aria-label=\"Assignee\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n    <mat-autocomplete #auto=\"matAutocomplete\" [displayWith]=\"displayFn\">\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n        {{option.name}}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -2205,7 +2205,7 @@ var AutocompleteDisplayExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -2216,7 +2216,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n    <mat-autocomplete #auto=\"matAutocomplete\">\r\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n        {{option}}\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n        {{option}}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -2280,7 +2280,7 @@ var AutocompleteFilterExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -2291,7 +2291,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form [formGroup]=\"stateForm\">\r\n  <mat-form-field>\r\n    <input type=\"text\" matInput placeholder=\"States Group\" formControlName=\"stateGroup\" required [matAutocomplete]=\"autoGroup\">\r\n      <mat-autocomplete #autoGroup=\"matAutocomplete\">\r\n        <mat-optgroup *ngFor=\"let group of stateGroupOptions | async\" [label]=\"group.letter\">\r\n          <mat-option *ngFor=\"let name of group.names\" [value]=\"name\">\r\n            {{name}}\r\n          </mat-option>\r\n      </mat-optgroup>\r\n    </mat-autocomplete>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form [formGroup]=\"stateForm\">\n  <mat-form-field>\n    <input type=\"text\" matInput placeholder=\"States Group\" formControlName=\"stateGroup\" required [matAutocomplete]=\"autoGroup\">\n      <mat-autocomplete #autoGroup=\"matAutocomplete\">\n        <mat-optgroup *ngFor=\"let group of stateGroupOptions | async\" [label]=\"group.letter\">\n          <mat-option *ngFor=\"let name of group.names\" [value]=\"name\">\n            {{name}}\n          </mat-option>\n      </mat-optgroup>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -2429,7 +2429,7 @@ var AutocompleteOptgroupExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n\r\n.example-option-img {\r\n  vertical-align: middle;\r\n  margin-right: 8px;\r\n}\r\n\r\n[dir='rtl'] .example-option-img {\r\n  margin-right: 0;\r\n  margin-left: 8px;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n\n.example-option-img {\n  vertical-align: middle;\n  margin-right: 8px;\n}\n\n[dir='rtl'] .example-option-img {\n  margin-right: 0;\n  margin-left: 8px;\n}\n"
 
 /***/ }),
 
@@ -2440,7 +2440,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\">\r\n    <mat-autocomplete #auto=\"matAutocomplete\">\r\n      <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\r\n        <img class=\"example-option-img\" aria-hidden [src]=\"state.flag\" height=\"25\">\r\n        <span>{{state.name}}</span> |\r\n        <small>Population: {{state.population}}</small>\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>\r\n\r\n  <br>\r\n\r\n  <mat-slide-toggle\r\n    [checked]=\"stateCtrl.disabled\"\r\n    (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">\r\n    Disable Input?\r\n  </mat-slide-toggle>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\">\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\n        <img class=\"example-option-img\" aria-hidden [src]=\"state.flag\" height=\"25\">\n        <span>{{state.name}}</span> |\n        <small>Population: {{state.population}}</small>\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n\n  <br>\n\n  <mat-slide-toggle\n    [checked]=\"stateCtrl.disabled\"\n    (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">\n    Disable Input?\n  </mat-slide-toggle>\n</form>\n"
 
 /***/ }),
 
@@ -2531,7 +2531,7 @@ var AutocompleteOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -2542,7 +2542,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\r\n    <mat-autocomplete #auto=\"matAutocomplete\">\r\n      <mat-option *ngFor=\"let option of options\" [value]=\"option\">\r\n        {{option}}\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n    <mat-autocomplete #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of options\" [value]=\"option\">\n        {{option}}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -2595,7 +2595,7 @@ var AutocompleteSimpleExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -2606,7 +2606,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  <span matBadge=\"4\" matBadgeOverlap=\"false\">Text with a badge</span>\r\n</p>\r\n\r\n<p>\r\n  Button with a badge on the left\r\n  <button mat-raised-button color=\"primary\"\r\n      matBadge=\"8\" matBadgePosition=\"before\" matBadgeColor=\"accent\">\r\n    Action\r\n  </button>\r\n</p>\r\n\r\n<p>\r\n  Icon with a badge\r\n  <mat-icon matBadge=\"15\" matBadgeColor=\"warn\">home</mat-icon>\r\n</p>\r\n\r\n"
+module.exports = "<p>\n  <span matBadge=\"4\" matBadgeOverlap=\"false\">Text with a badge</span>\n</p>\n\n<p>\n  Button with a badge on the left\n  <button mat-raised-button color=\"primary\"\n      matBadge=\"8\" matBadgePosition=\"before\" matBadgeColor=\"accent\">\n    Action\n  </button>\n</p>\n\n<p>\n  Icon with a badge\n  <mat-icon matBadge=\"15\" matBadgeColor=\"warn\">home</mat-icon>\n</p>\n\n"
 
 /***/ }),
 
@@ -2655,7 +2655,7 @@ var BadgeOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-nav-list>\r\n  <a href=\"https://keep.google.com/\" mat-list-item (click)=\"openLink($event)\">\r\n    <span mat-line>Google Keep</span>\r\n    <span mat-line>Add to a note</span>\r\n  </a>\r\n\r\n  <a href=\"https://docs.google.com/\" mat-list-item (click)=\"openLink($event)\">\r\n    <span mat-line>Google Docs</span>\r\n    <span mat-line>Embed in a document</span>\r\n  </a>\r\n\r\n  <a href=\"https://plus.google.com/\" mat-list-item (click)=\"openLink($event)\">\r\n    <span mat-line>Google Plus</span>\r\n    <span mat-line>Share with your friends</span>\r\n  </a>\r\n\r\n  <a href=\"https://hangouts.google.com/\" mat-list-item (click)=\"openLink($event)\">\r\n    <span mat-line>Google Hangouts</span>\r\n    <span mat-line>Show to your coworkers</span>\r\n  </a>\r\n</mat-nav-list>\r\n"
+module.exports = "<mat-nav-list>\n  <a href=\"https://keep.google.com/\" mat-list-item (click)=\"openLink($event)\">\n    <span mat-line>Google Keep</span>\n    <span mat-line>Add to a note</span>\n  </a>\n\n  <a href=\"https://docs.google.com/\" mat-list-item (click)=\"openLink($event)\">\n    <span mat-line>Google Docs</span>\n    <span mat-line>Embed in a document</span>\n  </a>\n\n  <a href=\"https://plus.google.com/\" mat-list-item (click)=\"openLink($event)\">\n    <span mat-line>Google Plus</span>\n    <span mat-line>Share with your friends</span>\n  </a>\n\n  <a href=\"https://hangouts.google.com/\" mat-list-item (click)=\"openLink($event)\">\n    <span mat-line>Google Hangouts</span>\n    <span mat-line>Show to your coworkers</span>\n  </a>\n</mat-nav-list>\n"
 
 /***/ }),
 
@@ -2666,7 +2666,7 @@ module.exports = "<mat-nav-list>\r\n  <a href=\"https://keep.google.com/\" mat-l
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -2677,7 +2677,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>You have receive a file called \"cat-picture.jpeg\".</p>\r\n\r\n<button mat-raised-button (click)=\"openBottomSheet()\">Open file</button>\r\n"
+module.exports = "<p>You have receive a file called \"cat-picture.jpeg\".</p>\n\n<button mat-raised-button (click)=\"openBottomSheet()\">Open file</button>\n"
 
 /***/ }),
 
@@ -2755,7 +2755,7 @@ var BottomSheetOverviewExampleSheet = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -2766,7 +2766,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button>Click me!</button>\r\n"
+module.exports = "<button mat-button>Click me!</button>\n"
 
 /***/ }),
 
@@ -2815,7 +2815,7 @@ var ButtonOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-selected-value {\r\n  margin: 15px 0;\r\n}\r\n"
+module.exports = ".example-selected-value {\n  margin: 15px 0;\n}\n"
 
 /***/ }),
 
@@ -2826,7 +2826,7 @@ module.exports = ".example-selected-value {\r\n  margin: 15px 0;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-button-toggle-group #group=\"matButtonToggleGroup\">\r\n  <mat-button-toggle value=\"left\">\r\n    <mat-icon>format_align_left</mat-icon>\r\n  </mat-button-toggle>\r\n  <mat-button-toggle value=\"center\">\r\n    <mat-icon>format_align_center</mat-icon>\r\n  </mat-button-toggle>\r\n  <mat-button-toggle value=\"right\">\r\n    <mat-icon>format_align_right</mat-icon>\r\n  </mat-button-toggle>\r\n  <mat-button-toggle value=\"justify\" disabled>\r\n    <mat-icon>format_align_justify</mat-icon>\r\n  </mat-button-toggle>\r\n</mat-button-toggle-group>\r\n<div class=\"example-selected-value\">Selected value: {{group.value}}</div>\r\n"
+module.exports = "<mat-button-toggle-group #group=\"matButtonToggleGroup\">\n  <mat-button-toggle value=\"left\">\n    <mat-icon>format_align_left</mat-icon>\n  </mat-button-toggle>\n  <mat-button-toggle value=\"center\">\n    <mat-icon>format_align_center</mat-icon>\n  </mat-button-toggle>\n  <mat-button-toggle value=\"right\">\n    <mat-icon>format_align_right</mat-icon>\n  </mat-button-toggle>\n  <mat-button-toggle value=\"justify\" disabled>\n    <mat-icon>format_align_justify</mat-icon>\n  </mat-button-toggle>\n</mat-button-toggle-group>\n<div class=\"example-selected-value\">Selected value: {{group.value}}</div>\n"
 
 /***/ }),
 
@@ -2875,7 +2875,7 @@ var ButtonToggleExclusiveExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -2886,7 +2886,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-button-toggle-group name=\"fontStyle\" aria-label=\"Font Style\">\r\n  <mat-button-toggle value=\"bold\">Bold</mat-button-toggle>\r\n  <mat-button-toggle value=\"italic\">Italic</mat-button-toggle>\r\n  <mat-button-toggle value=\"underline\">Underline</mat-button-toggle>\r\n</mat-button-toggle-group>\r\n"
+module.exports = "<mat-button-toggle-group name=\"fontStyle\" aria-label=\"Font Style\">\n  <mat-button-toggle value=\"bold\">Bold</mat-button-toggle>\n  <mat-button-toggle value=\"italic\">Italic</mat-button-toggle>\n  <mat-button-toggle value=\"underline\">Underline</mat-button-toggle>\n</mat-button-toggle-group>\n"
 
 /***/ }),
 
@@ -2935,7 +2935,7 @@ var ButtonToggleOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".button-row button,\r\n.button-row a {\r\n  margin-right: 8px;\r\n}\r\n"
+module.exports = ".button-row button,\n.button-row a {\n  margin-right: 8px;\n}\n"
 
 /***/ }),
 
@@ -2946,7 +2946,7 @@ module.exports = ".button-row button,\r\n.button-row a {\r\n  margin-right: 8px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Basic Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-button>Basic</button>\r\n  <button mat-button color=\"primary\">Primary</button>\r\n  <button mat-button color=\"accent\">Accent</button>\r\n  <button mat-button color=\"warn\">Warn</button>\r\n  <button mat-button disabled>Disabled</button>\r\n  <a mat-button routerLink=\".\">Link</a>\r\n</div>\r\n\r\n<h3>Raised Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-raised-button>Basic</button>\r\n  <button mat-raised-button color=\"primary\">Primary</button>\r\n  <button mat-raised-button color=\"accent\">Accent</button>\r\n  <button mat-raised-button color=\"warn\">Warn</button>\r\n  <button mat-raised-button disabled>Disabled</button>\r\n  <a mat-raised-button routerLink=\".\">Link</a>\r\n</div>\r\n\r\n<h3>Stroked Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-stroked-button>Basic</button>\r\n  <button mat-stroked-button color=\"primary\">Primary</button>\r\n  <button mat-stroked-button color=\"accent\">Accent</button>\r\n  <button mat-stroked-button color=\"warn\">Warn</button>\r\n  <button mat-stroked-button disabled>Disabled</button>\r\n  <a mat-stroked-button routerLink=\".\">Link</a>\r\n</div>\r\n\r\n<h3>Flat Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-flat-button>Basic</button>\r\n  <button mat-flat-button color=\"primary\">Primary</button>\r\n  <button mat-flat-button color=\"accent\">Accent</button>\r\n  <button mat-flat-button color=\"warn\">Warn</button>\r\n  <button mat-flat-button disabled>Disabled</button>\r\n  <a mat-flat-button routerLink=\".\">Link</a>\r\n</div>\r\n\r\n<h3>Icon Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-icon-button>\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n  <button mat-icon-button color=\"primary\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n  <button mat-icon-button color=\"accent\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n  <button mat-icon-button color=\"warn\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n  <button mat-icon-button disabled>\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<h3>Fab Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-fab>Basic</button>\r\n  <button mat-fab color=\"primary\">Primary</button>\r\n  <button mat-fab color=\"accent\">Accent</button>\r\n  <button mat-fab color=\"warn\">Warn</button>\r\n  <button mat-fab disabled>Disabled</button>\r\n  <button mat-fab>\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n  <a mat-fab routerLink=\".\">Link</a>\r\n</div>\r\n\r\n<h3>Mini Fab Buttons</h3>\r\n<div class=\"button-row\">\r\n  <button mat-mini-fab>Basic</button>\r\n  <button mat-mini-fab color=\"primary\">Primary</button>\r\n  <button mat-mini-fab color=\"accent\">Accent</button>\r\n  <button mat-mini-fab color=\"warn\">Warn</button>\r\n  <button mat-mini-fab disabled>Disabled</button>\r\n  <button mat-mini-fab>\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\r\n  </button>\r\n  <a mat-mini-fab routerLink=\".\">Link</a>\r\n</div>"
+module.exports = "<h3>Basic Buttons</h3>\n<div class=\"button-row\">\n  <button mat-button>Basic</button>\n  <button mat-button color=\"primary\">Primary</button>\n  <button mat-button color=\"accent\">Accent</button>\n  <button mat-button color=\"warn\">Warn</button>\n  <button mat-button disabled>Disabled</button>\n  <a mat-button routerLink=\".\">Link</a>\n</div>\n\n<h3>Raised Buttons</h3>\n<div class=\"button-row\">\n  <button mat-raised-button>Basic</button>\n  <button mat-raised-button color=\"primary\">Primary</button>\n  <button mat-raised-button color=\"accent\">Accent</button>\n  <button mat-raised-button color=\"warn\">Warn</button>\n  <button mat-raised-button disabled>Disabled</button>\n  <a mat-raised-button routerLink=\".\">Link</a>\n</div>\n\n<h3>Stroked Buttons</h3>\n<div class=\"button-row\">\n  <button mat-stroked-button>Basic</button>\n  <button mat-stroked-button color=\"primary\">Primary</button>\n  <button mat-stroked-button color=\"accent\">Accent</button>\n  <button mat-stroked-button color=\"warn\">Warn</button>\n  <button mat-stroked-button disabled>Disabled</button>\n  <a mat-stroked-button routerLink=\".\">Link</a>\n</div>\n\n<h3>Flat Buttons</h3>\n<div class=\"button-row\">\n  <button mat-flat-button>Basic</button>\n  <button mat-flat-button color=\"primary\">Primary</button>\n  <button mat-flat-button color=\"accent\">Accent</button>\n  <button mat-flat-button color=\"warn\">Warn</button>\n  <button mat-flat-button disabled>Disabled</button>\n  <a mat-flat-button routerLink=\".\">Link</a>\n</div>\n\n<h3>Icon Buttons</h3>\n<div class=\"button-row\">\n  <button mat-icon-button>\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n  <button mat-icon-button color=\"primary\">\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n  <button mat-icon-button color=\"accent\">\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n  <button mat-icon-button color=\"warn\">\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n  <button mat-icon-button disabled>\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n</div>\n\n<h3>Fab Buttons</h3>\n<div class=\"button-row\">\n  <button mat-fab>Basic</button>\n  <button mat-fab color=\"primary\">Primary</button>\n  <button mat-fab color=\"accent\">Accent</button>\n  <button mat-fab color=\"warn\">Warn</button>\n  <button mat-fab disabled>Disabled</button>\n  <button mat-fab>\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n  <a mat-fab routerLink=\".\">Link</a>\n</div>\n\n<h3>Mini Fab Buttons</h3>\n<div class=\"button-row\">\n  <button mat-mini-fab>Basic</button>\n  <button mat-mini-fab color=\"primary\">Primary</button>\n  <button mat-mini-fab color=\"accent\">Accent</button>\n  <button mat-mini-fab color=\"warn\">Warn</button>\n  <button mat-mini-fab disabled>Disabled</button>\n  <button mat-mini-fab>\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">favorite</mat-icon>\n  </button>\n  <a mat-mini-fab routerLink=\".\">Link</a>\n</div>"
 
 /***/ }),
 
@@ -2995,7 +2995,7 @@ var ButtonTypesExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-card {\r\n  max-width: 400px;\r\n}\r\n\r\n.example-header-image {\r\n  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\r\n  background-size: cover;\r\n}\r\n"
+module.exports = ".example-card {\n  max-width: 400px;\n}\n\n.example-header-image {\n  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');\n  background-size: cover;\n}\n"
 
 /***/ }),
 
@@ -3006,7 +3006,7 @@ module.exports = ".example-card {\r\n  max-width: 400px;\r\n}\r\n\r\n.example-he
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"example-card\">\r\n  <mat-card-header>\r\n    <div mat-card-avatar class=\"example-header-image\"></div>\r\n    <mat-card-title>Shiba Inu</mat-card-title>\r\n    <mat-card-subtitle>Dog Breed</mat-card-subtitle>\r\n  </mat-card-header>\r\n  <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\r\n  <mat-card-content>\r\n    <p>\r\n      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\r\n      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\r\n      bred for hunting.\r\n    </p>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <button mat-button>LIKE</button>\r\n    <button mat-button>SHARE</button>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
+module.exports = "<mat-card class=\"example-card\">\n  <mat-card-header>\n    <div mat-card-avatar class=\"example-header-image\"></div>\n    <mat-card-title>Shiba Inu</mat-card-title>\n    <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n  </mat-card-header>\n  <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n  <mat-card-content>\n    <p>\n      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n      bred for hunting.\n    </p>\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button>LIKE</button>\n    <button mat-button>SHARE</button>\n  </mat-card-actions>\n</mat-card>\n"
 
 /***/ }),
 
@@ -3055,7 +3055,7 @@ var CardFancyExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -3066,7 +3066,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>Simple card</mat-card>\r\n"
+module.exports = "<mat-card>Simple card</mat-card>\n"
 
 /***/ }),
 
@@ -3115,7 +3115,7 @@ var CardOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/**\r\n * Add basic flex styling so that the cells evenly space themselves in the row.\r\n */\r\ncdk-row, cdk-header-row, cdk-footer-row {\r\n  display: flex;\r\n}\r\ncdk-cell, cdk-header-cell, cdk-footer-cell {\r\n  flex: 1;\r\n}\r\n"
+module.exports = "/**\n * Add basic flex styling so that the cells evenly space themselves in the row.\n */\ncdk-row, cdk-header-row, cdk-footer-row {\n  display: flex;\n}\ncdk-cell, cdk-header-cell, cdk-footer-cell {\n  flex: 1;\n}\n"
 
 /***/ }),
 
@@ -3126,7 +3126,7 @@ module.exports = "/**\r\n * Add basic flex styling so that the cells evenly spac
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<cdk-table [dataSource]=\"dataSource\">\r\n  <!-- Position Column -->\r\n  <ng-container cdkColumnDef=\"position\">\r\n    <cdk-header-cell *cdkHeaderCellDef> No. </cdk-header-cell>\r\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.position}} </cdk-cell>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container cdkColumnDef=\"name\">\r\n    <cdk-header-cell *cdkHeaderCellDef> Name </cdk-header-cell>\r\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.name}} </cdk-cell>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container cdkColumnDef=\"weight\">\r\n    <cdk-header-cell *cdkHeaderCellDef> Weight </cdk-header-cell>\r\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.weight}} </cdk-cell>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container cdkColumnDef=\"symbol\">\r\n    <cdk-header-cell *cdkHeaderCellDef> Symbol </cdk-header-cell>\r\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.symbol}} </cdk-cell>\r\n  </ng-container>\r\n\r\n  <cdk-header-row *cdkHeaderRowDef=\"displayedColumns\"></cdk-header-row>\r\n  <cdk-row *cdkRowDef=\"let row; columns: displayedColumns;\"></cdk-row>\r\n</cdk-table>\r\n"
+module.exports = "<cdk-table [dataSource]=\"dataSource\">\n  <!-- Position Column -->\n  <ng-container cdkColumnDef=\"position\">\n    <cdk-header-cell *cdkHeaderCellDef> No. </cdk-header-cell>\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.position}} </cdk-cell>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container cdkColumnDef=\"name\">\n    <cdk-header-cell *cdkHeaderCellDef> Name </cdk-header-cell>\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.name}} </cdk-cell>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container cdkColumnDef=\"weight\">\n    <cdk-header-cell *cdkHeaderCellDef> Weight </cdk-header-cell>\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.weight}} </cdk-cell>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container cdkColumnDef=\"symbol\">\n    <cdk-header-cell *cdkHeaderCellDef> Symbol </cdk-header-cell>\n    <cdk-cell *cdkCellDef=\"let element\"> {{element.symbol}} </cdk-cell>\n  </ng-container>\n\n  <cdk-header-row *cdkHeaderRowDef=\"displayedColumns\"></cdk-header-row>\n  <cdk-row *cdkRowDef=\"let row; columns: displayedColumns;\"></cdk-row>\n</cdk-table>\n"
 
 /***/ }),
 
@@ -3227,7 +3227,7 @@ var ExampleDataSource = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\nth {\r\n  text-align: left;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\nth {\n  text-align: left;\n}\n"
 
 /***/ }),
 
@@ -3238,7 +3238,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\nth {\r\n  text-align: le
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table cdk-table [dataSource]=\"dataSource\">\r\n  <!-- Position Column -->\r\n  <ng-container cdkColumnDef=\"position\">\r\n    <th cdk-header-cell *cdkHeaderCellDef> No. </th>\r\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.position}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container cdkColumnDef=\"name\">\r\n    <th cdk-header-cell *cdkHeaderCellDef> Name </th>\r\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.name}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container cdkColumnDef=\"weight\">\r\n    <th cdk-header-cell *cdkHeaderCellDef> Weight </th>\r\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.weight}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container cdkColumnDef=\"symbol\">\r\n    <th cdk-header-cell *cdkHeaderCellDef> Symbol </th>\r\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.symbol}} </td>\r\n  </ng-container>\r\n\r\n  <tr cdk-header-row *cdkHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr cdk-row *cdkRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n"
+module.exports = "<table cdk-table [dataSource]=\"dataSource\">\n  <!-- Position Column -->\n  <ng-container cdkColumnDef=\"position\">\n    <th cdk-header-cell *cdkHeaderCellDef> No. </th>\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container cdkColumnDef=\"name\">\n    <th cdk-header-cell *cdkHeaderCellDef> Name </th>\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container cdkColumnDef=\"weight\">\n    <th cdk-header-cell *cdkHeaderCellDef> Weight </th>\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.weight}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container cdkColumnDef=\"symbol\">\n    <th cdk-header-cell *cdkHeaderCellDef> Symbol </th>\n    <td cdk-cell *cdkCellDef=\"let element\"> {{element.symbol}} </td>\n  </ng-container>\n\n  <tr cdk-header-row *cdkHeaderRowDef=\"displayedColumns\"></tr>\n  <tr cdk-row *cdkRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -3339,7 +3339,7 @@ var ExampleDataSource = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-tree-node {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n"
+module.exports = ".example-tree-node {\n  display: flex;\n  align-items: center;\n}\n"
 
 /***/ }),
 
@@ -3350,7 +3350,7 @@ module.exports = ".example-tree-node {\r\n  display: flex;\r\n  align-items: cen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<cdk-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n  <cdk-tree-node *cdkTreeNodeDef=\"let node\" cdkTreeNodePadding class=\"example-tree-node\">\r\n    <button mat-icon-button disabled></button>\r\n    {{node.filename}}:  {{node.type}}\r\n  </cdk-tree-node>\r\n  <cdk-tree-node *cdkTreeNodeDef=\"let node; when: hasChild\" cdkTreeNodePadding class=\"example-tree-node\">\r\n    <button mat-icon-button [attr.aria-label]=\"'toggle ' + node.filename\" cdkTreeNodeToggle>\r\n      <mat-icon class=\"mat-icon-rtl-mirror\">\r\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n      </mat-icon>\r\n    </button>\r\n    {{node.filename}}:  {{node.type}}\r\n  </cdk-tree-node>\r\n</cdk-tree>\r\n"
+module.exports = "<cdk-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <cdk-tree-node *cdkTreeNodeDef=\"let node\" cdkTreeNodePadding class=\"example-tree-node\">\n    <button mat-icon-button disabled></button>\n    {{node.filename}}:  {{node.type}}\n  </cdk-tree-node>\n  <cdk-tree-node *cdkTreeNodeDef=\"let node; when: hasChild\" cdkTreeNodePadding class=\"example-tree-node\">\n    <button mat-icon-button [attr.aria-label]=\"'toggle ' + node.filename\" cdkTreeNodeToggle>\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    {{node.filename}}:  {{node.type}}\n  </cdk-tree-node>\n</cdk-tree>\n"
 
 /***/ }),
 
@@ -3540,7 +3540,7 @@ var CdkTreeFlatExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-tree-invisible {\r\n  display: none;\r\n}\r\n\r\n.example-tree ul,\r\n.example-tree li {\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  list-style-type: none;\r\n}\r\n\r\n.example-tree-node {\r\n  display: block;\r\n  padding-left: 40px;\r\n}\r\n"
+module.exports = ".example-tree-invisible {\n  display: none;\n}\n\n.example-tree ul,\n.example-tree li {\n  margin-top: 0;\n  margin-bottom: 0;\n  list-style-type: none;\n}\n\n.example-tree-node {\n  display: block;\n  padding-left: 40px;\n}\n"
 
 /***/ }),
 
@@ -3551,7 +3551,7 @@ module.exports = ".example-tree-invisible {\r\n  display: none;\r\n}\r\n\r\n.exa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<cdk-tree [dataSource]=\"nestedDataSource\" [treeControl]=\"nestedTreeControl\">\r\n  <cdk-nested-tree-node *cdkTreeNodeDef=\"let node\" class=\"example-tree-node\">\r\n    <button mat-icon-button disabled></button>\r\n    {{node.filename}}:  {{node.type}}\r\n  </cdk-nested-tree-node>\r\n  <cdk-nested-tree-node *cdkTreeNodeDef=\"let node; when: hasNestedChild\" class=\"example-tree-node\">\r\n    <button mat-icon-button [attr.aria-label]=\"'toggle ' + node.filename\" cdkTreeNodeToggle>\r\n      <mat-icon class=\"mat-icon-rtl-mirror\">\r\n        {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n      </mat-icon>\r\n    </button>\r\n    {{node.filename}}:  {{node.type}}\r\n    <div [class.example-tree-invisible]=\"!nestedTreeControl.isExpanded(node)\">\r\n      <ng-container cdkTreeNodeOutlet></ng-container>\r\n    </div>\r\n  </cdk-nested-tree-node>\r\n</cdk-tree>\r\n"
+module.exports = "<cdk-tree [dataSource]=\"nestedDataSource\" [treeControl]=\"nestedTreeControl\">\n  <cdk-nested-tree-node *cdkTreeNodeDef=\"let node\" class=\"example-tree-node\">\n    <button mat-icon-button disabled></button>\n    {{node.filename}}:  {{node.type}}\n  </cdk-nested-tree-node>\n  <cdk-nested-tree-node *cdkTreeNodeDef=\"let node; when: hasNestedChild\" class=\"example-tree-node\">\n    <button mat-icon-button [attr.aria-label]=\"'toggle ' + node.filename\" cdkTreeNodeToggle>\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    {{node.filename}}:  {{node.type}}\n    <div [class.example-tree-invisible]=\"!nestedTreeControl.isExpanded(node)\">\n      <ng-container cdkTreeNodeOutlet></ng-container>\n    </div>\n  </cdk-nested-tree-node>\n</cdk-tree>\n"
 
 /***/ }),
 
@@ -3720,7 +3720,7 @@ var CdkTreeNestedExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  height: 60px;\r\n}\r\n\r\n.example-margin {\r\n  margin: 0 10px;\r\n}\r\n"
+module.exports = ".example-h2 {\n  margin: 10px;\n}\n\n.example-section {\n  display: flex;\n  align-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n.example-margin {\n  margin: 0 10px;\n}\n"
 
 /***/ }),
 
@@ -3731,7 +3731,7 @@ module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Checkbox configuration</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"checked\">Checked</mat-checkbox>\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"indeterminate\">Indeterminate</mat-checkbox>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <label class=\"example-margin\">Align:</label>\r\n      <mat-radio-group [(ngModel)]=\"labelPosition\">\r\n        <mat-radio-button class=\"example-margin\" value=\"after\">After</mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"before\">Before</mat-radio-button>\r\n      </mat-radio-group>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"disabled\">Disabled</mat-checkbox>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n<mat-card class=\"result\">\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Result</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox\r\n          class=\"example-margin\"\r\n          [(ngModel)]=\"checked\"\r\n          [(indeterminate)]=\"indeterminate\"\r\n          [labelPosition]=\"labelPosition\"\r\n          [disabled]=\"disabled\">\r\n        I'm a checkbox\r\n      </mat-checkbox>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n"
+module.exports = "<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Checkbox configuration</h2>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"checked\">Checked</mat-checkbox>\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"indeterminate\">Indeterminate</mat-checkbox>\n    </section>\n\n    <section class=\"example-section\">\n      <label class=\"example-margin\">Align:</label>\n      <mat-radio-group [(ngModel)]=\"labelPosition\">\n        <mat-radio-button class=\"example-margin\" value=\"after\">After</mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"before\">Before</mat-radio-button>\n      </mat-radio-group>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"disabled\">Disabled</mat-checkbox>\n    </section>\n  </mat-card-content>\n</mat-card>\n\n<mat-card class=\"result\">\n  <mat-card-content>\n    <h2 class=\"example-h2\">Result</h2>\n\n    <section class=\"example-section\">\n      <mat-checkbox\n          class=\"example-margin\"\n          [(ngModel)]=\"checked\"\n          [(indeterminate)]=\"indeterminate\"\n          [labelPosition]=\"labelPosition\"\n          [disabled]=\"disabled\">\n        I'm a checkbox\n      </mat-checkbox>\n    </section>\n  </mat-card-content>\n</mat-card>\n\n"
 
 /***/ }),
 
@@ -3784,7 +3784,7 @@ var CheckboxConfigurableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -3795,7 +3795,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-checkbox>Check me!</mat-checkbox>\r\n"
+module.exports = "<mat-checkbox>Check me!</mat-checkbox>\n"
 
 /***/ }),
 
@@ -3844,7 +3844,7 @@ var CheckboxOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-chip-list {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-chip-list {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -3855,7 +3855,7 @@ module.exports = ".example-chip-list {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-chip-list\">\r\n  <mat-chip-list #chipList>\r\n    <mat-chip\r\n      *ngFor=\"let fruit of fruits\"\r\n      [selectable]=\"selectable\"\r\n      [removable]=\"removable\"\r\n      (removed)=\"remove(fruit)\">\r\n      {{fruit}}\r\n      <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n    </mat-chip>\r\n    <input\r\n      placeholder=\"New fruit...\"\r\n      #fruitInput\r\n      [formControl]=\"fruitCtrl\"\r\n      [matAutocomplete]=\"auto\"\r\n      [matChipInputFor]=\"chipList\"\r\n      [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\r\n      [matChipInputAddOnBlur]=\"addOnBlur\"\r\n      (matChipInputTokenEnd)=\"add($event)\">\r\n  </mat-chip-list>\r\n  <mat-autocomplete #auto=\"matAutocomplete\" (optionSelected)=\"selected($event)\">\r\n    <mat-option *ngFor=\"let fruit of filteredFruits | async\" [value]=\"fruit\">\r\n      {{fruit}}\r\n    </mat-option>\r\n  </mat-autocomplete>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-chip-list\">\n  <mat-chip-list #chipList>\n    <mat-chip\n      *ngFor=\"let fruit of fruits\"\n      [selectable]=\"selectable\"\n      [removable]=\"removable\"\n      (removed)=\"remove(fruit)\">\n      {{fruit}}\n      <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n    </mat-chip>\n    <input\n      placeholder=\"New fruit...\"\n      #fruitInput\n      [formControl]=\"fruitCtrl\"\n      [matAutocomplete]=\"auto\"\n      [matChipInputFor]=\"chipList\"\n      [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n      [matChipInputAddOnBlur]=\"addOnBlur\"\n      (matChipInputTokenEnd)=\"add($event)\">\n  </mat-chip-list>\n  <mat-autocomplete #auto=\"matAutocomplete\" (optionSelected)=\"selected($event)\">\n    <mat-option *ngFor=\"let fruit of filteredFruits | async\" [value]=\"fruit\">\n      {{fruit}}\n    </mat-option>\n  </mat-autocomplete>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -3956,7 +3956,7 @@ var ChipsAutocompleteExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-chip-list {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-chip-list {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -3967,7 +3967,7 @@ module.exports = ".example-chip-list {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-chip-list\">\r\n  <mat-chip-list #chipList>\r\n    <mat-chip *ngFor=\"let fruit of fruits\" [selectable]=\"selectable\"\r\n             [removable]=\"removable\" (removed)=\"remove(fruit)\">\r\n      {{fruit.name}}\r\n      <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n    </mat-chip>\r\n    <input placeholder=\"New fruit...\"\r\n           [matChipInputFor]=\"chipList\"\r\n           [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\r\n           [matChipInputAddOnBlur]=\"addOnBlur\"\r\n           (matChipInputTokenEnd)=\"add($event)\">\r\n  </mat-chip-list>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-chip-list\">\n  <mat-chip-list #chipList>\n    <mat-chip *ngFor=\"let fruit of fruits\" [selectable]=\"selectable\"\n             [removable]=\"removable\" (removed)=\"remove(fruit)\">\n      {{fruit.name}}\n      <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n    </mat-chip>\n    <input placeholder=\"New fruit...\"\n           [matChipInputFor]=\"chipList\"\n           [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n           [matChipInputAddOnBlur]=\"addOnBlur\"\n           (matChipInputTokenEnd)=\"add($event)\">\n  </mat-chip-list>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4046,7 +4046,7 @@ var ChipsInputExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4057,7 +4057,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-chip-list>\r\n  <mat-chip>One fish</mat-chip>\r\n  <mat-chip>Two fish</mat-chip>\r\n  <mat-chip color=\"primary\" selected>Primary fish</mat-chip>\r\n  <mat-chip color=\"accent\" selected>Accent fish</mat-chip>\r\n</mat-chip-list>\r\n"
+module.exports = "<mat-chip-list>\n  <mat-chip>One fish</mat-chip>\n  <mat-chip>Two fish</mat-chip>\n  <mat-chip color=\"primary\" selected>Primary fish</mat-chip>\n  <mat-chip color=\"accent\" selected>Accent fish</mat-chip>\n</mat-chip-list>\n"
 
 /***/ }),
 
@@ -4106,7 +4106,7 @@ var ChipsOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-chip {\r\n  max-width: 200px;\r\n}\r\n"
+module.exports = "mat-chip {\n  max-width: 200px;\n}\n"
 
 /***/ }),
 
@@ -4117,7 +4117,7 @@ module.exports = "mat-chip {\r\n  max-width: 200px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-chip-list class=\"mat-chip-list-stacked\">\r\n  <mat-chip *ngFor=\"let chip of availableColors\" selected [color]=\"chip.color\">\r\n    {{chip.name}}\r\n  </mat-chip>\r\n</mat-chip-list>\r\n"
+module.exports = "<mat-chip-list class=\"mat-chip-list-stacked\">\n  <mat-chip *ngFor=\"let chip of availableColors\" selected [color]=\"chip.color\">\n    {{chip.name}}\n  </mat-chip>\n</mat-chip-list>\n"
 
 /***/ }),
 
@@ -4172,7 +4172,7 @@ var ChipsStackedExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4183,7 +4183,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-full-width\">\r\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker #picker></mat-datepicker>\r\n</mat-form-field>\r\n<button mat-raised-button (click)=\"picker.open()\">Open</button>\r\n"
+module.exports = "<mat-form-field class=\"example-full-width\">\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n<button mat-raised-button (click)=\"picker.open()\">Open</button>\n"
 
 /***/ }),
 
@@ -4230,7 +4230,7 @@ var DatepickerApiExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4241,7 +4241,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field color=\"accent\">\r\n  <mat-label>Inherited calendar color</mat-label>\r\n  <input matInput [matDatepicker]=\"picker1\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker1></mat-datepicker>\r\n</mat-form-field>\r\n\r\n<mat-form-field color=\"accent\">\r\n  <mat-label>Custom calendar color</mat-label>\r\n  <input matInput [matDatepicker]=\"picker2\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker2 color=\"primary\"></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field color=\"accent\">\n  <mat-label>Inherited calendar color</mat-label>\n  <input matInput [matDatepicker]=\"picker1\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n  <mat-datepicker #picker1></mat-datepicker>\n</mat-form-field>\n\n<mat-form-field color=\"accent\">\n  <mat-label>Custom calendar color</mat-label>\n  <input matInput [matDatepicker]=\"picker2\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n  <mat-datepicker #picker2 color=\"primary\"></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4288,7 +4288,7 @@ var DatepickerColorExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-header {\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 0.5em;\r\n}\r\n\r\n.example-header-label {\r\n  flex: 1;\r\n  height: 1em;\r\n  font-weight: bold;\r\n  text-align: center;\r\n}\r\n\r\n.example-double-arrow .mat-icon {\r\n  margin: -22%;\r\n}\r\n"
+module.exports = ".example-header {\n  display: flex;\n  align-items: center;\n  padding: 0.5em;\n}\n\n.example-header-label {\n  flex: 1;\n  height: 1em;\n  font-weight: bold;\n  text-align: center;\n}\n\n.example-double-arrow .mat-icon {\n  margin: -22%;\n}\n"
 
 /***/ }),
 
@@ -4299,7 +4299,7 @@ module.exports = ".example-header {\r\n  display: flex;\r\n  align-items: center
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-label>Custom calendar header</mat-label>\r\n  <input matInput [matDatepicker]=\"picker\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker [calendarHeaderComponent]=\"exampleHeader\"></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-label>Custom calendar header</mat-label>\n  <input matInput [matDatepicker]=\"picker\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker [calendarHeaderComponent]=\"exampleHeader\"></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4411,7 +4411,7 @@ var ExampleHeader = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4422,7 +4422,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-full-width\">\r\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\">\r\n    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>\r\n  </mat-datepicker-toggle>\r\n  <mat-datepicker #picker></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-full-width\">\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\">\n    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>\n  </mat-datepicker-toggle>\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4469,7 +4469,7 @@ var DatepickerCustomIconExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4480,7 +4480,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"dp1\" placeholder=\"Completely disabled\" disabled>\r\n    <mat-datepicker-toggle matSuffix [for]=\"dp1\"></mat-datepicker-toggle>\r\n    <mat-datepicker #dp1></mat-datepicker>\r\n  </mat-form-field>\r\n</p>\r\n\r\n<p>\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"dp2\" placeholder=\"Popup disabled\">\r\n    <mat-datepicker-toggle matSuffix [for]=\"dp2\" disabled></mat-datepicker-toggle>\r\n    <mat-datepicker #dp2></mat-datepicker>\r\n  </mat-form-field>\r\n</p>\r\n\r\n<p>\r\n  <mat-form-field>\r\n    <input matInput [matDatepicker]=\"dp3\" placeholder=\"Input disabled\" disabled>\r\n    <mat-datepicker-toggle matSuffix [for]=\"dp3\"></mat-datepicker-toggle>\r\n    <mat-datepicker #dp3 disabled=\"false\"></mat-datepicker>\r\n  </mat-form-field>\r\n</p>\r\n"
+module.exports = "<p>\n  <mat-form-field>\n    <input matInput [matDatepicker]=\"dp1\" placeholder=\"Completely disabled\" disabled>\n    <mat-datepicker-toggle matSuffix [for]=\"dp1\"></mat-datepicker-toggle>\n    <mat-datepicker #dp1></mat-datepicker>\n  </mat-form-field>\n</p>\n\n<p>\n  <mat-form-field>\n    <input matInput [matDatepicker]=\"dp2\" placeholder=\"Popup disabled\">\n    <mat-datepicker-toggle matSuffix [for]=\"dp2\" disabled></mat-datepicker-toggle>\n    <mat-datepicker #dp2></mat-datepicker>\n  </mat-form-field>\n</p>\n\n<p>\n  <mat-form-field>\n    <input matInput [matDatepicker]=\"dp3\" placeholder=\"Input disabled\" disabled>\n    <mat-datepicker-toggle matSuffix [for]=\"dp3\"></mat-datepicker-toggle>\n    <mat-datepicker #dp3 disabled=\"false\"></mat-datepicker>\n  </mat-form-field>\n</p>\n"
 
 /***/ }),
 
@@ -4527,7 +4527,7 @@ var DatepickerDisabledExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-events {\r\n  width: 400px;\r\n  height: 200px;\r\n  border: 1px solid #555;\r\n  overflow: auto;\r\n}\r\n"
+module.exports = ".example-events {\n  width: 400px;\n  height: 200px;\n  border: 1px solid #555;\n  overflow: auto;\n}\n"
 
 /***/ }),
 
@@ -4538,7 +4538,7 @@ module.exports = ".example-events {\r\n  width: 400px;\r\n  height: 200px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Input & change events\"\r\n         (dateInput)=\"addEvent('input', $event)\" (dateChange)=\"addEvent('change', $event)\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker></mat-datepicker>\r\n</mat-form-field>\r\n\r\n<div class=\"example-events\">\r\n  <div *ngFor=\"let e of events\">{{e}}</div>\r\n</div>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Input & change events\"\n         (dateInput)=\"addEvent('input', $event)\" (dateChange)=\"addEvent('change', $event)\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n\n<div class=\"example-events\">\n  <div *ngFor=\"let e of events\">{{e}}</div>\n</div>\n"
 
 /***/ }),
 
@@ -4589,7 +4589,7 @@ var DatepickerEventsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4600,7 +4600,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-full-width\">\r\n  <input matInput [matDatepickerFilter]=\"myFilter\" [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-full-width\">\n  <input matInput [matDatepickerFilter]=\"myFilter\" [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4652,7 +4652,7 @@ var DatepickerFilterExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4663,7 +4663,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Verbose datepicker\" [formControl]=\"date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\r\n  <mat-datepicker #dp></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Verbose datepicker\" [formControl]=\"date\">\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\n  <mat-datepicker #dp></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4749,7 +4749,7 @@ var DatepickerFormatsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4760,7 +4760,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Different locale\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\r\n  <mat-datepicker #dp></mat-datepicker>\r\n</mat-form-field>\r\n\r\n<button mat-button (click)=\"french()\">Dynamically switch to French</button>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Different locale\">\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\n  <mat-datepicker #dp></mat-datepicker>\n</mat-form-field>\n\n<button mat-button (click)=\"french()\">Dynamically switch to French</button>\n"
 
 /***/ }),
 
@@ -4829,7 +4829,7 @@ var DatepickerLocaleExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4840,7 +4840,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-full-width\">\r\n  <input matInput [min]=\"minDate\" [max]=\"maxDate\" [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-full-width\">\n  <input matInput [min]=\"minDate\" [max]=\"maxDate\" [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4889,7 +4889,7 @@ var DatepickerMinMaxExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4900,7 +4900,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Moment.js datepicker\" [formControl]=\"date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\r\n  <mat-datepicker #dp></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Moment.js datepicker\" [formControl]=\"date\">\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\n  <mat-datepicker #dp></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -4973,7 +4973,7 @@ var DatepickerMomentExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -4984,7 +4984,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -5031,7 +5031,7 @@ var DatepickerOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5042,7 +5042,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker startView=\"year\" [startAt]=\"startDate\"></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker #picker startView=\"year\" [startAt]=\"startDate\"></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -5090,7 +5090,7 @@ var DatepickerStartViewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5101,7 +5101,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-full-width\">\r\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n  <mat-datepicker touchUi #picker></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-full-width\">\n  <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n  <mat-datepicker touchUi #picker></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -5148,7 +5148,7 @@ var DatepickerTouchExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5159,7 +5159,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"picker1\" placeholder=\"Angular forms\" [formControl]=\"date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker1></mat-datepicker>\r\n</mat-form-field>\r\n\r\n<mat-form-field>\r\n  <input matInput [matDatepicker]=\"picker2\" placeholder=\"Angular forms (w/ deserialization)\"\r\n         [formControl]=\"serializedDate\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker2></mat-datepicker>\r\n</mat-form-field>\r\n\r\n<mat-form-field>\r\n  <input matInput [matDatepicker]=\"picker3\" placeholder=\"Value binding\" [value]=\"date.value\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"picker3\"></mat-datepicker-toggle>\r\n  <mat-datepicker #picker3></mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"picker1\" placeholder=\"Angular forms\" [formControl]=\"date\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n  <mat-datepicker #picker1></mat-datepicker>\n</mat-form-field>\n\n<mat-form-field>\n  <input matInput [matDatepicker]=\"picker2\" placeholder=\"Angular forms (w/ deserialization)\"\n         [formControl]=\"serializedDate\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker2\"></mat-datepicker-toggle>\n  <mat-datepicker #picker2></mat-datepicker>\n</mat-form-field>\n\n<mat-form-field>\n  <input matInput [matDatepicker]=\"picker3\" placeholder=\"Value binding\" [value]=\"date.value\">\n  <mat-datepicker-toggle matSuffix [for]=\"picker3\"></mat-datepicker-toggle>\n  <mat-datepicker #picker3></mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -5210,7 +5210,7 @@ var DatepickerValueExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-month-picker .mat-calendar-period-button {\r\n  pointer-events: none;\r\n}\r\n\r\n.example-month-picker .mat-calendar-arrow {\r\n  display: none;\r\n}\r\n"
+module.exports = ".example-month-picker .mat-calendar-period-button {\n  pointer-events: none;\n}\n\n.example-month-picker .mat-calendar-arrow {\n  display: none;\n}\n"
 
 /***/ }),
 
@@ -5221,7 +5221,7 @@ module.exports = ".example-month-picker .mat-calendar-period-button {\r\n  point
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Month and Year\" [formControl]=\"date\">\r\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\r\n  <mat-datepicker #dp\r\n                  startView=\"multi-year\"\r\n                  (yearSelected)=\"chosenYearHandler($event)\"\r\n                  (monthSelected)=\"chosenMonthHandler($event, dp)\"\r\n                  panelClass=\"example-month-picker\">\r\n  </mat-datepicker>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput [matDatepicker]=\"dp\" placeholder=\"Month and Year\" [formControl]=\"date\">\n  <mat-datepicker-toggle matSuffix [for]=\"dp\"></mat-datepicker-toggle>\n  <mat-datepicker #dp\n                  startView=\"multi-year\"\n                  (yearSelected)=\"chosenYearHandler($event)\"\n                  (monthSelected)=\"chosenMonthHandler($event, dp)\"\n                  panelClass=\"example-month-picker\">\n  </mat-datepicker>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -5318,7 +5318,7 @@ var DatepickerViewsSelectionExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>Install Angular</h2>\r\n<mat-dialog-content class=\"mat-typography\">\r\n  <h3>Develop across all platforms</h3>\r\n  <p>Learn one way to build applications with Angular and reuse your code and abilities to build\r\n    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>\r\n\r\n  <h3>Speed &amp; Performance</h3>\r\n  <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web\r\n    Workers and server-side rendering. Angular puts you in control over scalability. Meet huge\r\n    data requirements by building data models on RxJS, Immutable.js or another push-model.</p>\r\n\r\n  <h3>Incredible tooling</h3>\r\n  <p>Build features quickly with simple, declarative templates. Extend the template language with\r\n    your own components and use a wide array of existing components. Get immediate Angular-specific\r\n    help and feedback with nearly every IDE and editor. All this comes together so you can focus\r\n    on building amazing apps rather than trying to make the code work.</p>\r\n\r\n  <h3>Loved by millions</h3>\r\n  <p>From prototype through global deployment, Angular delivers the productivity and scalable\r\n    infrastructure that supports Google's largest applications.</p>\r\n\r\n  <h3>What is Angular?</h3>\r\n\r\n  <p>Angular is a platform that makes it easy to build applications with the web. Angular\r\n    combines declarative templates, dependency injection, end to end tooling, and integrated\r\n    best practices to solve development challenges. Angular empowers developers to build\r\n    applications that live on the web, mobile, or the desktop</p>\r\n\r\n  <h3>Architecture overview</h3>\r\n\r\n  <p>Angular is a platform and framework for building client applications in HTML and TypeScript.\r\n  Angular is itself written in TypeScript. It implements core and optional functionality as a\r\n  set of TypeScript libraries that you import into your apps.</p>\r\n\r\n  <p>The basic building blocks of an Angular application are NgModules, which provide a compilation\r\n  context for components. NgModules collect related code into functional sets; an Angular app is\r\n  defined by a set of NgModules. An app always has at least a root module that enables\r\n  bootstrapping, and typically has many more feature modules.</p>\r\n\r\n  <p>Components define views, which are sets of screen elements that Angular can choose among and\r\n  modify according to your program logic and data. Every app has at least a root component.</p>\r\n\r\n  <p>Components use services, which provide specific functionality not directly related to views.\r\n  Service providers can be injected into components as dependencies, making your code modular,\r\n  reusable, and efficient.</p>\r\n\r\n  <p>Both components and services are simply classes, with decorators that mark their type and\r\n  provide metadata that tells Angular how to use them.</p>\r\n\r\n  <p>The metadata for a component class associates it with a template that defines a view. A\r\n  template combines ordinary HTML with Angular directives and binding markup that allow Angular\r\n  to modify the HTML before rendering it for display.</p>\r\n\r\n  <p>The metadata for a service class provides the information Angular needs to make it available\r\n  to components through Dependency Injection (DI).</p>\r\n\r\n  <p>An app's components typically define many views, arranged hierarchically. Angular provides\r\n  the Router service to help you define navigation paths among views. The router provides\r\n  sophisticated in-browser navigational capabilities.</p>\r\n</mat-dialog-content>\r\n<mat-dialog-actions align=\"end\">\r\n  <button mat-button mat-dialog-close>Cancel</button>\r\n  <button mat-button [mat-dialog-close]=\"true\" cdkFocusInitial>Install</button>\r\n</mat-dialog-actions>\r\n"
+module.exports = "<h2 mat-dialog-title>Install Angular</h2>\n<mat-dialog-content class=\"mat-typography\">\n  <h3>Develop across all platforms</h3>\n  <p>Learn one way to build applications with Angular and reuse your code and abilities to build\n    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>\n\n  <h3>Speed &amp; Performance</h3>\n  <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web\n    Workers and server-side rendering. Angular puts you in control over scalability. Meet huge\n    data requirements by building data models on RxJS, Immutable.js or another push-model.</p>\n\n  <h3>Incredible tooling</h3>\n  <p>Build features quickly with simple, declarative templates. Extend the template language with\n    your own components and use a wide array of existing components. Get immediate Angular-specific\n    help and feedback with nearly every IDE and editor. All this comes together so you can focus\n    on building amazing apps rather than trying to make the code work.</p>\n\n  <h3>Loved by millions</h3>\n  <p>From prototype through global deployment, Angular delivers the productivity and scalable\n    infrastructure that supports Google's largest applications.</p>\n\n  <h3>What is Angular?</h3>\n\n  <p>Angular is a platform that makes it easy to build applications with the web. Angular\n    combines declarative templates, dependency injection, end to end tooling, and integrated\n    best practices to solve development challenges. Angular empowers developers to build\n    applications that live on the web, mobile, or the desktop</p>\n\n  <h3>Architecture overview</h3>\n\n  <p>Angular is a platform and framework for building client applications in HTML and TypeScript.\n  Angular is itself written in TypeScript. It implements core and optional functionality as a\n  set of TypeScript libraries that you import into your apps.</p>\n\n  <p>The basic building blocks of an Angular application are NgModules, which provide a compilation\n  context for components. NgModules collect related code into functional sets; an Angular app is\n  defined by a set of NgModules. An app always has at least a root module that enables\n  bootstrapping, and typically has many more feature modules.</p>\n\n  <p>Components define views, which are sets of screen elements that Angular can choose among and\n  modify according to your program logic and data. Every app has at least a root component.</p>\n\n  <p>Components use services, which provide specific functionality not directly related to views.\n  Service providers can be injected into components as dependencies, making your code modular,\n  reusable, and efficient.</p>\n\n  <p>Both components and services are simply classes, with decorators that mark their type and\n  provide metadata that tells Angular how to use them.</p>\n\n  <p>The metadata for a component class associates it with a template that defines a view. A\n  template combines ordinary HTML with Angular directives and binding markup that allow Angular\n  to modify the HTML before rendering it for display.</p>\n\n  <p>The metadata for a service class provides the information Angular needs to make it available\n  to components through Dependency Injection (DI).</p>\n\n  <p>An app's components typically define many views, arranged hierarchically. Angular provides\n  the Router service to help you define navigation paths among views. The router provides\n  sophisticated in-browser navigational capabilities.</p>\n</mat-dialog-content>\n<mat-dialog-actions align=\"end\">\n  <button mat-button mat-dialog-close>Cancel</button>\n  <button mat-button [mat-dialog-close]=\"true\" cdkFocusInitial>Install</button>\n</mat-dialog-actions>\n"
 
 /***/ }),
 
@@ -5329,7 +5329,7 @@ module.exports = "<h2 mat-dialog-title>Install Angular</h2>\r\n<mat-dialog-conte
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5340,7 +5340,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button (click)=\"openDialog()\">Open dialog</button>\r\n"
+module.exports = "<button mat-button (click)=\"openDialog()\">Open dialog</button>\n"
 
 /***/ }),
 
@@ -5415,7 +5415,7 @@ var DialogContentExampleDialog = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Favorite Animal</h1>\r\n<div mat-dialog-content>\r\n  My favorite animal is:\r\n  <ul>\r\n    <li>\r\n      <span *ngIf=\"data.animal === 'panda'\">&#10003;</span> Panda\r\n    </li>\r\n    <li>\r\n      <span *ngIf=\"data.animal === 'unicorn'\">&#10003;</span> Unicorn\r\n    </li>\r\n    <li>\r\n      <span *ngIf=\"data.animal === 'lion'\">&#10003;</span> Lion\r\n    </li>\r\n  </ul>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>Favorite Animal</h1>\n<div mat-dialog-content>\n  My favorite animal is:\n  <ul>\n    <li>\n      <span *ngIf=\"data.animal === 'panda'\">&#10003;</span> Panda\n    </li>\n    <li>\n      <span *ngIf=\"data.animal === 'unicorn'\">&#10003;</span> Unicorn\n    </li>\n    <li>\n      <span *ngIf=\"data.animal === 'lion'\">&#10003;</span> Lion\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -5426,7 +5426,7 @@ module.exports = "<h1 mat-dialog-title>Favorite Animal</h1>\r\n<div mat-dialog-c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5437,7 +5437,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button (click)=\"openDialog()\">Open dialog</button>\r\n"
+module.exports = "<button mat-button (click)=\"openDialog()\">Open dialog</button>\n"
 
 /***/ }),
 
@@ -5519,7 +5519,7 @@ var DialogDataExampleDialog = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Dialog with elements</h1>\r\n<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>\r\n<div mat-dialog-actions>\r\n  <button mat-button mat-dialog-close>Close</button>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>Dialog with elements</h1>\n<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>\n<div mat-dialog-actions>\n  <button mat-button mat-dialog-close>Close</button>\n</div>\n"
 
 /***/ }),
 
@@ -5530,7 +5530,7 @@ module.exports = "<h1 mat-dialog-title>Dialog with elements</h1>\r\n<div mat-dia
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5541,7 +5541,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button (click)=\"openDialog()\">Launch dialog</button>\r\n"
+module.exports = "<button mat-button (click)=\"openDialog()\">Launch dialog</button>\n"
 
 /***/ }),
 
@@ -5613,7 +5613,7 @@ var DialogElementsExampleDialog = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Hi {{data.name}}</h1>\r\n<div mat-dialog-content>\r\n  <p>What's your favorite animal?</p>\r\n  <mat-form-field>\r\n    <input matInput [(ngModel)]=\"data.animal\">\r\n  </mat-form-field>\r\n</div>\r\n<div mat-dialog-actions>\r\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\r\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>Hi {{data.name}}</h1>\n<div mat-dialog-content>\n  <p>What's your favorite animal?</p>\n  <mat-form-field>\n    <input matInput [(ngModel)]=\"data.animal\">\n  </mat-form-field>\n</div>\n<div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div>\n"
 
 /***/ }),
 
@@ -5624,7 +5624,7 @@ module.exports = "<h1 mat-dialog-title>Hi {{data.name}}</h1>\r\n<div mat-dialog-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5635,7 +5635,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ol>\r\n  <li>\r\n    <mat-form-field>\r\n      <input matInput [(ngModel)]=\"name\" placeholder=\"What's your name?\">\r\n    </mat-form-field>\r\n  </li>\r\n  <li>\r\n    <button mat-raised-button (click)=\"openDialog()\">Pick one</button>\r\n  </li>\r\n  <li *ngIf=\"animal\">\r\n    You chose: <i>{{animal}}</i>\r\n  </li>\r\n</ol>\r\n"
+module.exports = "<ol>\n  <li>\n    <mat-form-field>\n      <input matInput [(ngModel)]=\"name\" placeholder=\"What's your name?\">\n    </mat-form-field>\n  </li>\n  <li>\n    <button mat-raised-button (click)=\"openDialog()\">Pick one</button>\n  </li>\n  <li *ngIf=\"animal\">\n    You chose: <i>{{animal}}</i>\n  </li>\n</ol>\n"
 
 /***/ }),
 
@@ -5725,7 +5725,7 @@ var DialogOverviewExampleDialog = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5736,7 +5736,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list>\r\n  <mat-list-item>Item 1</mat-list-item>\r\n  <mat-divider></mat-divider>\r\n  <mat-list-item>Item 2</mat-list-item>\r\n  <mat-divider></mat-divider>\r\n  <mat-list-item>Item 3</mat-list-item>\r\n</mat-list>\r\n"
+module.exports = "<mat-list>\n  <mat-list-item>Item 1</mat-list-item>\n  <mat-divider></mat-divider>\n  <mat-list-item>Item 2</mat-list-item>\n  <mat-divider></mat-divider>\n  <mat-list-item>Item 3</mat-list-item>\n</mat-list>\n"
 
 /***/ }),
 
@@ -5785,7 +5785,7 @@ var DividerOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  padding: 16px;\r\n  margin-bottom: 16px;\r\n}\r\n"
+module.exports = ".example-container {\n  padding: 16px;\n  margin-bottom: 16px;\n}\n"
 
 /***/ }),
 
@@ -5796,7 +5796,7 @@ module.exports = ".example-container {\r\n  padding: 16px;\r\n  margin-bottom: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\"\r\n    [class.mat-elevation-z2]=\"!isActive\"\r\n    [class.mat-elevation-z8]=\"isActive\">\r\n  Example\r\n</div>\r\n\r\n<button mat-button (click)=\"isActive = !isActive\">Toggle Elevation</button>\r\n"
+module.exports = "<div class=\"example-container\"\n    [class.mat-elevation-z2]=\"!isActive\"\n    [class.mat-elevation-z8]=\"isActive\">\n  Example\n</div>\n\n<button mat-button (click)=\"isActive = !isActive\">Toggle Elevation</button>\n"
 
 /***/ }),
 
@@ -5846,7 +5846,7 @@ var ElevationOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-action-buttons {\r\n  padding-bottom: 20px;\r\n}\r\n\r\n.example-headers-align .mat-expansion-panel-header-title,\r\n.example-headers-align .mat-expansion-panel-header-description {\r\n  flex-basis: 0;\r\n}\r\n\r\n.example-headers-align .mat-expansion-panel-header-description {\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n"
+module.exports = ".example-action-buttons {\n  padding-bottom: 20px;\n}\n\n.example-headers-align .mat-expansion-panel-header-title,\n.example-headers-align .mat-expansion-panel-header-description {\n  flex-basis: 0;\n}\n\n.example-headers-align .mat-expansion-panel-header-description {\n  justify-content: space-between;\n  align-items: center;\n}\n"
 
 /***/ }),
 
@@ -5857,7 +5857,7 @@ module.exports = ".example-action-buttons {\r\n  padding-bottom: 20px;\r\n}\r\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-action-buttons\">\r\n  <button mat-button (click)=\"accordion.openAll()\">Expand All</button>\r\n  <button mat-button (click)=\"accordion.closeAll()\">Collapse All</button>\r\n</div>\r\n<mat-accordion class=\"example-headers-align\" multi>\r\n  <mat-expansion-panel>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Personal data\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Type your name and age\r\n        <mat-icon>account_circle</mat-icon>\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"First name\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput type=\"number\" min=\"1\" placeholder=\"Age\">\r\n    </mat-form-field>\r\n\r\n  </mat-expansion-panel>\r\n\r\n  <mat-expansion-panel disabled>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Destination\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Type the country name\r\n        <mat-icon>map</mat-icon>\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Country\">\r\n    </mat-form-field>\r\n  </mat-expansion-panel>\r\n\r\n  <mat-expansion-panel>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Day of the trip\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Inform the date you wish to travel\r\n        <mat-icon>date_range</mat-icon>\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Date\" [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\r\n    </mat-form-field>\r\n    <mat-datepicker #picker></mat-datepicker>\r\n  </mat-expansion-panel>\r\n</mat-accordion>\r\n"
+module.exports = "<div class=\"example-action-buttons\">\n  <button mat-button (click)=\"accordion.openAll()\">Expand All</button>\n  <button mat-button (click)=\"accordion.closeAll()\">Collapse All</button>\n</div>\n<mat-accordion class=\"example-headers-align\" multi>\n  <mat-expansion-panel>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Personal data\n      </mat-panel-title>\n      <mat-panel-description>\n        Type your name and age\n        <mat-icon>account_circle</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"First name\">\n    </mat-form-field>\n\n    <mat-form-field>\n      <input matInput type=\"number\" min=\"1\" placeholder=\"Age\">\n    </mat-form-field>\n\n  </mat-expansion-panel>\n\n  <mat-expansion-panel disabled>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Destination\n      </mat-panel-title>\n      <mat-panel-description>\n        Type the country name\n        <mat-icon>map</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"Country\">\n    </mat-form-field>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Day of the trip\n      </mat-panel-title>\n      <mat-panel-description>\n        Inform the date you wish to travel\n        <mat-icon>date_range</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"Date\" [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\n    </mat-form-field>\n    <mat-datepicker #picker></mat-datepicker>\n  </mat-expansion-panel>\n</mat-accordion>\n"
 
 /***/ }),
 
@@ -5915,7 +5915,7 @@ var ExpansionExpandCollapseAllExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -5926,7 +5926,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-accordion>\r\n  <mat-expansion-panel>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Personal data\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Type your name and age\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"First name\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Age\">\r\n    </mat-form-field>\r\n  </mat-expansion-panel>\r\n  <mat-expansion-panel (opened)=\"panelOpenState = true\"\r\n                       (closed)=\"panelOpenState = false\">\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Self aware panel\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Currently I am {{panelOpenState ? 'open' : 'closed'}}\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n    <p>I'm visible because I am open</p>\r\n  </mat-expansion-panel>\r\n</mat-accordion>\r\n"
+module.exports = "<mat-accordion>\n  <mat-expansion-panel>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Personal data\n      </mat-panel-title>\n      <mat-panel-description>\n        Type your name and age\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"First name\">\n    </mat-form-field>\n\n    <mat-form-field>\n      <input matInput placeholder=\"Age\">\n    </mat-form-field>\n  </mat-expansion-panel>\n  <mat-expansion-panel (opened)=\"panelOpenState = true\"\n                       (closed)=\"panelOpenState = false\">\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Self aware panel\n      </mat-panel-title>\n      <mat-panel-description>\n        Currently I am {{panelOpenState ? 'open' : 'closed'}}\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n    <p>I'm visible because I am open</p>\n  </mat-expansion-panel>\n</mat-accordion>\n"
 
 /***/ }),
 
@@ -5976,7 +5976,7 @@ var ExpansionOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-headers-align .mat-expansion-panel-header-title, \r\n.example-headers-align .mat-expansion-panel-header-description {\r\n  flex-basis: 0;\r\n}\r\n\r\n.example-headers-align .mat-expansion-panel-header-description {\r\n  justify-content: space-between;\r\n  align-items: center;\r\n}\r\n"
+module.exports = ".example-headers-align .mat-expansion-panel-header-title, \n.example-headers-align .mat-expansion-panel-header-description {\n  flex-basis: 0;\n}\n\n.example-headers-align .mat-expansion-panel-header-description {\n  justify-content: space-between;\n  align-items: center;\n}\n"
 
 /***/ }),
 
@@ -5987,7 +5987,7 @@ module.exports = ".example-headers-align .mat-expansion-panel-header-title, \r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-accordion class=\"example-headers-align\">\r\n  <mat-expansion-panel [expanded]=\"step === 0\" (opened)=\"setStep(0)\" hideToggle>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Personal data\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Type your name and age\r\n        <mat-icon>account_circle</mat-icon>\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"First name\">\r\n    </mat-form-field>\r\n\r\n    <mat-form-field>\r\n      <input matInput type=\"number\" min=\"1\" placeholder=\"Age\">\r\n    </mat-form-field>\r\n\r\n    <mat-action-row>\r\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n    </mat-action-row>\r\n  </mat-expansion-panel>\r\n\r\n  <mat-expansion-panel [expanded]=\"step === 1\" (opened)=\"setStep(1)\" hideToggle>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Destination\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Type the country name\r\n        <mat-icon>map</mat-icon>\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Country\">\r\n    </mat-form-field>\r\n\r\n    <mat-action-row>\r\n      <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\r\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n    </mat-action-row>\r\n  </mat-expansion-panel>\r\n\r\n  <mat-expansion-panel [expanded]=\"step === 2\" (opened)=\"setStep(2)\" hideToggle>\r\n    <mat-expansion-panel-header>\r\n      <mat-panel-title>\r\n        Day of the trip\r\n      </mat-panel-title>\r\n      <mat-panel-description>\r\n        Inform the date you wish to travel\r\n        <mat-icon>date_range</mat-icon>\r\n      </mat-panel-description>\r\n    </mat-expansion-panel-header>\r\n\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Date\" [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\r\n    </mat-form-field>\r\n    <mat-datepicker #picker></mat-datepicker>\r\n\r\n    <mat-action-row>\r\n      <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\r\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">End</button>\r\n    </mat-action-row>\r\n  </mat-expansion-panel>\r\n\r\n</mat-accordion>\r\n"
+module.exports = "<mat-accordion class=\"example-headers-align\">\n  <mat-expansion-panel [expanded]=\"step === 0\" (opened)=\"setStep(0)\" hideToggle>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Personal data\n      </mat-panel-title>\n      <mat-panel-description>\n        Type your name and age\n        <mat-icon>account_circle</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"First name\">\n    </mat-form-field>\n\n    <mat-form-field>\n      <input matInput type=\"number\" min=\"1\" placeholder=\"Age\">\n    </mat-form-field>\n\n    <mat-action-row>\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\n    </mat-action-row>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel [expanded]=\"step === 1\" (opened)=\"setStep(1)\" hideToggle>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Destination\n      </mat-panel-title>\n      <mat-panel-description>\n        Type the country name\n        <mat-icon>map</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"Country\">\n    </mat-form-field>\n\n    <mat-action-row>\n      <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\n    </mat-action-row>\n  </mat-expansion-panel>\n\n  <mat-expansion-panel [expanded]=\"step === 2\" (opened)=\"setStep(2)\" hideToggle>\n    <mat-expansion-panel-header>\n      <mat-panel-title>\n        Day of the trip\n      </mat-panel-title>\n      <mat-panel-description>\n        Inform the date you wish to travel\n        <mat-icon>date_range</mat-icon>\n      </mat-panel-description>\n    </mat-expansion-panel-header>\n\n    <mat-form-field>\n      <input matInput placeholder=\"Date\" [matDatepicker]=\"picker\" (focus)=\"picker.open()\" readonly>\n    </mat-form-field>\n    <mat-datepicker #picker></mat-datepicker>\n\n    <mat-action-row>\n      <button mat-button color=\"warn\" (click)=\"prevStep()\">Previous</button>\n      <button mat-button color=\"primary\" (click)=\"nextStep()\">End</button>\n    </mat-action-row>\n  </mat-expansion-panel>\n\n</mat-accordion>\n"
 
 /***/ }),
 
@@ -6046,7 +6046,7 @@ var ExpansionStepsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-focus-monitor {\r\n  padding: 20px;\r\n}\r\n\r\n.example-focus-monitor .cdk-mouse-focused {\r\n  background: rgba(255, 0, 0, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-keyboard-focused {\r\n  background: rgba(0, 255, 0, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-touch-focused {\r\n  background: rgba(0, 0, 255, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-program-focused {\r\n  background: rgba(255, 0, 255, 0.5);\r\n}\r\n"
+module.exports = ".example-focus-monitor {\n  padding: 20px;\n}\n\n.example-focus-monitor .cdk-mouse-focused {\n  background: rgba(255, 0, 0, 0.5);\n}\n\n.example-focus-monitor .cdk-keyboard-focused {\n  background: rgba(0, 255, 0, 0.5);\n}\n\n.example-focus-monitor .cdk-touch-focused {\n  background: rgba(0, 0, 255, 0.5);\n}\n\n.example-focus-monitor .cdk-program-focused {\n  background: rgba(255, 0, 255, 0.5);\n}\n"
 
 /***/ }),
 
@@ -6057,7 +6057,7 @@ module.exports = ".example-focus-monitor {\r\n  padding: 20px;\r\n}\r\n\r\n.exam
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-focus-monitor\">\r\n  <button cdkMonitorSubtreeFocus\r\n          (cdkFocusChange)=\"elementOrigin = formatOrigin($event); markForCheck()\">\r\n    Focus Monitored Element ({{elementOrigin}})\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-focus-monitor\">\r\n  <div cdkMonitorSubtreeFocus\r\n       (cdkFocusChange)=\"subtreeOrigin = formatOrigin($event); markForCheck()\">\r\n    <p>Focus Monitored Subtree ({{subtreeOrigin}})</p>\r\n    <button>Child Button 1</button>\r\n    <button>Child Button 2</button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"example-focus-monitor\">\n  <button cdkMonitorSubtreeFocus\n          (cdkFocusChange)=\"elementOrigin = formatOrigin($event); markForCheck()\">\n    Focus Monitored Element ({{elementOrigin}})\n  </button>\n</div>\n\n<div class=\"example-focus-monitor\">\n  <div cdkMonitorSubtreeFocus\n       (cdkFocusChange)=\"subtreeOrigin = formatOrigin($event); markForCheck()\">\n    <p>Focus Monitored Subtree ({{subtreeOrigin}})</p>\n    <button>Child Button 1</button>\n    <button>Child Button 2</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -6120,7 +6120,7 @@ var FocusMonitorDirectivesExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-focus-monitor {\r\n  padding: 20px;\r\n}\r\n\r\n.example-focus-monitor .cdk-mouse-focused {\r\n  background: rgba(255, 0, 0, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-keyboard-focused {\r\n  background: rgba(0, 255, 0, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-touch-focused {\r\n  background: rgba(0, 0, 255, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-program-focused {\r\n  background: rgba(255, 0, 255, 0.5);\r\n}\r\n\r\n.example-focus-monitor button:focus {\r\n  box-shadow: 0 0 30px cyan;\r\n}\r\n"
+module.exports = ".example-focus-monitor {\n  padding: 20px;\n}\n\n.example-focus-monitor .cdk-mouse-focused {\n  background: rgba(255, 0, 0, 0.5);\n}\n\n.example-focus-monitor .cdk-keyboard-focused {\n  background: rgba(0, 255, 0, 0.5);\n}\n\n.example-focus-monitor .cdk-touch-focused {\n  background: rgba(0, 0, 255, 0.5);\n}\n\n.example-focus-monitor .cdk-program-focused {\n  background: rgba(255, 0, 255, 0.5);\n}\n\n.example-focus-monitor button:focus {\n  box-shadow: 0 0 30px cyan;\n}\n"
 
 /***/ }),
 
@@ -6131,7 +6131,7 @@ module.exports = ".example-focus-monitor {\r\n  padding: 20px;\r\n}\r\n\r\n.exam
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-focus-monitor\">\r\n  <button #monitored>1. Focus Monitored Element ({{origin}})</button>\r\n  <button #unmonitored>2. Not Monitored</button>\r\n</div>\r\n\r\n<mat-form-field>\r\n  <mat-label>Simulated focus origin</mat-label>\r\n  <mat-select #simulatedOrigin value=\"mouse\">\r\n    <mat-option value=\"mouse\">Mouse</mat-option>\r\n    <mat-option value=\"keyboard\">Keyboard</mat-option>\r\n    <mat-option value=\"touch\">Touch</mat-option>\r\n    <mat-option value=\"program\">Programmatic</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n\r\n<button (click)=\"focusMonitor.focusVia(monitored, simulatedOrigin.value)\">\r\n  Focus button #1\r\n</button>\r\n<button (click)=\"focusMonitor.focusVia(unmonitored, simulatedOrigin.value)\">\r\n  Focus button #2\r\n</button>\r\n"
+module.exports = "<div class=\"example-focus-monitor\">\n  <button #monitored>1. Focus Monitored Element ({{origin}})</button>\n  <button #unmonitored>2. Not Monitored</button>\n</div>\n\n<mat-form-field>\n  <mat-label>Simulated focus origin</mat-label>\n  <mat-select #simulatedOrigin value=\"mouse\">\n    <mat-option value=\"mouse\">Mouse</mat-option>\n    <mat-option value=\"keyboard\">Keyboard</mat-option>\n    <mat-option value=\"touch\">Touch</mat-option>\n    <mat-option value=\"program\">Programmatic</mat-option>\n  </mat-select>\n</mat-form-field>\n\n<button (click)=\"focusMonitor.focusVia(monitored, simulatedOrigin.value)\">\n  Focus button #1\n</button>\n<button (click)=\"focusMonitor.focusVia(unmonitored, simulatedOrigin.value)\">\n  Focus button #2\n</button>\n"
 
 /***/ }),
 
@@ -6208,7 +6208,7 @@ var FocusMonitorFocusViaExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-focus-monitor {\r\n  padding: 20px;\r\n}\r\n\r\n.example-focus-monitor .cdk-mouse-focused {\r\n  background: rgba(255, 0, 0, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-keyboard-focused {\r\n  background: rgba(0, 255, 0, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-touch-focused {\r\n  background: rgba(0, 0, 255, 0.5);\r\n}\r\n\r\n.example-focus-monitor .cdk-program-focused {\r\n  background: rgba(255, 0, 255, 0.5);\r\n}\r\n"
+module.exports = ".example-focus-monitor {\n  padding: 20px;\n}\n\n.example-focus-monitor .cdk-mouse-focused {\n  background: rgba(255, 0, 0, 0.5);\n}\n\n.example-focus-monitor .cdk-keyboard-focused {\n  background: rgba(0, 255, 0, 0.5);\n}\n\n.example-focus-monitor .cdk-touch-focused {\n  background: rgba(0, 0, 255, 0.5);\n}\n\n.example-focus-monitor .cdk-program-focused {\n  background: rgba(255, 0, 255, 0.5);\n}\n"
 
 /***/ }),
 
@@ -6219,7 +6219,7 @@ module.exports = ".example-focus-monitor {\r\n  padding: 20px;\r\n}\r\n\r\n.exam
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-focus-monitor\">\r\n  <button #element>Focus Monitored Element ({{elementOrigin}})</button>\r\n</div>\r\n\r\n<div class=\"example-focus-monitor\">\r\n  <div #subtree>\r\n    <p>Focus Monitored Subtree ({{subtreeOrigin}})</p>\r\n    <button>Child Button 1</button>\r\n    <button>Child Button 2</button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"example-focus-monitor\">\n  <button #element>Focus Monitored Element ({{elementOrigin}})</button>\n</div>\n\n<div class=\"example-focus-monitor\">\n  <div #subtree>\n    <p>Focus Monitored Subtree ({{subtreeOrigin}})</p>\n    <button>Child Button 1</button>\n    <button>Child Button 2</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -6307,7 +6307,7 @@ var FocusMonitorOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -6318,7 +6318,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  <mat-form-field appearance=\"legacy\">\r\n    <mat-label>Legacy form field</mat-label>\r\n    <input matInput placeholder=\"Placeholder\">\r\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\r\n    <mat-hint>Hint</mat-hint>\r\n  </mat-form-field>\r\n</p>\r\n<p>\r\n  <mat-form-field appearance=\"standard\">\r\n    <mat-label>Standard form field</mat-label>\r\n    <input matInput placeholder=\"Placeholder\">\r\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\r\n    <mat-hint>Hint</mat-hint>\r\n  </mat-form-field>\r\n</p>\r\n<p>\r\n  <mat-form-field appearance=\"fill\">\r\n    <mat-label>Fill form field</mat-label>\r\n    <input matInput placeholder=\"Placeholder\">\r\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\r\n    <mat-hint>Hint</mat-hint>\r\n  </mat-form-field>\r\n</p>\r\n<p>\r\n  <mat-form-field appearance=\"outline\">\r\n    <mat-label>Outline form field</mat-label>\r\n    <input matInput placeholder=\"Placeholder\">\r\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\r\n    <mat-hint>Hint</mat-hint>\r\n  </mat-form-field>\r\n</p>\r\n"
+module.exports = "<p>\n  <mat-form-field appearance=\"legacy\">\n    <mat-label>Legacy form field</mat-label>\n    <input matInput placeholder=\"Placeholder\">\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n    <mat-hint>Hint</mat-hint>\n  </mat-form-field>\n</p>\n<p>\n  <mat-form-field appearance=\"standard\">\n    <mat-label>Standard form field</mat-label>\n    <input matInput placeholder=\"Placeholder\">\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n    <mat-hint>Hint</mat-hint>\n  </mat-form-field>\n</p>\n<p>\n  <mat-form-field appearance=\"fill\">\n    <mat-label>Fill form field</mat-label>\n    <input matInput placeholder=\"Placeholder\">\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n    <mat-hint>Hint</mat-hint>\n  </mat-form-field>\n</p>\n<p>\n  <mat-form-field appearance=\"outline\">\n    <mat-label>Outline form field</mat-label>\n    <input matInput placeholder=\"Placeholder\">\n    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>\n    <mat-hint>Hint</mat-hint>\n  </mat-form-field>\n</p>\n"
 
 /***/ }),
 
@@ -6365,7 +6365,7 @@ var FormFieldAppearanceExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\r\n  display: flex;\r\n}\r\n\r\ninput {\r\n  border: none;\r\n  background: none;\r\n  padding: 0;\r\n  outline: none;\r\n  font: inherit;\r\n  text-align: center;\r\n}\r\n\r\nspan {\r\n  opacity: 0;\r\n  transition: opacity 200ms;\r\n}\r\n\r\n:host.floating span {\r\n  opacity: 1;\r\n}\r\n"
+module.exports = "div {\n  display: flex;\n}\n\ninput {\n  border: none;\n  background: none;\n  padding: 0;\n  outline: none;\n  font: inherit;\n  text-align: center;\n}\n\nspan {\n  opacity: 0;\n  transition: opacity 200ms;\n}\n\n:host.floating span {\n  opacity: 1;\n}\n"
 
 /***/ }),
 
@@ -6376,7 +6376,7 @@ module.exports = "div {\r\n  display: flex;\r\n}\r\n\r\ninput {\r\n  border: non
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [formGroup]=\"parts\">\r\n  <input class=\"area\" formControlName=\"area\" size=\"3\">\r\n  <span>&ndash;</span>\r\n  <input class=\"exchange\" formControlName=\"exchange\" size=\"3\">\r\n  <span>&ndash;</span>\r\n  <input class=\"subscriber\" formControlName=\"subscriber\" size=\"4\">\r\n</div>\r\n"
+module.exports = "<div [formGroup]=\"parts\">\n  <input class=\"area\" formControlName=\"area\" size=\"3\">\n  <span>&ndash;</span>\n  <input class=\"exchange\" formControlName=\"exchange\" size=\"3\">\n  <span>&ndash;</span>\n  <input class=\"subscriber\" formControlName=\"subscriber\" size=\"4\">\n</div>\n"
 
 /***/ }),
 
@@ -6580,7 +6580,7 @@ var FormFieldCustomControlExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-container > * {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -6591,7 +6591,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\">\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Enter your email\" [formControl]=\"email\" required>\r\n    <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error>\r\n  </mat-form-field>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container\">\n  <mat-form-field>\n    <input matInput placeholder=\"Enter your email\" [formControl]=\"email\" required>\n    <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error>\n  </mat-form-field>\n</div>\n"
 
 /***/ }),
 
@@ -6646,7 +6646,7 @@ var FormFieldErrorExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-container > * {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -6657,7 +6657,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\">\r\n  <mat-form-field hintLabel=\"Max 10 characters\">\r\n    <input matInput #input maxlength=\"10\" placeholder=\"Enter some input\">\r\n    <mat-hint align=\"end\">{{input.value?.length || 0}}/10</mat-hint>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-select placeholder=\"Select me\">\r\n      <mat-option value=\"option\">Option</mat-option>\r\n    </mat-select>\r\n    <mat-hint align=\"end\">Here's the dropdown arrow ^</mat-hint>\r\n  </mat-form-field>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container\">\n  <mat-form-field hintLabel=\"Max 10 characters\">\n    <input matInput #input maxlength=\"10\" placeholder=\"Enter some input\">\n    <mat-hint align=\"end\">{{input.value?.length || 0}}/10</mat-hint>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-select placeholder=\"Select me\">\n      <mat-option value=\"option\">Option</mat-option>\n    </mat-select>\n    <mat-hint align=\"end\">Here's the dropdown arrow ^</mat-hint>\n  </mat-form-field>\n</div>\n"
 
 /***/ }),
 
@@ -6704,7 +6704,7 @@ var FormFieldHintExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-container > * {\r\n  width: 100%;\r\n}\r\n\r\n.example-container form {\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.example-container form > * {\r\n  margin: 5px 0;\r\n}\r\n\r\n.example-container .mat-radio-button {\r\n  margin: 0 5px;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n\n.example-container form {\n  margin-bottom: 20px;\n}\n\n.example-container form > * {\n  margin: 5px 0;\n}\n\n.example-container .mat-radio-button {\n  margin: 0 5px;\n}\n"
 
 /***/ }),
 
@@ -6715,7 +6715,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\">\r\n  <form class=\"example-container\" [formGroup]=\"options\">\r\n    <mat-checkbox formControlName=\"hideRequired\">Hide required marker</mat-checkbox>\r\n    <div>\r\n      <label>Float label: </label>\r\n      <mat-radio-group formControlName=\"floatLabel\">\r\n        <mat-radio-button value=\"auto\">Auto</mat-radio-button>\r\n        <mat-radio-button value=\"always\">Always</mat-radio-button>\r\n        <mat-radio-button value=\"never\">Never</mat-radio-button>\r\n      </mat-radio-group>\r\n    </div>\r\n  </form>\r\n\r\n  <mat-form-field\r\n      [hideRequiredMarker]=\"options.value.hideRequired\"\r\n      [floatLabel]=\"options.value.floatLabel\">\r\n    <input matInput placeholder=\"Simple placeholder\" required>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field [floatLabel]=\"options.value.floatLabel\">\r\n    <mat-label>Both a label and a placeholder</mat-label>\r\n    <input matInput placeholder=\"Simple placeholder\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field\r\n      [hideRequiredMarker]=\"options.value.hideRequired\"\r\n      [floatLabel]=\"options.value.floatLabel\">\r\n    <mat-select required>\r\n      <mat-option>-- None --</mat-option>\r\n      <mat-option value=\"option\">Option</mat-option>\r\n    </mat-select>\r\n    <mat-label><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i></mat-label>\r\n  </mat-form-field>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container\">\n  <form class=\"example-container\" [formGroup]=\"options\">\n    <mat-checkbox formControlName=\"hideRequired\">Hide required marker</mat-checkbox>\n    <div>\n      <label>Float label: </label>\n      <mat-radio-group formControlName=\"floatLabel\">\n        <mat-radio-button value=\"auto\">Auto</mat-radio-button>\n        <mat-radio-button value=\"always\">Always</mat-radio-button>\n        <mat-radio-button value=\"never\">Never</mat-radio-button>\n      </mat-radio-group>\n    </div>\n  </form>\n\n  <mat-form-field\n      [hideRequiredMarker]=\"options.value.hideRequired\"\n      [floatLabel]=\"options.value.floatLabel\">\n    <input matInput placeholder=\"Simple placeholder\" required>\n  </mat-form-field>\n\n  <mat-form-field [floatLabel]=\"options.value.floatLabel\">\n    <mat-label>Both a label and a placeholder</mat-label>\n    <input matInput placeholder=\"Simple placeholder\">\n  </mat-form-field>\n\n  <mat-form-field\n      [hideRequiredMarker]=\"options.value.hideRequired\"\n      [floatLabel]=\"options.value.floatLabel\">\n    <mat-select required>\n      <mat-option>-- None --</mat-option>\n      <mat-option value=\"option\">Option</mat-option>\n    </mat-select>\n    <mat-label><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i></mat-label>\n  </mat-form-field>\n</div>\n"
 
 /***/ }),
 
@@ -6772,7 +6772,7 @@ var FormFieldLabelExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-container > * {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -6783,7 +6783,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\">\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Input\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <textarea matInput placeholder=\"Textarea\"></textarea>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-select placeholder=\"Select\">\r\n      <mat-option value=\"option\">Option</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container\">\n  <mat-form-field>\n    <input matInput placeholder=\"Input\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <textarea matInput placeholder=\"Textarea\"></textarea>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-select placeholder=\"Select\">\n      <mat-option value=\"option\">Option</mat-option>\n    </mat-select>\n  </mat-form-field>\n</div>\n"
 
 /***/ }),
 
@@ -6830,7 +6830,7 @@ var FormFieldOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-container > * {\r\n  width: 100%;\r\n}\r\n\r\n.example-right-align {\r\n  text-align: right;\r\n}\r\n\r\ninput.example-right-align::-webkit-outer-spin-button,\r\ninput.example-right-align::-webkit-inner-spin-button {\r\n  display: none;\r\n}\r\n\r\ninput.example-right-align {\r\n  -moz-appearance: textfield;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n\n.example-right-align {\n  text-align: right;\n}\n\ninput.example-right-align::-webkit-outer-spin-button,\ninput.example-right-align::-webkit-inner-spin-button {\n  display: none;\n}\n\ninput.example-right-align {\n  -moz-appearance: textfield;\n}\n"
 
 /***/ }),
 
@@ -6841,7 +6841,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\">\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Enter your password\" [type]=\"hide ? 'password' : 'text'\">\r\n    <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <input matInput placeholder=\"Amount\" type=\"number\" class=\"example-right-align\">\r\n    <span matPrefix>$&nbsp;</span>\r\n    <span matSuffix>.00</span>\r\n  </mat-form-field>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container\">\n  <mat-form-field>\n    <input matInput placeholder=\"Enter your password\" [type]=\"hide ? 'password' : 'text'\">\n    <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n  </mat-form-field>\n\n  <mat-form-field>\n    <input matInput placeholder=\"Amount\" type=\"number\" class=\"example-right-align\">\n    <span matPrefix>$&nbsp;</span>\n    <span matSuffix>.00</span>\n  </mat-form-field>\n</div>\n"
 
 /***/ }),
 
@@ -6889,7 +6889,7 @@ var FormFieldPrefixSuffixExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-container > * {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.example-container > * {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -6900,7 +6900,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-container\" [formGroup]=\"options\" [style.fontSize.px]=\"getFontSize()\">\r\n  <mat-form-field [color]=\"options.value.color\">\r\n    <mat-select placeholder=\"Color\" formControlName=\"color\">\r\n      <mat-option value=\"primary\">Primary</mat-option>\r\n      <mat-option value=\"accent\">Accent</mat-option>\r\n      <mat-option value=\"warn\">Warn</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field [color]=\"options.value.color\">\r\n    <input matInput type=\"number\" placeholder=\"Font size (px)\" formControlName=\"fontSize\" min=\"10\">\r\n    <mat-error *ngIf=\"options.get('fontSize')?.invalid\">Min size: 10px</mat-error>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-container\" [formGroup]=\"options\" [style.fontSize.px]=\"getFontSize()\">\n  <mat-form-field [color]=\"options.value.color\">\n    <mat-select placeholder=\"Color\" formControlName=\"color\">\n      <mat-option value=\"primary\">Primary</mat-option>\n      <mat-option value=\"accent\">Accent</mat-option>\n      <mat-option value=\"warn\">Warn</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field [color]=\"options.value.color\">\n    <input matInput type=\"number\" placeholder=\"Font size (px)\" formControlName=\"fontSize\" min=\"10\">\n    <mat-error *ngIf=\"options.get('fontSize')?.invalid\">Min size: 10px</mat-error>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -6960,7 +6960,7 @@ var FormFieldThemingExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -6971,7 +6971,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"4\" rowHeight=\"100px\">\r\n  <mat-grid-tile\r\n      *ngFor=\"let tile of tiles\"\r\n      [colspan]=\"tile.cols\"\r\n      [rowspan]=\"tile.rows\"\r\n      [style.background]=\"tile.color\">\r\n    {{tile.text}}\r\n  </mat-grid-tile>\r\n</mat-grid-list>\r\n"
+module.exports = "<mat-grid-list cols=\"4\" rowHeight=\"100px\">\n  <mat-grid-tile\n      *ngFor=\"let tile of tiles\"\n      [colspan]=\"tile.cols\"\n      [rowspan]=\"tile.rows\"\n      [style.background]=\"tile.color\">\n    {{tile.text}}\n  </mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 
@@ -7026,7 +7026,7 @@ var GridListDynamicExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-grid-tile {\r\n  background: lightblue;\r\n}\r\n"
+module.exports = "mat-grid-tile {\n  background: lightblue;\n}\n"
 
 /***/ }),
 
@@ -7037,7 +7037,7 @@ module.exports = "mat-grid-tile {\r\n  background: lightblue;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\r\n  <mat-grid-tile>1</mat-grid-tile>\r\n  <mat-grid-tile>2</mat-grid-tile>\r\n  <mat-grid-tile>3</mat-grid-tile>\r\n  <mat-grid-tile>4</mat-grid-tile>\r\n</mat-grid-list>\r\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\n  <mat-grid-tile>1</mat-grid-tile>\n  <mat-grid-tile>2</mat-grid-tile>\n  <mat-grid-tile>3</mat-grid-tile>\n  <mat-grid-tile>4</mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 
@@ -7086,7 +7086,7 @@ var GridListOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -7097,7 +7097,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-icon>home</mat-icon>\r\n"
+module.exports = "<mat-icon>home</mat-icon>\n"
 
 /***/ }),
 
@@ -7146,7 +7146,7 @@ var IconOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -7157,7 +7157,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-icon svgIcon=\"thumbs-up\"></mat-icon>\r\n"
+module.exports = "<mat-icon svgIcon=\"thumbs-up\"></mat-icon>\n"
 
 /***/ }),
 
@@ -7215,7 +7215,7 @@ var IconSvgExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form-field {\r\n  width: 200px;\r\n}\r\n"
+module.exports = ".example-form-field {\n  width: 200px;\n}\n"
 
 /***/ }),
 
@@ -7226,7 +7226,7 @@ module.exports = ".example-form-field {\r\n  width: 200px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-form-field\">\r\n  <input matInput type=\"text\" placeholder=\"Clearable input\" [(ngModel)]=\"value\">\r\n  <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\r\n    <mat-icon>close</mat-icon>\r\n  </button>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field class=\"example-form-field\">\n  <input matInput type=\"text\" placeholder=\"Clearable input\" [(ngModel)]=\"value\">\n  <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"value=''\">\n    <mat-icon>close</mat-icon>\n  </button>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -7276,7 +7276,7 @@ var InputClearableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -7287,7 +7287,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\"\r\n           [errorStateMatcher]=\"matcher\">\r\n    <mat-hint>Errors appear instantly!</mat-hint>\r\n    <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\r\n      Please enter a valid email address\r\n    </mat-error>\r\n    <mat-error *ngIf=\"emailFormControl.hasError('required')\">\r\n      Email is <strong>required</strong>\r\n    </mat-error>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\"\n           [errorStateMatcher]=\"matcher\">\n    <mat-hint>Errors appear instantly!</mat-hint>\n    <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n      Please enter a valid email address\n    </mat-error>\n    <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n      Email is <strong>required</strong>\n    </mat-error>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -7353,7 +7353,7 @@ var InputErrorStateMatcherExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -7364,7 +7364,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\">\r\n    <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\r\n      Please enter a valid email address\r\n    </mat-error>\r\n    <mat-error *ngIf=\"emailFormControl.hasError('required')\">\r\n      Email is <strong>required</strong>\r\n    </mat-error>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\">\n    <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n      Please enter a valid email address\n    </mat-error>\n    <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n      Email is <strong>required</strong>\n    </mat-error>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -7419,7 +7419,7 @@ var InputErrorsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -7430,7 +7430,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Company (disabled)\" disabled value=\"Google\">\r\n  </mat-form-field>\r\n\r\n  <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n    <td><mat-form-field class=\"example-full-width\">\r\n      <input matInput placeholder=\"First name\">\r\n    </mat-form-field></td>\r\n    <td><mat-form-field class=\"example-full-width\">\r\n      <input matInput placeholder=\"Long Last Name That Will Be Truncated\">\r\n    </mat-form-field></td>\r\n  </tr></table>\r\n\r\n  <p>\r\n    <mat-form-field class=\"example-full-width\">\r\n      <textarea matInput placeholder=\"Address\">1600 Amphitheatre Pkwy</textarea>\r\n    </mat-form-field>\r\n    <mat-form-field class=\"example-full-width\">\r\n      <textarea matInput placeholder=\"Address 2\"></textarea>\r\n    </mat-form-field>\r\n  </p>\r\n\r\n  <table class=\"example-full-width\" cellspacing=\"0\"><tr>\r\n    <td><mat-form-field class=\"example-full-width\">\r\n      <input matInput placeholder=\"City\">\r\n    </mat-form-field></td>\r\n    <td><mat-form-field class=\"example-full-width\">\r\n      <input matInput placeholder=\"State\">\r\n    </mat-form-field></td>\r\n    <td><mat-form-field class=\"example-full-width\">\r\n      <input matInput #postalCode maxlength=\"5\" placeholder=\"Postal Code\" value=\"94043\">\r\n      <mat-hint align=\"end\">{{postalCode.value.length}} / 5</mat-hint>\r\n    </mat-form-field></td>\r\n  </tr></table>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Company (disabled)\" disabled value=\"Google\">\n  </mat-form-field>\n\n  <table class=\"example-full-width\" cellspacing=\"0\"><tr>\n    <td><mat-form-field class=\"example-full-width\">\n      <input matInput placeholder=\"First name\">\n    </mat-form-field></td>\n    <td><mat-form-field class=\"example-full-width\">\n      <input matInput placeholder=\"Long Last Name That Will Be Truncated\">\n    </mat-form-field></td>\n  </tr></table>\n\n  <p>\n    <mat-form-field class=\"example-full-width\">\n      <textarea matInput placeholder=\"Address\">1600 Amphitheatre Pkwy</textarea>\n    </mat-form-field>\n    <mat-form-field class=\"example-full-width\">\n      <textarea matInput placeholder=\"Address 2\"></textarea>\n    </mat-form-field>\n  </p>\n\n  <table class=\"example-full-width\" cellspacing=\"0\"><tr>\n    <td><mat-form-field class=\"example-full-width\">\n      <input matInput placeholder=\"City\">\n    </mat-form-field></td>\n    <td><mat-form-field class=\"example-full-width\">\n      <input matInput placeholder=\"State\">\n    </mat-form-field></td>\n    <td><mat-form-field class=\"example-full-width\">\n      <input matInput #postalCode maxlength=\"5\" placeholder=\"Postal Code\" value=\"94043\">\n      <mat-hint align=\"end\">{{postalCode.value.length}} / 5</mat-hint>\n    </mat-form-field></td>\n  </tr></table>\n</form>\n"
 
 /***/ }),
 
@@ -7479,7 +7479,7 @@ var InputFormExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -7490,7 +7490,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput #message maxlength=\"256\" placeholder=\"Message\">\r\n    <mat-hint align=\"start\"><strong>Don't disclose personal info</strong> </mat-hint>\r\n    <mat-hint align=\"end\">{{message.value.length}} / 256</mat-hint>\r\n  </mat-form-field>\r\n  \r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n\n  <mat-form-field class=\"example-full-width\">\n    <input matInput #message maxlength=\"256\" placeholder=\"Message\">\n    <mat-hint align=\"start\"><strong>Don't disclose personal info</strong> </mat-hint>\n    <mat-hint align=\"end\">{{message.value.length}} / 256</mat-hint>\n  </mat-form-field>\n  \n</form>\n"
 
 /***/ }),
 
@@ -7539,7 +7539,7 @@ var InputHintExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -7550,7 +7550,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n  <mat-form-field class=\"example-full-width\">\r\n    <input matInput placeholder=\"Favorite food\" value=\"Sushi\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field class=\"example-full-width\">\r\n    <textarea matInput placeholder=\"Leave a comment\"></textarea>\r\n  </mat-form-field>\r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Favorite food\" value=\"Sushi\">\n  </mat-form-field>\n\n  <mat-form-field class=\"example-full-width\">\n    <textarea matInput placeholder=\"Leave a comment\"></textarea>\n  </mat-form-field>\n</form>\n"
 
 /***/ }),
 
@@ -7599,7 +7599,7 @@ var InputOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -7610,7 +7610,7 @@ module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"example-form\">\r\n\r\n  <mat-form-field class=\"example-full-width\">\r\n    <span matPrefix>+1 &nbsp;</span>\r\n    <input type=\"tel\" matInput placeholder=\"Telephone\">\r\n    <mat-icon matSuffix>mode_edit</mat-icon>\r\n  </mat-form-field>\r\n  \r\n</form>\r\n"
+module.exports = "<form class=\"example-form\">\n\n  <mat-form-field class=\"example-full-width\">\n    <span matPrefix>+1 &nbsp;</span>\n    <input type=\"tel\" matInput placeholder=\"Telephone\">\n    <mat-icon matSuffix>mode_edit</mat-icon>\n  </mat-form-field>\n  \n</form>\n"
 
 /***/ }),
 
@@ -7659,7 +7659,7 @@ var InputPrefixSuffixExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -7670,7 +7670,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list role=\"list\">\r\n  <mat-list-item role=\"listitem\">Item 1</mat-list-item>\r\n  <mat-list-item role=\"listitem\">Item 2</mat-list-item>\r\n  <mat-list-item role=\"listitem\">Item 3</mat-list-item>\r\n</mat-list>\r\n"
+module.exports = "<mat-list role=\"list\">\n  <mat-list-item role=\"listitem\">Item 1</mat-list-item>\n  <mat-list-item role=\"listitem\">Item 2</mat-list-item>\n  <mat-list-item role=\"listitem\">Item 3</mat-list-item>\n</mat-list>\n"
 
 /***/ }),
 
@@ -7719,7 +7719,7 @@ var ListOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-list-icon {\r\n  color: rgba(0, 0, 0, 0.54);\r\n}\r\n"
+module.exports = ".mat-list-icon {\n  color: rgba(0, 0, 0, 0.54);\n}\n"
 
 /***/ }),
 
@@ -7730,7 +7730,7 @@ module.exports = ".mat-list-icon {\r\n  color: rgba(0, 0, 0, 0.54);\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list>\r\n  <h3 mat-subheader>Folders</h3>\r\n  <mat-list-item *ngFor=\"let folder of folders\">\r\n    <mat-icon mat-list-icon>folder</mat-icon>\r\n    <h4 mat-line>{{folder.name}}</h4>\r\n    <p mat-line> {{folder.updated | date}} </p>\r\n  </mat-list-item>\r\n  <mat-divider></mat-divider>\r\n  <h3 mat-subheader>Notes</h3>\r\n  <mat-list-item *ngFor=\"let note of notes\">\r\n    <mat-icon mat-list-icon>note</mat-icon>\r\n    <h4 mat-line>{{note.name}}</h4>\r\n    <p mat-line> {{note.updated | date}} </p>\r\n  </mat-list-item>\r\n</mat-list>\r\n"
+module.exports = "<mat-list>\n  <h3 mat-subheader>Folders</h3>\n  <mat-list-item *ngFor=\"let folder of folders\">\n    <mat-icon mat-list-icon>folder</mat-icon>\n    <h4 mat-line>{{folder.name}}</h4>\n    <p mat-line> {{folder.updated | date}} </p>\n  </mat-list-item>\n  <mat-divider></mat-divider>\n  <h3 mat-subheader>Notes</h3>\n  <mat-list-item *ngFor=\"let note of notes\">\n    <mat-icon mat-list-icon>note</mat-icon>\n    <h4 mat-line>{{note.name}}</h4>\n    <p mat-line> {{note.updated | date}} </p>\n  </mat-list-item>\n</mat-list>\n"
 
 /***/ }),
 
@@ -7803,7 +7803,7 @@ var ListSectionsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No styles for this example. */\r\n"
+module.exports = "/** No styles for this example. */\n"
 
 /***/ }),
 
@@ -7814,7 +7814,7 @@ module.exports = "/** No styles for this example. */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-selection-list #shoes>\r\n  <mat-list-option *ngFor=\"let shoe of typesOfShoes\">\r\n    {{shoe}}\r\n  </mat-list-option>\r\n</mat-selection-list>\r\n\r\n<p>\r\n  Options selected: {{shoes.selectedOptions.selected.length}}\r\n</p>\r\n"
+module.exports = "<mat-selection-list #shoes>\n  <mat-list-option *ngFor=\"let shoe of typesOfShoes\">\n    {{shoe}}\n  </mat-list-option>\n</mat-selection-list>\n\n<p>\n  Options selected: {{shoes.selectedOptions.selected.length}}\n</p>\n"
 
 /***/ }),
 
@@ -7864,7 +7864,7 @@ var ListSelectionExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -7875,7 +7875,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n  <mat-icon>more_vert</mat-icon>\r\n</button>\r\n<mat-menu #menu=\"matMenu\">\r\n  <button mat-menu-item>\r\n    <mat-icon>dialpad</mat-icon>\r\n    <span>Redial</span>\r\n  </button>\r\n  <button mat-menu-item disabled>\r\n    <mat-icon>voicemail</mat-icon>\r\n    <span>Check voicemail</span>\r\n  </button>\r\n  <button mat-menu-item>\r\n    <mat-icon>notifications_off</mat-icon>\r\n    <span>Disable alerts</span>\r\n  </button>\r\n</mat-menu>\r\n"
+module.exports = "<button mat-icon-button [matMenuTriggerFor]=\"menu\">\n  <mat-icon>more_vert</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\">\n  <button mat-menu-item>\n    <mat-icon>dialpad</mat-icon>\n    <span>Redial</span>\n  </button>\n  <button mat-menu-item disabled>\n    <mat-icon>voicemail</mat-icon>\n    <span>Check voicemail</span>\n  </button>\n  <button mat-menu-item>\n    <mat-icon>notifications_off</mat-icon>\n    <span>Disable alerts</span>\n  </button>\n</mat-menu>\n"
 
 /***/ }),
 
@@ -7924,7 +7924,7 @@ var MenuIconsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -7935,7 +7935,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\">Menu</button>\r\n<mat-menu #menu=\"matMenu\">\r\n  <button mat-menu-item>Item 1</button>\r\n  <button mat-menu-item>Item 2</button>\r\n</mat-menu>\r\n"
+module.exports = "<button mat-button [matMenuTriggerFor]=\"menu\">Menu</button>\n<mat-menu #menu=\"matMenu\">\n  <button mat-menu-item>Item 1</button>\n  <button mat-menu-item>Item 2</button>\n</mat-menu>\n"
 
 /***/ }),
 
@@ -7984,7 +7984,7 @@ var MenuOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -7995,7 +7995,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button [matMenuTriggerFor]=\"animals\">Animal index</button>\r\n\r\n<mat-menu #animals=\"matMenu\">\r\n  <button mat-menu-item [matMenuTriggerFor]=\"vertebrates\">Vertebrates</button>\r\n  <button mat-menu-item [matMenuTriggerFor]=\"invertebrates\">Invertebrates</button>\r\n</mat-menu>\r\n\r\n<mat-menu #vertebrates=\"matMenu\">\r\n  <button mat-menu-item [matMenuTriggerFor]=\"fish\">Fishes</button>\r\n  <button mat-menu-item [matMenuTriggerFor]=\"amphibians\">Amphibians</button>\r\n  <button mat-menu-item [matMenuTriggerFor]=\"reptiles\">Reptiles</button>\r\n  <button mat-menu-item>Birds</button>\r\n  <button mat-menu-item>Mammals</button>\r\n</mat-menu>\r\n\r\n<mat-menu #invertebrates=\"matMenu\">\r\n  <button mat-menu-item>Insects</button>\r\n  <button mat-menu-item>Molluscs</button>\r\n  <button mat-menu-item>Crustaceans</button>\r\n  <button mat-menu-item>Corals</button>\r\n  <button mat-menu-item>Arachnids</button>\r\n  <button mat-menu-item>Velvet worms</button>\r\n  <button mat-menu-item>Horseshoe crabs</button>\r\n</mat-menu>\r\n\r\n<mat-menu #fish=\"matMenu\">\r\n  <button mat-menu-item>Baikal oilfish</button>\r\n  <button mat-menu-item>Bala shark</button>\r\n  <button mat-menu-item>Ballan wrasse</button>\r\n  <button mat-menu-item>Bamboo shark</button>\r\n  <button mat-menu-item>Banded killifish</button>\r\n</mat-menu>\r\n\r\n<mat-menu #amphibians=\"matMenu\">\r\n  <button mat-menu-item>Sonoran desert toad</button>\r\n  <button mat-menu-item>Western toad</button>\r\n  <button mat-menu-item>Arroyo toad</button>\r\n  <button mat-menu-item>Yosemite toad</button>\r\n</mat-menu>\r\n\r\n<mat-menu #reptiles=\"matMenu\">\r\n  <button mat-menu-item>Banded Day Gecko</button>\r\n  <button mat-menu-item>Banded Gila Monster</button>\r\n  <button mat-menu-item>Black Tree Monitor</button>\r\n  <button mat-menu-item>Blue Spiny Lizard</button>\r\n  <button mat-menu-item disabled>Velociraptor</button>\r\n</mat-menu>\r\n"
+module.exports = "<button mat-button [matMenuTriggerFor]=\"animals\">Animal index</button>\n\n<mat-menu #animals=\"matMenu\">\n  <button mat-menu-item [matMenuTriggerFor]=\"vertebrates\">Vertebrates</button>\n  <button mat-menu-item [matMenuTriggerFor]=\"invertebrates\">Invertebrates</button>\n</mat-menu>\n\n<mat-menu #vertebrates=\"matMenu\">\n  <button mat-menu-item [matMenuTriggerFor]=\"fish\">Fishes</button>\n  <button mat-menu-item [matMenuTriggerFor]=\"amphibians\">Amphibians</button>\n  <button mat-menu-item [matMenuTriggerFor]=\"reptiles\">Reptiles</button>\n  <button mat-menu-item>Birds</button>\n  <button mat-menu-item>Mammals</button>\n</mat-menu>\n\n<mat-menu #invertebrates=\"matMenu\">\n  <button mat-menu-item>Insects</button>\n  <button mat-menu-item>Molluscs</button>\n  <button mat-menu-item>Crustaceans</button>\n  <button mat-menu-item>Corals</button>\n  <button mat-menu-item>Arachnids</button>\n  <button mat-menu-item>Velvet worms</button>\n  <button mat-menu-item>Horseshoe crabs</button>\n</mat-menu>\n\n<mat-menu #fish=\"matMenu\">\n  <button mat-menu-item>Baikal oilfish</button>\n  <button mat-menu-item>Bala shark</button>\n  <button mat-menu-item>Ballan wrasse</button>\n  <button mat-menu-item>Bamboo shark</button>\n  <button mat-menu-item>Banded killifish</button>\n</mat-menu>\n\n<mat-menu #amphibians=\"matMenu\">\n  <button mat-menu-item>Sonoran desert toad</button>\n  <button mat-menu-item>Western toad</button>\n  <button mat-menu-item>Arroyo toad</button>\n  <button mat-menu-item>Yosemite toad</button>\n</mat-menu>\n\n<mat-menu #reptiles=\"matMenu\">\n  <button mat-menu-item>Banded Day Gecko</button>\n  <button mat-menu-item>Banded Gila Monster</button>\n  <button mat-menu-item>Black Tree Monitor</button>\n  <button mat-menu-item>Blue Spiny Lizard</button>\n  <button mat-menu-item disabled>Velociraptor</button>\n</mat-menu>\n"
 
 /***/ }),
 
@@ -8044,7 +8044,7 @@ var NestedMenuExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8055,7 +8055,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  List length:\r\n  <input matInput [(ngModel)]=\"length\">\r\n</mat-form-field>\r\n\r\n<mat-form-field>\r\n  Page size:\r\n  <input matInput [(ngModel)]=\"pageSize\">\r\n</mat-form-field>\r\n<mat-form-field>\r\n  Page size options:\r\n  <input matInput\r\n         [ngModel]=\"pageSizeOptions\"\r\n         (ngModelChange)=\"setPageSizeOptions($event)\">\r\n</mat-form-field>\r\n\r\n<mat-paginator [length]=\"length\"\r\n              [pageSize]=\"pageSize\"\r\n              [pageSizeOptions]=\"pageSizeOptions\"\r\n              (page)=\"pageEvent = $event\">\r\n</mat-paginator>\r\n\r\n<div *ngIf=\"pageEvent\">\r\n  <h5>Page Change Event Properties</h5>\r\n  <div>List length: {{pageEvent.length}}</div>\r\n  <div>Page size: {{pageEvent.pageSize}}</div>\r\n  <div>Page index: {{pageEvent.pageIndex}}</div>\r\n</div>\r\n"
+module.exports = "<mat-form-field>\n  List length:\n  <input matInput [(ngModel)]=\"length\">\n</mat-form-field>\n\n<mat-form-field>\n  Page size:\n  <input matInput [(ngModel)]=\"pageSize\">\n</mat-form-field>\n<mat-form-field>\n  Page size options:\n  <input matInput\n         [ngModel]=\"pageSizeOptions\"\n         (ngModelChange)=\"setPageSizeOptions($event)\">\n</mat-form-field>\n\n<mat-paginator [length]=\"length\"\n              [pageSize]=\"pageSize\"\n              [pageSizeOptions]=\"pageSizeOptions\"\n              (page)=\"pageEvent = $event\">\n</mat-paginator>\n\n<div *ngIf=\"pageEvent\">\n  <h5>Page Change Event Properties</h5>\n  <div>List length: {{pageEvent.length}}</div>\n  <div>Page size: {{pageEvent.pageSize}}</div>\n  <div>Page index: {{pageEvent.pageIndex}}</div>\n</div>\n"
 
 /***/ }),
 
@@ -8111,7 +8111,7 @@ var PaginatorConfigurableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8122,7 +8122,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-paginator [length]=\"100\"\r\n              [pageSize]=\"10\"\r\n              [pageSizeOptions]=\"[5, 10, 25, 100]\">\r\n</mat-paginator>\r\n"
+module.exports = "<mat-paginator [length]=\"100\"\n              [pageSize]=\"10\"\n              [pageSizeOptions]=\"[5, 10, 25, 100]\">\n</mat-paginator>\n"
 
 /***/ }),
 
@@ -8171,7 +8171,7 @@ var PaginatorOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8182,7 +8182,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar mode=\"buffer\"></mat-progress-bar>\r\n"
+module.exports = "<mat-progress-bar mode=\"buffer\"></mat-progress-bar>\n"
 
 /***/ }),
 
@@ -8231,7 +8231,7 @@ var ProgressBarBufferExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  height: 60px;\r\n}\r\n\r\n.example-margin {\r\n  margin: 0 10px;\r\n}\r\n"
+module.exports = ".example-h2 {\n  margin: 10px;\n}\n\n.example-section {\n  display: flex;\n  align-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n.example-margin {\n  margin: 0 10px;\n}\n"
 
 /***/ }),
 
@@ -8242,7 +8242,7 @@ module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Progress bar configuration</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <label class=\"example-margin\">Color:</label>\r\n      <mat-radio-group [(ngModel)]=\"color\">\r\n        <mat-radio-button class=\"example-margin\" value=\"primary\">\r\n          Primary\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"accent\">\r\n          Accent\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"warn\">\r\n          Warn\r\n        </mat-radio-button>\r\n      </mat-radio-group>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <label class=\"example-margin\">Mode:</label>\r\n      <mat-radio-group [(ngModel)]=\"mode\">\r\n        <mat-radio-button class=\"example-margin\" value=\"determinate\">\r\n          Determinate\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"indeterminate\">\r\n          Indeterminate\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"buffer\">\r\n          Buffer\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"query\">\r\n          Query\r\n        </mat-radio-button>\r\n      </mat-radio-group>\r\n    </section>\r\n\r\n    <section class=\"example-section\" *ngIf=\"mode === 'determinate' || mode === 'buffer'\">\r\n      <label class=\"example-margin\">Progress:</label>\r\n      <mat-slider class=\"example-margin\" [(ngModel)]=\"value\"></mat-slider>\r\n    </section>\r\n    <section class=\"example-section\" *ngIf=\"mode === 'buffer'\">\r\n      <label class=\"example-margin\">Buffer:</label>\r\n      <mat-slider class=\"example-margin\" [(ngModel)]=\"bufferValue\"></mat-slider>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Result</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-progress-bar\r\n          class=\"example-margin\"\r\n          [color]=\"color\"\r\n          [mode]=\"mode\"\r\n          [value]=\"value\"\r\n          [bufferValue]=\"bufferValue\">\r\n      </mat-progress-bar>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Progress bar configuration</h2>\n\n    <section class=\"example-section\">\n      <label class=\"example-margin\">Color:</label>\n      <mat-radio-group [(ngModel)]=\"color\">\n        <mat-radio-button class=\"example-margin\" value=\"primary\">\n          Primary\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"accent\">\n          Accent\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"warn\">\n          Warn\n        </mat-radio-button>\n      </mat-radio-group>\n    </section>\n\n    <section class=\"example-section\">\n      <label class=\"example-margin\">Mode:</label>\n      <mat-radio-group [(ngModel)]=\"mode\">\n        <mat-radio-button class=\"example-margin\" value=\"determinate\">\n          Determinate\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"indeterminate\">\n          Indeterminate\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"buffer\">\n          Buffer\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"query\">\n          Query\n        </mat-radio-button>\n      </mat-radio-group>\n    </section>\n\n    <section class=\"example-section\" *ngIf=\"mode === 'determinate' || mode === 'buffer'\">\n      <label class=\"example-margin\">Progress:</label>\n      <mat-slider class=\"example-margin\" [(ngModel)]=\"value\"></mat-slider>\n    </section>\n    <section class=\"example-section\" *ngIf=\"mode === 'buffer'\">\n      <label class=\"example-margin\">Buffer:</label>\n      <mat-slider class=\"example-margin\" [(ngModel)]=\"bufferValue\"></mat-slider>\n    </section>\n  </mat-card-content>\n</mat-card>\n\n<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Result</h2>\n\n    <section class=\"example-section\">\n      <mat-progress-bar\n          class=\"example-margin\"\n          [color]=\"color\"\n          [mode]=\"mode\"\n          [value]=\"value\"\n          [bufferValue]=\"bufferValue\">\n      </mat-progress-bar>\n    </section>\n  </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -8295,7 +8295,7 @@ var ProgressBarConfigurableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8306,7 +8306,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar mode=\"determinate\" value=\"40\"></mat-progress-bar>\r\n"
+module.exports = "<mat-progress-bar mode=\"determinate\" value=\"40\"></mat-progress-bar>\n"
 
 /***/ }),
 
@@ -8355,7 +8355,7 @@ var ProgressBarDeterminateExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8366,7 +8366,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\r\n"
+module.exports = "<mat-progress-bar mode=\"indeterminate\"></mat-progress-bar>\n"
 
 /***/ }),
 
@@ -8415,7 +8415,7 @@ var ProgressBarIndeterminateExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8426,7 +8426,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-progress-bar mode=\"query\"></mat-progress-bar>\r\n"
+module.exports = "<mat-progress-bar mode=\"query\"></mat-progress-bar>\n"
 
 /***/ }),
 
@@ -8475,7 +8475,7 @@ var ProgressBarQueryExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  height: 60px;\r\n}\r\n\r\n.example-margin {\r\n  margin: 0 10px;\r\n}\r\n"
+module.exports = ".example-h2 {\n  margin: 10px;\n}\n\n.example-section {\n  display: flex;\n  align-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n.example-margin {\n  margin: 0 10px;\n}\n"
 
 /***/ }),
 
@@ -8486,7 +8486,7 @@ module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Progress spinner configuration</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <label class=\"example-margin\">Color:</label>\r\n      <mat-radio-group [(ngModel)]=\"color\">\r\n        <mat-radio-button class=\"example-margin\" value=\"primary\">\r\n          Primary\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"accent\">\r\n          Accent\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"warn\">\r\n          Warn\r\n        </mat-radio-button>\r\n      </mat-radio-group>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <label class=\"example-margin\">Mode:</label>\r\n      <mat-radio-group [(ngModel)]=\"mode\">\r\n        <mat-radio-button class=\"example-margin\" value=\"determinate\">\r\n          Determinate\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"indeterminate\">\r\n          Indeterminate\r\n        </mat-radio-button>\r\n      </mat-radio-group>\r\n    </section>\r\n\r\n    <section class=\"example-section\" *ngIf=\"mode === 'determinate'\">\r\n      <label class=\"example-margin\">Progress:</label>\r\n      <mat-slider class=\"example-margin\" [(ngModel)]=\"value\"></mat-slider>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Result</h2>\r\n\r\n    <mat-progress-spinner\r\n        class=\"example-margin\"\r\n        [color]=\"color\"\r\n        [mode]=\"mode\"\r\n        [value]=\"value\">\r\n    </mat-progress-spinner>\r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Progress spinner configuration</h2>\n\n    <section class=\"example-section\">\n      <label class=\"example-margin\">Color:</label>\n      <mat-radio-group [(ngModel)]=\"color\">\n        <mat-radio-button class=\"example-margin\" value=\"primary\">\n          Primary\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"accent\">\n          Accent\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"warn\">\n          Warn\n        </mat-radio-button>\n      </mat-radio-group>\n    </section>\n\n    <section class=\"example-section\">\n      <label class=\"example-margin\">Mode:</label>\n      <mat-radio-group [(ngModel)]=\"mode\">\n        <mat-radio-button class=\"example-margin\" value=\"determinate\">\n          Determinate\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"indeterminate\">\n          Indeterminate\n        </mat-radio-button>\n      </mat-radio-group>\n    </section>\n\n    <section class=\"example-section\" *ngIf=\"mode === 'determinate'\">\n      <label class=\"example-margin\">Progress:</label>\n      <mat-slider class=\"example-margin\" [(ngModel)]=\"value\"></mat-slider>\n    </section>\n  </mat-card-content>\n</mat-card>\n<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Result</h2>\n\n    <mat-progress-spinner\n        class=\"example-margin\"\n        [color]=\"color\"\n        [mode]=\"mode\"\n        [value]=\"value\">\n    </mat-progress-spinner>\n  </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -8538,7 +8538,7 @@ var ProgressSpinnerConfigurableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8549,7 +8549,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-spinner></mat-spinner>\r\n"
+module.exports = "<mat-spinner></mat-spinner>\n"
 
 /***/ }),
 
@@ -8598,7 +8598,7 @@ var ProgressSpinnerOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-radio-group {\r\n  display: inline-flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.example-radio-button {\r\n  margin: 5px;\r\n}\r\n\r\n.example-selected-value {\r\n  margin: 15px 0;\r\n}\r\n"
+module.exports = ".example-radio-group {\n  display: inline-flex;\n  flex-direction: column;\n}\n\n.example-radio-button {\n  margin: 5px;\n}\n\n.example-selected-value {\n  margin: 15px 0;\n}\n"
 
 /***/ }),
 
@@ -8609,7 +8609,7 @@ module.exports = ".example-radio-group {\r\n  display: inline-flex;\r\n  flex-di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"favoriteSeason\">\r\n  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let season of seasons\" [value]=\"season\">\r\n    {{season}}\r\n  </mat-radio-button>\r\n</mat-radio-group>\r\n<div class=\"example-selected-value\">Your favorite season is: {{favoriteSeason}}</div>\r\n"
+module.exports = "<mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"favoriteSeason\">\n  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let season of seasons\" [value]=\"season\">\n    {{season}}\n  </mat-radio-button>\n</mat-radio-group>\n<div class=\"example-selected-value\">Your favorite season is: {{favoriteSeason}}</div>\n"
 
 /***/ }),
 
@@ -8659,7 +8659,7 @@ var RadioNgModelExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-radio-button ~ .mat-radio-button {\r\n  padding-right: 16px;\r\n}\r\n"
+module.exports = ".mat-radio-button ~ .mat-radio-button {\n  padding-right: 16px;\n}\n"
 
 /***/ }),
 
@@ -8670,7 +8670,7 @@ module.exports = ".mat-radio-button ~ .mat-radio-button {\r\n  padding-right: 16
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-radio-group>\r\n  <mat-radio-button value=\"1\">Option 1</mat-radio-button>\r\n  <mat-radio-button value=\"2\">Option 2</mat-radio-button>\r\n</mat-radio-group>\r\n"
+module.exports = "<mat-radio-group>\n  <mat-radio-button value=\"1\">Option 1</mat-radio-button>\n  <mat-radio-button value=\"2\">Option 2</mat-radio-button>\n</mat-radio-group>\n"
 
 /***/ }),
 
@@ -8719,7 +8719,7 @@ var RadioOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-additional-selection {\r\n  opacity: 0.75;\r\n  font-size: 0.75em;\r\n}\r\n"
+module.exports = ".example-additional-selection {\n  opacity: 0.75;\n  font-size: 0.75em;\n}\n"
 
 /***/ }),
 
@@ -8730,7 +8730,7 @@ module.exports = ".example-additional-selection {\r\n  opacity: 0.75;\r\n  font-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Toppings\" [formControl]=\"toppings\" multiple>\r\n    <mat-select-trigger>\r\n      {{toppings.value ? toppings.value[0] : ''}}\r\n      <span *ngIf=\"toppings.value?.length > 1\" class=\"example-additional-selection\">\r\n        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})\r\n      </span>\r\n    </mat-select-trigger>\r\n    <mat-option *ngFor=\"let topping of toppingList\" [value]=\"topping\">{{topping}}</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Toppings\" [formControl]=\"toppings\" multiple>\n    <mat-select-trigger>\n      {{toppings.value ? toppings.value[0] : ''}}\n      <span *ngIf=\"toppings.value?.length > 1\" class=\"example-additional-selection\">\n        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})\n      </span>\n    </mat-select-trigger>\n    <mat-option *ngFor=\"let topping of toppingList\" [value]=\"topping\">{{topping}}</mat-option>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -8781,7 +8781,7 @@ var SelectCustomTriggerExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8792,7 +8792,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  <mat-checkbox [formControl]=\"disableSelect\">Disable select</mat-checkbox>\r\n</p>\r\n<p>\r\n  <mat-form-field>\r\n    <mat-select placeholder=\"Choose an option\" [disabled]=\"disableSelect.value\">\r\n      <mat-option value=\"option1\">Option 1</mat-option>\r\n      <mat-option value=\"option2\" disabled>Option 2 (disabled)</mat-option>\r\n      <mat-option value=\"option3\">Option 3</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n</p>\r\n"
+module.exports = "<p>\n  <mat-checkbox [formControl]=\"disableSelect\">Disable select</mat-checkbox>\n</p>\n<p>\n  <mat-form-field>\n    <mat-select placeholder=\"Choose an option\" [disabled]=\"disableSelect.value\">\n      <mat-option value=\"option1\">Option 1</mat-option>\n      <mat-option value=\"option2\" disabled>Option 2 (disabled)</mat-option>\n      <mat-option value=\"option3\">Option 3</mat-option>\n    </mat-select>\n  </mat-form-field>\n</p>\n"
 
 /***/ }),
 
@@ -8842,7 +8842,7 @@ var SelectDisabledExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8853,7 +8853,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Choose one\" [formControl]=\"selected\" [errorStateMatcher]=\"matcher\">\r\n    <mat-option>Clear</mat-option>\r\n    <mat-option value=\"valid\">Valid option</mat-option>\r\n    <mat-option value=\"invalid\">Invalid option</mat-option>\r\n  </mat-select>\r\n  <mat-hint>Errors appear instantly!</mat-hint>\r\n  <mat-error *ngIf=\"selected.hasError('required')\">You must make a selection</mat-error>\r\n  <mat-error *ngIf=\"selected.hasError('pattern') && !selected.hasError('required')\">\r\n    Your selection is invalid\r\n  </mat-error>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Choose one\" [formControl]=\"selected\" [errorStateMatcher]=\"matcher\">\n    <mat-option>Clear</mat-option>\n    <mat-option value=\"valid\">Valid option</mat-option>\n    <mat-option value=\"invalid\">Invalid option</mat-option>\n  </mat-select>\n  <mat-hint>Errors appear instantly!</mat-hint>\n  <mat-error *ngIf=\"selected.hasError('required')\">You must make a selection</mat-error>\n  <mat-error *ngIf=\"selected.hasError('pattern') && !selected.hasError('required')\">\n    Your selection is invalid\n  </mat-error>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -8919,7 +8919,7 @@ var SelectErrorStateMatcherExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8930,7 +8930,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\r\n  <mat-form-field>\r\n    <mat-select placeholder=\"Favorite food\" [(ngModel)]=\"selectedValue\" name=\"food\">\r\n      <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\r\n        {{food.viewValue}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <p> Selected value: {{selectedValue}} </p>\r\n</form>\r\n"
+module.exports = "<form>\n  <mat-form-field>\n    <mat-select placeholder=\"Favorite food\" [(ngModel)]=\"selectedValue\" name=\"food\">\n      <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\n        {{food.viewValue}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <p> Selected value: {{selectedValue}} </p>\n</form>\n"
 
 /***/ }),
 
@@ -8984,7 +8984,7 @@ var SelectFormExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -8995,7 +8995,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Favorite animal\" [formControl]=\"animalControl\" required>\r\n    <mat-option>--</mat-option>\r\n    <mat-option *ngFor=\"let animal of animals\" [value]=\"animal\">\r\n      {{animal.name}}\r\n    </mat-option>\r\n  </mat-select>\r\n  <mat-error *ngIf=\"animalControl.hasError('required')\">Please choose an animal</mat-error>\r\n  <mat-hint>{{animalControl.value?.sound}}</mat-hint>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Favorite animal\" [formControl]=\"animalControl\" required>\n    <mat-option>--</mat-option>\n    <mat-option *ngFor=\"let animal of animals\" [value]=\"animal\">\n      {{animal.name}}\n    </mat-option>\n  </mat-select>\n  <mat-error *ngIf=\"animalControl.hasError('required')\">Please choose an animal</mat-error>\n  <mat-hint>{{animalControl.value?.sound}}</mat-hint>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9051,7 +9051,7 @@ var SelectHintErrorExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -9062,7 +9062,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Toppings\" [formControl]=\"toppings\" multiple>\r\n    <mat-option *ngFor=\"let topping of toppingList\" [value]=\"topping\">{{topping}}</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Toppings\" [formControl]=\"toppings\" multiple>\n    <mat-option *ngFor=\"let topping of toppingList\" [value]=\"topping\">{{topping}}</mat-option>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9113,7 +9113,7 @@ var SelectMultipleExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -9124,7 +9124,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Select an option\" disableRipple>\r\n    <mat-option value=\"1\">Option 1</mat-option>\r\n    <mat-option value=\"2\">Option 2</mat-option>\r\n    <mat-option value=\"3\">Option 3</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Select an option\" disableRipple>\n    <mat-option value=\"1\">Option 1</mat-option>\n    <mat-option value=\"2\">Option 2</mat-option>\n    <mat-option value=\"3\">Option 3</mat-option>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9171,7 +9171,7 @@ var SelectNoRippleExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -9182,7 +9182,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Pokemon\" [formControl]=\"pokemonControl\">\r\n    <mat-option>-- None --</mat-option>\r\n    <mat-optgroup *ngFor=\"let group of pokemonGroups\" [label]=\"group.name\"\r\n                  [disabled]=\"group.disabled\">\r\n      <mat-option *ngFor=\"let pokemon of group.pokemon\" [value]=\"pokemon.value\">\r\n        {{pokemon.viewValue}}\r\n      </mat-option>\r\n    </mat-optgroup>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Pokemon\" [formControl]=\"pokemonControl\">\n    <mat-option>-- None --</mat-option>\n    <mat-optgroup *ngFor=\"let group of pokemonGroups\" [label]=\"group.name\"\n                  [disabled]=\"group.disabled\">\n      <mat-option *ngFor=\"let pokemon of group.pokemon\" [value]=\"pokemon.value\">\n        {{pokemon.viewValue}}\n      </mat-option>\n    </mat-optgroup>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9266,7 +9266,7 @@ var SelectOptgroupExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -9277,7 +9277,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Favorite food\">\r\n    <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\r\n      {{food.viewValue}}\r\n    </mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Favorite food\">\n    <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\n      {{food.viewValue}}\n    </mat-option>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9331,7 +9331,7 @@ var SelectOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-panel-red .mat-select-content {\r\n  background: rgba(255, 0, 0, 0.5);\r\n}\r\n\r\n.example-panel-green .mat-select-content {\r\n  background: rgba(0, 255, 0, 0.5);\r\n}\r\n\r\n.example-panel-blue .mat-select-content {\r\n  background: rgba(0, 0, 255, 0.5);\r\n}\r\n"
+module.exports = ".example-panel-red .mat-select-content {\n  background: rgba(255, 0, 0, 0.5);\n}\n\n.example-panel-green .mat-select-content {\n  background: rgba(0, 255, 0, 0.5);\n}\n\n.example-panel-blue .mat-select-content {\n  background: rgba(0, 0, 255, 0.5);\n}\n"
 
 /***/ }),
 
@@ -9342,7 +9342,7 @@ module.exports = ".example-panel-red .mat-select-content {\r\n  background: rgba
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Panel color\" [formControl]=\"panelColor\"\r\n              panelClass=\"example-panel-{{panelColor.value}}\">\r\n    <mat-option value=\"red\">Red</mat-option>\r\n    <mat-option value=\"green\">Green</mat-option>\r\n    <mat-option value=\"blue\">Blue</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Panel color\" [formControl]=\"panelColor\"\n              panelClass=\"example-panel-{{panelColor.value}}\">\n    <mat-option value=\"red\">Red</mat-option>\n    <mat-option value=\"green\">Green</mat-option>\n    <mat-option value=\"blue\">Blue</mat-option>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9397,7 +9397,7 @@ var SelectPanelClassExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -9408,7 +9408,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"State\">\r\n    <mat-option>None</mat-option>\r\n    <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"State\">\n    <mat-option>None</mat-option>\n    <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n  </mat-select>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -9464,7 +9464,7 @@ var SelectResetExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -9475,7 +9475,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select [(value)]=\"selected\">\r\n    <mat-option>None</mat-option>\r\n    <mat-option value=\"option1\">Option 1</mat-option>\r\n    <mat-option value=\"option2\">Option 2</mat-option>\r\n    <mat-option value=\"option3\">Option 3</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n\r\n<p>You selected: {{selected}}</p>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select [(value)]=\"selected\">\n    <mat-option>None</mat-option>\n    <mat-option value=\"option1\">Option 1</mat-option>\n    <mat-option value=\"option2\">Option 2</mat-option>\n    <mat-option value=\"option3\">Option 3</mat-option>\n  </mat-select>\n</mat-form-field>\n\n<p>You selected: {{selected}}</p>\n"
 
 /***/ }),
 
@@ -9523,7 +9523,7 @@ var SelectValueBindingExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  width: 500px;\r\n  height: 300px;\r\n  border: 1px solid rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.example-sidenav-content {\r\n  display: flex;\r\n  height: 100%;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.example-sidenav {\r\n  padding: 20px;\r\n}\r\n"
+module.exports = ".example-container {\n  width: 500px;\n  height: 300px;\n  border: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n.example-sidenav-content {\n  display: flex;\n  height: 100%;\n  align-items: center;\n  justify-content: center;\n}\n\n.example-sidenav {\n  padding: 20px;\n}\n"
 
 /***/ }),
 
@@ -9534,7 +9534,7 @@ module.exports = ".example-container {\r\n  width: 500px;\r\n  height: 300px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-drawer-container class=\"example-container\" autosize>\r\n  <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\r\n    <p>Auto-resizing sidenav</p>\r\n    <p *ngIf=\"showFiller\">Lorem, ipsum dolor sit amet consectetur.</p>\r\n    <button (click)=\"showFiller = !showFiller\" mat-raised-button>\r\n      Toggle extra text\r\n    </button>\r\n  </mat-drawer>\r\n\r\n  <div class=\"example-sidenav-content\">\r\n    <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\r\n      Toggle sidenav\r\n    </button>\r\n  </div>\r\n\r\n</mat-drawer-container>\r\n"
+module.exports = "<mat-drawer-container class=\"example-container\" autosize>\n  <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\n    <p>Auto-resizing sidenav</p>\n    <p *ngIf=\"showFiller\">Lorem, ipsum dolor sit amet consectetur.</p>\n    <button (click)=\"showFiller = !showFiller\" mat-raised-button>\n      Toggle extra text\n    </button>\n  </mat-drawer>\n\n  <div class=\"example-sidenav-content\">\n    <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n      Toggle sidenav\n    </button>\n  </div>\n\n</mat-drawer-container>\n"
 
 /***/ }),
 
@@ -9584,7 +9584,7 @@ var SidenavAutosizeExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  width: 400px;\r\n  height: 200px;\r\n  margin: 10px;\r\n  border: 1px solid #555;\r\n}\r\n"
+module.exports = ".example-container {\n  width: 400px;\n  height: 200px;\n  margin: 10px;\n  border: 1px solid #555;\n}\n"
 
 /***/ }),
 
@@ -9595,7 +9595,7 @@ module.exports = ".example-container {\r\n  width: 400px;\r\n  height: 200px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"hasBackdrop.value\">\r\n  <mat-drawer #drawer [mode]=\"mode.value\">I'm a drawer</mat-drawer>\r\n  <mat-drawer-content>\r\n    <mat-form-field>\r\n      <mat-label>Sidenav mode</mat-label>\r\n      <mat-select #mode value=\"side\">\r\n        <mat-option value=\"side\">Side</mat-option>\r\n        <mat-option value=\"over\">Over</mat-option>\r\n        <mat-option value=\"push\">Push</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>Has backdrop</mat-label>\r\n      <mat-select #hasBackdrop>\r\n        <mat-option>Unset</mat-option>\r\n        <mat-option [value]=\"true\">True</mat-option>\r\n        <mat-option [value]=\"false\">False</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <button mat-raised-button (click)=\"drawer.toggle()\">Toggle drawer</button>\r\n  </mat-drawer-content>\r\n</mat-drawer-container>\r\n"
+module.exports = "<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"hasBackdrop.value\">\n  <mat-drawer #drawer [mode]=\"mode.value\">I'm a drawer</mat-drawer>\n  <mat-drawer-content>\n    <mat-form-field>\n      <mat-label>Sidenav mode</mat-label>\n      <mat-select #mode value=\"side\">\n        <mat-option value=\"side\">Side</mat-option>\n        <mat-option value=\"over\">Over</mat-option>\n        <mat-option value=\"push\">Push</mat-option>\n      </mat-select>\n    </mat-form-field>\n    <mat-form-field>\n      <mat-label>Has backdrop</mat-label>\n      <mat-select #hasBackdrop>\n        <mat-option>Unset</mat-option>\n        <mat-option [value]=\"true\">True</mat-option>\n        <mat-option [value]=\"false\">False</mat-option>\n      </mat-select>\n    </mat-form-field>\n    <button mat-raised-button (click)=\"drawer.toggle()\">Toggle drawer</button>\n  </mat-drawer-content>\n</mat-drawer-container>\n"
 
 /***/ }),
 
@@ -9642,7 +9642,7 @@ var SidenavBackdropExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n"
+module.exports = ".example-container {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n"
 
 /***/ }),
 
@@ -9653,7 +9653,7 @@ module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container\r\n    class=\"example-container\" (backdropClick)=\"close('backdrop')\" *ngIf=\"shouldRun\">\r\n  <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\" disableClose>\r\n    <p><button mat-button (click)=\"close('toggle button')\">Toggle</button></p>\r\n  </mat-sidenav>\r\n\r\n  <mat-sidenav-content>\r\n    <p><button mat-button (click)=\"sidenav.open()\">Open</button></p>\r\n    <p>Closed due to: {{reason}}</p>\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<mat-sidenav-container\n    class=\"example-container\" (backdropClick)=\"close('backdrop')\" *ngIf=\"shouldRun\">\n  <mat-sidenav #sidenav (keydown.escape)=\"close('escape')\" disableClose>\n    <p><button mat-button (click)=\"close('toggle button')\">Toggle</button></p>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <p><button mat-button (click)=\"sidenav.open()\">Open</button></p>\n    <p>Closed due to: {{reason}}</p>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -9715,7 +9715,7 @@ var SidenavDisableCloseExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  width: 400px;\r\n  height: 200px;\r\n  margin: 10px;\r\n  border: 1px solid #555;\r\n}\r\n"
+module.exports = ".example-container {\n  width: 400px;\n  height: 200px;\n  margin: 10px;\n  border: 1px solid #555;\n}\n"
 
 /***/ }),
 
@@ -9726,7 +9726,7 @@ module.exports = ".example-container {\r\n  width: 400px;\r\n  height: 200px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-drawer-container class=\"example-container\">\r\n  <mat-drawer mode=\"side\" opened>Drawer content</mat-drawer>\r\n  <mat-drawer-content>Main content</mat-drawer-content>\r\n</mat-drawer-container>\r\n"
+module.exports = "<mat-drawer-container class=\"example-container\">\n  <mat-drawer mode=\"side\" opened>Drawer content</mat-drawer>\n  <mat-drawer-content>Main content</mat-drawer-content>\n</mat-drawer-container>\n"
 
 /***/ }),
 
@@ -9773,7 +9773,7 @@ var SidenavDrawerOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 60px;\r\n  bottom: 60px;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.example-sidenav {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  width: 200px;\r\n  background: rgba(255, 0, 0, 0.5);\r\n}\r\n\r\n.example-header {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.example-footer {\r\n  position: fixed;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n"
+module.exports = ".example-container {\n  position: absolute;\n  top: 60px;\n  bottom: 60px;\n  left: 0;\n  right: 0;\n}\n\n.example-sidenav {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 200px;\n  background: rgba(255, 0, 0, 0.5);\n}\n\n.example-header {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n\n.example-footer {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n"
 
 /***/ }),
 
@@ -9784,7 +9784,7 @@ module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 60px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"shouldRun\">\r\n  <mat-toolbar class=\"example-header\">Header</mat-toolbar>\r\n\r\n  <mat-sidenav-container class=\"example-container\">\r\n    <mat-sidenav #sidenav mode=\"side\" opened class=\"example-sidenav\"\r\n                 [fixedInViewport]=\"options.value.fixed\" [fixedTopGap]=\"options.value.top\"\r\n                 [fixedBottomGap]=\"options.value.bottom\">\r\n      {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav\r\n    </mat-sidenav>\r\n\r\n    <mat-sidenav-content [formGroup]=\"options\">\r\n      <p><mat-checkbox formControlName=\"fixed\">Fixed</mat-checkbox></p>\r\n      <p><mat-form-field>\r\n        <input matInput type=\"number\" formControlName=\"top\" placeholder=\"Top gap\">\r\n      </mat-form-field></p>\r\n      <p><mat-form-field>\r\n        <input matInput type=\"number\" formControlName=\"bottom\" placeholder=\"Bottom gap\">\r\n      </mat-form-field></p>\r\n      <p><button mat-button (click)=\"sidenav.toggle()\">Toggle</button></p>\r\n    </mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n\r\n  <mat-toolbar class=\"example-footer\">Footer</mat-toolbar>\r\n</ng-container>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<ng-container *ngIf=\"shouldRun\">\n  <mat-toolbar class=\"example-header\">Header</mat-toolbar>\n\n  <mat-sidenav-container class=\"example-container\">\n    <mat-sidenav #sidenav mode=\"side\" opened class=\"example-sidenav\"\n                 [fixedInViewport]=\"options.value.fixed\" [fixedTopGap]=\"options.value.top\"\n                 [fixedBottomGap]=\"options.value.bottom\">\n      {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav\n    </mat-sidenav>\n\n    <mat-sidenav-content [formGroup]=\"options\">\n      <p><mat-checkbox formControlName=\"fixed\">Fixed</mat-checkbox></p>\n      <p><mat-form-field>\n        <input matInput type=\"number\" formControlName=\"top\" placeholder=\"Top gap\">\n      </mat-form-field></p>\n      <p><mat-form-field>\n        <input matInput type=\"number\" formControlName=\"bottom\" placeholder=\"Bottom gap\">\n      </mat-form-field></p>\n      <p><button mat-button (click)=\"sidenav.toggle()\">Toggle</button></p>\n    </mat-sidenav-content>\n  </mat-sidenav-container>\n\n  <mat-toolbar class=\"example-footer\">Footer</mat-toolbar>\n</ng-container>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -9843,7 +9843,7 @@ var SidenavFixedExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.example-radio-group {\r\n  display: block;\r\n  border: 1px solid #555;\r\n  margin: 20px;\r\n  padding: 10px;\r\n}\r\n"
+module.exports = ".example-container {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n\n.example-radio-group {\n  display: block;\n  border: 1px solid #555;\n  margin: 20px;\n  padding: 10px;\n}\n"
 
 /***/ }),
 
@@ -9854,7 +9854,7 @@ module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\r\n  <mat-sidenav #sidenav [mode]=\"mode.value\">\r\n    <p><button mat-button (click)=\"sidenav.toggle()\">Toggle</button></p>\r\n    <p>\r\n      <mat-radio-group class=\"example-radio-group\" [formControl]=\"mode\">\r\n        <label>Mode:</label>\r\n        <mat-radio-button value=\"over\">Over</mat-radio-button>\r\n        <mat-radio-button value=\"side\">Side</mat-radio-button>\r\n        <mat-radio-button value=\"push\">Push</mat-radio-button>\r\n      </mat-radio-group>\r\n    </p>\r\n  </mat-sidenav>\r\n\r\n  <mat-sidenav-content>\r\n    <p><button mat-button (click)=\"sidenav.toggle()\">Toggle</button></p>\r\n    <p>\r\n      <mat-radio-group class=\"example-radio-group\" [formControl]=\"mode\">\r\n        <label>Mode:</label>\r\n        <mat-radio-button value=\"over\">Over</mat-radio-button>\r\n        <mat-radio-button value=\"side\">Side</mat-radio-button>\r\n        <mat-radio-button value=\"push\">Push</mat-radio-button>\r\n      </mat-radio-group>\r\n    </p>\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\n  <mat-sidenav #sidenav [mode]=\"mode.value\">\n    <p><button mat-button (click)=\"sidenav.toggle()\">Toggle</button></p>\n    <p>\n      <mat-radio-group class=\"example-radio-group\" [formControl]=\"mode\">\n        <label>Mode:</label>\n        <mat-radio-button value=\"over\">Over</mat-radio-button>\n        <mat-radio-button value=\"side\">Side</mat-radio-button>\n        <mat-radio-button value=\"push\">Push</mat-radio-button>\n      </mat-radio-group>\n    </p>\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <p><button mat-button (click)=\"sidenav.toggle()\">Toggle</button></p>\n    <p>\n      <mat-radio-group class=\"example-radio-group\" [formControl]=\"mode\">\n        <label>Mode:</label>\n        <mat-radio-button value=\"over\">Over</mat-radio-button>\n        <mat-radio-button value=\"side\">Side</mat-radio-button>\n        <mat-radio-button value=\"push\">Push</mat-radio-button>\n      </mat-radio-group>\n    </p>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -9905,7 +9905,7 @@ var SidenavModeExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.example-events {\r\n  width: 300px;\r\n  height: 200px;\r\n  overflow: auto;\r\n  border: 1px solid #555;\r\n}\r\n"
+module.exports = ".example-container {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n\n.example-events {\n  width: 300px;\n  height: 200px;\n  overflow: auto;\n  border: 1px solid #555;\n}\n"
 
 /***/ }),
 
@@ -9916,7 +9916,7 @@ module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\r\n  <mat-sidenav #sidenav mode=\"side\" [(opened)]=\"opened\" (opened)=\"events.push('open!')\"\r\n               (closed)=\"events.push('close!')\">\r\n    Sidenav content\r\n  </mat-sidenav>\r\n\r\n  <mat-sidenav-content>\r\n    <p><mat-checkbox [(ngModel)]=\"opened\">sidenav.opened</mat-checkbox></p>\r\n    <p><button mat-button (click)=\"sidenav.toggle()\">sidenav.toggle()</button></p>\r\n    <p>Events:</p>\r\n    <div class=\"example-events\">\r\n      <div *ngFor=\"let e of events\">{{e}}</div>\r\n    </div>\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\n  <mat-sidenav #sidenav mode=\"side\" [(opened)]=\"opened\" (opened)=\"events.push('open!')\"\n               (closed)=\"events.push('close!')\">\n    Sidenav content\n  </mat-sidenav>\n\n  <mat-sidenav-content>\n    <p><mat-checkbox [(ngModel)]=\"opened\">sidenav.opened</mat-checkbox></p>\n    <p><button mat-button (click)=\"sidenav.toggle()\">sidenav.toggle()</button></p>\n    <p>Events:</p>\n    <div class=\"example-events\">\n      <div *ngFor=\"let e of events\">{{e}}</div>\n    </div>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -9965,7 +9965,7 @@ var SidenavOpenCloseExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  background: #eee;\r\n}\r\n"
+module.exports = ".example-container {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background: #eee;\n}\n"
 
 /***/ }),
 
@@ -9976,7 +9976,7 @@ module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\r\n  <mat-sidenav mode=\"side\" opened>Sidenav content</mat-sidenav>\r\n  <mat-sidenav-content>Main content</mat-sidenav-content>\r\n</mat-sidenav-container>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\n  <mat-sidenav mode=\"side\" opened>Sidenav content</mat-sidenav>\n  <mat-sidenav-content>Main content</mat-sidenav-content>\n</mat-sidenav-container>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -10024,7 +10024,7 @@ var SidenavOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n"
+module.exports = ".example-container {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n"
 
 /***/ }),
 
@@ -10035,7 +10035,7 @@ module.exports = ".example-container {\r\n  position: absolute;\r\n  top: 0;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\r\n  <mat-sidenav opened mode=\"side\">Start content</mat-sidenav>\r\n  <mat-sidenav opened mode=\"side\" position=\"end\">End content</mat-sidenav>\r\n  Implicit main content\r\n</mat-sidenav-container>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<mat-sidenav-container class=\"example-container\" *ngIf=\"shouldRun\">\n  <mat-sidenav opened mode=\"side\">Start content</mat-sidenav>\n  <mat-sidenav opened mode=\"side\" position=\"end\">End content</mat-sidenav>\n  Implicit main content\n</mat-sidenav-container>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -10083,7 +10083,7 @@ var SidenavPositionExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n}\r\n\r\n.example-is-mobile .example-toolbar {\r\n  position: fixed;\r\n  /* Make sure the toolbar will stay on top of the content as it scrolls past. */\r\n  z-index: 2;\r\n}\r\n\r\nh1.example-app-name {\r\n  margin-left: 8px;\r\n}\r\n\r\n.example-sidenav-container {\r\n  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This\r\n     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */\r\n  flex: 1;\r\n}\r\n\r\n.example-is-mobile .example-sidenav-container {\r\n  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the\r\n     `<body>` to be our scrolling element for mobile layouts. */\r\n  flex: 1 0 auto;\r\n}\r\n"
+module.exports = ".example-container {\n  display: flex;\n  flex-direction: column;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n\n.example-is-mobile .example-toolbar {\n  position: fixed;\n  /* Make sure the toolbar will stay on top of the content as it scrolls past. */\n  z-index: 2;\n}\n\nh1.example-app-name {\n  margin-left: 8px;\n}\n\n.example-sidenav-container {\n  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This\n     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */\n  flex: 1;\n}\n\n.example-is-mobile .example-sidenav-container {\n  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the\n     `<body>` to be our scrolling element for mobile layouts. */\n  flex: 1 0 auto;\n}\n"
 
 /***/ }),
 
@@ -10094,7 +10094,7 @@ module.exports = ".example-container {\r\n  display: flex;\r\n  flex-direction: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\r\n  <mat-toolbar color=\"primary\" class=\"example-toolbar\">\r\n    <button mat-icon-button (click)=\"snav.toggle()\"><mat-icon>menu</mat-icon></button>\r\n    <h1 class=\"example-app-name\">Responsive App</h1>\r\n  </mat-toolbar>\r\n\r\n  <mat-sidenav-container class=\"example-sidenav-container\"\r\n                         [style.marginTop.px]=\"mobileQuery.matches ? 56 : 0\">\r\n    <mat-sidenav #snav [mode]=\"mobileQuery.matches ? 'over' : 'side'\"\r\n                 [fixedInViewport]=\"mobileQuery.matches\" fixedTopGap=\"56\">\r\n      <mat-nav-list>\r\n        <a mat-list-item routerLink=\".\" *ngFor=\"let nav of fillerNav\">{{nav}}</a>\r\n      </mat-nav-list>\r\n    </mat-sidenav>\r\n\r\n    <mat-sidenav-content>\r\n      <p *ngFor=\"let content of fillerContent\">{{content}}</p>\r\n    </mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n</div>\r\n\r\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\r\n"
+module.exports = "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\n  <mat-toolbar color=\"primary\" class=\"example-toolbar\">\n    <button mat-icon-button (click)=\"snav.toggle()\"><mat-icon>menu</mat-icon></button>\n    <h1 class=\"example-app-name\">Responsive App</h1>\n  </mat-toolbar>\n\n  <mat-sidenav-container class=\"example-sidenav-container\"\n                         [style.marginTop.px]=\"mobileQuery.matches ? 56 : 0\">\n    <mat-sidenav #snav [mode]=\"mobileQuery.matches ? 'over' : 'side'\"\n                 [fixedInViewport]=\"mobileQuery.matches\" fixedTopGap=\"56\">\n      <mat-nav-list>\n        <a mat-list-item routerLink=\".\" *ngFor=\"let nav of fillerNav\">{{nav}}</a>\n      </mat-nav-list>\n    </mat-sidenav>\n\n    <mat-sidenav-content>\n      <p *ngFor=\"let content of fillerContent\">{{content}}</p>\n    </mat-sidenav-content>\n  </mat-sidenav-container>\n</div>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>\n"
 
 /***/ }),
 
@@ -10158,7 +10158,7 @@ var SidenavResponsiveExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  height: 60px;\r\n}\r\n\r\n.example-margin {\r\n  margin: 10px;\r\n}\r\n"
+module.exports = ".example-h2 {\n  margin: 10px;\n}\n\n.example-section {\n  display: flex;\n  align-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n.example-margin {\n  margin: 10px;\n}\n"
 
 /***/ }),
 
@@ -10169,7 +10169,7 @@ module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Slider configuration</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <label class=\"example-margin\">Color:</label>\r\n      <mat-radio-group [(ngModel)]=\"color\">\r\n        <mat-radio-button class=\"example-margin\" value=\"primary\">\r\n          Primary\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"accent\">\r\n          Accent\r\n        </mat-radio-button>\r\n        <mat-radio-button class=\"example-margin\" value=\"warn\">\r\n          Warn\r\n        </mat-radio-button>\r\n      </mat-radio-group>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"checked\">Checked</mat-checkbox>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"disabled\">Disabled</mat-checkbox>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n<mat-card class=\"result\">\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Result</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-slide-toggle\r\n          class=\"example-margin\"\r\n          [color]=\"color\"\r\n          [checked]=\"checked\"\r\n          [disabled]=\"disabled\">\r\n        Slide me!\r\n      </mat-slide-toggle>\r\n    </section>\r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Slider configuration</h2>\n\n    <section class=\"example-section\">\n      <label class=\"example-margin\">Color:</label>\n      <mat-radio-group [(ngModel)]=\"color\">\n        <mat-radio-button class=\"example-margin\" value=\"primary\">\n          Primary\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"accent\">\n          Accent\n        </mat-radio-button>\n        <mat-radio-button class=\"example-margin\" value=\"warn\">\n          Warn\n        </mat-radio-button>\n      </mat-radio-group>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"checked\">Checked</mat-checkbox>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"disabled\">Disabled</mat-checkbox>\n    </section>\n  </mat-card-content>\n</mat-card>\n\n<mat-card class=\"result\">\n  <mat-card-content>\n    <h2 class=\"example-h2\">Result</h2>\n\n    <section class=\"example-section\">\n      <mat-slide-toggle\n          class=\"example-margin\"\n          [color]=\"color\"\n          [checked]=\"checked\"\n          [disabled]=\"disabled\">\n        Slide me!\n      </mat-slide-toggle>\n    </section>\n  </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -10221,7 +10221,7 @@ var SlideToggleConfigurableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form mat-slide-toggle {\r\n  margin: 8px 0;\r\n  display: block;\r\n}\r\n"
+module.exports = ".example-form mat-slide-toggle {\n  margin: 8px 0;\n  display: block;\n}\n"
 
 /***/ }),
 
@@ -10232,7 +10232,7 @@ module.exports = ".example-form mat-slide-toggle {\r\n  margin: 8px 0;\r\n  disp
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>Slide Toggle using a simple NgModel.</p>\r\n\r\n<mat-slide-toggle [(ngModel)]=\"isChecked\">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle>\r\n\r\n<p>Slide Toggle inside of a Template-driven form</p>\r\n\r\n<form class=\"example-form\" #form=\"ngForm\" (ngSubmit)=\"onFormSubmit()\" ngNativeValidate>\r\n\r\n  <mat-slide-toggle ngModel name=\"enableWifi\">Enable Wifi</mat-slide-toggle>\r\n  <mat-slide-toggle ngModel name=\"acceptTerms\" required>Accept Terms of Service</mat-slide-toggle>\r\n\r\n  <button mat-raised-button type=\"submit\">Save Settings</button>\r\n</form>\r\n\r\n<p>Slide Toggle inside of a Reactive form</p>\r\n\r\n<form class=\"example-form\" [formGroup]=\"formGroup\" (ngSubmit)=\"onFormSubmit()\" ngNativeValidate>\r\n\r\n  <mat-slide-toggle formControlName=\"enableWifi\">Enable Wifi</mat-slide-toggle>\r\n  <mat-slide-toggle formControlName=\"acceptTerms\">Accept Terms of Service</mat-slide-toggle>\r\n\r\n  <p>Form Group Status: {{formGroup.status}}</p>\r\n\r\n  <button mat-rasied-button type=\"submit\">Save Settings</button>\r\n</form>\r\n"
+module.exports = "<p>Slide Toggle using a simple NgModel.</p>\n\n<mat-slide-toggle [(ngModel)]=\"isChecked\">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle>\n\n<p>Slide Toggle inside of a Template-driven form</p>\n\n<form class=\"example-form\" #form=\"ngForm\" (ngSubmit)=\"onFormSubmit()\" ngNativeValidate>\n\n  <mat-slide-toggle ngModel name=\"enableWifi\">Enable Wifi</mat-slide-toggle>\n  <mat-slide-toggle ngModel name=\"acceptTerms\" required>Accept Terms of Service</mat-slide-toggle>\n\n  <button mat-raised-button type=\"submit\">Save Settings</button>\n</form>\n\n<p>Slide Toggle inside of a Reactive form</p>\n\n<form class=\"example-form\" [formGroup]=\"formGroup\" (ngSubmit)=\"onFormSubmit()\" ngNativeValidate>\n\n  <mat-slide-toggle formControlName=\"enableWifi\">Enable Wifi</mat-slide-toggle>\n  <mat-slide-toggle formControlName=\"acceptTerms\">Accept Terms of Service</mat-slide-toggle>\n\n  <p>Form Group Status: {{formGroup.status}}</p>\n\n  <button mat-rasied-button type=\"submit\">Save Settings</button>\n</form>\n"
 
 /***/ }),
 
@@ -10295,7 +10295,7 @@ var SlideToggleFormsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -10306,7 +10306,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-slide-toggle>Slide me!</mat-slide-toggle>\r\n"
+module.exports = "<mat-slide-toggle>Slide me!</mat-slide-toggle>\n"
 
 /***/ }),
 
@@ -10355,7 +10355,7 @@ var SlideToggleOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section {\r\n  display: flex;\r\n  align-content: center;\r\n  align-items: center;\r\n  height: 60px;\r\n}\r\n\r\n.example-margin {\r\n  margin: 10px;\r\n}\r\n\r\n.mat-slider-horizontal {\r\n  width: 300px;\r\n}\r\n\r\n.mat-slider-vertical {\r\n  height: 300px;\r\n}\r\n"
+module.exports = ".example-h2 {\n  margin: 10px;\n}\n\n.example-section {\n  display: flex;\n  align-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n.example-margin {\n  margin: 10px;\n}\n\n.mat-slider-horizontal {\n  width: 300px;\n}\n\n.mat-slider-vertical {\n  height: 300px;\n}\n"
 
 /***/ }),
 
@@ -10366,7 +10366,7 @@ module.exports = ".example-h2 {\r\n  margin: 10px;\r\n}\r\n\r\n.example-section 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Slider configuration</h2>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-form-field class=\"example-margin\">\r\n        <input matInput type=\"number\" placeholder=\"Value\" [(ngModel)]=\"value\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"example-margin\">\r\n        <input matInput type=\"number\" placeholder=\"Min value\" [(ngModel)]=\"min\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"example-margin\">\r\n        <input matInput type=\"number\" placeholder=\"Max value\" [(ngModel)]=\"max\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"example-margin\">\r\n        <input matInput type=\"number\" placeholder=\"Step size\" [(ngModel)]=\"step\">\r\n      </mat-form-field>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"showTicks\">Show ticks</mat-checkbox>\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"autoTicks\" *ngIf=\"showTicks\">\r\n        Auto ticks\r\n      </mat-checkbox>\r\n      <mat-form-field class=\"example-margin\" *ngIf=\"showTicks && !autoTicks\">\r\n        <input matInput type=\"number\" placeholder=\"Tick interval\" [(ngModel)]=\"tickInterval\">\r\n      </mat-form-field>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"thumbLabel\">Show thumb label</mat-checkbox>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"vertical\">Vertical</mat-checkbox>\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"invert\">Inverted</mat-checkbox>\r\n    </section>\r\n\r\n    <section class=\"example-section\">\r\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"disabled\">Disabled</mat-checkbox>\r\n    </section>\r\n\r\n  </mat-card-content>\r\n</mat-card>\r\n\r\n<mat-card class=\"result\">\r\n  <mat-card-content>\r\n    <h2 class=\"example-h2\">Result</h2>\r\n\r\n    <mat-slider\r\n        class=\"example-margin\"\r\n        [disabled]=\"disabled\"\r\n        [invert]=\"invert\"\r\n        [max]=\"max\"\r\n        [min]=\"min\"\r\n        [step]=\"step\"\r\n        [thumbLabel]=\"thumbLabel\"\r\n        [tickInterval]=\"tickInterval\"\r\n        [(ngModel)]=\"value\"\r\n        [vertical]=\"vertical\">\r\n    </mat-slider>\r\n  </mat-card-content>\r\n</mat-card>\r\n"
+module.exports = "<mat-card>\n  <mat-card-content>\n    <h2 class=\"example-h2\">Slider configuration</h2>\n\n    <section class=\"example-section\">\n      <mat-form-field class=\"example-margin\">\n        <input matInput type=\"number\" placeholder=\"Value\" [(ngModel)]=\"value\">\n      </mat-form-field>\n      <mat-form-field class=\"example-margin\">\n        <input matInput type=\"number\" placeholder=\"Min value\" [(ngModel)]=\"min\">\n      </mat-form-field>\n      <mat-form-field class=\"example-margin\">\n        <input matInput type=\"number\" placeholder=\"Max value\" [(ngModel)]=\"max\">\n      </mat-form-field>\n      <mat-form-field class=\"example-margin\">\n        <input matInput type=\"number\" placeholder=\"Step size\" [(ngModel)]=\"step\">\n      </mat-form-field>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"showTicks\">Show ticks</mat-checkbox>\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"autoTicks\" *ngIf=\"showTicks\">\n        Auto ticks\n      </mat-checkbox>\n      <mat-form-field class=\"example-margin\" *ngIf=\"showTicks && !autoTicks\">\n        <input matInput type=\"number\" placeholder=\"Tick interval\" [(ngModel)]=\"tickInterval\">\n      </mat-form-field>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"thumbLabel\">Show thumb label</mat-checkbox>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"vertical\">Vertical</mat-checkbox>\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"invert\">Inverted</mat-checkbox>\n    </section>\n\n    <section class=\"example-section\">\n      <mat-checkbox class=\"example-margin\" [(ngModel)]=\"disabled\">Disabled</mat-checkbox>\n    </section>\n\n  </mat-card-content>\n</mat-card>\n\n<mat-card class=\"result\">\n  <mat-card-content>\n    <h2 class=\"example-h2\">Result</h2>\n\n    <mat-slider\n        class=\"example-margin\"\n        [disabled]=\"disabled\"\n        [invert]=\"invert\"\n        [max]=\"max\"\n        [min]=\"min\"\n        [step]=\"step\"\n        [thumbLabel]=\"thumbLabel\"\n        [tickInterval]=\"tickInterval\"\n        [(ngModel)]=\"value\"\n        [vertical]=\"vertical\">\n    </mat-slider>\n  </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -10438,7 +10438,7 @@ var SliderConfigurableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-slider {\r\n  width: 300px;\r\n}\r\n"
+module.exports = "mat-slider {\n  width: 300px;\n}\n"
 
 /***/ }),
 
@@ -10449,7 +10449,7 @@ module.exports = "mat-slider {\r\n  width: 300px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-slider\r\n  thumbLabel\r\n  [displayWith]=\"formatLabel\"\r\n  tickInterval=\"1000\"\r\n  min=\"1\"\r\n  max=\"100000\"></mat-slider>\r\n"
+module.exports = "<mat-slider\n  thumbLabel\n  [displayWith]=\"formatLabel\"\n  tickInterval=\"1000\"\n  min=\"1\"\n  max=\"100000\"></mat-slider>\n"
 
 /***/ }),
 
@@ -10507,7 +10507,7 @@ var SliderFormattingExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\nmat-slider {\r\n  width: 300px;\r\n}\r\n"
+module.exports = "/** No CSS for this example */\nmat-slider {\n  width: 300px;\n}\n"
 
 /***/ }),
 
@@ -10518,7 +10518,7 @@ module.exports = "/** No CSS for this example */\r\nmat-slider {\r\n  width: 300
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-slider></mat-slider>\r\n"
+module.exports = "<mat-slider></mat-slider>\n"
 
 /***/ }),
 
@@ -10567,7 +10567,7 @@ var SliderOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<span class=\"example-pizza-party\">\r\n  Pizza party!!! 🍕\r\n</span>\r\n"
+module.exports = "<span class=\"example-pizza-party\">\n  Pizza party!!! 🍕\n</span>\n"
 
 /***/ }),
 
@@ -10578,7 +10578,7 @@ module.exports = "<span class=\"example-pizza-party\">\r\n  Pizza party!!! 🍕\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-button (click)=\"openSnackBar()\" aria-label=\"Show an example snack-bar\">\r\n  Pizza party\r\n</button>\r\n"
+module.exports = "<button mat-button (click)=\"openSnackBar()\" aria-label=\"Show an example snack-bar\">\n  Pizza party\n</button>\n"
 
 /***/ }),
 
@@ -10652,7 +10652,7 @@ var PizzaPartyComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -10663,7 +10663,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput value=\"Disco party!\" placeholder=\"Message\" #message>\r\n</mat-form-field>\r\n\r\n<mat-form-field>\r\n  <input matInput value=\"Dance\" placeholder=\"Action\" #action>\r\n</mat-form-field>\r\n\r\n<button mat-button (click)=\"openSnackBar(message.value, action.value)\">Show snack-bar</button>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput value=\"Disco party!\" placeholder=\"Message\" #message>\n</mat-form-field>\n\n<mat-form-field>\n  <input matInput value=\"Dance\" placeholder=\"Action\" #action>\n</mat-form-field>\n\n<button mat-button (click)=\"openSnackBar(message.value, action.value)\">Show snack-bar</button>\n"
 
 /***/ }),
 
@@ -10724,7 +10724,7 @@ var SnackBarOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Horizontal position\" [(value)]=\"horizontalPosition\">\r\n    <mat-option value=\"start\">Start</mat-option>\r\n    <mat-option value=\"center\">Center</mat-option>\r\n    <mat-option value=\"end\">End</mat-option>\r\n    <mat-option value=\"left\">Left</mat-option>\r\n    <mat-option value=\"right\">Right</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n<mat-form-field>\r\n  <mat-select placeholder=\"Vertical position\" [(value)]=\"verticalPosition\">\r\n    <mat-option value=\"top\">Top</mat-option>\r\n    <mat-option value=\"bottom\">Bottom</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n\r\n<button mat-button (click)=\"openSnackBar()\" aria-label=\"Show an example snack-bar\">\r\n  Pool party!\r\n</button>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Horizontal position\" [(value)]=\"horizontalPosition\">\n    <mat-option value=\"start\">Start</mat-option>\n    <mat-option value=\"center\">Center</mat-option>\n    <mat-option value=\"end\">End</mat-option>\n    <mat-option value=\"left\">Left</mat-option>\n    <mat-option value=\"right\">Right</mat-option>\n  </mat-select>\n</mat-form-field>\n<mat-form-field>\n  <mat-select placeholder=\"Vertical position\" [(value)]=\"verticalPosition\">\n    <mat-option value=\"top\">Top</mat-option>\n    <mat-option value=\"bottom\">Bottom</mat-option>\n  </mat-select>\n</mat-form-field>\n\n<button mat-button (click)=\"openSnackBar()\" aria-label=\"Show an example snack-bar\">\n  Pool party!\n</button>\n"
 
 /***/ }),
 
@@ -10788,7 +10788,7 @@ var SnackBarPositionExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-sort-header-container {\r\n  align-items: center;\r\n}\r\n"
+module.exports = ".mat-sort-header-container {\n  align-items: center;\n}\n"
 
 /***/ }),
 
@@ -10799,7 +10799,7 @@ module.exports = ".mat-sort-header-container {\r\n  align-items: center;\r\n}\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table matSort (matSortChange)=\"sortData($event)\">\r\n  <tr>\r\n    <th mat-sort-header=\"name\">Dessert (100g)</th>\r\n    <th mat-sort-header=\"calories\">Calories</th>\r\n    <th mat-sort-header=\"fat\">Fat (g)</th>\r\n    <th mat-sort-header=\"carbs\">Carbs (g)</th>\r\n    <th mat-sort-header=\"protein\">Protein (g)</th>\r\n  </tr>\r\n\r\n  <tr *ngFor=\"let dessert of sortedData\">\r\n    <td>{{dessert.name}}</td>\r\n    <td>{{dessert.calories}}</td>\r\n    <td>{{dessert.fat}}</td>\r\n    <td>{{dessert.carbs}}</td>\r\n    <td>{{dessert.protein}}</td>\r\n  </tr>\r\n</table>\r\n"
+module.exports = "<table matSort (matSortChange)=\"sortData($event)\">\n  <tr>\n    <th mat-sort-header=\"name\">Dessert (100g)</th>\n    <th mat-sort-header=\"calories\">Calories</th>\n    <th mat-sort-header=\"fat\">Fat (g)</th>\n    <th mat-sort-header=\"carbs\">Carbs (g)</th>\n    <th mat-sort-header=\"protein\">Protein (g)</th>\n  </tr>\n\n  <tr *ngFor=\"let dessert of sortedData\">\n    <td>{{dessert.name}}</td>\n    <td>{{dessert.calories}}</td>\n    <td>{{dessert.fat}}</td>\n    <td>{{dessert.carbs}}</td>\n    <td>{{dessert.protein}}</td>\n  </tr>\n</table>\n"
 
 /***/ }),
 
@@ -10881,7 +10881,7 @@ function compare(a, b, isAsc) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -10892,7 +10892,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button (click)=\"isEditable = !isEditable\">\r\n  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}\r\n</button>\r\n\r\n<mat-horizontal-stepper linear #stepper>\r\n  <mat-step [stepControl]=\"firstFormGroup\" [editable]=\"isEditable\">\r\n    <form [formGroup]=\"firstFormGroup\">\r\n      <ng-template matStepLabel>Fill out your name</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\" [editable]=\"isEditable\">\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <ng-template matStepLabel>Fill out your address</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step>\r\n    <ng-template matStepLabel>Done</ng-template>\r\n    You are now done.\r\n    <div>\r\n      <button mat-button matStepperPrevious>Back</button>\r\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\r\n    </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n"
+module.exports = "<button mat-raised-button (click)=\"isEditable = !isEditable\">\n  {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}\n</button>\n\n<mat-horizontal-stepper linear #stepper>\n  <mat-step [stepControl]=\"firstFormGroup\" [editable]=\"isEditable\">\n    <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Fill out your name</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\" [editable]=\"isEditable\">\n    <form [formGroup]=\"secondFormGroup\">\n      <ng-template matStepLabel>Fill out your address</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperPrevious>Back</button>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step>\n    <ng-template matStepLabel>Done</ng-template>\n    You are now done.\n    <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\n    </div>\n  </mat-step>\n</mat-horizontal-stepper>\n"
 
 /***/ }),
 
@@ -10957,7 +10957,7 @@ var StepperEditableExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -10968,7 +10968,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button (click)=\"isOptional = !isOptional\">\r\n  {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}\r\n</button>\r\n\r\n<mat-horizontal-stepper linear #stepper>\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <form [formGroup]=\"firstFormGroup\">\r\n      <ng-template matStepLabel>Fill out your name</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\" [optional]=\"isOptional\">\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <ng-template matStepLabel>Fill out your address</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step>\r\n    <ng-template matStepLabel>Done</ng-template>\r\n    You are now done.\r\n    <div>\r\n      <button mat-button matStepperPrevious>Back</button>\r\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\r\n    </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n"
+module.exports = "<button mat-raised-button (click)=\"isOptional = !isOptional\">\n  {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}\n</button>\n\n<mat-horizontal-stepper linear #stepper>\n  <mat-step [stepControl]=\"firstFormGroup\">\n    <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Fill out your name</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\" [optional]=\"isOptional\">\n    <form [formGroup]=\"secondFormGroup\">\n      <ng-template matStepLabel>Fill out your address</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperPrevious>Back</button>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step>\n    <ng-template matStepLabel>Done</ng-template>\n    You are now done.\n    <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\n    </div>\n  </mat-step>\n</mat-horizontal-stepper>\n"
 
 /***/ }),
 
@@ -11033,7 +11033,7 @@ var StepperOptionalExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -11044,7 +11044,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\r\n  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\r\n</button>\r\n<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <form [formGroup]=\"firstFormGroup\">\r\n      <ng-template matStepLabel>Fill out your name</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <ng-template matStepLabel>Fill out your address</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step>\r\n    <ng-template matStepLabel>Done</ng-template>\r\n    You are now done.\r\n    <div>\r\n      <button mat-button matStepperPrevious>Back</button>\r\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\r\n    </div>\r\n  </mat-step>\r\n</mat-horizontal-stepper>\r\n"
+module.exports = "<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\n  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\n</button>\n<mat-horizontal-stepper [linear]=\"isLinear\" #stepper>\n  <mat-step [stepControl]=\"firstFormGroup\">\n    <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Fill out your name</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\">\n    <form [formGroup]=\"secondFormGroup\">\n      <ng-template matStepLabel>Fill out your address</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperPrevious>Back</button>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step>\n    <ng-template matStepLabel>Done</ng-template>\n    You are now done.\n    <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\n    </div>\n  </mat-step>\n</mat-horizontal-stepper>\n"
 
 /***/ }),
 
@@ -11109,7 +11109,7 @@ var StepperOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -11120,7 +11120,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\r\n  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\r\n</button>\r\n<mat-vertical-stepper [linear]=\"isLinear\" #stepper>\r\n  <mat-step [stepControl]=\"firstFormGroup\">\r\n    <form [formGroup]=\"firstFormGroup\">\r\n      <ng-template matStepLabel>Fill out your name</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step [stepControl]=\"secondFormGroup\">\r\n    <form [formGroup]=\"secondFormGroup\">\r\n      <ng-template matStepLabel>Fill out your address</ng-template>\r\n      <mat-form-field>\r\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\r\n      </mat-form-field>\r\n      <div>\r\n        <button mat-button matStepperPrevious>Back</button>\r\n        <button mat-button matStepperNext>Next</button>\r\n      </div>\r\n    </form>\r\n  </mat-step>\r\n  <mat-step>\r\n    <ng-template matStepLabel>Done</ng-template>\r\n    You are now done.\r\n    <div>\r\n      <button mat-button matStepperPrevious>Back</button>\r\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\r\n    </div>\r\n  </mat-step>\r\n</mat-vertical-stepper>\r\n"
+module.exports = "<button mat-raised-button (click)=\"isLinear = !isLinear\" id=\"toggle-linear\">\n  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}\n</button>\n<mat-vertical-stepper [linear]=\"isLinear\" #stepper>\n  <mat-step [stepControl]=\"firstFormGroup\">\n    <form [formGroup]=\"firstFormGroup\">\n      <ng-template matStepLabel>Fill out your name</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Last name, First name\" formControlName=\"firstCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\">\n    <form [formGroup]=\"secondFormGroup\">\n      <ng-template matStepLabel>Fill out your address</ng-template>\n      <mat-form-field>\n        <input matInput placeholder=\"Address\" formControlName=\"secondCtrl\" required>\n      </mat-form-field>\n      <div>\n        <button mat-button matStepperPrevious>Back</button>\n        <button mat-button matStepperNext>Next</button>\n      </div>\n    </form>\n  </mat-step>\n  <mat-step>\n    <ng-template matStepLabel>Done</ng-template>\n    You are now done.\n    <div>\n      <button mat-button matStepperPrevious>Back</button>\n      <button mat-button (click)=\"stepper.reset()\">Reset</button>\n    </div>\n  </mat-step>\n</mat-vertical-stepper>\n"
 
 /***/ }),
 
@@ -11185,7 +11185,7 @@ var StepperVerticalExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -11196,7 +11196,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"(asyncTabs | async) === null\">\r\n  Loading tabs...\r\n</ng-container>\r\n\r\n<mat-tab-group>\r\n  <mat-tab *ngFor=\"let tab of asyncTabs | async\">\r\n    <ng-template mat-tab-label>{{tab.label}}</ng-template>\r\n    {{tab.content}}\r\n  </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<ng-container *ngIf=\"(asyncTabs | async) === null\">\n  Loading tabs...\n</ng-container>\n\n<mat-tab-group>\n  <mat-tab *ngFor=\"let tab of asyncTabs | async\">\n    <ng-template mat-tab-label>{{tab.label}}</ng-template>\n    {{tab.content}}\n  </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11260,7 +11260,7 @@ var TabGroupAsyncExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -11271,7 +11271,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\r\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\r\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group>\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11320,7 +11320,7 @@ var TabGroupBasicExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-tab-icon {\r\n  margin-right: 8px;\r\n}\r\n"
+module.exports = ".example-tab-icon {\n  margin-right: 8px;\n}\n"
 
 /***/ }),
 
@@ -11331,7 +11331,7 @@ module.exports = ".example-tab-icon {\r\n  margin-right: 8px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab>\r\n    <ng-template mat-tab-label>\r\n      <mat-icon class=\"example-tab-icon\">thumb_up</mat-icon>\r\n      First\r\n    </ng-template>\r\n    Content 1\r\n  </mat-tab>\r\n\r\n  <mat-tab>\r\n    <ng-template mat-tab-label>\r\n      <mat-icon class=\"example-tab-icon\">thumb_up</mat-icon>\r\n      Second\r\n    </ng-template>\r\n    Content 2\r\n  </mat-tab>\r\n\r\n  <mat-tab>\r\n    <ng-template mat-tab-label>\r\n      <mat-icon class=\"example-tab-icon\">thumb_up</mat-icon>\r\n      Third\r\n    </ng-template>\r\n\r\n    Content 3\r\n  </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group>\n  <mat-tab>\n    <ng-template mat-tab-label>\n      <mat-icon class=\"example-tab-icon\">thumb_up</mat-icon>\n      First\n    </ng-template>\n    Content 1\n  </mat-tab>\n\n  <mat-tab>\n    <ng-template mat-tab-label>\n      <mat-icon class=\"example-tab-icon\">thumb_up</mat-icon>\n      Second\n    </ng-template>\n    Content 2\n  </mat-tab>\n\n  <mat-tab>\n    <ng-template mat-tab-label>\n      <mat-icon class=\"example-tab-icon\">thumb_up</mat-icon>\n      Third\n    </ng-template>\n\n    Content 3\n  </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11380,7 +11380,7 @@ var TabGroupCustomLabelExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-small-box, .example-large-box {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 16px;\r\n  padding: 16px;\r\n  border-radius: 8px;\r\n}\r\n\r\n.example-small-box {\r\n  height: 100px;\r\n  width: 100px;\r\n}\r\n\r\n.example-large-box {\r\n  height: 300px;\r\n  width: 300px;\r\n}\r\n"
+module.exports = ".example-small-box, .example-large-box {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 16px;\n  padding: 16px;\n  border-radius: 8px;\n}\n\n.example-small-box {\n  height: 100px;\n  width: 100px;\n}\n\n.example-large-box {\n  height: 300px;\n  width: 300px;\n}\n"
 
 /***/ }),
 
@@ -11391,7 +11391,7 @@ module.exports = ".example-small-box, .example-large-box {\r\n  display: flex;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group dynamicHeight>\r\n  <mat-tab label=\"Short tab\">\r\n    <div class=\"example-small-box mat-elevation-z4\">\r\n      Small content\r\n    </div>\r\n  </mat-tab>\r\n  <mat-tab label=\"Long tab\">\r\n    <div class=\"example-large-box mat-elevation-z4\">\r\n      Large content\r\n    </div>\r\n  </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group dynamicHeight>\n  <mat-tab label=\"Short tab\">\n    <div class=\"example-small-box mat-elevation-z4\">\n      Small content\n    </div>\n  </mat-tab>\n  <mat-tab label=\"Long tab\">\n    <div class=\"example-large-box mat-elevation-z4\">\n      Large content\n    </div>\n  </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11440,7 +11440,7 @@ var TabGroupDynamicHeightExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-input-label,\r\n.example-add-tab-button,\r\n.example-delete-tab-button {\r\n  margin: 8px;\r\n}\r\n"
+module.exports = ".example-input-label,\n.example-add-tab-button,\n.example-delete-tab-button {\n  margin: 8px;\n}\n"
 
 /***/ }),
 
@@ -11451,7 +11451,7 @@ module.exports = ".example-input-label,\r\n.example-add-tab-button,\r\n.example-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <span class=\"example-input-label\"> Selected tab index: </span>\r\n  <mat-form-field>\r\n    <input matInput type=\"number\" [formControl]=\"selected\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div>\r\n  <button mat-raised-button\r\n          class=\"example-add-tab-button\"\r\n          (click)=\"addTab(selectAfterAdding.checked)\">\r\n    Add new tab\r\n  </button>\r\n  <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>\r\n</div>\r\n\r\n<mat-tab-group [selectedIndex]=\"selected.value\"\r\n               (selectedIndexChange)=\"selected.setValue($event)\">\r\n  <mat-tab *ngFor=\"let tab of tabs; let index = index\" [label]=\"tab\">\r\n    Contents for {{tab}} tab\r\n\r\n    <button mat-raised-button\r\n            class=\"example-delete-tab-button\"\r\n            [disabled]=\"tabs.length === 1\"\r\n            (click)=\"removeTab(index)\">\r\n      Delete Tab\r\n    </button>\r\n  </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<div>\n  <span class=\"example-input-label\"> Selected tab index: </span>\n  <mat-form-field>\n    <input matInput type=\"number\" [formControl]=\"selected\">\n  </mat-form-field>\n</div>\n\n<div>\n  <button mat-raised-button\n          class=\"example-add-tab-button\"\n          (click)=\"addTab(selectAfterAdding.checked)\">\n    Add new tab\n  </button>\n  <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>\n</div>\n\n<mat-tab-group [selectedIndex]=\"selected.value\"\n               (selectedIndexChange)=\"selected.setValue($event)\">\n  <mat-tab *ngFor=\"let tab of tabs; let index = index\" [label]=\"tab\">\n    Contents for {{tab}} tab\n\n    <button mat-raised-button\n            class=\"example-delete-tab-button\"\n            [disabled]=\"tabs.length === 1\"\n            (click)=\"removeTab(index)\">\n      Delete Tab\n    </button>\n  </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11513,7 +11513,7 @@ var TabGroupDynamicExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -11524,7 +11524,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group headerPosition=\"below\">\r\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\r\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\r\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group headerPosition=\"below\">\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11573,7 +11573,7 @@ var TabGroupHeaderBelowExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -11584,7 +11584,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"First\">\r\n    <ng-template matTabContent>\r\n      Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}\r\n    </ng-template>\r\n  </mat-tab>\r\n  <mat-tab label=\"Second\">\r\n    <ng-template matTabContent>\r\n      Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}\r\n    </ng-template>\r\n  </mat-tab>\r\n  <mat-tab label=\"Third\">\r\n    <ng-template matTabContent>\r\n      Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}\r\n    </ng-template>\r\n  </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group>\n  <mat-tab label=\"First\">\n    <ng-template matTabContent>\n      Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}\n    </ng-template>\n  </mat-tab>\n  <mat-tab label=\"Second\">\n    <ng-template matTabContent>\n      Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}\n    </ng-template>\n  </mat-tab>\n  <mat-tab label=\"Third\">\n    <ng-template matTabContent>\n      Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}\n    </ng-template>\n  </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11640,7 +11640,7 @@ var TabGroupLazyLoadedExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-stretched-tabs {\r\n  max-width: 800px;\r\n}\r\n"
+module.exports = ".example-stretched-tabs {\n  max-width: 800px;\n}\n"
 
 /***/ }),
 
@@ -11651,7 +11651,7 @@ module.exports = ".example-stretched-tabs {\r\n  max-width: 800px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group mat-stretch-tabs class=\"example-stretched-tabs mat-elevation-z4\">\r\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\r\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\r\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group mat-stretch-tabs class=\"example-stretched-tabs mat-elevation-z4\">\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11700,7 +11700,7 @@ var TabGroupStretchedExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-button-toggle-label {\r\n  display: inline-block;\r\n  margin: 16px;\r\n}\r\n"
+module.exports = ".example-button-toggle-label {\n  display: inline-block;\n  margin: 16px;\n}\n"
 
 /***/ }),
 
@@ -11711,7 +11711,7 @@ module.exports = ".example-button-toggle-label {\r\n  display: inline-block;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <mat-button-toggle-group #colorToggle=\"matButtonToggleGroup\"\r\n                           value=\"primary\"\r\n                           aria-label=\"Change color\">\r\n    <mat-button-toggle value=\"primary\"> Primary </mat-button-toggle>\r\n    <mat-button-toggle value=\"accent\"> Accent </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n  <span class=\"example-button-toggle-label\"> Color </span>\r\n</div>\r\n\r\n<div>\r\n  <mat-button-toggle-group #backgroundColorToggle=\"matButtonToggleGroup\"\r\n                           value=\"primary\"\r\n                           aria-label=\"Change color\">\r\n    <mat-button-toggle value=\"primary\"> Primary </mat-button-toggle>\r\n    <mat-button-toggle value=\"accent\"> Accent </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n  <span class=\"example-button-toggle-label\"> Background Color </span>\r\n</div>\r\n\r\n<mat-tab-group [color]=\"colorToggle.value\" [backgroundColor]=\"backgroundColorToggle.value\">\r\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\r\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\r\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<div>\n  <mat-button-toggle-group #colorToggle=\"matButtonToggleGroup\"\n                           value=\"primary\"\n                           aria-label=\"Change color\">\n    <mat-button-toggle value=\"primary\"> Primary </mat-button-toggle>\n    <mat-button-toggle value=\"accent\"> Accent </mat-button-toggle>\n  </mat-button-toggle-group>\n  <span class=\"example-button-toggle-label\"> Color </span>\n</div>\n\n<div>\n  <mat-button-toggle-group #backgroundColorToggle=\"matButtonToggleGroup\"\n                           value=\"primary\"\n                           aria-label=\"Change color\">\n    <mat-button-toggle value=\"primary\"> Primary </mat-button-toggle>\n    <mat-button-toggle value=\"accent\"> Accent </mat-button-toggle>\n  </mat-button-toggle-group>\n  <span class=\"example-button-toggle-label\"> Background Color </span>\n</div>\n\n<mat-tab-group [color]=\"colorToggle.value\" [backgroundColor]=\"backgroundColorToggle.value\">\n  <mat-tab label=\"First\"> Content 1 </mat-tab>\n  <mat-tab label=\"Second\"> Content 2 </mat-tab>\n  <mat-tab label=\"Third\"> Content 3 </mat-tab>\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -11760,7 +11760,7 @@ var TabGroupThemeExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-action-button {\r\n  margin-bottom: 8px;\r\n}\r\n"
+module.exports = ".example-action-button {\n  margin-bottom: 8px;\n}\n"
 
 /***/ }),
 
@@ -11771,7 +11771,7 @@ module.exports = ".example-action-button {\r\n  margin-bottom: 8px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button\r\n        class=\"example-action-button\"\r\n        (click)=\"toggleBackground()\">\r\n  Toggle background\r\n</button>\r\n\r\n<nav mat-tab-nav-bar [backgroundColor]=\"background\">\r\n  <a mat-tab-link *ngFor=\"let link of links\"\r\n     (click)=\"activeLink = link\"\r\n     [active]=\"activeLink == link\"> {{link}} </a>\r\n  <a mat-tab-link disabled>Disabled Link</a>\r\n</nav>\r\n"
+module.exports = "<button mat-raised-button\n        class=\"example-action-button\"\n        (click)=\"toggleBackground()\">\n  Toggle background\n</button>\n\n<nav mat-tab-nav-bar [backgroundColor]=\"background\">\n  <a mat-tab-link *ngFor=\"let link of links\"\n     (click)=\"activeLink = link\"\n     [active]=\"activeLink == link\"> {{link}} </a>\n  <a mat-tab-link disabled>Disabled Link</a>\n</nav>\n"
 
 /***/ }),
 
@@ -11826,7 +11826,7 @@ var TabNavBarBasicExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -11837,7 +11837,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n  <!-- Position Column -->\r\n  <ng-container matColumnDef=\"position\">\r\n    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let element\"> {{element.position}} </mat-cell>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"name\">\r\n    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container matColumnDef=\"weight\">\r\n    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let element\"> {{element.weight}} </mat-cell>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container matColumnDef=\"symbol\">\r\n    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let element\"> {{element.symbol}} </mat-cell>\r\n  </ng-container>\r\n\r\n  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n  <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n</mat-table>"
+module.exports = "<mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"position\">\n    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\"> {{element.position}} </mat-cell>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"weight\">\n    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\"> {{element.weight}} </mat-cell>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"symbol\">\n    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\"> {{element.symbol}} </mat-cell>\n  </ng-container>\n\n  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n  <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n</mat-table>"
 
 /***/ }),
 
@@ -11900,7 +11900,7 @@ var TableBasicFlexExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -11911,7 +11911,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n  <!--- Note that these columns can be defined in any order.\r\n        The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n  <!-- Position Column -->\r\n  <ng-container matColumnDef=\"position\">\r\n    <th mat-header-cell *matHeaderCellDef> No. </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"name\">\r\n    <th mat-header-cell *matHeaderCellDef> Name </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container matColumnDef=\"weight\">\r\n    <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container matColumnDef=\"symbol\">\r\n    <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n\r\n"
+module.exports = "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!--- Note that these columns can be defined in any order.\n        The actual rendered columns are set as a property on the row definition\" -->\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef> Name </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"weight\">\n    <th mat-header-cell *matHeaderCellDef> Weight </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"symbol\">\n    <th mat-header-cell *matHeaderCellDef> Symbol </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n\n"
 
 /***/ }),
 
@@ -11974,7 +11974,7 @@ var TableBasicExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\nbutton {\r\n  margin: 16px 8px;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\nbutton {\n  margin: 16px 8px;\n}\n"
 
 /***/ }),
 
@@ -11985,7 +11985,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\nbutton {\r\n  margin: 16
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button (click)=\"addColumn()\"> Add column </button>\r\n<button mat-raised-button (click)=\"removeColumn()\"> Remove column </button>\r\n<button mat-raised-button (click)=\"shuffle()\"> Shuffle </button>\r\n\r\n<table mat-table [dataSource]=\"data\" class=\"mat-elevation-z8\">\r\n  <ng-container [matColumnDef]=\"column\" *ngFor=\"let column of displayedColumns\">\r\n    <th mat-header-cell *matHeaderCellDef> {{column}} </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element[column]}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"columnsToDisplay\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: columnsToDisplay;\"></tr>\r\n</table>\r\n"
+module.exports = "<button mat-raised-button (click)=\"addColumn()\"> Add column </button>\n<button mat-raised-button (click)=\"removeColumn()\"> Remove column </button>\n<button mat-raised-button (click)=\"shuffle()\"> Shuffle </button>\n\n<table mat-table [dataSource]=\"data\" class=\"mat-elevation-z8\">\n  <ng-container [matColumnDef]=\"column\" *ngFor=\"let column of displayedColumns\">\n    <th mat-header-cell *matHeaderCellDef> {{column}} </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element[column]}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"columnsToDisplay\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: columnsToDisplay;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12069,7 +12069,7 @@ var TableDynamicColumnsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\ntr.example-detail-row {\r\n  height: 0;\r\n}\r\n\r\ntr.example-element-row:not(.example-expanded-row):hover {\r\n  background: #f5f5f5;\r\n}\r\n\r\ntr.example-element-row:not(.example-expanded-row):active {\r\n  background: #efefef;\r\n}\r\n\r\n.example-element-row td {\r\n  border-bottom-width: 0;\r\n}\r\n\r\n.example-element-detail {\r\n  overflow: hidden;\r\n  display: flex;\r\n}\r\n\r\n.example-element-diagram {\r\n  min-width: 80px;\r\n  border: 2px solid black;\r\n  padding: 8px;\r\n  font-weight: lighter;\r\n  margin: 8px 0;\r\n  height: 104px;\r\n}\r\n\r\n.example-element-symbol {\r\n  font-weight: bold;\r\n  font-size: 40px;\r\n  line-height: normal;\r\n}\r\n\r\n.example-element-description {\r\n  padding: 16px;\r\n}\r\n\r\n.example-element-description-attribution {\r\n  opacity: 0.5;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\ntr.example-detail-row {\n  height: 0;\n}\n\ntr.example-element-row:not(.example-expanded-row):hover {\n  background: #f5f5f5;\n}\n\ntr.example-element-row:not(.example-expanded-row):active {\n  background: #efefef;\n}\n\n.example-element-row td {\n  border-bottom-width: 0;\n}\n\n.example-element-detail {\n  overflow: hidden;\n  display: flex;\n}\n\n.example-element-diagram {\n  min-width: 80px;\n  border: 2px solid black;\n  padding: 8px;\n  font-weight: lighter;\n  margin: 8px 0;\n  height: 104px;\n}\n\n.example-element-symbol {\n  font-weight: bold;\n  font-size: 40px;\n  line-height: normal;\n}\n\n.example-element-description {\n  padding: 16px;\n}\n\n.example-element-description-attribution {\n  opacity: 0.5;\n}\n"
 
 /***/ }),
 
@@ -12080,7 +12080,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\ntr.example-detail-row {\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table\r\n       [dataSource]=\"dataSource\" multiTemplateDataRows\r\n       class=\"mat-elevation-z8\">\r\n  <ng-container matColumnDef=\"{{column}}\" *ngFor=\"let column of columnsToDisplay\">\r\n    <th mat-header-cell *matHeaderCellDef> {{column}} </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element[column]}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->\r\n  <ng-container matColumnDef=\"expandedDetail\">\r\n    <td mat-cell *matCellDef=\"let element\" [attr.colspan]=\"columnsToDisplay.length\">\r\n      <div class=\"example-element-detail\"\r\n           [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\r\n        <div class=\"example-element-diagram\">\r\n          <div class=\"example-element-position\"> {{element.position}} </div>\r\n          <div class=\"example-element-symbol\"> {{element.symbol}} </div>\r\n          <div class=\"example-element-name\"> {{element.name}} </div>\r\n          <div class=\"example-element-weight\"> {{element.weight}} </div>\r\n        </div>\r\n        <div class=\"example-element-description\">\r\n          {{element.description}}\r\n          <span class=\"example-element-description-attribution\"> -- Wikipedia </span>\r\n        </div>\r\n      </div>\r\n    </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"columnsToDisplay\"></tr>\r\n  <tr mat-row *matRowDef=\"let element; columns: columnsToDisplay;\"\r\n      class=\"example-element-row\"\r\n      [class.example-expanded-row]=\"expandedElement === element\"\r\n      (click)=\"expandedElement = element\">\r\n  </tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\r\n</table>\r\n"
+module.exports = "<table mat-table\n       [dataSource]=\"dataSource\" multiTemplateDataRows\n       class=\"mat-elevation-z8\">\n  <ng-container matColumnDef=\"{{column}}\" *ngFor=\"let column of columnsToDisplay\">\n    <th mat-header-cell *matHeaderCellDef> {{column}} </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element[column]}} </td>\n  </ng-container>\n\n  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->\n  <ng-container matColumnDef=\"expandedDetail\">\n    <td mat-cell *matCellDef=\"let element\" [attr.colspan]=\"columnsToDisplay.length\">\n      <div class=\"example-element-detail\"\n           [@detailExpand]=\"element == expandedElement ? 'expanded' : 'collapsed'\">\n        <div class=\"example-element-diagram\">\n          <div class=\"example-element-position\"> {{element.position}} </div>\n          <div class=\"example-element-symbol\"> {{element.symbol}} </div>\n          <div class=\"example-element-name\"> {{element.name}} </div>\n          <div class=\"example-element-weight\"> {{element.weight}} </div>\n        </div>\n        <div class=\"example-element-description\">\n          {{element.description}}\n          <span class=\"example-element-description-attribution\"> -- Wikipedia </span>\n        </div>\n      </div>\n    </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"columnsToDisplay\"></tr>\n  <tr mat-row *matRowDef=\"let element; columns: columnsToDisplay;\"\n      class=\"example-element-row\"\n      [class.example-expanded-row]=\"expandedElement === element\"\n      (click)=\"expandedElement = element\">\n  </tr>\n  <tr mat-row *matRowDef=\"let row; columns: ['expandedDetail']\" class=\"example-detail-row\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12203,7 +12203,7 @@ var ELEMENT_DATA = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Structure */\r\ntable {\r\n  width: 100%;\r\n}\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n"
+module.exports = "/* Structure */\ntable {\n  width: 100%;\n}\n.mat-form-field {\n  font-size: 14px;\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -12214,7 +12214,7 @@ module.exports = "/* Structure */\r\ntable {\r\n  width: 100%;\r\n}\r\n.mat-form
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n  <!-- Position Column -->\r\n  <ng-container matColumnDef=\"position\">\r\n    <th mat-header-cell *matHeaderCellDef> No. </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"name\">\r\n    <th mat-header-cell *matHeaderCellDef> Name </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container matColumnDef=\"weight\">\r\n    <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container matColumnDef=\"symbol\">\r\n    <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef> Name </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"weight\">\n    <th mat-header-cell *matHeaderCellDef> Weight </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"symbol\">\n    <th mat-header-cell *matHeaderCellDef> Symbol </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12282,7 +12282,7 @@ var TableFilteringExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\ntr.mat-footer-row {\r\n  font-weight: bold;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\ntr.mat-footer-row {\n  font-weight: bold;\n}\n"
 
 /***/ }),
 
@@ -12293,7 +12293,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\ntr.mat-footer-row {\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"transactions\" class=\"mat-elevation-z8\">\r\n  <!-- Item Column -->\r\n  <ng-container matColumnDef=\"item\">\r\n    <th mat-header-cell *matHeaderCellDef> Item </th>\r\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.item}} </td>\r\n    <td mat-footer-cell *matFooterCellDef> Total </td>\r\n  </ng-container>\r\n\r\n  <!-- Cost Column -->\r\n  <ng-container matColumnDef=\"cost\">\r\n    <th mat-header-cell *matHeaderCellDef> Cost </th>\r\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.cost | currency}} </td>\r\n    <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  <tr mat-footer-row *matFooterRowDef=\"displayedColumns\"></tr>\r\n</table>\r\n"
+module.exports = "<table mat-table [dataSource]=\"transactions\" class=\"mat-elevation-z8\">\n  <!-- Item Column -->\n  <ng-container matColumnDef=\"item\">\n    <th mat-header-cell *matHeaderCellDef> Item </th>\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.item}} </td>\n    <td mat-footer-cell *matFooterCellDef> Total </td>\n  </ng-container>\n\n  <!-- Cost Column -->\n  <ng-container matColumnDef=\"cost\">\n    <th mat-header-cell *matHeaderCellDef> Cost </th>\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.cost | currency}} </td>\n    <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  <tr mat-footer-row *matFooterRowDef=\"displayedColumns\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12355,7 +12355,7 @@ var TableFooterRowExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Structure */\r\n.example-container {\r\n  position: relative;\r\n}\r\n.example-table-container {\r\n  position: relative;\r\n  max-height: 400px;\r\n  overflow: auto;\r\n}\r\ntable {\r\n  width: 100%;\r\n}\r\n.example-loading-shade {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  bottom: 56px;\r\n  right: 0;\r\n  background: rgba(0, 0, 0, 0.15);\r\n  z-index: 1;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n.example-rate-limit-reached {\r\n  color: #980000;\r\n  max-width: 360px;\r\n  text-align: center;\r\n}\r\n/* Column Widths */\r\n.mat-column-number,\r\n.mat-column-state {\r\n  max-width: 64px;\r\n}\r\n.mat-column-created {\r\n  max-width: 124px;\r\n}\r\n"
+module.exports = "/* Structure */\n.example-container {\n  position: relative;\n}\n.example-table-container {\n  position: relative;\n  max-height: 400px;\n  overflow: auto;\n}\ntable {\n  width: 100%;\n}\n.example-loading-shade {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 56px;\n  right: 0;\n  background: rgba(0, 0, 0, 0.15);\n  z-index: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.example-rate-limit-reached {\n  color: #980000;\n  max-width: 360px;\n  text-align: center;\n}\n/* Column Widths */\n.mat-column-number,\n.mat-column-state {\n  max-width: 64px;\n}\n.mat-column-created {\n  max-width: 124px;\n}\n"
 
 /***/ }),
 
@@ -12366,7 +12366,7 @@ module.exports = "/* Structure */\r\n.example-container {\r\n  position: relativ
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <div class=\"example-loading-shade\"\r\n       *ngIf=\"isLoadingResults || isRateLimitReached\">\r\n    <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\r\n    <div class=\"example-rate-limit-reached\" *ngIf=\"isRateLimitReached\">\r\n      GitHub's API rate limit has been reached. It will be reset in one minute.\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"example-table-container\">\r\n\r\n    <table mat-table [dataSource]=\"data\" class=\"example-table\"\r\n           matSort matSortActive=\"created\" matSortDisableClear matSortDirection=\"asc\">\r\n      <!-- Number Column -->\r\n      <ng-container matColumnDef=\"number\">\r\n        <th mat-header-cell *matHeaderCellDef>#</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{row.number}}</td>\r\n      </ng-container>\r\n\r\n      <!-- Title Column -->\r\n      <ng-container matColumnDef=\"title\">\r\n        <th mat-header-cell *matHeaderCellDef>Title</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{row.title}}</td>\r\n      </ng-container>\r\n\r\n      <!-- State Column -->\r\n      <ng-container matColumnDef=\"state\">\r\n        <th mat-header-cell *matHeaderCellDef>State</th>\r\n        <td mat-cell *matCellDef=\"let row\">{{row.state}}</td>\r\n      </ng-container>\r\n\r\n      <!-- Created Column -->\r\n      <ng-container matColumnDef=\"created\">\r\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>\r\n          Created\r\n        </th>\r\n        <td mat-cell *matCellDef=\"let row\">{{row.created_at | date}}</td>\r\n      </ng-container>\r\n\r\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n    </table>\r\n  </div>\r\n\r\n  <mat-paginator [length]=\"resultsLength\" [pageSize]=\"30\"></mat-paginator>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <div class=\"example-loading-shade\"\n       *ngIf=\"isLoadingResults || isRateLimitReached\">\n    <mat-spinner *ngIf=\"isLoadingResults\"></mat-spinner>\n    <div class=\"example-rate-limit-reached\" *ngIf=\"isRateLimitReached\">\n      GitHub's API rate limit has been reached. It will be reset in one minute.\n    </div>\n  </div>\n\n  <div class=\"example-table-container\">\n\n    <table mat-table [dataSource]=\"data\" class=\"example-table\"\n           matSort matSortActive=\"created\" matSortDisableClear matSortDirection=\"asc\">\n      <!-- Number Column -->\n      <ng-container matColumnDef=\"number\">\n        <th mat-header-cell *matHeaderCellDef>#</th>\n        <td mat-cell *matCellDef=\"let row\">{{row.number}}</td>\n      </ng-container>\n\n      <!-- Title Column -->\n      <ng-container matColumnDef=\"title\">\n        <th mat-header-cell *matHeaderCellDef>Title</th>\n        <td mat-cell *matCellDef=\"let row\">{{row.title}}</td>\n      </ng-container>\n\n      <!-- State Column -->\n      <ng-container matColumnDef=\"state\">\n        <th mat-header-cell *matHeaderCellDef>State</th>\n        <td mat-cell *matCellDef=\"let row\">{{row.state}}</td>\n      </ng-container>\n\n      <!-- Created Column -->\n      <ng-container matColumnDef=\"created\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>\n          Created\n        </th>\n        <td mat-cell *matCellDef=\"let row\">{{row.created_at | date}}</td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n  </div>\n\n  <mat-paginator [length]=\"resultsLength\" [pageSize]=\"30\"></mat-paginator>\n</div>\n"
 
 /***/ }),
 
@@ -12477,7 +12477,7 @@ var ExampleHttpDao = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\n.example-first-header-row th {\r\n  border-bottom: none;\r\n}\r\n\r\n.example-second-header-row {\r\n  font-style: italic;\r\n}\r\n\r\n.example-first-footer-row {\r\n  font-weight: bold;\r\n}\r\n\r\n.example-second-footer-row td {\r\n  color: #900000;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\n.example-first-header-row th {\n  border-bottom: none;\n}\n\n.example-second-header-row {\n  font-style: italic;\n}\n\n.example-first-footer-row {\n  font-weight: bold;\n}\n\n.example-second-footer-row td {\n  color: #900000;\n}\n"
 
 /***/ }),
 
@@ -12488,7 +12488,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\n.example-first-header-ro
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"transactions\" class=\"mat-elevation-z8\">\r\n  <!-- Item Column -->\r\n  <ng-container matColumnDef=\"item\">\r\n    <th mat-header-cell *matHeaderCellDef> Item </th>\r\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.item}} </td>\r\n    <td mat-footer-cell *matFooterCellDef> Total </td>\r\n  </ng-container>\r\n\r\n  <!-- Cost Column -->\r\n  <ng-container matColumnDef=\"cost\">\r\n    <th mat-header-cell *matHeaderCellDef> Cost </th>\r\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.cost | currency}} </td>\r\n    <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Item Description Column -->\r\n  <ng-container matColumnDef=\"item-description\">\r\n    <th mat-header-cell *matHeaderCellDef> Name of the item purchased </th>\r\n  </ng-container>\r\n\r\n  <!-- Cost Description Column -->\r\n  <ng-container matColumnDef=\"cost-description\">\r\n    <th mat-header-cell *matHeaderCellDef> Cost of the item in USD </th>\r\n  </ng-container>\r\n\r\n  <!-- Disclaimer column -->\r\n  <ng-container matColumnDef=\"disclaimer\">\r\n    <td mat-footer-cell *matFooterCellDef colspan=\"2\">\r\n      Please note that the cost of items displayed are completely and totally made up.\r\n    </td>\r\n  </ng-container>\r\n\r\n  <!-- The table will render two header rows, one data row per data object, and two footer rows. -->\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"\r\n      class=\"example-first-header-row\">\r\n  </tr>\r\n  <tr mat-header-row *matHeaderRowDef=\"['item-description', 'cost-description']\"\r\n      class=\"example-second-header-row\">\r\n  </tr>\r\n\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n  <tr mat-footer-row *matFooterRowDef=\"displayedColumns\" class=\"example-first-footer-row\"></tr>\r\n  <tr mat-footer-row *matFooterRowDef=\"['disclaimer']\" class=\"example-second-footer-row\"></tr>\r\n</table>\r\n"
+module.exports = "<table mat-table [dataSource]=\"transactions\" class=\"mat-elevation-z8\">\n  <!-- Item Column -->\n  <ng-container matColumnDef=\"item\">\n    <th mat-header-cell *matHeaderCellDef> Item </th>\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.item}} </td>\n    <td mat-footer-cell *matFooterCellDef> Total </td>\n  </ng-container>\n\n  <!-- Cost Column -->\n  <ng-container matColumnDef=\"cost\">\n    <th mat-header-cell *matHeaderCellDef> Cost </th>\n    <td mat-cell *matCellDef=\"let transaction\"> {{transaction.cost | currency}} </td>\n    <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>\n  </ng-container>\n\n  <!-- Item Description Column -->\n  <ng-container matColumnDef=\"item-description\">\n    <th mat-header-cell *matHeaderCellDef> Name of the item purchased </th>\n  </ng-container>\n\n  <!-- Cost Description Column -->\n  <ng-container matColumnDef=\"cost-description\">\n    <th mat-header-cell *matHeaderCellDef> Cost of the item in USD </th>\n  </ng-container>\n\n  <!-- Disclaimer column -->\n  <ng-container matColumnDef=\"disclaimer\">\n    <td mat-footer-cell *matFooterCellDef colspan=\"2\">\n      Please note that the cost of items displayed are completely and totally made up.\n    </td>\n  </ng-container>\n\n  <!-- The table will render two header rows, one data row per data object, and two footer rows. -->\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"\n      class=\"example-first-header-row\">\n  </tr>\n  <tr mat-header-row *matHeaderRowDef=\"['item-description', 'cost-description']\"\n      class=\"example-second-header-row\">\n  </tr>\n\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n\n  <tr mat-footer-row *matFooterRowDef=\"displayedColumns\" class=\"example-first-footer-row\"></tr>\n  <tr mat-footer-row *matFooterRowDef=\"['disclaimer']\" class=\"example-second-footer-row\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12550,7 +12550,7 @@ var TableMultipleHeaderFooterExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\ntd, th {\r\n  width: 25%;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%;\n}\n\ntd, th {\n  width: 25%;\n}\n"
 
 /***/ }),
 
@@ -12561,7 +12561,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n  f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\r\n</mat-form-field>\r\n\r\n<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" matSort>\r\n\r\n    <!-- ID Column -->\r\n    <ng-container matColumnDef=\"id\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.id}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Progress Column -->\r\n    <ng-container matColumnDef=\"progress\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.progress}}% </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\r\n      <td mat-cell *matCellDef=\"let row\"> {{row.name}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Color Column -->\r\n    <ng-container matColumnDef=\"color\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>\r\n      <td mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.color}} </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\r\n</div>\r\n"
+module.exports = "<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"id\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.id}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"progress\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.progress}}% </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.name}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"color\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>\n      <td mat-cell *matCellDef=\"let row\" [style.color]=\"row.color\"> {{row.color}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>\n"
 
 /***/ }),
 
@@ -12656,7 +12656,7 @@ function createNewUser(id) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -12667,7 +12667,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\">\r\n\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"position\">\r\n      <th mat-header-cell *matHeaderCellDef> No. </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"weight\">\r\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Symbol Column -->\r\n    <ng-container matColumnDef=\"symbol\">\r\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator>\r\n</div>\r\n"
+module.exports = "<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\">\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> No. </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef> Name </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n    </ng-container>\n\n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator>\n</div>\n"
 
 /***/ }),
 
@@ -12752,7 +12752,7 @@ var ELEMENT_DATA = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -12763,7 +12763,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"data\" class=\"mat-elevation-z8\">\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"$implicit\">\r\n    <th mat-header-cell *matHeaderCellDef> $implicit </th>\r\n    <td mat-cell *matCellDef=\"let data\"> {{data}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"index\">\r\n    <th mat-header-cell *matHeaderCellDef> index </th>\r\n    <td mat-cell *matCellDef=\"let index = index\"> {{index}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"count\">\r\n    <th mat-header-cell *matHeaderCellDef> count </th>\r\n    <td mat-cell *matCellDef=\"let count = count\"> {{count}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"first\">\r\n    <th mat-header-cell *matHeaderCellDef> first </th>\r\n    <td mat-cell *matCellDef=\"let first = first\"> {{first}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"last\">\r\n    <th mat-header-cell *matHeaderCellDef> last </th>\r\n    <td mat-cell *matCellDef=\"let last = last\"> {{last}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"even\">\r\n    <th mat-header-cell *matHeaderCellDef> even </th>\r\n    <td mat-cell *matCellDef=\"let even = even\"> {{even}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Index Column -->\r\n  <ng-container matColumnDef=\"odd\">\r\n    <th mat-header-cell *matHeaderCellDef> odd </th>\r\n    <td mat-cell *matCellDef=\"let odd = odd\"> {{odd}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n"
+module.exports = "<table mat-table [dataSource]=\"data\" class=\"mat-elevation-z8\">\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"$implicit\">\n    <th mat-header-cell *matHeaderCellDef> $implicit </th>\n    <td mat-cell *matCellDef=\"let data\"> {{data}} </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"index\">\n    <th mat-header-cell *matHeaderCellDef> index </th>\n    <td mat-cell *matCellDef=\"let index = index\"> {{index}} </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"count\">\n    <th mat-header-cell *matHeaderCellDef> count </th>\n    <td mat-cell *matCellDef=\"let count = count\"> {{count}} </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"first\">\n    <th mat-header-cell *matHeaderCellDef> first </th>\n    <td mat-cell *matCellDef=\"let first = first\"> {{first}} </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"last\">\n    <th mat-header-cell *matHeaderCellDef> last </th>\n    <td mat-cell *matCellDef=\"let last = last\"> {{last}} </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"even\">\n    <th mat-header-cell *matHeaderCellDef> even </th>\n    <td mat-cell *matCellDef=\"let even = even\"> {{even}} </td>\n  </ng-container>\n\n  <!-- Index Column -->\n  <ng-container matColumnDef=\"odd\">\n    <th mat-header-cell *matHeaderCellDef> odd </th>\n    <td mat-cell *matCellDef=\"let odd = odd\"> {{odd}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12814,7 +12814,7 @@ var TableRowContextExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -12825,7 +12825,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\r\n\r\n  <!-- Checkbox Column -->\r\n  <ng-container matColumnDef=\"select\">\r\n    <th mat-header-cell *matHeaderCellDef>\r\n      <mat-checkbox (change)=\"$event ? masterToggle() : null\"\r\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\r\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\r\n      </mat-checkbox>\r\n    </th>\r\n    <td mat-cell *matCellDef=\"let row\">\r\n      <mat-checkbox (click)=\"$event.stopPropagation()\"\r\n                    (change)=\"$event ? selection.toggle(row) : null\"\r\n                    [checked]=\"selection.isSelected(row)\">\r\n      </mat-checkbox>\r\n    </td>\r\n  </ng-container>\r\n\r\n  <!-- Position Column -->\r\n  <ng-container matColumnDef=\"position\">\r\n    <th mat-header-cell *matHeaderCellDef> No. </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"name\">\r\n    <th mat-header-cell *matHeaderCellDef> Name </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container matColumnDef=\"weight\">\r\n    <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container matColumnDef=\"symbol\">\r\n    <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\r\n      (click)=\"selection.toggle(row)\">\r\n  </tr>\r\n</table>\r\n"
+module.exports = "<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!-- Checkbox Column -->\n  <ng-container matColumnDef=\"select\">\n    <th mat-header-cell *matHeaderCellDef>\n      <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n      </mat-checkbox>\n    </th>\n    <td mat-cell *matCellDef=\"let row\">\n      <mat-checkbox (click)=\"$event.stopPropagation()\"\n                    (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\">\n      </mat-checkbox>\n    </td>\n  </ng-container>\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef> Name </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"weight\">\n    <th mat-header-cell *matHeaderCellDef> Weight </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"symbol\">\n    <th mat-header-cell *matHeaderCellDef> Symbol </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n      (click)=\"selection.toggle(row)\">\n  </tr>\n</table>\n"
 
 /***/ }),
 
@@ -12906,7 +12906,7 @@ var TableSelectionExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\nth.mat-sort-header-sorted {\r\n  color: black;\r\n}\r\n"
+module.exports = "table {\n  width: 100%;\n}\n\nth.mat-sort-header-sorted {\n  color: black;\n}\n"
 
 /***/ }),
 
@@ -12917,7 +12917,7 @@ module.exports = "table {\r\n  width: 100%;\r\n}\r\n\r\nth.mat-sort-header-sorte
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table mat-table [dataSource]=\"dataSource\" matSort class=\"mat-elevation-z8\">\r\n\r\n  <!-- Position Column -->\r\n  <ng-container matColumnDef=\"position\">\r\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Name Column -->\r\n  <ng-container matColumnDef=\"name\">\r\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Weight Column -->\r\n  <ng-container matColumnDef=\"weight\">\r\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n  </ng-container>\r\n\r\n  <!-- Symbol Column -->\r\n  <ng-container matColumnDef=\"symbol\">\r\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>\r\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n  </ng-container>\r\n\r\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n</table>\r\n"
+module.exports = "<table mat-table [dataSource]=\"dataSource\" matSort class=\"mat-elevation-z8\">\n\n  <!-- Position Column -->\n  <ng-container matColumnDef=\"position\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n  </ng-container>\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"weight\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n  </ng-container>\n\n  <!-- Symbol Column -->\n  <ng-container matColumnDef=\"symbol\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n  </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n"
 
 /***/ }),
 
@@ -12992,7 +12992,7 @@ var TableSortingExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  height: 400px;\r\n  width: 550px;\r\n  overflow: auto;\r\n}\r\n\r\ntable {\r\n  width: 800px;\r\n}\r\n\r\ntd.mat-column-star {\r\n  width: 20px;\r\n  padding-right: 8px;\r\n}\r\n\r\nth.mat-column-position, td.mat-column-position {\r\n  padding-left: 8px;\r\n}\r\n\r\n.mat-table-sticky:first-child {\r\n  border-right: 1px solid #e0e0e0;\r\n}\r\n\r\n.mat-table-sticky:last-child {\r\n  border-left: 1px solid #e0e0e0;\r\n}\r\n"
+module.exports = ".example-container {\n  height: 400px;\n  width: 550px;\n  overflow: auto;\n}\n\ntable {\n  width: 800px;\n}\n\ntd.mat-column-star {\n  width: 20px;\n  padding-right: 8px;\n}\n\nth.mat-column-position, td.mat-column-position {\n  padding-left: 8px;\n}\n\n.mat-table-sticky:first-child {\n  border-right: 1px solid #e0e0e0;\n}\n\n.mat-table-sticky:last-child {\n  border-left: 1px solid #e0e0e0;\n}\n"
 
 /***/ }),
 
@@ -13003,7 +13003,7 @@ module.exports = ".example-container {\r\n  height: 400px;\r\n  width: 550px;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\">\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"name\" sticky>\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"position\">\r\n      <th mat-header-cell *matHeaderCellDef> No. </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"weight\">\r\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Symbol Column -->\r\n    <ng-container matColumnDef=\"symbol\">\r\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Star Column -->\r\n    <ng-container matColumnDef=\"star\" stickyEnd>\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <mat-icon>more_vert</mat-icon>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\">\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\" sticky>\n      <th mat-header-cell *matHeaderCellDef> Name </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n    </ng-container>\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> No. </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n    </ng-container>\n\n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n    </ng-container>\n\n    <!-- Star Column -->\n    <ng-container matColumnDef=\"star\" stickyEnd>\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\">\n        <mat-icon>more_vert</mat-icon>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -13066,7 +13066,7 @@ var ELEMENT_DATA = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  height: 400px;\r\n  overflow: auto;\r\n}\r\n\r\n.mat-table-sticky {\r\n  background: #59abfd;\r\n  opacity: 1;\r\n}\r\n\r\n.example-sticky-toggle-group {\r\n  margin: 8px;\r\n}\r\n\r\n.mat-column-filler {\r\n  padding: 0 8px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.mat-header-cell, .mat-footer-cell, .mat-cell {\r\n  min-width: 80px;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.mat-header-row, .mat-footer-row, .mat-row {\r\n  min-width: 1920px; /* 24 columns, 80px each */\r\n}\r\n"
+module.exports = ".example-container {\n  height: 400px;\n  overflow: auto;\n}\n\n.mat-table-sticky {\n  background: #59abfd;\n  opacity: 1;\n}\n\n.example-sticky-toggle-group {\n  margin: 8px;\n}\n\n.mat-column-filler {\n  padding: 0 8px;\n  font-size: 10px;\n  text-align: center;\n}\n\n.mat-header-cell, .mat-footer-cell, .mat-cell {\n  min-width: 80px;\n  box-sizing: border-box;\n}\n\n.mat-header-row, .mat-footer-row, .mat-row {\n  min-width: 1920px; /* 24 columns, 80px each */\n}\n"
 
 /***/ }),
 
@@ -13077,7 +13077,7 @@ module.exports = ".example-container {\r\n  height: 400px;\r\n  overflow: auto;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <button mat-raised-button (click)=\"tables.push(tables.length)\">Add table</button>\r\n  <button mat-raised-button (click)=\"tables.pop()\">Remove table</button>\r\n</div>\r\n\r\n<div>\r\n  Sticky Headers:\r\n  <mat-button-toggle-group multiple [value]=\"['header-1']\"\r\n                           #stickyHeaders=\"matButtonToggleGroup\"\r\n                           class=\"example-sticky-toggle-group\">\r\n    <mat-button-toggle value=\"header-1\"> Row 1 </mat-button-toggle>\r\n    <mat-button-toggle value=\"header-2\"> Row 2 </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n</div>\r\n\r\n<div>\r\n  Sticky Footers:\r\n  <mat-button-toggle-group multiple [value]=\"['footer-1']\"\r\n                           #stickyFooters=\"matButtonToggleGroup\"\r\n                           class=\"example-sticky-toggle-group\">\r\n    <mat-button-toggle value=\"footer-1\"> Row 1 </mat-button-toggle>\r\n    <mat-button-toggle value=\"footer-2\"> Row 2 </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n</div>\r\n\r\n<div>\r\n  Sticky Columns:\r\n  <mat-button-toggle-group multiple [value]=\"['position', 'symbol']\"\r\n                           #stickyColumns=\"matButtonToggleGroup\"\r\n                           class=\"example-sticky-toggle-group\">\r\n    <mat-button-toggle value=\"position\"> Position </mat-button-toggle>\r\n    <mat-button-toggle value=\"name\"> Name </mat-button-toggle>\r\n    <mat-button-toggle value=\"weight\"> Weight </mat-button-toggle>\r\n    <mat-button-toggle value=\"symbol\"> Symbol </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" *ngFor=\"let table of tables\">\r\n    <ng-container matColumnDef=\"position\" [sticky]=\"isSticky(stickyColumns, 'position')\">\r\n      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.position}} </mat-cell>\r\n      <mat-footer-cell *matFooterCellDef> Position Footer </mat-footer-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"name\" [sticky]=\"isSticky(stickyColumns, 'name')\">\r\n      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\r\n      <mat-footer-cell *matFooterCellDef> Name Footer </mat-footer-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"weight\" [stickyEnd]=\"isSticky(stickyColumns, 'weight')\">\r\n      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.weight}} </mat-cell>\r\n      <mat-footer-cell *matFooterCellDef> Weight Footer </mat-footer-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"symbol\" [stickyEnd]=\"isSticky(stickyColumns, 'symbol')\">\r\n      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.symbol}} </mat-cell>\r\n      <mat-footer-cell *matFooterCellDef> Symbol Footer </mat-footer-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"filler\">\r\n      <mat-header-cell *matHeaderCellDef> Filler header cell </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> Filler data cell </mat-cell>\r\n      <mat-footer-cell *matFooterCellDef> Filler footer cell </mat-footer-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-1')\"></mat-header-row>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-2')\"></mat-header-row>\r\n\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n\r\n    <mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-1')\"></mat-footer-row>\r\n    <mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-2')\"></mat-footer-row>\r\n  </mat-table>\r\n</div>\r\n"
+module.exports = "<div>\n  <button mat-raised-button (click)=\"tables.push(tables.length)\">Add table</button>\n  <button mat-raised-button (click)=\"tables.pop()\">Remove table</button>\n</div>\n\n<div>\n  Sticky Headers:\n  <mat-button-toggle-group multiple [value]=\"['header-1']\"\n                           #stickyHeaders=\"matButtonToggleGroup\"\n                           class=\"example-sticky-toggle-group\">\n    <mat-button-toggle value=\"header-1\"> Row 1 </mat-button-toggle>\n    <mat-button-toggle value=\"header-2\"> Row 2 </mat-button-toggle>\n  </mat-button-toggle-group>\n</div>\n\n<div>\n  Sticky Footers:\n  <mat-button-toggle-group multiple [value]=\"['footer-1']\"\n                           #stickyFooters=\"matButtonToggleGroup\"\n                           class=\"example-sticky-toggle-group\">\n    <mat-button-toggle value=\"footer-1\"> Row 1 </mat-button-toggle>\n    <mat-button-toggle value=\"footer-2\"> Row 2 </mat-button-toggle>\n  </mat-button-toggle-group>\n</div>\n\n<div>\n  Sticky Columns:\n  <mat-button-toggle-group multiple [value]=\"['position', 'symbol']\"\n                           #stickyColumns=\"matButtonToggleGroup\"\n                           class=\"example-sticky-toggle-group\">\n    <mat-button-toggle value=\"position\"> Position </mat-button-toggle>\n    <mat-button-toggle value=\"name\"> Name </mat-button-toggle>\n    <mat-button-toggle value=\"weight\"> Weight </mat-button-toggle>\n    <mat-button-toggle value=\"symbol\"> Symbol </mat-button-toggle>\n  </mat-button-toggle-group>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n  <mat-table [dataSource]=\"dataSource\" *ngFor=\"let table of tables\">\n    <ng-container matColumnDef=\"position\" [sticky]=\"isSticky(stickyColumns, 'position')\">\n      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.position}} </mat-cell>\n      <mat-footer-cell *matFooterCellDef> Position Footer </mat-footer-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"name\" [sticky]=\"isSticky(stickyColumns, 'name')\">\n      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\n      <mat-footer-cell *matFooterCellDef> Name Footer </mat-footer-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"weight\" [stickyEnd]=\"isSticky(stickyColumns, 'weight')\">\n      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.weight}} </mat-cell>\n      <mat-footer-cell *matFooterCellDef> Weight Footer </mat-footer-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"symbol\" [stickyEnd]=\"isSticky(stickyColumns, 'symbol')\">\n      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.symbol}} </mat-cell>\n      <mat-footer-cell *matFooterCellDef> Symbol Footer </mat-footer-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"filler\">\n      <mat-header-cell *matHeaderCellDef> Filler header cell </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> Filler data cell </mat-cell>\n      <mat-footer-cell *matFooterCellDef> Filler footer cell </mat-footer-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-1')\"></mat-header-row>\n    <mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-2')\"></mat-header-row>\n\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n\n    <mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-1')\"></mat-footer-row>\n    <mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-2')\"></mat-footer-row>\n  </mat-table>\n</div>\n"
 
 /***/ }),
 
@@ -13156,7 +13156,7 @@ var ELEMENT_DATA = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  height: 400px;\r\n  overflow: auto;\r\n}\r\n\r\n.mat-table-sticky {\r\n  background: #59abfd;\r\n  opacity: 1;\r\n}\r\n\r\n.example-sticky-toggle-group {\r\n  margin: 8px;\r\n}\r\n\r\n.mat-column-filler {\r\n  padding: 0 8px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.mat-header-cell, .mat-footer-cell, .mat-cell {\r\n  min-width: 80px;\r\n  box-sizing: border-box;\r\n}\r\n"
+module.exports = ".example-container {\n  height: 400px;\n  overflow: auto;\n}\n\n.mat-table-sticky {\n  background: #59abfd;\n  opacity: 1;\n}\n\n.example-sticky-toggle-group {\n  margin: 8px;\n}\n\n.mat-column-filler {\n  padding: 0 8px;\n  font-size: 10px;\n  text-align: center;\n}\n\n.mat-header-cell, .mat-footer-cell, .mat-cell {\n  min-width: 80px;\n  box-sizing: border-box;\n}\n"
 
 /***/ }),
 
@@ -13167,7 +13167,7 @@ module.exports = ".example-container {\r\n  height: 400px;\r\n  overflow: auto;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <button mat-raised-button (click)=\"tables.push(tables.length)\">Add table</button>\r\n  <button mat-raised-button (click)=\"tables.pop()\">Remove table</button>\r\n</div>\r\n\r\n<div>\r\n  Sticky Headers:\r\n  <mat-button-toggle-group multiple [value]=\"['header-1']\"\r\n                           #stickyHeaders=\"matButtonToggleGroup\"\r\n                           class=\"example-sticky-toggle-group\">\r\n    <mat-button-toggle value=\"header-1\"> Row 1 </mat-button-toggle>\r\n    <mat-button-toggle value=\"header-2\"> Row 2 </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n</div>\r\n\r\n<div>\r\n  Sticky Footers:\r\n  <mat-button-toggle-group multiple [value]=\"['footer-1']\"\r\n                           #stickyFooters=\"matButtonToggleGroup\"\r\n                           class=\"example-sticky-toggle-group\">\r\n    <mat-button-toggle value=\"footer-1\"> Row 1 </mat-button-toggle>\r\n    <mat-button-toggle value=\"footer-2\"> Row 2 </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n</div>\r\n\r\n<div>\r\n  Sticky Columns:\r\n  <mat-button-toggle-group multiple [value]=\"['position', 'symbol']\"\r\n                           #stickyColumns=\"matButtonToggleGroup\"\r\n                           class=\"example-sticky-toggle-group\">\r\n    <mat-button-toggle value=\"position\"> Position </mat-button-toggle>\r\n    <mat-button-toggle value=\"name\"> Name </mat-button-toggle>\r\n    <mat-button-toggle value=\"weight\"> Weight </mat-button-toggle>\r\n    <mat-button-toggle value=\"symbol\"> Symbol </mat-button-toggle>\r\n  </mat-button-toggle-group>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\" *ngFor=\"let table of tables\">\r\n    <ng-container matColumnDef=\"position\" [sticky]=\"isSticky(stickyColumns, 'position')\">\r\n      <th mat-header-cell *matHeaderCellDef> Position </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n      <td mat-footer-cell *matFooterCellDef> Position Footer </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"name\" [sticky]=\"isSticky(stickyColumns, 'name')\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n      <td mat-footer-cell *matFooterCellDef> Name Footer </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"weight\" [stickyEnd]=\"isSticky(stickyColumns, 'weight')\">\r\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n      <td mat-footer-cell *matFooterCellDef> Weight Footer </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"symbol\" [stickyEnd]=\"isSticky(stickyColumns, 'symbol')\">\r\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n      <td mat-footer-cell *matFooterCellDef> Symbol Footer </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"filler\">\r\n      <th mat-header-cell *matHeaderCellDef> Filler header cell </th>\r\n      <td mat-cell *matCellDef=\"let element\"> Filler data cell </td>\r\n      <td mat-footer-cell *matFooterCellDef> Filler footer cell </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-1')\"></tr>\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-2')\"></tr>\r\n\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n\r\n    <tr mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-1')\"></tr>\r\n    <tr mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-2')\"></tr>\r\n  </table>\r\n</div>\r\n"
+module.exports = "<div>\n  <button mat-raised-button (click)=\"tables.push(tables.length)\">Add table</button>\n  <button mat-raised-button (click)=\"tables.pop()\">Remove table</button>\n</div>\n\n<div>\n  Sticky Headers:\n  <mat-button-toggle-group multiple [value]=\"['header-1']\"\n                           #stickyHeaders=\"matButtonToggleGroup\"\n                           class=\"example-sticky-toggle-group\">\n    <mat-button-toggle value=\"header-1\"> Row 1 </mat-button-toggle>\n    <mat-button-toggle value=\"header-2\"> Row 2 </mat-button-toggle>\n  </mat-button-toggle-group>\n</div>\n\n<div>\n  Sticky Footers:\n  <mat-button-toggle-group multiple [value]=\"['footer-1']\"\n                           #stickyFooters=\"matButtonToggleGroup\"\n                           class=\"example-sticky-toggle-group\">\n    <mat-button-toggle value=\"footer-1\"> Row 1 </mat-button-toggle>\n    <mat-button-toggle value=\"footer-2\"> Row 2 </mat-button-toggle>\n  </mat-button-toggle-group>\n</div>\n\n<div>\n  Sticky Columns:\n  <mat-button-toggle-group multiple [value]=\"['position', 'symbol']\"\n                           #stickyColumns=\"matButtonToggleGroup\"\n                           class=\"example-sticky-toggle-group\">\n    <mat-button-toggle value=\"position\"> Position </mat-button-toggle>\n    <mat-button-toggle value=\"name\"> Name </mat-button-toggle>\n    <mat-button-toggle value=\"weight\"> Weight </mat-button-toggle>\n    <mat-button-toggle value=\"symbol\"> Symbol </mat-button-toggle>\n  </mat-button-toggle-group>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" *ngFor=\"let table of tables\">\n    <ng-container matColumnDef=\"position\" [sticky]=\"isSticky(stickyColumns, 'position')\">\n      <th mat-header-cell *matHeaderCellDef> Position </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n      <td mat-footer-cell *matFooterCellDef> Position Footer </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"name\" [sticky]=\"isSticky(stickyColumns, 'name')\">\n      <th mat-header-cell *matHeaderCellDef> Name </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n      <td mat-footer-cell *matFooterCellDef> Name Footer </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"weight\" [stickyEnd]=\"isSticky(stickyColumns, 'weight')\">\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n      <td mat-footer-cell *matFooterCellDef> Weight Footer </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"symbol\" [stickyEnd]=\"isSticky(stickyColumns, 'symbol')\">\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n      <td mat-footer-cell *matFooterCellDef> Symbol Footer </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"filler\">\n      <th mat-header-cell *matHeaderCellDef> Filler header cell </th>\n      <td mat-cell *matCellDef=\"let element\"> Filler data cell </td>\n      <td mat-footer-cell *matFooterCellDef> Filler footer cell </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-1')\"></tr>\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: isSticky(stickyHeaders, 'header-2')\"></tr>\n\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n\n    <tr mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-1')\"></tr>\n    <tr mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: isSticky(stickyFooters, 'footer-2')\"></tr>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -13246,7 +13246,7 @@ var ELEMENT_DATA = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  height: 270px;\r\n  overflow: auto;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n}\r\n\r\ntr.mat-footer-row {\r\n  font-weight: bold;\r\n}\r\n\r\n.mat-table-sticky {\r\n  border-top: 1px solid #e0e0e0;\r\n}\r\n"
+module.exports = ".example-container {\n  height: 270px;\n  overflow: auto;\n}\n\ntable {\n  width: 100%;\n}\n\ntr.mat-footer-row {\n  font-weight: bold;\n}\n\n.mat-table-sticky {\n  border-top: 1px solid #e0e0e0;\n}\n"
 
 /***/ }),
 
@@ -13257,7 +13257,7 @@ module.exports = ".example-container {\r\n  height: 270px;\r\n  overflow: auto;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"transactions\">\r\n    <!-- Item Column -->\r\n    <ng-container matColumnDef=\"item\">\r\n      <th mat-header-cell *matHeaderCellDef> Item </th>\r\n      <td mat-cell *matCellDef=\"let transaction\"> {{transaction.item}} </td>\r\n      <td mat-footer-cell *matFooterCellDef> Total </td>\r\n    </ng-container>\r\n\r\n    <!-- Cost Column -->\r\n    <ng-container matColumnDef=\"cost\">\r\n      <th mat-header-cell *matHeaderCellDef> Cost </th>\r\n      <td mat-cell *matCellDef=\"let transaction\"> {{transaction.cost | currency}} </td>\r\n      <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n    <tr mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: true\"></tr>\r\n  </table>\r\n</div>\r\n"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <table mat-table [dataSource]=\"transactions\">\n    <!-- Item Column -->\n    <ng-container matColumnDef=\"item\">\n      <th mat-header-cell *matHeaderCellDef> Item </th>\n      <td mat-cell *matCellDef=\"let transaction\"> {{transaction.item}} </td>\n      <td mat-footer-cell *matFooterCellDef> Total </td>\n    </ng-container>\n\n    <!-- Cost Column -->\n    <ng-container matColumnDef=\"cost\">\n      <th mat-header-cell *matHeaderCellDef> Cost </th>\n      <td mat-cell *matCellDef=\"let transaction\"> {{transaction.cost | currency}} </td>\n      <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    <tr mat-footer-row *matFooterRowDef=\"displayedColumns; sticky: true\"></tr>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -13319,7 +13319,7 @@ var TableStickyFooterExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-container {\r\n  height: 400px;\r\n  overflow: auto;\r\n}\r\n\r\ntable {\r\n  width: 100%;\r\n}\r\n"
+module.exports = ".example-container {\n  height: 400px;\n  overflow: auto;\n}\n\ntable {\n  width: 100%;\n}\n"
 
 /***/ }),
 
@@ -13330,7 +13330,7 @@ module.exports = ".example-container {\r\n  height: 400px;\r\n  overflow: auto;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <table mat-table [dataSource]=\"dataSource\">\r\n\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"position\">\r\n      <th mat-header-cell *matHeaderCellDef> No. </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef> Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"weight\">\r\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\r\n    </ng-container>\r\n\r\n    <!-- Symbol Column -->\r\n    <ng-container matColumnDef=\"symbol\">\r\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: true\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n</div>"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\">\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"position\">\n      <th mat-header-cell *matHeaderCellDef> No. </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef> Name </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"weight\">\n      <th mat-header-cell *matHeaderCellDef> Weight </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n    </ng-container>\n\n    <!-- Symbol Column -->\n    <ng-container matColumnDef=\"symbol\">\n      <th mat-header-cell *matHeaderCellDef> Symbol </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns; sticky: true\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n</div>"
 
 /***/ }),
 
@@ -13393,7 +13393,7 @@ var ELEMENT_DATA = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -13404,7 +13404,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\r\n  <mat-form-field>\r\n    <mat-label>First name</mat-label>\r\n    <input matInput (cdkAutofill)=\"firstNameAutofilled = $event.isAutofilled\">\r\n    <mat-hint *ngIf=\"firstNameAutofilled\">Autofilled!</mat-hint>\r\n  </mat-form-field>\r\n  <mat-form-field>\r\n    <mat-label>Last name</mat-label>\r\n    <input matInput (cdkAutofill)=\"lastNameAutofilled = $event.isAutofilled\">\r\n    <mat-hint *ngIf=\"lastNameAutofilled\">Autofilled!</mat-hint>\r\n  </mat-form-field>\r\n  <button mat-raised-button>Submit</button>\r\n</form>\r\n"
+module.exports = "<form>\n  <mat-form-field>\n    <mat-label>First name</mat-label>\n    <input matInput (cdkAutofill)=\"firstNameAutofilled = $event.isAutofilled\">\n    <mat-hint *ngIf=\"firstNameAutofilled\">Autofilled!</mat-hint>\n  </mat-form-field>\n  <mat-form-field>\n    <mat-label>Last name</mat-label>\n    <input matInput (cdkAutofill)=\"lastNameAutofilled = $event.isAutofilled\">\n    <mat-hint *ngIf=\"lastNameAutofilled\">Autofilled!</mat-hint>\n  </mat-form-field>\n  <button mat-raised-button>Submit</button>\n</form>\n"
 
 /***/ }),
 
@@ -13451,7 +13451,7 @@ var TextFieldAutofillDirectiveExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -13462,7 +13462,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\r\n  <mat-form-field>\r\n    <mat-label>First name</mat-label>\r\n    <input matInput #first>\r\n    <mat-hint *ngIf=\"firstNameAutofilled\">Autofilled!</mat-hint>\r\n  </mat-form-field>\r\n  <mat-form-field>\r\n    <mat-label>Last name</mat-label>\r\n    <input matInput #last>\r\n    <mat-hint *ngIf=\"lastNameAutofilled\">Autofilled!</mat-hint>\r\n  </mat-form-field>\r\n  <button mat-raised-button>Submit</button>\r\n</form>\r\n"
+module.exports = "<form>\n  <mat-form-field>\n    <mat-label>First name</mat-label>\n    <input matInput #first>\n    <mat-hint *ngIf=\"firstNameAutofilled\">Autofilled!</mat-hint>\n  </mat-form-field>\n  <mat-form-field>\n    <mat-label>Last name</mat-label>\n    <input matInput #last>\n    <mat-hint *ngIf=\"lastNameAutofilled\">Autofilled!</mat-hint>\n  </mat-form-field>\n  <button mat-raised-button>Submit</button>\n</form>\n"
 
 /***/ }),
 
@@ -13535,7 +13535,7 @@ var TextFieldAutofillMonitorExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -13546,7 +13546,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-label>Font size</mat-label>\r\n  <mat-select #fontSize value=\"16px\" (selectionChange)=\"triggerResize()\">\r\n    <mat-option value=\"10px\">10px</mat-option>\r\n    <mat-option value=\"12px\">12px</mat-option>\r\n    <mat-option value=\"14px\">14px</mat-option>\r\n    <mat-option value=\"16px\">16px</mat-option>\r\n    <mat-option value=\"18px\">18px</mat-option>\r\n    <mat-option value=\"20px\">20px</mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n\r\n<mat-form-field [style.fontSize]=\"fontSize.value\">\r\n  <mat-label>Autosize textarea</mat-label>\r\n  <textarea matInput\r\n            cdkTextareaAutosize\r\n            #autosize=\"cdkTextareaAutosize\"\r\n            cdkAutosizeMinRows=\"2\"\r\n            cdkAutosizeMaxRows=\"5\"></textarea>\r\n</mat-form-field>\r\n"
+module.exports = "<mat-form-field>\n  <mat-label>Font size</mat-label>\n  <mat-select #fontSize value=\"16px\" (selectionChange)=\"triggerResize()\">\n    <mat-option value=\"10px\">10px</mat-option>\n    <mat-option value=\"12px\">12px</mat-option>\n    <mat-option value=\"14px\">14px</mat-option>\n    <mat-option value=\"16px\">16px</mat-option>\n    <mat-option value=\"18px\">18px</mat-option>\n    <mat-option value=\"20px\">20px</mat-option>\n  </mat-select>\n</mat-form-field>\n\n<mat-form-field [style.fontSize]=\"fontSize.value\">\n  <mat-label>Autosize textarea</mat-label>\n  <textarea matInput\n            cdkTextareaAutosize\n            #autosize=\"cdkTextareaAutosize\"\n            cdkAutosizeMinRows=\"2\"\n            cdkAutosizeMaxRows=\"5\"></textarea>\n</mat-form-field>\n"
 
 /***/ }),
 
@@ -13612,7 +13612,7 @@ var TextFieldAutosizeTextareaExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-icon {\r\n  padding: 0 14px;\r\n}\r\n\r\n.example-spacer {\r\n  flex: 1 1 auto;\r\n}\r\n"
+module.exports = ".example-icon {\n  padding: 0 14px;\n}\n\n.example-spacer {\n  flex: 1 1 auto;\n}\n"
 
 /***/ }),
 
@@ -13623,7 +13623,7 @@ module.exports = ".example-icon {\r\n  padding: 0 14px;\r\n}\r\n\r\n.example-spa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\r\n  <mat-toolbar-row>\r\n    <span>Custom Toolbar</span>\r\n  </mat-toolbar-row>\r\n\r\n  <mat-toolbar-row>\r\n    <span>Second Line</span>\r\n    <span class=\"example-spacer\"></span>\r\n    <mat-icon class=\"example-icon\">verified_user</mat-icon>\r\n  </mat-toolbar-row>\r\n\r\n  <mat-toolbar-row>\r\n    <span>Third Line</span>\r\n    <span class=\"example-spacer\"></span>\r\n    <mat-icon class=\"example-icon\">favorite</mat-icon>\r\n    <mat-icon class=\"example-icon\">delete</mat-icon>\r\n  </mat-toolbar-row>\r\n</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar color=\"primary\">\n  <mat-toolbar-row>\n    <span>Custom Toolbar</span>\n  </mat-toolbar-row>\n\n  <mat-toolbar-row>\n    <span>Second Line</span>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"example-icon\">verified_user</mat-icon>\n  </mat-toolbar-row>\n\n  <mat-toolbar-row>\n    <span>Third Line</span>\n    <span class=\"example-spacer\"></span>\n    <mat-icon class=\"example-icon\">favorite</mat-icon>\n    <mat-icon class=\"example-icon\">delete</mat-icon>\n  </mat-toolbar-row>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -13672,7 +13672,7 @@ var ToolbarMultirowExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -13683,7 +13683,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar>My App</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar>My App</mat-toolbar>\n"
 
 /***/ }),
 
@@ -13732,7 +13732,7 @@ var ToolbarOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-button {\r\n  display: block;\r\n  width: 48px;\r\n  margin: 80px auto 400px;\r\n}\r\n\r\n.example-container {\r\n  height: 200px;\r\n  overflow: auto;\r\n  border: 1px solid #ccc;\r\n}\r\n"
+module.exports = ".example-button {\n  display: block;\n  width: 48px;\n  margin: 80px auto 400px;\n}\n\n.example-container {\n  height: 200px;\n  overflow: auto;\n  border: 1px solid #ccc;\n}\n"
 
 /***/ }),
 
@@ -13743,7 +13743,7 @@ module.exports = ".example-button {\r\n  display: block;\r\n  width: 48px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field>\r\n  <mat-select placeholder=\"Tooltip position\" [formControl]=\"position\">\r\n    <mat-option *ngFor=\"let positionOption of positionOptions\" [value]=\"positionOption\">\r\n      {{positionOption}}\r\n    </mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n\r\n<div class=\"example-container\" cdk-scrollable>\r\n  <button mat-raised-button #tooltip=\"matTooltip\"\r\n          matTooltip=\"Info about the action\"\r\n          [matTooltipPosition]=\"position.value\"\r\n          matTooltipHideDelay=\"100000\"\r\n          aria-label=\"Button that displays a tooltip that hides when scrolled out of the container\"\r\n          class=\"example-button\">\r\n    Action\r\n  </button>\r\n</div>\r\n"
+module.exports = "<mat-form-field>\n  <mat-select placeholder=\"Tooltip position\" [formControl]=\"position\">\n    <mat-option *ngFor=\"let positionOption of positionOptions\" [value]=\"positionOption\">\n      {{positionOption}}\n    </mat-option>\n  </mat-select>\n</mat-form-field>\n\n<div class=\"example-container\" cdk-scrollable>\n  <button mat-raised-button #tooltip=\"matTooltip\"\n          matTooltip=\"Info about the action\"\n          [matTooltipPosition]=\"position.value\"\n          matTooltipHideDelay=\"100000\"\n          aria-label=\"Button that displays a tooltip that hides when scrolled out of the container\"\n          class=\"example-button\">\n    Action\n  </button>\n</div>\n"
 
 /***/ }),
 
@@ -13796,7 +13796,7 @@ var TooltipAutoHideExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-button {\r\n  margin-top: 16px;\r\n}\r\n\r\n.example-tooltip-red {\r\n  background: #b71c1c;\r\n}\r\n"
+module.exports = ".example-button {\n  margin-top: 16px;\n}\n\n.example-tooltip-red {\n  background: #b71c1c;\n}\n"
 
 /***/ }),
 
@@ -13807,7 +13807,7 @@ module.exports = ".example-button {\r\n  margin-top: 16px;\r\n}\r\n\r\n.example-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button\r\n        matTooltip=\"Info about the action\"\r\n        matTooltipClass=\"example-tooltip-red\"\r\n        aria-label=\"Button that shows a red tooltip\"\r\n        class=\"example-button\">\r\n  Red-tooltip Action\r\n</button>\r\n"
+module.exports = "<button mat-raised-button\n        matTooltip=\"Info about the action\"\n        matTooltipClass=\"example-tooltip-red\"\n        aria-label=\"Button that shows a red tooltip\"\n        class=\"example-button\">\n  Red-tooltip Action\n</button>\n"
 
 /***/ }),
 
@@ -13859,7 +13859,7 @@ var TooltipCustomClassExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-user-input {\r\n  display: block;\r\n  width: 150px;\r\n}\r\n"
+module.exports = ".example-user-input {\n  display: block;\n  width: 150px;\n}\n"
 
 /***/ }),
 
@@ -13870,7 +13870,7 @@ module.exports = ".example-user-input {\r\n  display: block;\r\n  width: 150px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-user-input\">\r\n  <input matInput placeholder=\"Show delay (milliseconds)\"\r\n         type=\"number\"\r\n         aria-label=\"Adds a delay between hovering over the button and displaying the tooltip\"\r\n         [formControl]=\"showDelay\">\r\n</mat-form-field>\r\n\r\n<mat-form-field class=\"example-user-input\">\r\n  <input matInput placeholder=\"Hide delay (milliseconds)\"\r\n         type=\"number\"\r\n         aria-label=\"Adds a delay between hovering away from the button and hiding the tooltip\"\r\n         [formControl]=\"hideDelay\">\r\n</mat-form-field>\r\n\r\n<button mat-raised-button\r\n        matTooltip=\"Info about the action\"\r\n        [matTooltipShowDelay]=\"showDelay.value\"\r\n        [matTooltipHideDelay]=\"hideDelay.value\"\r\n        aria-label=\"Button that displays a tooltip with a customized delay in showing and hiding\">\r\n  Action\r\n</button>\r\n"
+module.exports = "<mat-form-field class=\"example-user-input\">\n  <input matInput placeholder=\"Show delay (milliseconds)\"\n         type=\"number\"\n         aria-label=\"Adds a delay between hovering over the button and displaying the tooltip\"\n         [formControl]=\"showDelay\">\n</mat-form-field>\n\n<mat-form-field class=\"example-user-input\">\n  <input matInput placeholder=\"Hide delay (milliseconds)\"\n         type=\"number\"\n         aria-label=\"Adds a delay between hovering away from the button and hiding the tooltip\"\n         [formControl]=\"hideDelay\">\n</mat-form-field>\n\n<button mat-raised-button\n        matTooltip=\"Info about the action\"\n        [matTooltipShowDelay]=\"showDelay.value\"\n        [matTooltipHideDelay]=\"hideDelay.value\"\n        aria-label=\"Button that displays a tooltip with a customized delay in showing and hiding\">\n  Action\n</button>\n"
 
 /***/ }),
 
@@ -13923,7 +13923,7 @@ var TooltipDelayExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-disabled-checkbox {\r\n  margin-left: 8px;\r\n}\r\n"
+module.exports = ".example-disabled-checkbox {\n  margin-left: 8px;\n}\n"
 
 /***/ }),
 
@@ -13934,7 +13934,7 @@ module.exports = ".example-disabled-checkbox {\r\n  margin-left: 8px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button\r\n        matTooltip=\"Info about the action\"\r\n        [matTooltipDisabled]=\"disabled.value\"\r\n        aria-label=\"Button that displays a tooltip that can be programatically disabled\">\r\n  Action\r\n</button>\r\n\r\n<mat-checkbox [formControl]=\"disabled\" class=\"example-disabled-checkbox\">\r\n  Tooltip disabled\r\n</mat-checkbox>\r\n"
+module.exports = "<button mat-raised-button\n        matTooltip=\"Info about the action\"\n        [matTooltipDisabled]=\"disabled.value\"\n        aria-label=\"Button that displays a tooltip that can be programatically disabled\">\n  Action\n</button>\n\n<mat-checkbox [formControl]=\"disabled\" class=\"example-disabled-checkbox\">\n  Tooltip disabled\n</mat-checkbox>\n"
 
 /***/ }),
 
@@ -13986,7 +13986,7 @@ var TooltipDisabledExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-action-button {\r\n  margin-top: 16px;\r\n}\r\n"
+module.exports = ".example-action-button {\n  margin-top: 16px;\n}\n"
 
 /***/ }),
 
@@ -13997,7 +13997,7 @@ module.exports = ".example-action-button {\r\n  margin-top: 16px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <span> Mouse over to </span>\r\n  <button mat-button\r\n          (mouseenter)=\"tooltip.show()\"\r\n          aria-label=\"Button that progamatically shows a tooltip on another button\"\r\n          class=\"example-action-button\">\r\n    show\r\n  </button>\r\n  <button mat-button\r\n          (mouseenter)=\"tooltip.hide()\"\r\n          aria-label=\"Button that progamatically hides a tooltip on another button\"\r\n          class=\"example-action-button\">\r\n    hide\r\n  </button>\r\n  <button mat-button\r\n          (mouseenter)=\"tooltip.toggle()\"\r\n          aria-label=\"Button that progamatically toggles a tooltip on another button to show/hide\"\r\n          class=\"example-action-button\">\r\n    toggle show/hide\r\n  </button>\r\n</div>\r\n\r\n<button mat-raised-button #tooltip=\"matTooltip\"\r\n        matTooltip=\"Info about the action\"\r\n        matTooltipPosition=\"right\"\r\n        aria-tooltip=\"Button that displays and hides a tooltip triggered by other buttons\">\r\n  Action\r\n</button>\r\n"
+module.exports = "<div>\n  <span> Mouse over to </span>\n  <button mat-button\n          (mouseenter)=\"tooltip.show()\"\n          aria-label=\"Button that progamatically shows a tooltip on another button\"\n          class=\"example-action-button\">\n    show\n  </button>\n  <button mat-button\n          (mouseenter)=\"tooltip.hide()\"\n          aria-label=\"Button that progamatically hides a tooltip on another button\"\n          class=\"example-action-button\">\n    hide\n  </button>\n  <button mat-button\n          (mouseenter)=\"tooltip.toggle()\"\n          aria-label=\"Button that progamatically toggles a tooltip on another button to show/hide\"\n          class=\"example-action-button\">\n    toggle show/hide\n  </button>\n</div>\n\n<button mat-raised-button #tooltip=\"matTooltip\"\n        matTooltip=\"Info about the action\"\n        matTooltipPosition=\"right\"\n        aria-tooltip=\"Button that displays and hides a tooltip triggered by other buttons\">\n  Action\n</button>\n"
 
 /***/ }),
 
@@ -14046,7 +14046,7 @@ var TooltipManualExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-user-input {\r\n  margin-right: 8px;\r\n}\r\n"
+module.exports = ".example-user-input {\n  margin-right: 8px;\n}\n"
 
 /***/ }),
 
@@ -14057,7 +14057,7 @@ module.exports = ".example-user-input {\r\n  margin-right: 8px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-user-input\">\r\n  <input matInput placeholder=\"Tooltip message\" [formControl]=\"message\">\r\n</mat-form-field>\r\n\r\n<button mat-raised-button\r\n        [matTooltip]=\"message.value\"\r\n        aria-label=\"Button that displays a tooltip with a custom message\">\r\n  Action\r\n</button>\r\n"
+module.exports = "<mat-form-field class=\"example-user-input\">\n  <input matInput placeholder=\"Tooltip message\" [formControl]=\"message\">\n</mat-form-field>\n\n<button mat-raised-button\n        [matTooltip]=\"message.value\"\n        aria-label=\"Button that displays a tooltip with a custom message\">\n  Action\n</button>\n"
 
 /***/ }),
 
@@ -14109,7 +14109,7 @@ var TooltipMessageExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -14120,7 +14120,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button\r\n        matTooltip=\"By default, I delay\"\r\n        aria-label=\"Button that displays a tooltip that has custom delays through a default config\">\r\n  Button with delay-default tooltip\r\n</button>\r\n"
+module.exports = "<button mat-raised-button\n        matTooltip=\"By default, I delay\"\n        aria-label=\"Button that displays a tooltip that has custom delays through a default config\">\n  Button with delay-default tooltip\n</button>\n"
 
 /***/ }),
 
@@ -14181,7 +14181,7 @@ var TooltipModifiedDefaultsExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/** No CSS for this example */\r\n"
+module.exports = "/** No CSS for this example */\n"
 
 /***/ }),
 
@@ -14192,7 +14192,7 @@ module.exports = "/** No CSS for this example */\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button mat-raised-button\r\n        matTooltip=\"Info about the action\"\r\n        aria-label=\"Button that displays a tooltip when focused or hovered over\">\r\n  Action\r\n</button>\r\n"
+module.exports = "<button mat-raised-button\n        matTooltip=\"Info about the action\"\n        aria-label=\"Button that displays a tooltip when focused or hovered over\">\n  Action\n</button>\n"
 
 /***/ }),
 
@@ -14241,7 +14241,7 @@ var TooltipOverviewExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-user-input {\r\n  margin-right: 8px;\r\n}\r\n"
+module.exports = ".example-user-input {\n  margin-right: 8px;\n}\n"
 
 /***/ }),
 
@@ -14252,7 +14252,7 @@ module.exports = ".example-user-input {\r\n  margin-right: 8px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-form-field class=\"example-user-input\">\r\n  <mat-select placeholder=\"Tooltip position\" [formControl]=\"position\">\r\n    <mat-option *ngFor=\"let positionOption of positionOptions\" [value]=\"positionOption\">\r\n      {{positionOption}}\r\n    </mat-option>\r\n  </mat-select>\r\n</mat-form-field>\r\n\r\n<button mat-raised-button\r\n        matTooltip=\"Info about the action\"\r\n        [matTooltipPosition]=\"position.value\"\r\n        aria-label=\"Button that displays a tooltip in various positions\">\r\n  Action\r\n</button>\r\n"
+module.exports = "<mat-form-field class=\"example-user-input\">\n  <mat-select placeholder=\"Tooltip position\" [formControl]=\"position\">\n    <mat-option *ngFor=\"let positionOption of positionOptions\" [value]=\"positionOption\">\n      {{positionOption}}\n    </mat-option>\n  </mat-select>\n</mat-form-field>\n\n<button mat-raised-button\n        matTooltip=\"Info about the action\"\n        [matTooltipPosition]=\"position.value\"\n        aria-label=\"Button that displays a tooltip in various positions\">\n  Action\n</button>\n"
 
 /***/ }),
 
@@ -14316,7 +14316,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\r\n    <button mat-icon-button disabled></button>\r\n    <mat-checkbox class=\"checklist-leaf-node\"\r\n                  [checked]=\"checklistSelection.isSelected(node)\"\r\n                  (change)=\"checklistSelection.toggle(node);\">{{node.item}}</mat-checkbox>\r\n  </mat-tree-node>\r\n\r\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\r\n    <button mat-icon-button disabled></button>\r\n    <mat-form-field>\r\n      <input matInput #itemValue placeholder=\"New item...\">\r\n    </mat-form-field>\r\n    <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\r\n  </mat-tree-node>\r\n\r\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\r\n    <button mat-icon-button matTreeNodeToggle\r\n            [attr.aria-label]=\"'toggle ' + node.filename\">\r\n      <mat-icon class=\"mat-icon-rtl-mirror\">\r\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n      </mat-icon>\r\n    </button>\r\n    <mat-checkbox [checked]=\"descendantsAllSelected(node)\"\r\n                  [indeterminate]=\"descendantsPartiallySelected(node)\"\r\n                  (change)=\"todoItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\r\n    <button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button>\r\n  </mat-tree-node>\r\n</mat-tree>\r\n"
+module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-checkbox class=\"checklist-leaf-node\"\n                  [checked]=\"checklistSelection.isSelected(node)\"\n                  (change)=\"checklistSelection.toggle(node);\">{{node.item}}</mat-checkbox>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-form-field>\n      <input matInput #itemValue placeholder=\"New item...\">\n    </mat-form-field>\n    <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button matTreeNodeToggle\n            [attr.aria-label]=\"'toggle ' + node.filename\">\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    <mat-checkbox [checked]=\"descendantsAllSelected(node)\"\n                  [indeterminate]=\"descendantsPartiallySelected(node)\"\n                  (change)=\"todoItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\n    <button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button>\n  </mat-tree-node>\n</mat-tree>\n"
 
 /***/ }),
 
@@ -14548,7 +14548,7 @@ var TreeChecklistExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-tree-progress-bar {\r\n  margin-left: 30px;\r\n}\r\n"
+module.exports = ".example-tree-progress-bar {\n  margin-left: 30px;\n}\n"
 
 /***/ }),
 
@@ -14559,7 +14559,7 @@ module.exports = ".example-tree-progress-bar {\r\n  margin-left: 30px;\r\n}\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodePadding>\r\n    <button mat-icon-button disabled></button>\r\n    {{node.item}}\r\n  </mat-tree-node>\r\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\r\n    <button mat-icon-button\r\n            [attr.aria-label]=\"'toggle ' + node.filename\" matTreeNodeToggle>\r\n      <mat-icon class=\"mat-icon-rtl-mirror\">\r\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n      </mat-icon>\r\n    </button>\r\n    {{node.item}}\r\n    <mat-progress-bar *ngIf=\"node.isLoading\"\r\n                      mode=\"indeterminate\"\r\n                      class=\"example-tree-progress-bar\"></mat-progress-bar>\r\n  </mat-tree-node>\r\n</mat-tree>\r\n"
+module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    {{node.item}}\n  </mat-tree-node>\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button\n            [attr.aria-label]=\"'toggle ' + node.filename\" matTreeNodeToggle>\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    {{node.item}}\n    <mat-progress-bar *ngIf=\"node.isLoading\"\n                      mode=\"indeterminate\"\n                      class=\"example-tree-progress-bar\"></mat-progress-bar>\n  </mat-tree-node>\n</mat-tree>\n"
 
 /***/ }),
 
@@ -14760,7 +14760,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\r\n    <button mat-icon-button disabled></button>\r\n    {{node.filename}} : {{node.type}}\r\n  </mat-tree-node>\r\n\r\n  <mat-tree-node *matTreeNodeDef=\"let node;when: hasChild\" matTreeNodePadding>\r\n    <button mat-icon-button matTreeNodeToggle\r\n            [attr.aria-label]=\"'toggle ' + node.filename\">\r\n      <mat-icon class=\"mat-icon-rtl-mirror\">\r\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n      </mat-icon>\r\n    </button>\r\n    {{node.filename}} : {{node.type}}\r\n  </mat-tree-node>\r\n</mat-tree>\r\n"
+module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    {{node.filename}} : {{node.type}}\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node;when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button matTreeNodeToggle\n            [attr.aria-label]=\"'toggle ' + node.filename\">\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    {{node.filename}} : {{node.type}}\n  </mat-tree-node>\n</mat-tree>\n"
 
 /***/ }),
 
@@ -14959,7 +14959,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\r\n  <!-- Leaf node -->\r\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodePadding>\r\n    <button mat-icon-button disabled></button>\r\n    {{node.item}}\r\n  </mat-tree-node>\r\n\r\n  <!-- expandable node -->\r\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\r\n    <button mat-icon-button\r\n            [attr.aria-label]=\"'toggle ' + node.filename\"\r\n            (click)=\"loadChildren(node)\"\r\n            matTreeNodeToggle>\r\n      <mat-icon class=\"mat-icon-rtl-mirror\">\r\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n      </mat-icon>\r\n    </button>\r\n    {{node.item}}\r\n  </mat-tree-node>\r\n\r\n  <mat-tree-node *matTreeNodeDef=\"let node; when: isLoadMore\">\r\n    <button mat-button (click)=\"loadMore(node.loadMoreParentItem)\">\r\n      Load more...\r\n    </button>\r\n  </mat-tree-node>\r\n</mat-tree>\r\n"
+module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <!-- Leaf node -->\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    {{node.item}}\n  </mat-tree-node>\n\n  <!-- expandable node -->\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button\n            [attr.aria-label]=\"'toggle ' + node.filename\"\n            (click)=\"loadChildren(node)\"\n            matTreeNodeToggle>\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    {{node.item}}\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: isLoadMore\">\n    <button mat-button (click)=\"loadMore(node.loadMoreParentItem)\">\n      Load more...\n    </button>\n  </mat-tree-node>\n</mat-tree>\n"
 
 /***/ }),
 
@@ -15154,7 +15154,7 @@ var TreeLoadmoreExample = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-tree-invisible {\r\n  display: none;\r\n}\r\n\r\n.example-tree ul,\r\n.example-tree li {\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  list-style-type: none;\r\n}\r\n"
+module.exports = ".example-tree-invisible {\n  display: none;\n}\n\n.example-tree ul,\n.example-tree li {\n  margin-top: 0;\n  margin-bottom: 0;\n  list-style-type: none;\n}\n"
 
 /***/ }),
 
@@ -15165,7 +15165,7 @@ module.exports = ".example-tree-invisible {\r\n  display: none;\r\n}\r\n\r\n.exa
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tree [dataSource]=\"nestedDataSource\" [treeControl]=\"nestedTreeControl\" class=\"example-tree\">\r\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle>\r\n    <li class=\"mat-tree-node\">\r\n      <button mat-icon-button disabled></button>\r\n      {{node.filename}}:  {{node.type}}\r\n    </li>\r\n  </mat-tree-node>\r\n\r\n  <mat-nested-tree-node *matTreeNodeDef=\"let node; when: hasNestedChild\">\r\n    <li>\r\n      <div class=\"mat-tree-node\">\r\n        <button mat-icon-button matTreeNodeToggle\r\n                [attr.aria-label]=\"'toggle ' + node.filename\">\r\n          <mat-icon class=\"mat-icon-rtl-mirror\">\r\n            {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\r\n          </mat-icon>\r\n        </button>\r\n        {{node.filename}}\r\n      </div>\r\n      <ul [class.example-tree-invisible]=\"!nestedTreeControl.isExpanded(node)\">\r\n        <ng-container matTreeNodeOutlet></ng-container>\r\n      </ul>\r\n    </li>\r\n  </mat-nested-tree-node>\r\n</mat-tree>\r\n"
+module.exports = "<mat-tree [dataSource]=\"nestedDataSource\" [treeControl]=\"nestedTreeControl\" class=\"example-tree\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle>\n    <li class=\"mat-tree-node\">\n      <button mat-icon-button disabled></button>\n      {{node.filename}}:  {{node.type}}\n    </li>\n  </mat-tree-node>\n\n  <mat-nested-tree-node *matTreeNodeDef=\"let node; when: hasNestedChild\">\n    <li>\n      <div class=\"mat-tree-node\">\n        <button mat-icon-button matTreeNodeToggle\n                [attr.aria-label]=\"'toggle ' + node.filename\">\n          <mat-icon class=\"mat-icon-rtl-mirror\">\n            {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n          </mat-icon>\n        </button>\n        {{node.filename}}\n      </div>\n      <ul [class.example-tree-invisible]=\"!nestedTreeControl.isExpanded(node)\">\n        <ng-container matTreeNodeOutlet></ng-container>\n      </ul>\n    </li>\n  </mat-nested-tree-node>\n</mat-tree>\n"
 
 /***/ }),
 

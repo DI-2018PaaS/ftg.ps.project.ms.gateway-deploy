@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-crudpopup></app-crudpopup>\r\n"
+module.exports = "<app-crudpopup></app-crudpopup>\n"
 
 /***/ }),
 

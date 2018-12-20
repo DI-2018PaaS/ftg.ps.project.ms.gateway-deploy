@@ -60,7 +60,7 @@ var FluxCommissionModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  flux-commission works!\r\n</p>\r\n"
+module.exports = "<p>\n  flux-commission works!\n</p>\n"
 
 /***/ }),
 
