@@ -79,7 +79,7 @@ export class RegistrationComponent implements OnInit {
           fkey: AFK.key
         });
         let navigationExtras: NavigationExtras = {
-          queryParams: { 'login': this.utilisateur.username},
+          queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[0].idActeurType},
           fragment: 'animateur'
         };
         this.utilisateur = {} as Utilisateur;
@@ -114,7 +114,7 @@ export class RegistrationComponent implements OnInit {
         });
       
       let navigationExtras: NavigationExtras = {
-        queryParams: { 'login': this.utilisateur.username},
+        queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[1].idActeurType},
         fragment: 'acheteur'
       };
       this.acheteur = {} as Acheteur;  
@@ -150,7 +150,7 @@ export class RegistrationComponent implements OnInit {
       
 
       let navigationExtras: NavigationExtras = {
-        queryParams: { 'login': this.utilisateur.username},
+        queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[2].idActeurType},
         fragment: 'fournisseur'
       };
       this.fournisseur = {} as Fournisseur;

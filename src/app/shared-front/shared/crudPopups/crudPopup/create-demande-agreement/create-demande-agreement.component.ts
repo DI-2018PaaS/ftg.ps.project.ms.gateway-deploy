@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionStorageService } from 'angular-web-storage';
 import {FormControl, Validators} from '@angular/forms';
 import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
+
+
+
 
 @Component({
   selector: 'app-create-demande-agreement',
@@ -11,12 +15,15 @@ import { AgreementService } from 'app/service/agreement.service';
 })
 export class CreateDemandeAgrementDialogComponent implements OnInit {
   hide = true;
+  username: string;
+  iDTypeActeur: number;
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
-  constructor(private agreementService : AgreementService) { }
+  constructor(private agreementService : AgreementService, private session:SessionStorageService) { }
 
   ngOnInit() {
-    
+   this.username=this.session.get('Key').loginUser;
+   this.iDTypeActeur=this.session.get('Key').idTypeActeur;
   }
 
   onFileChanged(event) {
