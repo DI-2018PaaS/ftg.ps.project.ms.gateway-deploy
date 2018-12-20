@@ -4,9 +4,22 @@
             <h2 mat-dialog-title >Creation Produit</h2>
             </div>
     <form class="example-container">
-          <div fxLayout="column" fxFlex="50px">
-                <!-- <img [src]="url" height="200"> <br/>
-                <input type='file' (change)="onSelectFile($event)"> -->
+          <div fxLayout="column" fxFlex="100px">
+                <div class="container">
+                        <!-- <div class="card">
+                          <div class="card-body">
+                            <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+                          </div>
+                        </div>
+                      </div> -->
+                         <label>
+                            <input type="file" (change)="detectFiles($event)">
+                         </label>
+                         <br/>
+                         <button mat-raised-button	 (click)="uploadSingle()">
+                           Upload Image
+                         </button>
+                </div>
               <div fxLayout="row">
                   <div>
                       <mat-form-field>
