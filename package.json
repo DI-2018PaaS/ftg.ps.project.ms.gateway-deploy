@@ -33,6 +33,7 @@
     "@angular/platform-browser": "6.1.6",
     "@angular/platform-browser-dynamic": "6.1.6",
     "@angular/router": "6.1.6",
+    "@google-cloud/storage": "2.3.4",
     "@ngrx/effects": "6.1.0",
     "@ngrx/router-store": "6.1.0",
     "@ngrx/store": "6.1.0",
