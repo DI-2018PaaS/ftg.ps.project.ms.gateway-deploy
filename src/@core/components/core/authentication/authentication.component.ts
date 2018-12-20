@@ -131,6 +131,7 @@ export class AuthenticationComponent implements OnInit {
     this.islogin = false;
     this.router.navigate(['']);
     this.session.remove(this.KEY);
+    this.session.remove('utilisateur');
   }
 
   signIn(): void{

@@ -1,5 +1,6 @@
 export class ListProduit {
     key?: string;
+    fkey:string;
     code: string;
     designation: string;
     prixUnitaire: number;
