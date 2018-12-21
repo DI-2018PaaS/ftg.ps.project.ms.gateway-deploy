@@ -40,11 +40,13 @@ export class CreateBoutiqueDialogComponent implements OnInit {
     .valueChanges()
     .subscribe(res => {
       this.magasinList.push(res);
+      this.magasinList = res;
+
     })
 
     //this.magasin.nom = this.magasinList[0].value;
    // Object.assign({}, this.magasinList)
-    console.log("magasinsddddd: ", this.magasinList.indexOf(0))
+   console.log("idMagasin ",this.magasin.idMagasin)
   }
 
   ngOnInit() {
@@ -62,6 +64,7 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   rue = new FormControl();
   codep = new FormControl();
   ville = new FormControl();
+  idMagasin = new FormControl();
 
   // getListeBoutique(){
   //   this.utilisateur = this.session.get("utilisateur")
@@ -89,7 +92,7 @@ export class CreateBoutiqueDialogComponent implements OnInit {
      ville: this.boutique.ville,
      nIdProprietaire: "",
      idBoutique: "",
-     fidMagasin: "",
+     fidMagasin: this.magasin.idMagasin,
      isValid:false
     });
     this.boutique = {} as Boutique;

@@ -3,10 +3,9 @@ import {FormControl, Validators} from '@angular/forms';
 import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 import { AngularFireList } from 'angularfire2/database';
 import { ProduitService } from 'app/service/produit.service';
-
-import { AngularFireStorage } from 'angularfire2/storage';
-
 import { Upload } from 'app/service/produit.service';
+import {SessionStorageService } from 'angular-web-storage';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 
 
 //  export class AppComponent {
@@ -29,9 +28,13 @@ export class CreateProduitDialogComponent implements OnInit {
 
   selectedFiles: FileList;
   currentUpload: Upload;
+  utilisateur = {} as Utilisateur;
 
+  constructor(private produitService : ProduitService,private session: SessionStorageService) { 
+    this.utilisateur = this.session.get("utilisateur")
+    console.log("idFrouniss ",this.session.get("utilisateur"))
 
-  constructor(private produitService : ProduitService) { }
+  }
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
@@ -70,7 +73,8 @@ uploadSingle() {
      zoneGeographiqueId: 0,
      isValid:false,
      image:this.currentUpload.url,
-     fidBoutique: ""
+     fidBoutique: "",
+     fidProprietaire : this.utilisateur.fkey
     });
     this.produit = {} as Produit;
      }
