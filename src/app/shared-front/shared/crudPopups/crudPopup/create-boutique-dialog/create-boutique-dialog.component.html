@@ -19,8 +19,10 @@
                   </div>
                   <div style="margin-left: 130%;">
                         <mat-form-field>
-                                <mat-select placeholder="Boutique" >
+                                <mat-select placeholder="Magasin" [(ngModel)]="magasin.nom">
                                     <!-- <mat-option value="option">Boutique N</mat-option> -->
+                                    <mat-option [value]="magasin.idMagasin" >{{magasin.nom}}</mat-option>
+
                                 </mat-select>
                            </mat-form-field>
                            

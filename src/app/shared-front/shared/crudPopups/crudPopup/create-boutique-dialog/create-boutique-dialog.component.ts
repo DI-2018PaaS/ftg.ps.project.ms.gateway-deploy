@@ -3,6 +3,12 @@ import {FormControl, Validators} from '@angular/forms';
 import { Boutique } from 'app/models/msmagasindomains/boutique/boutique.model';
 import { AngularFireList } from 'angularfire2/database';
 import { BoutiqueService } from 'app/service/boutique.service';
+//import { FoMagasinListComponent } from 'app/espace/fournisseur//four-magasins/magasin-list/fourn-magasin-list.component';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Magasin } from 'app/models/msmagasindomains/magasin/magasin.model';
 
 @Component({
   selector: 'app-create-boutique-dialog',
@@ -13,7 +19,33 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   hide = true;
   boutique = {} as Boutique;
   boutiqueRef$ : AngularFireList<Boutique>;
-  constructor(private boutiqueService : BoutiqueService) { }
+
+  private dbPath = 'magasins-db';
+  utilisateur = {} as Utilisateur;
+  magasin = {} as Magasin;
+  magasinList = [];
+  
+  constructor(private boutiqueService : BoutiqueService, public db: AngularFireDatabase,private session: SessionStorageService) { 
+
+    this.getMagasin();
+
+  }
+
+  getMagasin(){
+
+    this.utilisateur = this.session.get("utilisateur")
+    this.db.list(this.dbPath, ref => ref
+    .orderByChild('nIdProprietaire')
+    .equalTo(this.utilisateur.fkey))
+    .valueChanges()
+    .subscribe(res => {
+      this.magasinList.push(res);
+    })
+
+    //this.magasin.nom = this.magasinList[0].value;
+   // Object.assign({}, this.magasinList)
+    console.log("magasinsddddd: ", this.magasinList.indexOf(0))
+  }
 
   ngOnInit() {
   }
@@ -31,11 +63,17 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   codep = new FormControl();
   ville = new FormControl();
 
-  // email = new FormControl('', [Validators.required, Validators.email]);
-  // getErrorMessage() {
-  //   return this.email.hasError('required') ? 'Vous devez entrer une adresse!' :
-  //       this.email.hasError('email') ? 'Email invalide!' :
-  //           '';
+  // getListeBoutique(){
+  //   this.utilisateur = this.session.get("utilisateur")
+  //   this.crudComp = parCrud;
+  //   this.db.list(this.dbPath, ref => ref
+  //   .orderByChild('nIdProprietaire')
+  //   .equalTo(this.utilisateur.fkey))
+  //   .valueChanges()
+  //   .subscribe(res => {
+  //     FoMagasinListComponent.magasinList.push(res);
+  //     this.dataSource.data = res;
+  //   })
   // }
 
 
