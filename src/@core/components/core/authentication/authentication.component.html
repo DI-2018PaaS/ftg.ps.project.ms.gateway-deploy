@@ -7,7 +7,7 @@
                 </div> -->
     <div fxLayout="row" fxLayoutAlign="center center">
       <!-- <img class="avatar mr-0 mr-sm-16" src="assets/images/avatars/Velazquez.jpg"> -->
-      <span class="username mr-12" fxHide fxShow.gt-sm style="color:white" >Se Connecter</span>
+      <span class="username mr-12" fxHide fxShow.gt-sm style="color:white;font-weight: normal;" > Connexion</span>
       <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
     </div>
   </button>
@@ -49,23 +49,21 @@
  -->
 <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
   <mat-card class="example-card" (click)="$event.stopPropagation();">
-    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+ 
+    <mat-card-content style="margin-top:-22px">
       <form class="example-form">
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Username" name="username" [(ngModel)]="username" required (click)="$event.stopPropagation();">
+              <mat-form-field class="example-full-width" style="font-size:0.90em">
+                <input matInput placeholder="Nom utilisateur" name="username" [(ngModel)]="username" required (click)="$event.stopPropagation();">
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Password" type="password" [(ngModel)]="password" name="password" required (click)="$event.stopPropagation();">
+              <mat-form-field class="example-full-width" style="font-size:0.90em">
+                <input matInput placeholder="Mot de passe" type="password" [(ngModel)]="password" name="password" required (click)="$event.stopPropagation();">
               </mat-form-field>
             </td>
           </tr>
@@ -73,8 +71,8 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="signIn()">Login</button>
-      <button  class="color-button-registration mat-raised-button"  (click)="signUp()">Registration</button>
+      <button mat-raised-button style ="background:#7a6219; color: white; width: 100%;text-align:center" (click)="signIn()">Login</button>
+    <!--  <button  class="color-button-registration mat-raised-button"  (click)="signUp()">Registration</button> -->
       </mat-card-actions>
   </mat-card>
 </mat-menu>

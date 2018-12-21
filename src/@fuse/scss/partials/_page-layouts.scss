@@ -18,6 +18,7 @@
 
                     > .content-card {
                         background: map-get($background, card);
+                        margin-top: 3.5%;
 
                         > .toolbar {
                             border-bottom-color: map-get($foreground, divider);
@@ -288,6 +289,7 @@ $carded-header-height-without-toolbar-sm: $carded-header-height-sm - $carded-too
 
                         + .center {
                             margin-left: 0;
+                            margin-top: 2.5%;
                         }
                     }
 
@@ -541,6 +543,7 @@ $carded-header-height-without-toolbar-sm: $carded-header-height-sm - $carded-too
 
                         + .center {
                             margin-left: 0;
+                           
                         }
                     }
 
@@ -548,6 +551,7 @@ $carded-header-height-without-toolbar-sm: $carded-header-height-sm - $carded-too
 
                         + .center {
                             margin-right: 0;
+                        
                         }
                     }
                 }

@@ -49,7 +49,9 @@ export class CreateBoutiqueDialogComponent implements OnInit {
      rue: this.boutique.no,
      codep: this.boutique.codep,
      ville: this.boutique.ville,
-     nIdProprietaire: 0,
+     nIdProprietaire: "",
+     idBoutique: "",
+     fidMagasin: "",
      isValid:false
     });
     this.boutique = {} as Boutique;

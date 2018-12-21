@@ -69,7 +69,8 @@ uploadSingle() {
      descriptionProduit: this.produit.descriptionProduit,
      zoneGeographiqueId: 0,
      isValid:false,
-     image:this.currentUpload.url
+     image:this.currentUpload.url,
+     fidBoutique: ""
     });
     this.produit = {} as Produit;
      }
