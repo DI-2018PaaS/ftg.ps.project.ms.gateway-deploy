@@ -32,6 +32,10 @@
             
             <div class="toolbar-separator"></div>
 
+           <app-inscription></app-inscription>
+
+           <div class="toolbar-separator"></div>
+
             <app-authentication></app-authentication>
 
             <div class="toolbar-separator"></div>
@@ -41,24 +45,24 @@
                     [matMenuTriggerFor]="languageMenu">
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <img class="flag mr-8" [src]="'assets/images/flags/'+selectedLanguage.flag+'.png'">
-                    <span class="iso text-uppercase">{{selectedLanguage.id}}</span>
+                  <!-- <span class="iso text-uppercase">{{selectedLanguage.id}}</span>--> 
                 </div>
             </button>
 
-            <mat-menu #languageMenu="matMenu" [overlapTrigger]="false">
+            <mat-menu #languageMenu="matMenu" [overlapTrigger]="false" >
 
                 <button mat-menu-item *ngFor="let lang of languages" (click)="setLanguage(lang)">
-                    <span fxLayout="row" fxLayoutAlign="start center">
+                    <span fxLayout="row" fxLayoutAlign="start center" >
                         <img class="flag mr-16" [src]="'assets/images/flags/'+lang.flag+'.png'">
-                        <span class="iso">{{lang.title}}</span>
+                      <!-- <span class="iso">{{lang.title}}</span>-->
                     </span>
                 </button>
 
             </mat-menu>
             <div class="toolbar-separator"></div>
             <div fxLayout="row" style="margin-right: 50px;">
-                <mat-icon matBadge="4" matBadgeOverlap="false" style=" color: #dc0030;">shopping_cart</mat-icon>
-                <div style=" color: white; font-size: 16px; ">Panier</div>
+                <mat-icon matBadge="4" matBadgeOverlap="false" style=" color: #fff;">shopping_cart</mat-icon>
+              <!-- <div style=" color: white; font-size: 16px; "></div>--> 
             </div>
 
             <div class="toolbar-separator" fxHide fxShow.gt-xs></div>

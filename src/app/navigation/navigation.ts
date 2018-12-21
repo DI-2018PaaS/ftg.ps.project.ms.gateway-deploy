@@ -10,7 +10,7 @@ export const navigation: FuseNavigation[] = [
     },
     {
         id: 'produit',
-        title: 'produit',
+        title: 'Produit',
         type: 'item',
         icon: 'card_giftcard',
         url: 'produit'

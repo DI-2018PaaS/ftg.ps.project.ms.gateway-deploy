@@ -6,6 +6,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FuseSharedModule } from '@fuse/shared.module';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
     MatFormFieldModule,
     MatInputModule
     ],
-  declarations: [AuthenticationComponent],
-  exports: [AuthenticationComponent]
+  declarations: [AuthenticationComponent, InscriptionComponent],
+  exports: [AuthenticationComponent,InscriptionComponent]
 })
 export class CoreModule { }
