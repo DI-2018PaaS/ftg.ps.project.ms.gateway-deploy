@@ -9,10 +9,11 @@ import { Key } from 'protractor';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Fournisseur } from 'app/models/acteur/fournisseur/fournisseur.model';
 import { FournisseurService } from 'app/service/fournisseur.service';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import {SessionStorageService } from 'angular-web-storage';
 
 export interface PeriodicElement {
   code: string;
-  position: number;
   designation: string;
   description: string;
   prix: string;
@@ -29,7 +30,7 @@ export interface PeriodicElement {
 
 export class DemandFinanFormulaireComponent implements OnInit {
   
-  displayedColumns: string[] = ['select','position','code', 'designation', 'descriptionProduit', 'prixUnitaire'];
+  displayedColumns: string[] = ['select','code', 'designation', 'descriptionProduit', 'prixUnitaire'];
   dataSource = new MatTableDataSource<any>();
   selection = new SelectionModel<PeriodicElement>(true, []);
   produitService : ProduitService;
@@ -39,7 +40,10 @@ export class DemandFinanFormulaireComponent implements OnInit {
   produitList = [];
   listFournisseur = [];
   key = new FormControl();
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  utilisateur = {} as Utilisateur;
+  private dbPath = 'produits-db';
+
+
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -54,7 +58,11 @@ export class DemandFinanFormulaireComponent implements OnInit {
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
-  constructor(private produitServ: ProduitService, public db: AngularFireDatabase, fournisseurServ : FournisseurService) { 
+  constructor(
+      private produitServ: ProduitService,
+      public db: AngularFireDatabase,
+      fournisseurServ : FournisseurService,
+      private session: SessionStorageService) { 
     this.produitService = produitServ;
     this.fournisseurService = fournisseurServ;
   }
@@ -66,14 +74,21 @@ export class DemandFinanFormulaireComponent implements OnInit {
       this.listFournisseur = res;
     })
 
+    this.utilisateur =  this.session.get('utilisateur');
+
   }
 
   getListProduit(){
     console.log(this.fournisseur.key)
-    this.produitServ.getProduitList().valueChanges().subscribe(res => {
-      this.produitList.push(res);
-      this.dataSource.data = res;
-    })
+
+    this.db.list(this.dbPath, ref => ref
+      .orderByChild('fidProprietaire')
+      .equalTo(this.fournisseur.key))
+      .valueChanges()
+      .subscribe(res => {
+        this.produitList.push(res);
+        this.dataSource.data = res;
+      })
   }
 
 }
