@@ -19,8 +19,10 @@
                   </div>
                   <div style="margin-left: 130%;">
                         <mat-form-field>
-                                <mat-select placeholder="Boutique" >
-                                    <!-- <mat-option value="option">Boutique N</mat-option> -->
+                                <mat-select placeholder="Magasin" [(ngModel)]="magasin.idMagasin" [formControl]="idMagasin">
+
+                                    <mat-option *ngFor="let m of magasinList" [value]="m.idMagasin" >{{m.nom}}</mat-option>
+
                                 </mat-select>
                            </mat-form-field>
                            
