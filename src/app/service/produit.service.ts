@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient  } from "@angular/common/http";
 import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 
-
+import * as firebase from 'firebase/app';
+import 'firebase/storage';  // <----
 
 /*
   Generated class for the ProduitService Service.
@@ -14,6 +15,8 @@ import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
 @Injectable()
 export class ProduitService {
   private dbPath = 'produits-db';
+  private basePath:string = '/uploads';
+
   produitRef: AngularFireList<Produit> = null;
 
   constructor(public http: HttpClient,public db: AngularFireDatabase) {
@@ -51,4 +54,61 @@ export class ProduitService {
   }
 
 
+  pushUpload(upload: Upload) {
+
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+
+    //let storageRef = firebase.storage().ref();
+    let uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) =>  {
+        // upload in progress
+        //upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      },
+      (error) => {
+        // upload failed
+        console.log("error",error)
+      },
+      () => {
+        // upload success
+        console.log("success")
+        uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+          const imageUrl = downloadURL;
+          upload.url = imageUrl
+          console.log('URL:' + imageUrl);
+        });
+        upload.name = upload.file.name
+        this.saveFileData(upload)
+      }
+    );
+  }
+
+
+
+  // Writes the file details to the realtime db
+  private saveFileData(upload: Upload) {
+    this.db.list(`${this.basePath}/`).push(upload);
+  }
+
+  // getFileUploads(numberItems): AngularFireList<Upload> {
+  //   return this.db.list(this.basePath, ref =>
+  //     ref.limitToLast(numberItems));
+  // }
+
+}
+
+export class Upload {
+
+  $key: string;
+  file:File;
+  name:string;
+  url:string;
+  //progress:number;
+  createdAt: Date = new Date();
+
+  constructor(file:File) {
+    this.file = file;
+  }
 }

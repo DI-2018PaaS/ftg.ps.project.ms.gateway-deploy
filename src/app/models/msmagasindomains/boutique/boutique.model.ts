@@ -1,6 +1,7 @@
 export class Boutique {
     key?: string;
-    nIdProprietaire: number;
+    idBoutique: String;
+    nIdProprietaire: string;
     nom: string;
     ref: string;
     description: string;
@@ -9,4 +10,5 @@ export class Boutique {
     codep: String;
     ville: String;
     isValid:boolean;
+    fidMagasin: string;
 }

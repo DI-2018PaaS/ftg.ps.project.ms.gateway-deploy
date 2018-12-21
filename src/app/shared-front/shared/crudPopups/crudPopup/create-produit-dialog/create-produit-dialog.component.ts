@@ -6,19 +6,15 @@ import { ProduitService } from 'app/service/produit.service';
 
 import { AngularFireStorage } from 'angularfire2/storage';
 
-@Component({
-  selector: 'app-root',
-  template: `
-   <label for="file">File:</label>
-   <input type="file" (change)="upload($event)" accept=".png,.jpg" />
-  `
- })
- export class AppComponent {
-   constructor(private afStorage: AngularFireStorage) { }
-   upload(event) {
-     this.afStorage.upload('/upload/to/this-path', event.target.files[0]);  
-   }
- }
+import { Upload } from 'app/service/produit.service';
+
+
+//  export class AppComponent {
+//    constructor(private afStorage: AngularFireStorage) { }
+//    upload(event) {
+//      this.afStorage.upload('/upload/to/this-path', event.target.files[0]);  
+//    }
+//  }
  
 @Component({
   selector: 'app-create-produit-dialog',
@@ -26,12 +22,29 @@ import { AngularFireStorage } from 'angularfire2/storage';
   styleUrls: ['./create-produit-dialog.component.scss']
 })
 export class CreateProduitDialogComponent implements OnInit {
-  hide = true;
-  url = '';
 
+  hide = true;
   produit = {} as Produit;
   produitRef$ : AngularFireList<Produit>;
+
+  selectedFiles: FileList;
+  currentUpload: Upload;
+
+
   constructor(private produitService : ProduitService) { }
+
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+    console.log("selected picture", this.selectedFiles)
+}
+
+uploadSingle() {
+  let file = this.selectedFiles.item(0)
+  this.currentUpload = new Upload(file);
+
+  this.produitService.pushUpload(this.currentUpload)
+
+}
 
   ngOnInit() {
   }
@@ -55,21 +68,11 @@ export class CreateProduitDialogComponent implements OnInit {
      prixUnitaire: this.produit.prixUnitaire,
      descriptionProduit: this.produit.descriptionProduit,
      zoneGeographiqueId: 0,
-     isValid:false
+     isValid:false,
+     image:this.currentUpload.url,
+     fidBoutique: ""
     });
     this.produit = {} as Produit;
      }
-
-    //  onSelectFile(event) {
-    //   if (event.target.files && event.target.files[0]) {
-    //     var reader = new FileReader();
-  
-    //     reader.readAsDataURL(event.target.files[0]); // read file as data url
-  
-    //     reader.onload = (event) => { // called once readAsDataURL is completed
-    //       this.url = event.target.result;
-    //     }
-    //   }
-    // }
 
 }

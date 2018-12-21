@@ -14,7 +14,7 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 })
 export class ProduitListComponent implements OnInit {
 
-  displayedColumns: string[] = ['code', 'designation', 'prixUnitaire','descriptionProduit', 'Details', 'Modifier', 'Supprimer'];
+  displayedColumns: string[] = ['image','code', 'designation', 'prixUnitaire','descriptionProduit', 'Details', 'Modifier', 'Supprimer'];
   dataSource = new MatTableDataSource<any>();
   produitList = [];
   private dbPath = 'produit-db';
@@ -67,6 +67,7 @@ export class ProduitListComponent implements OnInit {
 }
 
 export interface FoProduitElement {
+  image: string;
   code: string;
   designation: string;
   prixUnitaire: string;

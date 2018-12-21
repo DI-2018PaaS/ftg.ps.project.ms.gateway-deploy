@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="title-top">
-  <div><h2 class="title">SUIVI PRODUITS</h2></div>
+  <div><h2 class="title">LISTE DES PRODUITS</h2></div>
 </div>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -13,6 +13,16 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> # Produit </th>
       <td mat-cell *matCellDef="let row"> {{row.NoFoProduit}} </td>
     </ng-container> -->
+<!-- Image Column -->
+<ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+    <td mat-cell *matCellDef="let row">
+        <img
+             *ngIf="row.image" [alt]="row.ref"
+             [src]="row.image"/>
+        <img *ngIf="!row.image" [src]="'assets/images/ecommerce/product-image-placeholder.png'">
+    </td>
+</ng-container>
 
     <!-- Progress Column -->
     <ng-container matColumnDef="code">

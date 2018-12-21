@@ -6,4 +6,7 @@ export class Produit {
     descriptionProduit: string;
     zoneGeographiqueId: number;
     isValid:boolean;
+    image: string;
+    fidBoutique: string;
+    
 }
