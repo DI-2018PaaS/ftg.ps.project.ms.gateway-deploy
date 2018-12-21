@@ -11,6 +11,8 @@ import { banqueNavigation } from '../banque/navigation/banqueNavigation';
 import { fournissNavigation } from '../fournisseur/navigation/fourniss-navigation';
 import { adminNavigation } from '../administrateur/navigation/admin-navigation';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 
 @Component({
     selector: 'app-anim',
@@ -21,6 +23,7 @@ export class AnimateurComponent {
     navigation: any;
     title = "empty";
     role:string;
+    utilisateur : Utilisateur;
 	crudComp: CrudPopupComponent;
     roles = [
         { Name: 'Acheteur', value: '1',routing:'/shopping'},
@@ -29,7 +32,7 @@ export class AnimateurComponent {
         { Name: 'Animateur', value: '4',routing:'/main-anim'},
         { Name: 'Administrateur', value: '5',routing:'/main'}
         ];
-    constructor(private _fuseNavigationService: FuseNavigationService,private globals: Globals,private router: Router,private parCrud: CrudPopupComponent){
+    constructor(private _fuseNavigationService: FuseNavigationService,private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
 
         this.navigation = animNavigation;
         this.role=this.globals.role;
@@ -40,9 +43,13 @@ export class AnimateurComponent {
         // Set the main navigation as our current navigation
         this._fuseNavigationService.setCurrentNavigation('anim');
         console.log("AnimateurComponent role:"+this.role);
+        this.utilisateur = this.session.get("utilisateur")
+        console.log(this.utilisateur.fkey)
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+
+    }
 	 
     changeNavigation(value):void
     {

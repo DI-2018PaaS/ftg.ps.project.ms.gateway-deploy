@@ -21,4 +21,8 @@ export class FournisseurService {
     ref.update({key : ref.key})
     return ref;
   } 
+
+  getFournisseurList(): AngularFireList<Fournisseur> {
+    return this.refFournisseurRef;
+  }
 }

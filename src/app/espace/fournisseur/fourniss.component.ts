@@ -8,6 +8,8 @@ import { banqueNavigation } from '../banque/navigation/banqueNavigation';
 import { animNavigation } from '../animateur/navigation/anim-navigation';
 import { adminNavigation } from '../administrateur/navigation/admin-navigation';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+
 
 @Component({
     selector: 'app-fourniss',
@@ -25,7 +27,7 @@ export class FournisseurComponent {
         { Name: 'Animateur', value: '4',routing:'/main-anim'},
         { Name: 'Administrateur', value: '5',routing:'/main'}
         ];
-    constructor(private _fuseNavigationService: FuseNavigationService, private globals: Globals,private router: Router,private parCrud: CrudPopupComponent){
+    constructor(private _fuseNavigationService: FuseNavigationService, private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
         this.navigation = fournissNavigation;
 		this.role=this.globals.role;
         this.crudComp=this.parCrud;
