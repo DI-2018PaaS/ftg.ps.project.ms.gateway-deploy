@@ -3,6 +3,7 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Boutique } from 'app/models/msmagasindomains/boutique/boutique.model';
 import { AngularFireList } from 'angularfire2/database';
 import { BoutiqueService } from 'app/service/boutique.service';
+import {SessionStorageService } from 'angular-web-storage';
 
 @Component({
   selector: 'app-foboutique-list',
@@ -21,13 +22,15 @@ export class FoBoutiqueListComponent implements OnInit {
 
   boutique = {} as Boutique;
   boutiqueRef$ : AngularFireList<Boutique>;
-	constructor(private boutiqueService : BoutiqueService)
+	constructor(private boutiqueService : BoutiqueService, private session: SessionStorageService)
 	{
     this.boutiqueService.getBoutiqueList().valueChanges().subscribe(res => {
       this.boutiqueList.push(res);
       this.dataSource.data = res;
     })
-    console.log("boutiques: ", this.boutiqueList)	}
+    console.log("boutiques: ", this.boutiqueList)	
+    console.log(this.session.get("utilisateur"))
+  }
 
   ngOnInit(){
 

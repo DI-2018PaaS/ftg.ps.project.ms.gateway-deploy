@@ -1,7 +1,9 @@
 navbar-horizontal-style-1 {
-
+    
 }
-
+.top-navbar {
+    display: block !important;
+}
 navbar {
 
     &.horizontal-style-1 {
@@ -9,8 +11,8 @@ navbar {
         flex-direction: column;
         flex: 1 1 auto;
         width: 100%;
-        height: 56px;
-        max-height: 56px;
-        min-height: 56px;
+        height: 34px;
+        max-height: 34px;
+        min-height: 34px;
     }
 }

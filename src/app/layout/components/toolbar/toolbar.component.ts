@@ -105,7 +105,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
             .subscribe((settings) => {
                 this.horizontalNavbar = settings.layout.navbar.position === 'top';
                 this.rightNavbar = settings.layout.navbar.position === 'right';
-                this.hiddenNavbar = settings.layout.navbar.hidden === true;
+                this.hiddenNavbar = settings.layout.navbar.hidden === false;
             });
 
         // Set the selected language from default languages

@@ -23,6 +23,7 @@ export const routes = [
     SharedModule,
     MatFormFieldModule,
     MatInputModule
+    
 
   ],
   declarations: [DemandeFinancementAcheteurComponent, DetailsDemandeFinancementComponent, DemandFinanFormulaireComponent]

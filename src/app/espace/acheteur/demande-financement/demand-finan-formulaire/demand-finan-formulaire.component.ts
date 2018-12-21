@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material';
-
+import { FormControl } from '@angular/forms';
+import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
+import { AngularFireList } from 'angularfire2/database';
+import { ProduitService } from 'app/service/produit.service';
+import { Key } from 'protractor';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Fournisseur } from 'app/models/acteur/fournisseur/fournisseur.model';
+import { FournisseurService } from 'app/service/fournisseur.service';
 
 export interface PeriodicElement {
-  name: string;
+  code: string;
   position: number;
-  weight: number;
-  symbol: string;
+  designation: string;
+  description: string;
+  prix: string;
+
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-];
+
 
 @Component({
   selector: 'app-demand-finan-formulaire',
@@ -23,9 +29,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class DemandFinanFormulaireComponent implements OnInit {
   
-  displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['select','position','code', 'designation', 'descriptionProduit', 'prixUnitaire'];
+  dataSource = new MatTableDataSource<any>();
   selection = new SelectionModel<PeriodicElement>(true, []);
+  produitService : ProduitService;
+  fournisseurService : FournisseurService;
+  produit = {} as Produit;
+  fournisseur = {} as Fournisseur;
+  produitList = [];
+  listFournisseur = [];
+  key = new FormControl();
+  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -40,9 +54,26 @@ export class DemandFinanFormulaireComponent implements OnInit {
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
-  constructor() { }
+  constructor(private produitServ: ProduitService, public db: AngularFireDatabase, fournisseurServ : FournisseurService) { 
+    this.produitService = produitServ;
+    this.fournisseurService = fournisseurServ;
+  }
 
   ngOnInit() {
+
+    this.fournisseurService.getFournisseurList().valueChanges().subscribe(res => {
+      this.listFournisseur.push(res);
+      this.listFournisseur = res;
+    })
+
+  }
+
+  getListProduit(){
+    console.log(this.fournisseur.key)
+    this.produitServ.getProduitList().valueChanges().subscribe(res => {
+      this.produitList.push(res);
+      this.dataSource.data = res;
+    })
   }
 
 }
