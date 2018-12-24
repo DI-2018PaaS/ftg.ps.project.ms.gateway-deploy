@@ -1,0 +1,72 @@
+<div fxLayout="column" fxLayoutGap="50px">
+    <div fxLayoutAlign="center center" >
+      <h2>LISTE DES PRODUITS A VALIDER</h2>
+    </div>
+    
+      <form>
+        <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center center">
+           <div>
+              <mat-form-field style="width:100%">
+                  <mat-select style="width:100%" placeholder="statut" [(ngModel)]="demande.isValid" [formControl]="statut">
+                    <mat-option value="none">statut</mat-option>
+                    <mat-option value="animateur">Valider</mat-option>
+                    <mat-option value="banque">Rejeter</mat-option>
+                  </mat-select>
+              </mat-form-field>
+           </div> 
+        </div>
+      </form> 
+    
+    <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                              [checked]="selection.hasValue() && isAllSelected()"
+                              [indeterminate]="selection.hasValue() && !isAllSelected()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? selection.toggle(row) : null"
+                              [checked]="selection.isSelected(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef> Code </th>
+              <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="designation">
+              <th mat-header-cell *matHeaderCellDef> Designation </th>
+              <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="descriptionProduit">
+              <th mat-header-cell *matHeaderCellDef> Description </th>
+              <td mat-cell *matCellDef="let element"> {{element.descriptionProduit}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="prixUnitaire">
+                <th mat-header-cell *matHeaderCellDef> Prix </th>
+                <td mat-cell *matCellDef="let element"> {{element.prixUnitaire}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                (click)="selection.toggle(row)">
+            </tr>
+        </table>
+    </div>
+    <div fxLayout="row" class="px-4" fxLayoutAlign="center center" fxLayout.xs="column" fxLayoutGap="40px">
+      <button mat-raised-button color="warn">annuler</button>  
+      <button [disabled] mat-raised-button color="accent" (click)="submit()">Enregistrer</button>
+      </div>
+</div>

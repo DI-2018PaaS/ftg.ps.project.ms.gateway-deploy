@@ -60,6 +60,9 @@ import { AcheteurService } from './service/acheteur.service';
 import { AnimateurService } from './service/animateur.service';
 import { FournisseurService } from './service/fournisseur.service';
 import { RegistrationService } from './service/registration.service';
+import { DemandeFinancementService } from './service/demandeFinancement.service';
+import { ListProduitService } from './service/list-produit.service';
+
 
 
 
@@ -438,7 +441,7 @@ const appRoutes: Routes = [
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
         ProduitService,MagasinService,BoutiqueService, AgreementService,RoleService,RegistrationService,
-        AcheteurService,AnimateurService,FournisseurService
+        AcheteurService,AnimateurService,FournisseurService, DemandeFinancementService, ListProduitService
     ] 
 })
 export class AppModule

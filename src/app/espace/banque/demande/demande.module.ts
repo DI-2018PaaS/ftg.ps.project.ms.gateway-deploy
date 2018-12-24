@@ -8,6 +8,7 @@ import { DemandePretListComponent } from './demande-pret-list/demande-pret-list.
 import { DemandeLcreditListComponent } from './demande-lcredit-list/demande-lcredit-list.component';
 import { DemandeLdepotListComponent } from './demande-ldepot-list/demande-ldepot-list.component';
 import { DemandeAgrementListComponent } from './demande-agrement-list/demande-agrement-list.component';
+import { ValidationPretComponent } from './demande-pret-list/validation-pret/validation-pret.component';
 
 export const routes = [
   { path: '', component: DemandeComponent, pathMatch: 'full' },
@@ -15,6 +16,10 @@ export const routes = [
   { path: 'demande-ligne-credit-list', component: DemandeLcreditListComponent, pathMatch: 'full' },
   { path: 'demande-ligne-depot-list', component: DemandeLdepotListComponent, pathMatch: 'full' },
   { path: 'demande-agrement-list', component: DemandeAgrementListComponent, pathMatch: 'full' },
+  { path: 'validation-Pret/:id', component: ValidationPretComponent, children:[
+        
+      ] 
+    }
   ];
 
 
@@ -26,6 +31,6 @@ export const routes = [
     SharedModule,
     
   ],
-  declarations: [DemandeComponent, DemandePretListComponent, DemandeLcreditListComponent, DemandeLdepotListComponent, DemandeAgrementListComponent]
+  declarations: [DemandeComponent, DemandePretListComponent, DemandeLcreditListComponent, DemandeLdepotListComponent, DemandeAgrementListComponent, ValidationPretComponent]
 })
 export class DemandeModule { }

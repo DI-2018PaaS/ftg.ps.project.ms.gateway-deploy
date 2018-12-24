@@ -1,4 +1,4 @@
-export class DemandeFinancement {
+export class Financement {
     key?: string;
     fkey:string;
     objet:string;
@@ -8,4 +8,8 @@ export class DemandeFinancement {
     userLastModif: number;
     dateCreated: string;
     dateLastModif: string;
+    modeLivraison: number;
+    livreur : number;
+    isValid : boolean;
+    validatedBy:string;
 }
