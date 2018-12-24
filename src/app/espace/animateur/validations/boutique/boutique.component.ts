@@ -45,6 +45,10 @@ export class BoutiqueComponent implements OnInit {
  
  
   ELEMENT_DATA: BoutiqueElement[] = this.boutiqueList;
+
+  iSvalidate(key: string): void{
+   this.boutiqueService.updateBoutique(key,{isValid:true});
+  }
 }
 
 export interface BoutiqueElement {
