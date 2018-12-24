@@ -43,6 +43,10 @@ export class ProduitComponent implements OnInit {
  
  
   ELEMENT_DATA: ProduitElement[] = this.produitList;
+  
+  iSvalidate(key: string): void{
+    this.produitService.updateProduit(key,{isValid:true});
+   }
 }
 
 export interface ProduitElement {
