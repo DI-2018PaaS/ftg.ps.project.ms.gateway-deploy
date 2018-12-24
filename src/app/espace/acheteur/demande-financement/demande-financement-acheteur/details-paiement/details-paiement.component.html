@@ -1,0 +1,20 @@
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutGap="100px">
+        <div style="width:30%">
+            <mat-form-field >
+                <mat-select style="width:100%" placeholder="Mode livraison" [(ngModel)]="financement.modeLivraison" [formControl]="modeLivraison">
+                  <mat-option value="animateur">tiak tiak</mat-option>
+                  <mat-option value="banque">seye et frere</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div> 
+        <div style="width:30%">
+            <mat-form-field style="width:100%">
+                <mat-select style="width:100%" placeholder="livreur" [(ngModel)]="financement.livreur" [formControl]="livreur">
+                  <mat-option value="animateur">livreur Ndour</mat-option>
+                  <mat-option value="banque">livreur Dieng</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

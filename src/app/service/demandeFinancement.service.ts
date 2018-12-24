@@ -1,7 +1,7 @@
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { HttpClient  } from "@angular/common/http";
-import { DemandeFinancement } from 'app/models/acteur/demande/DemandeFinancement.model';
+import { Financement } from 'app/models/acteur/demande/Financement.model';
 
 
 
@@ -14,35 +14,33 @@ import { DemandeFinancement } from 'app/models/acteur/demande/DemandeFinancement
 @Injectable()
 export class DemandeFinancementService {
   private dbPath = 'demandeFinancement-db';
-  produitRef: AngularFireList<DemandeFinancement> = null;
+  financementRef: AngularFireList<Financement> = null;
 
   constructor(public http: HttpClient,public db: AngularFireDatabase) {
     console.log('Hello ProduitService Service');
-    this.produitRef = this.db.list(this.dbPath);
+    this.financementRef = this.db.list(this.dbPath);
 
   }
 
  
-  createProduit(p: DemandeFinancement): void {
+  createFinancement(p: Financement) {
     const key = this.db.createPushId();
     p.key = key;
-    this.produitRef.set(key,p)
+    let ref  =  this.financementRef.push(p);
+    ref.update({key : ref.key})
+    return ref;
   }
  
-  updateProduit(key: string, value: any): void {
-    this.produitRef.update(key, value).catch(error => this.handleError(error));
+  updateFinancement(key: string, value: any): void {
+    this.financementRef.update(key, value).catch(error => this.handleError(error));
   }
  
-  deleteProduit(key: string): void {
-    this.produitRef.remove(key).catch(error => this.handleError(error));
-  }
- 
-  getProduitList(): AngularFireList<DemandeFinancement> {
-    return this.produitRef;
+  getFinancementList(): AngularFireList<Financement> {
+    return this.financementRef;
   }
  
   deleteAll(): void {
-    this.produitRef.remove().catch(error => this.handleError(error));
+    this.financementRef.remove().catch(error => this.handleError(error));
   }
  
   private handleError(error) {
