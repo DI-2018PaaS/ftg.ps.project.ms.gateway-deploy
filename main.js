@@ -648,7 +648,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"islogin === false\" >\n  <button mat-button [matMenuTriggerFor]=\"userMenu\" class=\"user-button\">\n    <!-- <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <img class=\"avatar mr-0 mr-sm-16\" src=\"assets/images/avatars/Velazquez.jpg\">\n                    <span class=\"username mr-12\" fxHide fxShow.gt-sm>Charlie Adams</span>\n                    <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\n                </div> -->\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n      <!-- <img class=\"avatar mr-0 mr-sm-16\" src=\"assets/images/avatars/Velazquez.jpg\"> -->\n      <span class=\"username mr-12\" fxHide fxShow.gt-sm style=\"color:white\" >Se Connecter</span>\n      <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\n    </div>\n  </button>\n</div>\n\n<div *ngIf=\"islogin === true\" >\n  <span class=\"username mr-5\" fxHide fxShow.gt-sm style=\"color:white\" >{{username}}</span>\n  <button mat-icon-button [matMenuTriggerFor]=\"menu\">\n    <mat-icon style=\"color:white\">keyboard_arrow_down</mat-icon>\n  </button>\n  <mat-menu #menu=\"matMenu\" [overlapTrigger]=\"false\">\n    <button mat-menu-item>\n      <mat-icon class=\"margin-right-icon\">perm_identity</mat-icon>\n      <span>Profile</span>\n    </button>\n    <button mat-menu-item (click)=\"logOut()\">\n      <mat-icon class=\"margin-right-icon\">input</mat-icon>\n      <span>Déconneter</span>\n    </button>\n  </mat-menu>\n</div>\n\n<!-- <div *ngIf=\"islog == true\" >\n  <span class=\"username mr-5\" fxHide fxShow.gt-sm style=\"color:white\" >{{username}}</span>\n  <button mat-icon-button [matMenuTriggerFor]=\"menu\">\n    <mat-icon style=\"color:white\">keyboard_arrow_down</mat-icon>\n  </button>\n  <mat-menu #menu=\"matMenu\" [overlapTrigger]=\"false\">\n    <button mat-menu-item>\n      <mat-icon class=\"margin-right-icon\">perm_identity</mat-icon>\n      <span>Profile</span>\n    </button>\n    <button mat-menu-item (click)=\"logOut()\">\n      <mat-icon class=\"margin-right-icon\">input</mat-icon>\n      <span>Déconneter</span>\n    </button>\n  </mat-menu>\n</div>\n -->\n<mat-menu #userMenu=\"matMenu\" [overlapTrigger]=\"false\">\n  <mat-card class=\"example-card\" (click)=\"$event.stopPropagation();\">\n    <mat-card-header>\n      <mat-card-title>Login</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <form class=\"example-form\">\n        <table class=\"example-full-width\" cellspacing=\"0\">\n          <tr>\n            <td>\n              <mat-form-field class=\"example-full-width\">\n                <input matInput placeholder=\"Username\" name=\"username\" [(ngModel)]=\"username\" required (click)=\"$event.stopPropagation();\">\n              </mat-form-field>\n            </td>\n          </tr>\n          <tr>\n            <td>\n              <mat-form-field class=\"example-full-width\">\n                <input matInput placeholder=\"Password\" type=\"password\" [(ngModel)]=\"password\" name=\"password\" required (click)=\"$event.stopPropagation();\">\n              </mat-form-field>\n            </td>\n          </tr>\n        </table>\n      </form>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button color=\"primary\" (click)=\"signIn()\">Login</button>\n      <button  class=\"color-button-registration mat-raised-button\"  (click)=\"signUp()\">Registration</button>\n      </mat-card-actions>\n  </mat-card>\n</mat-menu>"
+module.exports = "<div *ngIf=\"islogin === false\" >\n  <button mat-button [matMenuTriggerFor]=\"userMenu\" class=\"user-button\">\n    <!-- <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <img class=\"avatar mr-0 mr-sm-16\" src=\"assets/images/avatars/Velazquez.jpg\">\n                    <span class=\"username mr-12\" fxHide fxShow.gt-sm>Charlie Adams</span>\n                    <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\n                </div> -->\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n      <!-- <img class=\"avatar mr-0 mr-sm-16\" src=\"assets/images/avatars/Velazquez.jpg\"> -->\n      <span class=\"username mr-12\" fxHide fxShow.gt-sm style=\"color:white;font-weight: normal;\" > Connexion</span>\n      <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\n    </div>\n  </button>\n</div>\n\n<div *ngIf=\"islogin === true\" >\n  <span class=\"username mr-5\" fxHide fxShow.gt-sm style=\"color:white\" >{{username}}</span>\n  <button mat-icon-button [matMenuTriggerFor]=\"menu\">\n    <mat-icon style=\"color:white\">keyboard_arrow_down</mat-icon>\n  </button>\n  <mat-menu #menu=\"matMenu\" [overlapTrigger]=\"false\">\n    <button mat-menu-item>\n      <mat-icon class=\"margin-right-icon\">perm_identity</mat-icon>\n      <span>Profile</span>\n    </button>\n    <button mat-menu-item (click)=\"logOut()\">\n      <mat-icon class=\"margin-right-icon\">input</mat-icon>\n      <span>Déconneter</span>\n    </button>\n  </mat-menu>\n</div>\n\n<!-- <div *ngIf=\"islog == true\" >\n  <span class=\"username mr-5\" fxHide fxShow.gt-sm style=\"color:white\" >{{username}}</span>\n  <button mat-icon-button [matMenuTriggerFor]=\"menu\">\n    <mat-icon style=\"color:white\">keyboard_arrow_down</mat-icon>\n  </button>\n  <mat-menu #menu=\"matMenu\" [overlapTrigger]=\"false\">\n    <button mat-menu-item>\n      <mat-icon class=\"margin-right-icon\">perm_identity</mat-icon>\n      <span>Profile</span>\n    </button>\n    <button mat-menu-item (click)=\"logOut()\">\n      <mat-icon class=\"margin-right-icon\">input</mat-icon>\n      <span>Déconneter</span>\n    </button>\n  </mat-menu>\n</div>\n -->\n<mat-menu #userMenu=\"matMenu\" [overlapTrigger]=\"false\">\n  <mat-card class=\"example-card\" (click)=\"$event.stopPropagation();\">\n \n    <mat-card-content style=\"margin-top:-22px\">\n      <form class=\"example-form\">\n        <table class=\"example-full-width\" cellspacing=\"0\">\n          <tr>\n            <td>\n              <mat-form-field class=\"example-full-width\" style=\"font-size:0.90em\">\n                <input matInput placeholder=\"Nom utilisateur\" name=\"username\" [(ngModel)]=\"username\" required (click)=\"$event.stopPropagation();\">\n              </mat-form-field>\n            </td>\n          </tr>\n          <tr>\n            <td>\n              <mat-form-field class=\"example-full-width\" style=\"font-size:0.90em\">\n                <input matInput placeholder=\"Mot de passe\" type=\"password\" [(ngModel)]=\"password\" name=\"password\" required (click)=\"$event.stopPropagation();\">\n              </mat-form-field>\n            </td>\n          </tr>\n        </table>\n      </form>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-raised-button style =\"background:#7a6219; color: white; width: 100%;text-align:center\" (click)=\"signIn()\">Login</button>\n    <!--  <button  class=\"color-button-registration mat-raised-button\"  (click)=\"signUp()\">Registration</button> -->\n      </mat-card-actions>\n  </mat-card>\n</mat-menu>"
 
 /***/ }),
 
@@ -659,7 +659,7 @@ module.exports = "<div *ngIf=\"islogin === false\" >\n  <button mat-button [matM
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".margin-right-icon {\n  margin-right: 5px; }\n\n.color-button-registration {\n  background-color: #0d904f !important;\n  color: white !important;\n  margin-left: 16px !important;\n  margin-right: 0px !important; }\n"
+module.exports = ".margin-right-icon {\n  margin-right: 5px; }\n\n.color-button-registration {\n  background-color: #0d904f !important;\n  color: white !important;\n  font-weight: normal;\n  margin-left: 16px !important;\n  margin-right: 0px !important; }\n"
 
 /***/ }),
 
@@ -706,8 +706,7 @@ var AuthenticationComponent = /** @class */ (function () {
         this.globals = globals;
         this.db = db;
         this.islogin = false;
-        this.KEY = 'Key';
-        this.value = '';
+        this.KEY = '';
         this.utilisateur = {};
         this.dbPath = 'utilisateur-db';
     }
@@ -722,19 +721,77 @@ var AuthenticationComponent = /** @class */ (function () {
         this.user.subscribe(function (params) {
             if (params != 'None') {
                 _this.username = params;
-                _this.loginUser = params;
+                _this.KEY = params;
                 _this.islogin = true;
-                _this.session.set(_this.KEY, { 'loginUser': _this.loginUser, 'idTypeActeur': _this.value });
-                _this.idType = _this.route.queryParamMap
-                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (params) { return params.get('typeActeur') || 'None'; }));
-                _this.idType.subscribe(function (params) {
-                    if (params != 'None') {
-                        _this.value = params;
-                        _this.session.set(_this.KEY, { loginUser: _this.loginUser, idTypeActeur: _this.value });
-                    }
-                });
+                _this.session.set(_this.KEY, params);
             }
         });
+    };
+    AuthenticationComponent.prototype.login = function () {
+        if (this.username === 'admin' && this.password === 'admin') {
+            console.log("auth admin");
+            //this.islogin=true;
+            this.globals.role = "administrateur";
+            var navigationExtras = {
+                queryParams: { 'login': this.username, 'islogin': true },
+                fragment: 'admin'
+            };
+            this.router.navigate(['main'], navigationExtras);
+        }
+        else if (this.username === 'banq' && this.password === 'banq') {
+            console.log("auth banq");
+            this.islogin = true;
+            this.globals.role = "banque";
+            var navigationExtras = {
+                queryParams: { 'login': this.username, 'islogin': true },
+                fragment: 'banque'
+            };
+            this.router.navigate(['banque'], navigationExtras);
+        }
+        else if (this.username === 'acheteur' && this.password === 'acheteur') {
+            console.log("auth acheteur");
+            this.islogin = true;
+            this.globals.role = "acheteur";
+            var navigationExtras = {
+                queryParams: { 'login': this.username, 'islogin': true },
+                fragment: 'shopping'
+            };
+            this.router.navigate(['shopping'], navigationExtras);
+        }
+        else if (this.username === 'anim' && this.password === 'anim') {
+            console.log("auth anim");
+            this.islogin = true;
+            this.globals.role = "animateur";
+            var navigationExtras = {
+                queryParams: { 'login': this.username, 'islogin': true },
+                fragment: 'animateur'
+            };
+            this.router.navigate(['main-anim'], navigationExtras);
+        }
+        else if (this.username === 'fourniss' && this.password === 'fourniss') {
+            console.log("auth fournisseur");
+            this.islogin = true;
+            this.globals.role = "fournisseur";
+            var navigationExtras = {
+                queryParams: { 'login': this.username, 'islogin': true },
+                fragment: 'fournisseur'
+            };
+            this.router.navigate(['main-magasin'], navigationExtras);
+        }
+        else if (this.username === 'multi' && this.password === 'multi') {
+            console.log("auth multiuser");
+            this.islogin = true;
+            this.globals.role = "multiuser";
+            var navigationExtras = {
+                queryParams: { 'login': this.username, 'islogin': true },
+                fragment: 'multiuser'
+            };
+            this.router.navigate(['muser-main'], navigationExtras);
+            //this.router.navigate(['main-muser-entry']);
+        }
+        else {
+            alert('login ou mot de passe invalide');
+        }
     };
     AuthenticationComponent.prototype.signUp = function () {
         this.router.navigate(['registration']);
@@ -756,7 +813,7 @@ var AuthenticationComponent = /** @class */ (function () {
                 if (_this.utilisateur.userActeurID == 1) {
                     _this.islogin = true;
                     var navigationExtras = {
-                        queryParams: { 'login': _this.username, 'typeActeur': 1 },
+                        queryParams: { 'login': _this.username, 'islogin': true },
                         fragment: 'animateur'
                     };
                     _this.router.navigate(['main-anim'], navigationExtras);
@@ -764,7 +821,7 @@ var AuthenticationComponent = /** @class */ (function () {
                 else if (_this.utilisateur.userActeurID == 2) {
                     _this.islogin = true;
                     var navigationExtras = {
-                        queryParams: { 'login': _this.username, 'typeActeur': 2 },
+                        queryParams: { 'login': _this.username, 'islogin': true },
                         fragment: 'shopping'
                     };
                     _this.router.navigate(['shopping'], navigationExtras);
@@ -772,7 +829,7 @@ var AuthenticationComponent = /** @class */ (function () {
                 else if (_this.utilisateur.userActeurID == 3) {
                     _this.islogin = true;
                     var navigationExtras = {
-                        queryParams: { 'login': _this.username, 'typeActeur': 3 },
+                        queryParams: { 'login': _this.username, 'islogin': true },
                         fragment: 'fournisseur'
                     };
                     _this.router.navigate(['main-magasin'], navigationExtras);
@@ -780,7 +837,7 @@ var AuthenticationComponent = /** @class */ (function () {
                 else if (_this.utilisateur.userActeurID == 4) {
                     _this.islogin = true;
                     var navigationExtras = {
-                        queryParams: { 'login': _this.username, 'typeActeur': 4 },
+                        queryParams: { 'login': _this.username, 'islogin': true },
                         fragment: 'administrateur'
                     };
                     _this.router.navigate(['main'], navigationExtras);
@@ -788,7 +845,7 @@ var AuthenticationComponent = /** @class */ (function () {
                 else if (_this.utilisateur.userActeurID == 5) {
                     _this.islogin = true;
                     var navigationExtras = {
-                        queryParams: { 'login': _this.username, 'typeActeur': 5 },
+                        queryParams: { 'login': _this.username, 'islogin': true },
                         fragment: 'banque'
                     };
                     _this.router.navigate(['banque'], navigationExtras);
@@ -799,10 +856,6 @@ var AuthenticationComponent = /** @class */ (function () {
             }
         });
     };
-    __decorate([
-        Object(angular_web_storage__WEBPACK_IMPORTED_MODULE_4__["SessionStorage"])(),
-        __metadata("design:type", String)
-    ], AuthenticationComponent.prototype, "storage", void 0);
     AuthenticationComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-authentication',
@@ -836,12 +889,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _fuse_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fuse/shared.module */ "./src/@fuse/shared.module.ts");
+/* harmony import */ var _inscription_inscription_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./inscription/inscription.component */ "./src/@core/components/core/inscription/inscription.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -868,11 +923,95 @@ var CoreModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatFormFieldModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatInputModule"]
             ],
-            declarations: [_authentication_authentication_component__WEBPACK_IMPORTED_MODULE_3__["AuthenticationComponent"]],
-            exports: [_authentication_authentication_component__WEBPACK_IMPORTED_MODULE_3__["AuthenticationComponent"]]
+            declarations: [_authentication_authentication_component__WEBPACK_IMPORTED_MODULE_3__["AuthenticationComponent"], _inscription_inscription_component__WEBPACK_IMPORTED_MODULE_7__["InscriptionComponent"]],
+            exports: [_authentication_authentication_component__WEBPACK_IMPORTED_MODULE_3__["AuthenticationComponent"], _inscription_inscription_component__WEBPACK_IMPORTED_MODULE_7__["InscriptionComponent"]]
         })
     ], CoreModule);
     return CoreModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/@core/components/core/inscription/inscription.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/@core/components/core/inscription/inscription.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div >\n  <button mat-button [matMenuTriggerFor]=\"userMenu\" class=\"user-button\"  (click)=\"signUp()\">\n    <!-- <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <img class=\"avatar mr-0 mr-sm-16\" src=\"assets/images/avatars/Velazquez.jpg\">\n                    <span class=\"username mr-12\" fxHide fxShow.gt-sm>Charlie Adams</span>\n                    <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>\n                </div> -->\n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n      <!-- <img class=\"avatar mr-0 mr-sm-16\" src=\"assets/images/avatars/Velazquez.jpg\"> -->\n      <span class=\"username mr-12\" fxHide fxShow.gt-sm style=\"color:white;font-weight: normal;\"  >Inscription</span>\n    <!--  <mat-icon class=\"s-16\" fxHide.xs>keyboard_arrow_down</mat-icon>-->\n    </div>\n  </button>\n</div>\n\n\n\n<!-- <div *ngIf=\"islog == true\" >\n  <span class=\"username mr-5\" fxHide fxShow.gt-sm style=\"color:white\" >{{username}}</span>\n  <button mat-icon-button [matMenuTriggerFor]=\"menu\">\n    <mat-icon style=\"color:white\">keyboard_arrow_down</mat-icon>\n  </button>\n  <mat-menu #menu=\"matMenu\" [overlapTrigger]=\"false\">\n    <button mat-menu-item>\n      <mat-icon class=\"margin-right-icon\">perm_identity</mat-icon>\n      <span>Profile</span>\n    </button>\n    <button mat-menu-item (click)=\"logOut()\">\n      <mat-icon class=\"margin-right-icon\">input</mat-icon>\n      <span>Déconneter</span>\n    </button>\n  </mat-menu>\n</div>\n -->\n <mat-menu #userMenu=\"matMenu\" [overlapTrigger]=\"false\">\n <!--\n    <mat-card class=\"example-card\" (click)=\"$event.stopPropagation();\">-->\n   <!-- <mat-card-header>\n      <mat-card-title>Login</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <form class=\"example-form\">\n        <table class=\"example-full-width\" cellspacing=\"0\">\n          <tr>\n            <td>\n              <mat-form-field class=\"example-full-width\">\n                <input matInput placeholder=\"Username\" name=\"username\" [(ngModel)]=\"username\" required (click)=\"$event.stopPropagation();\">\n              </mat-form-field>\n            </td>\n          </tr>\n          <tr>\n            <td>\n              <mat-form-field class=\"example-full-width\">\n                <input matInput placeholder=\"Password\" type=\"password\" [(ngModel)]=\"password\" name=\"password\" required (click)=\"$event.stopPropagation();\">\n              </mat-form-field>\n            </td>\n          </tr>\n        </table>\n      </form>\n    </mat-card-content>-->\n <!-- \n  </mat-card>  \n  <mat-card-actions>-->\n      <!--  <button mat-raised-button color=\"primary\" (click)=\"signIn()\">Login</button>-->\n     <!--   <button  class=\"color-button-registration mat-raised-button\"  (click)=\"signUp()\">Registration</button> \n        </mat-card-actions>\n -->\n</mat-menu>"
+
+/***/ }),
+
+/***/ "./src/@core/components/core/inscription/inscription.component.scss":
+/*!**************************************************************************!*\
+  !*** ./src/@core/components/core/inscription/inscription.component.scss ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".margin-right-icon {\n  margin-right: 0px; }\n\n.color-button-registration {\n  background-color: #0d904f !important;\n  color: white !important;\n  font-weight: normal;\n  margin-left: 16px !important;\n  margin-right: 0px !important; }\n"
+
+/***/ }),
+
+/***/ "./src/@core/components/core/inscription/inscription.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/@core/components/core/inscription/inscription.component.ts ***!
+  \************************************************************************/
+/*! exports provided: InscriptionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InscriptionComponent", function() { return InscriptionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/globals/Globals.element */ "./src/app/globals/Globals.element.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
+/* harmony import */ var app_service_registration_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/service/registration.service */ "./src/app/service/registration.service.ts");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_5__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var InscriptionComponent = /** @class */ (function () {
+    function InscriptionComponent(router, route, session, registrationService, globals, db) {
+        this.router = router;
+        this.route = route;
+        this.session = session;
+        this.registrationService = registrationService;
+        this.globals = globals;
+        this.db = db;
+    }
+    InscriptionComponent.prototype.ngOnInit = function () {
+    };
+    InscriptionComponent.prototype.signUp = function () {
+        this.router.navigate(['registration']);
+    };
+    InscriptionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-inscription',
+            template: __webpack_require__(/*! ./inscription.component.html */ "./src/@core/components/core/inscription/inscription.component.html"),
+            styles: [__webpack_require__(/*! ./inscription.component.scss */ "./src/@core/components/core/inscription/inscription.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], angular_web_storage__WEBPACK_IMPORTED_MODULE_3__["SessionStorageService"],
+            app_service_registration_service__WEBPACK_IMPORTED_MODULE_4__["RegistrationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_2__["Globals"], angularfire2_database__WEBPACK_IMPORTED_MODULE_5__["AngularFireDatabase"]])
+    ], InscriptionComponent);
+    return InscriptionComponent;
 }());
 
 
@@ -8644,6 +8783,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_animateur_service__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./service/animateur.service */ "./src/app/service/animateur.service.ts");
 /* harmony import */ var _service_fournisseur_service__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./service/fournisseur.service */ "./src/app/service/fournisseur.service.ts");
 /* harmony import */ var _service_registration_service__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./service/registration.service */ "./src/app/service/registration.service.ts");
+/* harmony import */ var _service_demandeFinancement_service__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./service/demandeFinancement.service */ "./src/app/service/demandeFinancement.service.ts");
+/* harmony import */ var _service_list_produit_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./service/list-produit.service */ "./src/app/service/list-produit.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8690,6 +8831,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // Firebase Imports
+
+
 
 
 
@@ -9065,7 +9208,7 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [_front_app_service__WEBPACK_IMPORTED_MODULE_19__["AppService"], _espace_animateur_anim_home_service__WEBPACK_IMPORTED_MODULE_27__["AnimHomeService"], _main_apps_dashboards_project_project_service__WEBPACK_IMPORTED_MODULE_26__["ProjectDashboardService"], _espace_fournisseur_fourniss_home_service__WEBPACK_IMPORTED_MODULE_29__["FournissHomeService"], _espace_multiuser_muser_home_service__WEBPACK_IMPORTED_MODULE_31__["MuserHomeService"], _globals_Globals_element__WEBPACK_IMPORTED_MODULE_35__["Globals"], _shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_37__["CrudPopupComponent"],
                 _service_produit_service__WEBPACK_IMPORTED_MODULE_42__["ProduitService"], _service_magasin_service__WEBPACK_IMPORTED_MODULE_43__["MagasinService"], _service_boutique_service__WEBPACK_IMPORTED_MODULE_44__["BoutiqueService"], _service_agreement_service__WEBPACK_IMPORTED_MODULE_45__["AgreementService"], _service_role_service__WEBPACK_IMPORTED_MODULE_46__["RoleService"], _service_registration_service__WEBPACK_IMPORTED_MODULE_51__["RegistrationService"],
-                _service_acheteur_service__WEBPACK_IMPORTED_MODULE_48__["AcheteurService"], _service_animateur_service__WEBPACK_IMPORTED_MODULE_49__["AnimateurService"], _service_fournisseur_service__WEBPACK_IMPORTED_MODULE_50__["FournisseurService"]
+                _service_acheteur_service__WEBPACK_IMPORTED_MODULE_48__["AcheteurService"], _service_animateur_service__WEBPACK_IMPORTED_MODULE_49__["AnimateurService"], _service_fournisseur_service__WEBPACK_IMPORTED_MODULE_50__["FournisseurService"], _service_demandeFinancement_service__WEBPACK_IMPORTED_MODULE_52__["DemandeFinancementService"], _service_list_produit_service__WEBPACK_IMPORTED_MODULE_53__["ListProduitService"]
             ]
         })
     ], AppModule);
@@ -9902,6 +10045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fournisseur_navigation_fourniss_navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../fournisseur/navigation/fourniss-navigation */ "./src/app/espace/fournisseur/navigation/fourniss-navigation.ts");
 /* harmony import */ var _administrateur_navigation_admin_navigation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../administrateur/navigation/admin-navigation */ "./src/app/espace/administrateur/navigation/admin-navigation.ts");
 /* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9924,12 +10068,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AnimateurComponent = /** @class */ (function () {
-    function AnimateurComponent(_fuseNavigationService, globals, router, parCrud) {
+    function AnimateurComponent(_fuseNavigationService, globals, router, parCrud, session) {
         this._fuseNavigationService = _fuseNavigationService;
         this.globals = globals;
         this.router = router;
         this.parCrud = parCrud;
+        this.session = session;
         this.title = "empty";
         this.roles = [
             { Name: 'Acheteur', value: '1', routing: '/shopping' },
@@ -9946,8 +10092,11 @@ var AnimateurComponent = /** @class */ (function () {
         // Set the main navigation as our current navigation
         this._fuseNavigationService.setCurrentNavigation('anim');
         console.log("AnimateurComponent role:" + this.role);
+        this.utilisateur = this.session.get("utilisateur");
+        console.log(this.utilisateur.fkey);
     }
-    AnimateurComponent.prototype.ngOnInit = function () { };
+    AnimateurComponent.prototype.ngOnInit = function () {
+    };
     AnimateurComponent.prototype.changeNavigation = function (value) {
         console.log("AnimateurComponent changeNavigation :" + value);
         if (value == "1") {
@@ -9987,7 +10136,7 @@ var AnimateurComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./anim.component.html */ "./src/app/espace/animateur/anim.component.html"),
             styles: [__webpack_require__(/*! ./anim.component.scss */ "./src/app/espace/animateur/anim.component.scss")]
         }),
-        __metadata("design:paramtypes", [_fuse_components_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__["FuseNavigationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_3__["Globals"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [_fuse_components_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_2__["FuseNavigationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_3__["Globals"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__["CrudPopupComponent"], angular_web_storage__WEBPACK_IMPORTED_MODULE_10__["SessionStorageService"]])
     ], AnimateurComponent);
     return AnimateurComponent;
 }());
@@ -10691,6 +10840,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _animateur_navigation_anim_navigation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../animateur/navigation/anim-navigation */ "./src/app/espace/animateur/navigation/anim-navigation.ts");
 /* harmony import */ var _administrateur_navigation_admin_navigation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../administrateur/navigation/admin-navigation */ "./src/app/espace/administrateur/navigation/admin-navigation.ts");
 /* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10710,12 +10860,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var FournisseurComponent = /** @class */ (function () {
-    function FournisseurComponent(_fuseNavigationService, globals, router, parCrud) {
+    function FournisseurComponent(_fuseNavigationService, globals, router, parCrud, session) {
         this._fuseNavigationService = _fuseNavigationService;
         this.globals = globals;
         this.router = router;
         this.parCrud = parCrud;
+        this.session = session;
         this.roles = [
             { Name: 'Acheteur', value: '1', routing: '/shopping' },
             { Name: 'Banque', value: '2', routing: '/banque' },
@@ -10772,7 +10924,7 @@ var FournisseurComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./fourniss.component.html */ "./src/app/espace/fournisseur/fourniss.component.html"),
             styles: [__webpack_require__(/*! ./fourniss.component.scss */ "./src/app/espace/fournisseur/fourniss.component.scss")]
         }),
-        __metadata("design:paramtypes", [_fuse_components_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__["FuseNavigationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_3__["Globals"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [_fuse_components_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_1__["FuseNavigationService"], app_globals_Globals_element__WEBPACK_IMPORTED_MODULE_3__["Globals"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_9__["CrudPopupComponent"], angular_web_storage__WEBPACK_IMPORTED_MODULE_10__["SessionStorageService"]])
     ], FournisseurComponent);
     return FournisseurComponent;
 }());
@@ -24356,7 +24508,7 @@ var fuseConfig = {
         navbar: {
             primaryBackground: 'fuse-navy-700',
             secondaryBackground: 'fuse-navy-900',
-            folded: true,
+            folded: false,
             hidden: false,
             position: 'left',
             variant: 'vertical-style-1'
@@ -25082,7 +25234,7 @@ var ContentModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">\n    <div>\n        <mat-toolbar>\n            <div fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutAlign.gt-xs=\"space-between center\" fxFlex>\n                <div fxLayout=\"row\" fxLayoutGap=\"60px\" style=\"padding-bottom:2%\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_Instagram.png\" alt=\"\">\n                    </a>\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_GooglePlus.png\" alt=\"\">\n                    </a>\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_Facebook.png\" alt=\"\">\n                    </a>\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_Twitter.png\" alt=\"\">\n                    </a>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"0px\" style=\"padding-top: 1%\" class=\"sperator px-4 py-5\">\n                    <div fxLayout=\"row\" fxLayoutGap=\"0px\">\n                        <img src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_GrdtLine.png\" alt=\"\">\n                    </div>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"10px\" class=\"py-8\" style=\"margin-bottom: 0px !important;padding-top: 1%;\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                        <span class=\"menf-el\">HOME</span>\n                    </a>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_1.png\" alt=\"\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                        <span class=\"menf-el\">LOCALITE</span>\n                    </a>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_1.png\" alt=\"\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                        <span class=\"menf-el\">PANIER</span>\n                    </a>\n                </div>\n                <div fxLayout=\"row\" class=\"px-4\" style=\"padding-top:1%; margin-right: 2%;\">\n                    <span fxLayoutAlign=\"center center\">\n                        <a class=\"menf-el2\" style=\"text-decoration: none\" href=\"#\">Produits & Services</a>\n                    </span>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_2.png\" alt=\"\">\n                    <span fxLayoutAlign=\"center center\">\n                        <a class=\"menf-el2\" style=\"text-decoration: none\" href=\"#\">Appels d'offres</a>\n                    </span>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_2.png\" alt=\"\">\n                    <span fxLayoutAlign=\"center center\">\n                        <a class=\"menf-el2\" style=\"text-decoration: none\" href=\"#\">Enchère en cours</a>\n                    </span>\n                </div>\n            </div>\n        </mat-toolbar>\n    </div>\n    \n    <div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"copyright-content\">\n        <div>\n            <span class=\"menf-el2\">\n                <span style=\" font-size: 14px; font-weight: 800; \">Copyright zone</span>\n            </span>\n        </div>\n    </div>\n</div>\n\n\n"
+module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">\n    <div >\n        <mat-toolbar  style=\"background: #6c4600 !important;max-height: 34px;\n        min-height: 34px;\">\n         <div fxLayout=\"column\" fxLayoutAlign=\"\" fxLayoutAlign.gt-xs=\"space-between center\" fxFlex>\n          \n            <div fxLayout=\"row\" fxLayoutGap=\"10px\" class=\"ph\">\n                <p fxLayout=\"row\" style=\"text-decoration: none\">\n                    <span class=\"menf-el\" style=\"margin-left: -533%\">&copy; Copyright 2019 </span>\n                </p>\n                 <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                    <span class=\"menf-el\">Accueil | </span>\n                </a>\n                <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                    <span class=\"menf-el\"> Domaines | </span>\n                </a>\n                <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                    <span class=\"menf-el\">Produits | </span>\n                </a>\n                <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                    <span class=\"menf-el\">Services | </span>\n                </a>\n                <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                    <span class=\"menf-el\">Offres</span>\n                </a>\n                <p fxLayout=\"row\" style=\"text-decoration: none\">\n                     <span class=\"menf-el\" style=\"margin-left: 155%;\">Suivez-nous sur: </span>\n                </p>\n            </div>\n        </div>\n            <!--div fxLayout=\"column\" fxLayoutAlign=\"center center\" fxLayoutAlign.gt-xs=\"space-between center\" fxFlex>\n                <div fxLayout=\"row\" fxLayoutGap=\"60px\" style=\"padding-bottom:2%\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_Instagram.png\" alt=\"\">\n                    </a>\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_GooglePlus.png\" alt=\"\">\n                    </a>\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_Facebook.png\" alt=\"\">\n                    </a>\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Normal.png\" alt=\"\">\n                        <img style=\"position:absolute\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_ExtLinks_Btn_Icons_Twitter.png\" alt=\"\">\n                    </a>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"0px\" style=\"padding-top: 1%\" class=\"sperator px-4 py-5\">\n                    <div fxLayout=\"row\" fxLayoutGap=\"0px\">\n                        <img src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_GrdtLine.png\" alt=\"\">\n                    </div>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"10px\" class=\"py-8\" style=\"margin-bottom: 0px !important;padding-top: 1%;\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                        <span class=\"menf-el\">HOME</span>\n                    </a>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_1.png\" alt=\"\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                        <span class=\"menf-el\">LOCALITE</span>\n                    </a>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_1.png\" alt=\"\">\n                    <a href=\"#\" fxLayout=\"row\" fxLayoutAlign=\"center center\" style=\"text-decoration: none\">\n                        <span class=\"menf-el\">PANIER</span>\n                    </a>\n                </div>\n                <div fxLayout=\"row\" class=\"px-4\" style=\"padding-top:1%; margin-right: 2%;\">\n                    <span fxLayoutAlign=\"center center\">\n                        <a class=\"menf-el2\" style=\"text-decoration: none\" href=\"#\">Produits & Services</a>\n                    </span>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_2.png\" alt=\"\">\n                    <span fxLayoutAlign=\"center center\">\n                        <a class=\"menf-el2\" style=\"text-decoration: none\" href=\"#\">Appels d'offres</a>\n                    </span>\n                    <img style=\"padding-left: 1em; padding-right: 1em;\" src=\"assets/images/Footer/FineTech_PS_Elmt_Footer_Separator_2.png\" alt=\"\">\n                    <span fxLayoutAlign=\"center center\">\n                        <a class=\"menf-el2\" style=\"text-decoration: none\" href=\"#\">Enchère en cours</a>\n                    </span>\n                </div>\n            </div-->\n        </mat-toolbar>\n    </div>\n    \n    <!--<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"copyright-content\">\n        <div>\n            <span class=\"menf-el2\">\n                <span style=\" font-size: 14px; font-weight: 800; \">Copyright zone</span>\n            </span>\n        </div>\n    </div>\n-->\n</div>\n\n\n"
 
 /***/ }),
 
@@ -25093,7 +25245,7 @@ module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">\n    <div>\n        <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex: 0 0 auto;\n  /* z-index: 3; */ }\n  :host .mat-toolbar {\n    height: 11em;\n    background: inherit;\n    color: inherit;\n    box-shadow: 0px -1px 1px -1px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.14), 0px -1px 3px 0px rgba(0, 0, 0, 0.12);\n    min-height: 100px;\n    padding: 16px 16px 0; }\n  :host.above {\n    position: relative;\n    z-index: 99; }\n  .sperator {\n  margin-bottom: 0px !important; }\n  .menf-el {\n  color: #ffffff; }\n  .menf-el2 {\n  color: #DC0030; }\n  .copyright-content {\n  background-color: black; }\n"
+module.exports = ":host {\n  display: flex;\n  flex: 0 0 auto;\n  /* z-index: 3; */ }\n  :host .mat-toolbar {\n    height: 11em;\n    background: inherit;\n    color: inherit;\n    box-shadow: 0px -1px 1px -1px rgba(0, 0, 0, 0.2), 0px 0px 1px 0px rgba(0, 0, 0, 0.14), 0px -1px 3px 0px rgba(0, 0, 0, 0.12);\n    min-height: 100px;\n    padding: 16px 16px 0; }\n  :host.above {\n    position: relative;\n    z-index: 99; }\n  .sperator {\n  margin-bottom: 0px !important; }\n  .menf-el {\n  color: #ffffff;\n  font-weight: normal;\n  font-size: 0.55em; }\n  .menf-el2 {\n  color: #DC0030; }\n  .copyright-content {\n  background-color: black; }\n  .ph {\n  padding-bottom: 8px !important; }\n"
 
 /***/ }),
 
@@ -25210,7 +25362,7 @@ module.exports = "<div [ngClass]=\"fuseConfig.layout.navbar.primaryBackground\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "navbar.horizontal-style-1 {\n  display: flex;\n  flex-direction: column;\n  flex: 1 1 auto;\n  width: 100%;\n  height: 56px;\n  max-height: 56px;\n  min-height: 56px; }\n"
+module.exports = ".top-navbar {\n  display: block !important; }\n\nnavbar.horizontal-style-1 {\n  display: flex;\n  flex-direction: column;\n  flex: 1 1 auto;\n  width: 100%;\n  height: 34px;\n  max-height: 34px;\n  min-height: 34px; }\n"
 
 /***/ }),
 
@@ -26152,7 +26304,7 @@ var QuickPanelModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"p-0 mat-elevation-z1\">\n\n    <div fxFlex fxFill fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n        <div fxFlex=\"1 0 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <button mat-icon-button class=\"navbar-toggle-button\"\n                    *ngIf=\"!hiddenNavbar && !rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\n            </button>\n\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && !rightNavbar\" fxHide.gt-md></div>\n\n            <!-- <div fxLayout=\"row\" fxLayoutAlign=\"start center\" *ngIf=\"horizontalNavbar\"> -->\n                <div class=\"logo ml-16\">\n                    <a [routerLink]=\"['/']\">\n                        <img class=\"logo-icon\" src=\"assets/images/header/FineTech_PS_Elmt_Header_Logo_Cofina.png\" style=\"width:214px\">\n                    </a>\n                </div>\n            <!-- </div> -->\n\n           <!-- <div class=\"px-8 px-md-16\">\n                <fuse-shortcuts [navigation]=\"navigation\"></fuse-shortcuts>\n            </div> -->\n\n        </div>\n\n        <div class=\"\" fxFlex=\"0 1 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"toolbar-separator\"></div>\n            \n            <!-- <fuse-search-bar (input)=\"search($event)\"></fuse-search-bar> -->\n            \n            <div class=\"toolbar-separator\"></div>\n\n            <app-authentication></app-authentication>\n\n            <div class=\"toolbar-separator\"></div>\n\n            <button mat-button fxHide fxShow.gt-xs\n                    class=\"language-button\"\n                    [matMenuTriggerFor]=\"languageMenu\">\n                <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <img class=\"flag mr-8\" [src]=\"'assets/images/flags/'+selectedLanguage.flag+'.png'\">\n                    <span class=\"iso text-uppercase\">{{selectedLanguage.id}}</span>\n                </div>\n            </button>\n\n            <mat-menu #languageMenu=\"matMenu\" [overlapTrigger]=\"false\">\n\n                <button mat-menu-item *ngFor=\"let lang of languages\" (click)=\"setLanguage(lang)\">\n                    <span fxLayout=\"row\" fxLayoutAlign=\"start center\">\n                        <img class=\"flag mr-16\" [src]=\"'assets/images/flags/'+lang.flag+'.png'\">\n                        <span class=\"iso\">{{lang.title}}</span>\n                    </span>\n                </button>\n\n            </mat-menu>\n            <div class=\"toolbar-separator\"></div>\n            <div fxLayout=\"row\" style=\"margin-right: 50px;\">\n                <mat-icon matBadge=\"4\" matBadgeOverlap=\"false\" style=\" color: #dc0030;\">shopping_cart</mat-icon>\n                <div style=\" color: white; font-size: 16px; \">Panier</div>\n            </div>\n\n            <div class=\"toolbar-separator\" fxHide fxShow.gt-xs></div>\n\n            <!-- <button mat-icon-button fxHide.gt-md\n                    class=\"chat-panel-toggle-button\"\n                    (click)=\"toggleSidebarOpen('chatPanel')\"\n                    aria-label=\"Toggle chat panel\">\n                <mat-icon class=\"secondary-text\">chat</mat-icon>\n            </button> \n\n            <div class=\"toolbar-separator\" fxHide.gt-md></div>\n           \n            <button mat-icon-button\n                    class=\"quick-panel-toggle-button\"\n                    (click)=\"toggleSidebarOpen('quickPanel')\"\n                    aria-label=\"Toggle quick panel\">\n                <mat-icon class=\"secondary-text\">format_list_bulleted</mat-icon>\n            </button>\n\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && rightNavbar\" fxHide fxShow.gt-xs></div>\n\n            <button mat-icon-button class=\"navbar-toggle-button\"\n                    *ngIf=\"!hiddenNavbar && rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\n            </button> -->\n            \n\n        </div>\n    </div>\n</mat-toolbar>\n\n\n"
+module.exports = "<mat-toolbar class=\"p-0 mat-elevation-z1\">\n\n    <div fxFlex fxFill fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n        <div fxFlex=\"1 0 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n\n            <button mat-icon-button class=\"navbar-toggle-button\"\n                    *ngIf=\"!hiddenNavbar && !rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\n            </button>\n\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && !rightNavbar\" fxHide.gt-md></div>\n\n            <!-- <div fxLayout=\"row\" fxLayoutAlign=\"start center\" *ngIf=\"horizontalNavbar\"> -->\n                <div class=\"logo ml-16\">\n                    <a [routerLink]=\"['/']\">\n                        <img class=\"logo-icon\" src=\"assets/images/header/FineTech_PS_Elmt_Header_Logo_Cofina.png\" style=\"width:214px\">\n                    </a>\n                </div>\n            <!-- </div> -->\n\n           <!-- <div class=\"px-8 px-md-16\">\n                <fuse-shortcuts [navigation]=\"navigation\"></fuse-shortcuts>\n            </div> -->\n\n        </div>\n\n        <div class=\"\" fxFlex=\"0 1 auto\" fxLayout=\"row\" fxLayoutAlign=\"start center\">\n            <div class=\"toolbar-separator\"></div>\n            \n            <!-- <fuse-search-bar (input)=\"search($event)\"></fuse-search-bar> -->\n            \n            <div class=\"toolbar-separator\"></div>\n\n           <app-inscription></app-inscription>\n\n           <div class=\"toolbar-separator\"></div>\n\n            <app-authentication></app-authentication>\n\n            <div class=\"toolbar-separator\"></div>\n\n            <button mat-button fxHide fxShow.gt-xs\n                    class=\"language-button\"\n                    [matMenuTriggerFor]=\"languageMenu\">\n                <div fxLayout=\"row\" fxLayoutAlign=\"center center\">\n                    <img class=\"flag mr-8\" [src]=\"'assets/images/flags/'+selectedLanguage.flag+'.png'\">\n                  <!-- <span class=\"iso text-uppercase\">{{selectedLanguage.id}}</span>--> \n                </div>\n            </button>\n\n            <mat-menu #languageMenu=\"matMenu\" [overlapTrigger]=\"false\" >\n\n                <button mat-menu-item *ngFor=\"let lang of languages\" (click)=\"setLanguage(lang)\">\n                    <span fxLayout=\"row\" fxLayoutAlign=\"start center\" >\n                        <img class=\"flag mr-16\" [src]=\"'assets/images/flags/'+lang.flag+'.png'\">\n                      <!-- <span class=\"iso\">{{lang.title}}</span>-->\n                    </span>\n                </button>\n\n            </mat-menu>\n            <div class=\"toolbar-separator\"></div>\n            <div fxLayout=\"row\" style=\"margin-right: 50px;\">\n                <mat-icon matBadge=\"4\" matBadgeOverlap=\"false\" style=\" color: #fff;\">shopping_cart</mat-icon>\n              <!-- <div style=\" color: white; font-size: 16px; \"></div>--> \n            </div>\n\n            <div class=\"toolbar-separator\" fxHide fxShow.gt-xs></div>\n\n            <!-- <button mat-icon-button fxHide.gt-md\n                    class=\"chat-panel-toggle-button\"\n                    (click)=\"toggleSidebarOpen('chatPanel')\"\n                    aria-label=\"Toggle chat panel\">\n                <mat-icon class=\"secondary-text\">chat</mat-icon>\n            </button> \n\n            <div class=\"toolbar-separator\" fxHide.gt-md></div>\n           \n            <button mat-icon-button\n                    class=\"quick-panel-toggle-button\"\n                    (click)=\"toggleSidebarOpen('quickPanel')\"\n                    aria-label=\"Toggle quick panel\">\n                <mat-icon class=\"secondary-text\">format_list_bulleted</mat-icon>\n            </button>\n\n            <div class=\"toolbar-separator\" *ngIf=\"!hiddenNavbar && rightNavbar\" fxHide fxShow.gt-xs></div>\n\n            <button mat-icon-button class=\"navbar-toggle-button\"\n                    *ngIf=\"!hiddenNavbar && rightNavbar\" (click)=\"toggleSidebarOpen('navbar')\" fxHide.gt-md>\n                <mat-icon class=\"secondary-text\">menu</mat-icon>\n            </button> -->\n            \n\n        </div>\n    </div>\n</mat-toolbar>\n\n\n"
 
 /***/ }),
 
@@ -26273,7 +26425,7 @@ var ToolbarComponent = /** @class */ (function () {
             .subscribe(function (settings) {
             _this.horizontalNavbar = settings.layout.navbar.position === 'top';
             _this.rightNavbar = settings.layout.navbar.position === 'right';
-            _this.hiddenNavbar = settings.layout.navbar.hidden === true;
+            _this.hiddenNavbar = settings.layout.navbar.hidden === false;
         });
         // Set the selected language from default languages
         this.selectedLanguage = lodash__WEBPACK_IMPORTED_MODULE_4__["find"](this.languages, { 'id': this._translateService.currentLang });
@@ -27378,7 +27530,7 @@ var navigation = [
     },
     {
         id: 'produit',
-        title: 'produit',
+        title: 'Produit',
         type: 'item',
         icon: 'card_giftcard',
         url: 'produit'
@@ -27881,6 +28033,79 @@ var BoutiqueService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/service/demandeFinancement.service.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/service/demandeFinancement.service.ts ***!
+  \*******************************************************/
+/*! exports provided: DemandeFinancementService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DemandeFinancementService", function() { return DemandeFinancementService; });
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the ProduitService Service.
+
+  See https://angular.io/guide/dependency-injection for more info on Services
+  and Angular DI.
+*/
+var DemandeFinancementService = /** @class */ (function () {
+    function DemandeFinancementService(http, db) {
+        this.http = http;
+        this.db = db;
+        this.dbPath = 'demandeFinancement-db';
+        this.financementRef = null;
+        console.log('Hello ProduitService Service');
+        this.financementRef = this.db.list(this.dbPath);
+    }
+    DemandeFinancementService.prototype.createFinancement = function (p) {
+        var key = this.db.createPushId();
+        p.key = key;
+        var ref = this.financementRef.push(p);
+        ref.update({ key: ref.key });
+        return ref;
+    };
+    DemandeFinancementService.prototype.updateFinancement = function (key, value) {
+        var _this = this;
+        this.financementRef.update(key, value).catch(function (error) { return _this.handleError(error); });
+    };
+    DemandeFinancementService.prototype.getFinancementList = function () {
+        return this.financementRef;
+    };
+    DemandeFinancementService.prototype.deleteAll = function () {
+        var _this = this;
+        this.financementRef.remove().catch(function (error) { return _this.handleError(error); });
+    };
+    DemandeFinancementService.prototype.handleError = function (error) {
+        console.log(error);
+    };
+    DemandeFinancementService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], angularfire2_database__WEBPACK_IMPORTED_MODULE_0__["AngularFireDatabase"]])
+    ], DemandeFinancementService);
+    return DemandeFinancementService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/service/fournisseur.service.ts":
 /*!************************************************!*\
   !*** ./src/app/service/fournisseur.service.ts ***!
@@ -27921,6 +28146,9 @@ var FournisseurService = /** @class */ (function () {
         var ref = this.refFournisseurRef.push(f);
         ref.update({ key: ref.key });
         return ref;
+    };
+    FournisseurService.prototype.getFournisseurList = function () {
+        return this.refFournisseurRef;
     };
     FournisseurService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -27987,6 +28215,127 @@ var LigneCreditService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/service/list-produit.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/service/list-produit.service.ts ***!
+  \*************************************************/
+/*! exports provided: ListProduitService, Upload */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListProduitService", function() { return ListProduitService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Upload", function() { return Upload; });
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/storage */ "./node_modules/firebase/storage/dist/index.esm.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+ // <----
+/*
+  Generated class for the ProduitService Service.
+
+  See https://angular.io/guide/dependency-injection for more info on Services
+  and Angular DI.
+*/
+var ListProduitService = /** @class */ (function () {
+    function ListProduitService(http, db) {
+        this.http = http;
+        this.db = db;
+        this.dbPath = 'list-produits-db';
+        this.basePath = '/uploads';
+        this.produitRef = null;
+        console.log('Hello ProduitService Service');
+        this.produitRef = this.db.list(this.dbPath);
+    }
+    ListProduitService.prototype.addToList = function (p) {
+        var key = this.db.createPushId();
+        p.key = key;
+        var ref = this.produitRef.push(p);
+        ref.update({ key: ref.key });
+        return ref;
+    };
+    ListProduitService.prototype.updateProduit = function (key, value) {
+        var _this = this;
+        this.produitRef.update(key, value).catch(function (error) { return _this.handleError(error); });
+    };
+    ListProduitService.prototype.deleteProduit = function (key) {
+        var _this = this;
+        this.produitRef.remove(key).catch(function (error) { return _this.handleError(error); });
+    };
+    ListProduitService.prototype.getProduitList = function () {
+        return this.produitRef;
+    };
+    ListProduitService.prototype.deleteAll = function () {
+        var _this = this;
+        this.produitRef.remove().catch(function (error) { return _this.handleError(error); });
+    };
+    ListProduitService.prototype.handleError = function (error) {
+        console.log(error);
+    };
+    ListProduitService.prototype.pushUpload = function (upload) {
+        var _this = this;
+        var storage = firebase_app__WEBPACK_IMPORTED_MODULE_3__["storage"]();
+        var storageRef = storage.ref();
+        //let storageRef = firebase.storage().ref();
+        var uploadTask = storageRef.child(this.basePath + "/" + upload.file.name).put(upload.file);
+        uploadTask.on(firebase_app__WEBPACK_IMPORTED_MODULE_3__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
+            // upload in progress
+            //upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        }, function (error) {
+            // upload failed
+            console.log("error", error);
+        }, function () {
+            // upload success
+            console.log("success");
+            uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+                var imageUrl = downloadURL;
+                upload.url = imageUrl;
+                console.log('URL:' + imageUrl);
+            });
+            upload.name = upload.file.name;
+            _this.saveFileData(upload);
+        });
+    };
+    // Writes the file details to the realtime db
+    ListProduitService.prototype.saveFileData = function (upload) {
+        this.db.list(this.basePath + "/").push(upload);
+    };
+    ListProduitService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], angularfire2_database__WEBPACK_IMPORTED_MODULE_0__["AngularFireDatabase"]])
+    ], ListProduitService);
+    return ListProduitService;
+}());
+
+var Upload = /** @class */ (function () {
+    function Upload(file) {
+        //progress:number;
+        this.createdAt = new Date();
+        this.file = file;
+    }
+    return Upload;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/service/magasin.service.ts":
 /*!********************************************!*\
   !*** ./src/app/service/magasin.service.ts ***!
@@ -28032,8 +28381,11 @@ var MagasinService = /** @class */ (function () {
         console.log('creation magasin service', p);
         var key = this.db.createPushId();
         p.key = key;
+        p.idMagasin = key;
         p.isValid = false;
-        this.magasinRef.set(key, p);
+        var ref = this.magasinRef.push(p);
+        ref.update({ key: ref.key });
+        return ref;
     };
     MagasinService.prototype.updateMagasin = function (key, value) {
         var _this = this;
@@ -29271,7 +29623,7 @@ var CreateActiviteDialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-dialog-content class=\"mat-typography\">\n        <div class=\"title\">\n            <h2 mat-dialog-title >Creation Boutique</h2>\n            </div>\n    <form class=\"example-container\">\n          <div fxLayout=\"column\" fxFlex=\"50px\">\n              \n              <div fxLayout=\"row\" style=\"margin-top: 10%;\"fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                      <mat-form-field >\n                          <input matInput placeholder=\"Nom Boutique\" [(ngModel)]=\"boutique.nom\" [formControl]=\"nom\">\n                        </mat-form-field>\n                  </div>\n                  <div style=\"margin-left: 130%;\">\n                      <mat-form-field >\n                          <input matInput placeholder=\"Reference\" [(ngModel)]=\"boutique.ref\" [formControl]=\"ref\">\n                        </mat-form-field>\n                  </div>\n              </div>\n              <div fxLayout=\"row\" style=\"margin-top: -38%;\"fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                        <mat-form-field style=\"width: 200%;\">\n                                <textarea matInput placeholder=\"Description\" [(ngModel)]=\"boutique.description\" [formControl]=\"description\" ></textarea>\n                         </mat-form-field>\n                        \n                  </div>\n                  \n              </div>\n              <div fxLayout=\"row\" style=\"margin-top: 40%;\">\n                   \n                    <div>     <h4 mat-dialog-title >Ajout Logo</h4>\n                      <mat-dialog-actions style=\"margin-left: 88px;margin-top: -46%;\">\n                              <input  style=\"display: none\" \n                              type=\"file\" (change)=\"onFileChanged($event)\" \n                              #fileInput>\n                            <button  mat-fab color=\"primary\"  (click)=\"fileInput.click()\"><mat-icon matPrefix>import_export</mat-icon></button>\n                              <!--<button mat-fab color=\"primary\" class=\"\">Ajout</button>-->\n                      </mat-dialog-actions>   \n                    </div>\n                    <div >\n                          <mat-form-field style=\"margin-left:14%;\" >\n                              \n                                  <mat-select placeholder=\"Proprietaire\" >\n                                    <mat-option value=\"option\">Fournisseur N</mat-option>\n                                  </mat-select>\n                              </mat-form-field>\n                    </div>\n                </div>\n              <div fxLayout=\"row\" >\n                  \n                    <div>\n                                    <h2 mat-dialog-title>Ajouter Adresse </h2>\n                                    <form class=\"add-adresscontainer\">\n                                            <div fxLayout=\"column\" fxFlex=\"100px\">\n                                                <div fxLayout=\"row\">\n                                                    <div>\n                                                    <mat-form-field style =\"width: 35%; margin-left: 6%;\">\n                                                        <input matInput placeholder=\"No\" [(ngModel)]=\"boutique.no\" [formControl]=\"no\">\n                                                    </mat-form-field>\n                                                    </div>\n                                                \n                                                <div>\n                                                \n                                                      <mat-form-field style=\"width: 200%;\">\n                                                        <textarea matInput placeholder=\"Rue\" [(ngModel)]=\"boutique.rue\" [formControl]=\"rue\"></textarea>\n                                                      </mat-form-field>\n                                                \n                                                </div>\n                                            </div>\n                                            <div fxLayout=\"row\" style=\"margin-top: -20%;\">\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%; margin-left: 6%;\">\n                                                                    <input matInput placeholder=\" Code postal\" [(ngModel)]=\"boutique.codep\" [formControl]=\"codep\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%\">\n                                                                    <input matInput placeholder=\"Ville\" [(ngModel)]=\"boutique.ville\" [formControl]=\"ville\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                             </div>\n                                                <div fxLayout=\"row\" style=\"margin-top:-7%;margin-left: 10%\">\n                                                        <div>\n                                                                <label >Pays</label>\n                                                                <mat-form-field style=\"width: 100%;\">\n                                                                <mat-select required  >\n                                                                        <mat-option>-- None --</mat-option>\n                                                                        <mat-option value=\"option\">Senegal</mat-option>\n                                                                        <mat-option value=\"option\">France</mat-option>\n                                                                        <mat-option value=\"option\">Canada</mat-option>\n                                                                </mat-select>\n                                                                </mat-form-field>\n                                                        </div>\n                                                        \n                                                </div>\n                                             </div>\n                                     </form>\n                          \n                    </div>\n                                   \n                </div>\n            </div>\n       \n      \n    </form>\n    </mat-dialog-content>\n    <mat-dialog-actions align=\"end\">\n      <button mat-raised-button color=\"warn\" mat-dialog-close>Cancel</button>\n      <button mat-raised-button color=\"accent\" [mat-dialog-close]=\"true\" cdkFocusInitial (click)=\"createNewBoutique()\">Inscrire</button>\n    </mat-dialog-actions>"
+module.exports = "\n<mat-dialog-content class=\"mat-typography\">\n        <div class=\"title\">\n            <h2 mat-dialog-title >Creation Boutique</h2>\n            </div>\n    <form class=\"example-container\">\n          <div fxLayout=\"column\" fxFlex=\"50px\">\n              \n              <div fxLayout=\"row\" style=\"margin-top: 10%;\"fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                      <mat-form-field >\n                          <input matInput placeholder=\"Nom Boutique\" [(ngModel)]=\"boutique.nom\" [formControl]=\"nom\">\n                        </mat-form-field>\n                  </div>\n                  <div style=\"margin-left: 130%;\">\n                      <mat-form-field >\n                          <input matInput placeholder=\"Reference\" [(ngModel)]=\"boutique.ref\" [formControl]=\"ref\">\n                        </mat-form-field>\n                  </div>\n                  <div style=\"margin-left: 130%;\">\n                        <mat-form-field>\n                                <mat-select placeholder=\"Magasin\" [(ngModel)]=\"magasin.idMagasin\" [formControl]=\"idMagasin\">\n\n                                    <mat-option *ngFor=\"let m of magasinList\" [value]=\"m.idMagasin\" >{{m.nom}}</mat-option>\n\n                                </mat-select>\n                           </mat-form-field>\n                           \n                    </div>\n\n              </div>\n              <div fxLayout=\"row\" style=\"margin-top: -38%;\"fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                        <mat-form-field style=\"width: 200%;\">\n                                <textarea matInput placeholder=\"Description\" [(ngModel)]=\"boutique.description\" [formControl]=\"description\" ></textarea>\n                         </mat-form-field>\n                        \n                  </div>\n                  \n              </div>\n              <!-- <div fxLayout=\"row\" style=\"margin-top: 40%;\">\n                   \n                    <div>     <h4 mat-dialog-title >Ajout Logo</h4>\n                      <mat-dialog-actions style=\"margin-left: 88px;margin-top: -46%;\">\n                              <input  style=\"display: none\" \n                              type=\"file\" (change)=\"onFileChanged($event)\" \n                              #fileInput>\n                            <button  mat-fab color=\"primary\"  (click)=\"fileInput.click()\"><mat-icon matPrefix>import_export</mat-icon></button>\n                             \n                      </mat-dialog-actions>   \n                    </div>\n                    <div >\n                          <mat-form-field style=\"margin-left:14%;\" >\n                              \n                                  <mat-select placeholder=\"Proprietaire\" >\n                                    <mat-option value=\"option\">Fournisseur N</mat-option>\n                                  </mat-select>\n                              </mat-form-field>\n                    </div>\n                </div> -->\n              <div fxLayout=\"row\" >\n                  \n                    <div>\n                                    <h2 mat-dialog-title>Ajouter Adresse </h2>\n                                    <form class=\"add-adresscontainer\">\n                                            <div fxLayout=\"column\" fxFlex=\"100px\">\n                                                <div fxLayout=\"row\">\n                                                    <div>\n                                                    <mat-form-field style =\"width: 35%; margin-left: 6%;\">\n                                                        <input matInput placeholder=\"No\" [(ngModel)]=\"boutique.no\" [formControl]=\"no\">\n                                                    </mat-form-field>\n                                                    </div>\n                                                \n                                                <div>\n                                                \n                                                      <mat-form-field style=\"width: 200%;\">\n                                                        <textarea matInput placeholder=\"Rue\" [(ngModel)]=\"boutique.rue\" [formControl]=\"rue\"></textarea>\n                                                      </mat-form-field>\n                                                \n                                                </div>\n                                            </div>\n                                            <div fxLayout=\"row\" style=\"margin-top: -20%;\">\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%; margin-left: 6%;\">\n                                                                    <input matInput placeholder=\" Code postal\" [(ngModel)]=\"boutique.codep\" [formControl]=\"codep\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%\">\n                                                                    <input matInput placeholder=\"Ville\" [(ngModel)]=\"boutique.ville\" [formControl]=\"ville\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                             </div>\n                                                <div fxLayout=\"row\" style=\"margin-top:-7%;margin-left: 10%\">\n                                                        <div>\n                                                                <label >Pays</label>\n                                                                <mat-form-field style=\"width: 100%;\">\n                                                                <mat-select required  >\n                                                                        <mat-option>-- None --</mat-option>\n                                                                        <mat-option value=\"option\">Senegal</mat-option>\n                                                                        <mat-option value=\"option\">France</mat-option>\n                                                                        <mat-option value=\"option\">Canada</mat-option>\n                                                                </mat-select>\n                                                                </mat-form-field>\n                                                        </div>\n                                                        \n                                                </div>\n                                             </div>\n                                     </form>\n                          \n                    </div>\n                                   \n                </div>\n            </div>\n       \n      \n    </form>\n    </mat-dialog-content>\n    <mat-dialog-actions align=\"end\">\n      <button mat-raised-button color=\"warn\" mat-dialog-close>Cancel</button>\n      <button mat-raised-button color=\"accent\" [mat-dialog-close]=\"true\" cdkFocusInitial (click)=\"createNewBoutique()\">Inscrire</button>\n    </mat-dialog-actions>"
 
 /***/ }),
 
@@ -29299,6 +29651,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/service/boutique.service */ "./src/app/service/boutique.service.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29311,11 +29666,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var CreateBoutiqueDialogComponent = /** @class */ (function () {
-    function CreateBoutiqueDialogComponent(boutiqueService) {
+    function CreateBoutiqueDialogComponent(boutiqueService, db, session) {
         this.boutiqueService = boutiqueService;
+        this.db = db;
+        this.session = session;
         this.hide = true;
         this.boutique = {};
+        this.dbPath = 'magasins-db';
+        this.utilisateur = {};
+        this.magasin = {};
+        this.magasinList = [];
         this.adresse = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.ref = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.description = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
@@ -29324,17 +29687,40 @@ var CreateBoutiqueDialogComponent = /** @class */ (function () {
         this.rue = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.codep = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.ville = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
+        this.idMagasin = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
+        this.getMagasin();
     }
+    CreateBoutiqueDialogComponent.prototype.getMagasin = function () {
+        var _this = this;
+        this.utilisateur = this.session.get("utilisateur");
+        this.db.list(this.dbPath, function (ref) { return ref
+            .orderByChild('nIdProprietaire')
+            .equalTo(_this.utilisateur.fkey); })
+            .valueChanges()
+            .subscribe(function (res) {
+            _this.magasinList.push(res);
+            _this.magasinList = res;
+        });
+        //this.magasin.nom = this.magasinList[0].value;
+        // Object.assign({}, this.magasinList)
+        console.log("idMagasin ", this.magasin.idMagasin);
+    };
     CreateBoutiqueDialogComponent.prototype.ngOnInit = function () {
     };
     CreateBoutiqueDialogComponent.prototype.onFileChanged = function (event) {
         var file = event.target.files[0];
     };
-    // email = new FormControl('', [Validators.required, Validators.email]);
-    // getErrorMessage() {
-    //   return this.email.hasError('required') ? 'Vous devez entrer une adresse!' :
-    //       this.email.hasError('email') ? 'Email invalide!' :
-    //           '';
+    // getListeBoutique(){
+    //   this.utilisateur = this.session.get("utilisateur")
+    //   this.crudComp = parCrud;
+    //   this.db.list(this.dbPath, ref => ref
+    //   .orderByChild('nIdProprietaire')
+    //   .equalTo(this.utilisateur.fkey))
+    //   .valueChanges()
+    //   .subscribe(res => {
+    //     FoMagasinListComponent.magasinList.push(res);
+    //     this.dataSource.data = res;
+    //   })
     // }
     CreateBoutiqueDialogComponent.prototype.createNewBoutique = function () {
         console.log(this.boutique);
@@ -29346,7 +29732,9 @@ var CreateBoutiqueDialogComponent = /** @class */ (function () {
             rue: this.boutique.no,
             codep: this.boutique.codep,
             ville: this.boutique.ville,
-            nIdProprietaire: 0,
+            nIdProprietaire: "",
+            idBoutique: "",
+            fidMagasin: this.magasin.idMagasin,
             isValid: false
         });
         this.boutique = {};
@@ -29357,7 +29745,7 @@ var CreateBoutiqueDialogComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create-boutique-dialog.component.html */ "./src/app/shared-front/shared/crudPopups/crudPopup/create-boutique-dialog/create-boutique-dialog.component.html"),
             styles: [__webpack_require__(/*! ./create-boutique-dialog.component.scss */ "./src/app/shared-front/shared/crudPopups/crudPopup/create-boutique-dialog/create-boutique-dialog.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__["BoutiqueService"]])
+        __metadata("design:paramtypes", [app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__["BoutiqueService"], angularfire2_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"], angular_web_storage__WEBPACK_IMPORTED_MODULE_3__["SessionStorageService"]])
     ], CreateBoutiqueDialogComponent);
     return CreateBoutiqueDialogComponent;
 }());
@@ -30118,7 +30506,7 @@ var CreateLigneDepotDialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-dialog-content class=\"mat-typography\">\n        <div class=\"title\">\n            <h2 mat-dialog-title >Creation Magasin</h2>\n            </div>\n    <form class=\"example-container\">\n          <div fxLayout=\"column\" fxFlex=\"50px\">\n              \n              <div fxLayout=\"row\" style=\"margin-top: 10%;\" fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                      <mat-form-field >\n                          <input matInput placeholder=\"Nom Magasin\" [(ngModel)]=\"magasin.nom\" [formControl]=\"nom\">\n                        </mat-form-field>\n                  </div>\n                  <div style=\"margin-left: 130%;\">\n                        <mat-form-field >\n                          <input matInput placeholder=\"Reference\" [(ngModel)]=\"magasin.ref\" [formControl]=\"ref\">\n                        </mat-form-field>\n                  </div>\n              </div>\n              <div fxLayout=\"row\" style=\"margin-top: -38%;\"fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                        <mat-form-field style=\"width: 200%;\">\n                                <textarea matInput placeholder=\"Description \" [(ngModel)]=\"magasin.description\" [formControl]=\"description\"></textarea>\n                         </mat-form-field>\n                        \n                  </div>\n                  \n              </div>\n              <div fxLayout=\"row\" style=\"margin-top: 40%;\">\n                   \n                    <div>     <h4 mat-dialog-title >Ajout Logo</h4>\n                      <mat-dialog-actions style=\"margin-left: 88px;margin-top: -46%;\">\n                              <input  style=\"display: none\" \n                              type=\"file\" (change)=\"onFileChanged($event)\" \n                              #fileInput>\n                            <button  mat-fab color=\"primary\"  (click)=\"fileInput.click()\"><mat-icon matPrefix>import_export</mat-icon></button>\n                              <!--<button mat-fab color=\"primary\" class=\"\">Ajout</button>-->\n                      </mat-dialog-actions>   \n                    </div>\n                    <div style=\"margin-top:-21%\" style=\"margin-left:38%;\">\n                          <mat-form-field >\n                                  <mat-select placeholder=\"Proprietaire\" >\n                                    <mat-option value=\"option\">Fournisseur N</mat-option>\n                                  </mat-select>\n                              </mat-form-field>\n                    </div>\n                </div>\n                <div>\n                        <mat-form-field >\n                            <input matInput placeholder=\"Email Fournisseur\" [(ngModel)]=\"magasin.email\" [formControl]=\"nom\">\n                          </mat-form-field>\n                    </div>\n                 \n                    <div>\n                        <mat-form-field >\n                            <input matInput placeholder=\"Adresse Magasin\" [(ngModel)]=\"magasin.adresse\" [formControl]=\"nom\">\n                          </mat-form-field>\n                    </div>\n\n              <!-- <div fxLayout=\"row\" >\n                  \n                    <div>\n                                    <h2 mat-dialog-title>Adresse Emplacement</h2>\n                                    <form class=\"add-adresscontainer\">\n                                            <div fxLayout=\"column\" fxFlex=\"100px\">\n                                                <div fxLayout=\"row\">\n                                                    <div>\n                                                    <mat-form-field style =\"width: 35%; margin-left: 6%;\">\n                                                        <input matInput placeholder=\"No\">\n                                                    </mat-form-field>\n                                                    </div>\n                                                \n                                                <div>\n                                                \n                                                      <mat-form-field style=\"width: 200%;\">\n                                                        <textarea matInput placeholder=\"Rue\"></textarea>\n                                                      </mat-form-field>\n                                                \n                                                </div>\n                                            </div>\n                                            <div fxLayout=\"row\" style=\"margin-top: -20%;\">\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%; margin-left: 6%;\">\n                                                                    <input matInput placeholder=\" Code postal\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%\">\n                                                                    <input matInput placeholder=\"Ville\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                             </div>\n                                                <div fxLayout=\"row\" style=\"margin-top: -7%;margin-left: 10%\">\n                                                                <div style=\"width: 100%;\">\n                                                                                <mat-form-field >\n                                                                                <mat-select placeholder=\"Pays\"   >\n                                                                                        <mat-option>-- None --</mat-option>\n                                                                                        <mat-option value=\"option\">Senegal</mat-option>\n                                                                                        <mat-option value=\"option\">France</mat-option>\n                                                                                        <mat-option value=\"option\">Canada</mat-option>\n                                                                                </mat-select>\n                                                                                </mat-form-field>\n                                                                 </div>\n                                                        \n                                                </div>\n                                             </div>\n                                     </form>\n                          \n                                    </div>\n                                   \n                </div>\n                <div fxLayout=\"row\" >\n                        <div>\n                                        <h2 mat-dialog-title>Ajouter Contact</h2>\n                                        <form class=\"add-adresscontainer\">\n                                                <div fxLayout=\"column\" fxFlex=\"100px\">\n                                                    <div fxLayout=\"row\">\n                                                        <div>\n                                                        <mat-form-field style =\"width: 35%; margin-left: 6%;\">\n                                                            <input matInput placeholder=\"No\">\n                                                        </mat-form-field>\n                                                        </div>\n                                                    \n                                                    <div>\n                                                    \n                                                          <mat-form-field style=\"width: 200%;\">\n                                                            <textarea matInput placeholder=\"Rue\"></textarea>\n                                                          </mat-form-field>\n                                                    \n                                                    </div>\n                                                </div>\n                                                <div fxLayout=\"row\" style=\"margin-top: -20%;\">\n                                                        <div>\n                                                                <mat-form-field style =\"width: 55%; margin-left: 6%;\">\n                                                                        <input matInput placeholder=\" Code postal\">\n                                                                      </mat-form-field>\n                                                        </div>\n                                                        <div>\n                                                                <mat-form-field style =\"width: 55%\">\n                                                                        <input matInput placeholder=\"Ville\">\n                                                                      </mat-form-field>\n                                                        </div>\n                                                 </div>\n                                                    <div fxLayout=\"row\" style=\"margin-top: -7%; \">\n                                                                <div style=\"width: 100%; margin-left: 10%\">\n                                                                                <mat-form-field >\n                                                                                <mat-select placeholder=\"Pays\"   >\n                                                                                        <mat-option>-- None --</mat-option>\n                                                                                        <mat-option value=\"option\">Senegal</mat-option>\n                                                                                        <mat-option value=\"option\">France</mat-option>\n                                                                                        <mat-option value=\"option\">Canada</mat-option>\n                                                                                </mat-select>\n                                                                                </mat-form-field>\n                                                                 </div>\n                                                        \n                                                            <div style=\"margin-left: 92%;margin-top: -3%;\" >\n                                                                    <mat-form-field  hintLabel=\"Max 10 chiffres\" >\n                                                                        <input matInput placeholder=\"Telephone\" #input maxlength=\"10\" >\n                                                                        <mat-icon matSuffix>phone</mat-icon>\n                                                                      </mat-form-field>\n                                                                </div>\n                                                    </div>\n                                                    <div fxLayout=\"row\" style=\"margin-top: -12%;\">\n                                                            <div style=\" margin-left: 6%;\">\n                                                                    <mat-form-field>\n                                                                      <input matInput placeholder=\"Enter your email\" [(ngModel)]=\"magasin.email\" name=\"email\" [formControl]=\"email\" required>\n                                                                      <!-- <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error> -->\n                                                                    <!-- </mat-form-field>\n                                                            </div>\n                                                            <div>\n                                                                    <mat-dialog-actions style=\"margin-left:6px; margin-top: 2%\">\n                                                                            <button mat-raised-button color=\"accent\" class=\"\">Ajout</button>\n                                                                          </mat-dialog-actions>\n                                                              \n                                                            </div>\n                                                            \n                                                        </div>\n                                                 </div>\n                                         </form>\n                              \n                                        </div>\n                </div>  -->\n            </div>\n       \n      \n    </form>\n    </mat-dialog-content>\n    <mat-dialog-actions align=\"end\">\n      <button mat-raised-button color=\"warn\" mat-dialog-close>Cancel</button>\n      <button mat-raised-button color=\"accent\" [mat-dialog-close]=\"true\" cdkFocusInitial (click)=\"createNewMagasin()\">Inscrire</button>\n    </mat-dialog-actions>"
+module.exports = "\n<mat-dialog-content class=\"mat-typography\">\n        <div class=\"title\">\n            <h2 mat-dialog-title >Creation Magasin</h2>\n            </div>\n    <form class=\"example-container\">\n          <div fxLayout=\"column\" fxFlex=\"50px\">\n              \n              <div fxLayout=\"row\" style=\"margin-top: 10%;\" fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                      <mat-form-field >\n                          <input matInput placeholder=\"Nom Magasin\" [(ngModel)]=\"magasin.nom\" [formControl]=\"nom\">\n                        </mat-form-field>\n                  </div>\n                  <div style=\"margin-left: 130%;\">\n                        <mat-form-field >\n                          <input matInput placeholder=\"Reference\" [(ngModel)]=\"magasin.ref\" [formControl]=\"ref\">\n                        </mat-form-field>\n                  </div>\n              </div>\n              <div fxLayout=\"row\" style=\"margin-top: -38%;\"fxLayout.xs=\"column\" fxLayoutGap=\"5px\">\n                  <div>\n                        <mat-form-field style=\"width: 200%;\">\n                                <textarea matInput placeholder=\"Description \" [(ngModel)]=\"magasin.description\" [formControl]=\"description\"></textarea>\n                         </mat-form-field>\n                        \n                  </div>\n                  \n              </div>\n              <!-- <div fxLayout=\"row\" style=\"margin-top: 40%;\">\n                   \n                    <div>     <h4 mat-dialog-title >Ajout Logo</h4>\n                      <mat-dialog-actions style=\"margin-left: 88px;margin-top: -46%;\">\n                              <input  style=\"display: none\" \n                              type=\"file\" (change)=\"onFileChanged($event)\" \n                              #fileInput>\n                            <button  mat-fab color=\"primary\"  (click)=\"fileInput.click()\"><mat-icon matPrefix>import_export</mat-icon></button>\n                              <button mat-fab color=\"primary\" class=\"\">Ajout</button>\n                      </mat-dialog-actions>   \n                    </div>\n                    <div style=\"margin-top:-21%\" style=\"margin-left:38%;\">\n                          <mat-form-field >\n                                  <mat-select placeholder=\"Proprietaire\" >\n                                    <mat-option value=\"option\">Fournisseur N</mat-option>\n                                  </mat-select>\n                              </mat-form-field>\n                    </div>\n                </div> -->\n                <div>\n                        <mat-form-field >\n                            <input matInput placeholder=\"Email Fournisseur\" [(ngModel)]=\"magasin.email\" [formControl]=\"nom\">\n                          </mat-form-field>\n                    </div>\n                 \n                    <div>\n                        <mat-form-field >\n                            <input matInput placeholder=\"Adresse Magasin\" [(ngModel)]=\"magasin.adresse\" [formControl]=\"nom\">\n                          </mat-form-field>\n                    </div>\n\n              <!-- <div fxLayout=\"row\" >\n                  \n                    <div>\n                                    <h2 mat-dialog-title>Adresse Emplacement</h2>\n                                    <form class=\"add-adresscontainer\">\n                                            <div fxLayout=\"column\" fxFlex=\"100px\">\n                                                <div fxLayout=\"row\">\n                                                    <div>\n                                                    <mat-form-field style =\"width: 35%; margin-left: 6%;\">\n                                                        <input matInput placeholder=\"No\">\n                                                    </mat-form-field>\n                                                    </div>\n                                                \n                                                <div>\n                                                \n                                                      <mat-form-field style=\"width: 200%;\">\n                                                        <textarea matInput placeholder=\"Rue\"></textarea>\n                                                      </mat-form-field>\n                                                \n                                                </div>\n                                            </div>\n                                            <div fxLayout=\"row\" style=\"margin-top: -20%;\">\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%; margin-left: 6%;\">\n                                                                    <input matInput placeholder=\" Code postal\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                                    <div>\n                                                            <mat-form-field style =\"width: 55%\">\n                                                                    <input matInput placeholder=\"Ville\">\n                                                                  </mat-form-field>\n                                                    </div>\n                                             </div>\n                                                <div fxLayout=\"row\" style=\"margin-top: -7%;margin-left: 10%\">\n                                                                <div style=\"width: 100%;\">\n                                                                                <mat-form-field >\n                                                                                <mat-select placeholder=\"Pays\"   >\n                                                                                        <mat-option>-- None --</mat-option>\n                                                                                        <mat-option value=\"option\">Senegal</mat-option>\n                                                                                        <mat-option value=\"option\">France</mat-option>\n                                                                                        <mat-option value=\"option\">Canada</mat-option>\n                                                                                </mat-select>\n                                                                                </mat-form-field>\n                                                                 </div>\n                                                        \n                                                </div>\n                                             </div>\n                                     </form>\n                          \n                                    </div>\n                                   \n                </div>\n                <div fxLayout=\"row\" >\n                        <div>\n                                        <h2 mat-dialog-title>Ajouter Contact</h2>\n                                        <form class=\"add-adresscontainer\">\n                                                <div fxLayout=\"column\" fxFlex=\"100px\">\n                                                    <div fxLayout=\"row\">\n                                                        <div>\n                                                        <mat-form-field style =\"width: 35%; margin-left: 6%;\">\n                                                            <input matInput placeholder=\"No\">\n                                                        </mat-form-field>\n                                                        </div>\n                                                    \n                                                    <div>\n                                                    \n                                                          <mat-form-field style=\"width: 200%;\">\n                                                            <textarea matInput placeholder=\"Rue\"></textarea>\n                                                          </mat-form-field>\n                                                    \n                                                    </div>\n                                                </div>\n                                                <div fxLayout=\"row\" style=\"margin-top: -20%;\">\n                                                        <div>\n                                                                <mat-form-field style =\"width: 55%; margin-left: 6%;\">\n                                                                        <input matInput placeholder=\" Code postal\">\n                                                                      </mat-form-field>\n                                                        </div>\n                                                        <div>\n                                                                <mat-form-field style =\"width: 55%\">\n                                                                        <input matInput placeholder=\"Ville\">\n                                                                      </mat-form-field>\n                                                        </div>\n                                                 </div>\n                                                    <div fxLayout=\"row\" style=\"margin-top: -7%; \">\n                                                                <div style=\"width: 100%; margin-left: 10%\">\n                                                                                <mat-form-field >\n                                                                                <mat-select placeholder=\"Pays\"   >\n                                                                                        <mat-option>-- None --</mat-option>\n                                                                                        <mat-option value=\"option\">Senegal</mat-option>\n                                                                                        <mat-option value=\"option\">France</mat-option>\n                                                                                        <mat-option value=\"option\">Canada</mat-option>\n                                                                                </mat-select>\n                                                                                </mat-form-field>\n                                                                 </div>\n                                                        \n                                                            <div style=\"margin-left: 92%;margin-top: -3%;\" >\n                                                                    <mat-form-field  hintLabel=\"Max 10 chiffres\" >\n                                                                        <input matInput placeholder=\"Telephone\" #input maxlength=\"10\" >\n                                                                        <mat-icon matSuffix>phone</mat-icon>\n                                                                      </mat-form-field>\n                                                                </div>\n                                                    </div>\n                                                    <div fxLayout=\"row\" style=\"margin-top: -12%;\">\n                                                            <div style=\" margin-left: 6%;\">\n                                                                    <mat-form-field>\n                                                                      <input matInput placeholder=\"Enter your email\" [(ngModel)]=\"magasin.email\" name=\"email\" [formControl]=\"email\" required>\n                                                                      <!-- <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error> -->\n                                                                    <!-- </mat-form-field>\n                                                            </div>\n                                                            <div>\n                                                                    <mat-dialog-actions style=\"margin-left:6px; margin-top: 2%\">\n                                                                            <button mat-raised-button color=\"accent\" class=\"\">Ajout</button>\n                                                                          </mat-dialog-actions>\n                                                              \n                                                            </div>\n                                                            \n                                                        </div>\n                                                 </div>\n                                         </form>\n                              \n                                        </div>\n                </div>  -->\n            </div>\n       \n      \n    </form>\n    </mat-dialog-content>\n    <mat-dialog-actions align=\"end\">\n      <button mat-raised-button color=\"warn\" mat-dialog-close>Cancel</button>\n      <button mat-raised-button color=\"accent\" [mat-dialog-close]=\"true\" cdkFocusInitial (click)=\"createNewMagasin()\">Inscrire</button>\n    </mat-dialog-actions>"
 
 /***/ }),
 
@@ -30146,6 +30534,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var app_service_magasin_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/service/magasin.service */ "./src/app/service/magasin.service.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -30158,15 +30547,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var CreateMagasinDialogComponent = /** @class */ (function () {
-    function CreateMagasinDialogComponent(magasinService) {
+    function CreateMagasinDialogComponent(magasinService, session) {
         this.magasinService = magasinService;
+        this.session = session;
         this.hide = true;
         this.magasin = {};
+        this.utilisateur = {};
         this.email = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.nom = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.ref = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.description = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
+        this.utilisateur = this.session.get("utilisateur");
+        console.log("idFrouniss ", this.session.get("utilisateur"));
     }
     CreateMagasinDialogComponent.prototype.ngOnInit = function () {
     };
@@ -30180,14 +30574,15 @@ var CreateMagasinDialogComponent = /** @class */ (function () {
     // }
     CreateMagasinDialogComponent.prototype.createNewMagasin = function () {
         console.log(this.magasin);
-        this.magasinService.createMagasin({
+        var object = this.magasinService.createMagasin({
             nom: this.magasin.nom,
             ref: this.magasin.ref,
             description: this.magasin.description,
             email: this.magasin.email,
             adresse: this.magasin.adresse,
-            nIdProprietaire: 0,
-            isValid: false
+            nIdProprietaire: this.utilisateur.fkey,
+            isValid: false,
+            idMagasin: ""
         });
         this.magasin = {};
     };
@@ -30197,7 +30592,7 @@ var CreateMagasinDialogComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create-magasin-dialog.component.html */ "./src/app/shared-front/shared/crudPopups/crudPopup/create-magasin-dialog/create-magasin-dialog.component.html"),
             styles: [__webpack_require__(/*! ./create-magasin-dialog.component.scss */ "./src/app/shared-front/shared/crudPopups/crudPopup/create-magasin-dialog/create-magasin-dialog.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_magasin_service__WEBPACK_IMPORTED_MODULE_2__["MagasinService"]])
+        __metadata("design:paramtypes", [app_service_magasin_service__WEBPACK_IMPORTED_MODULE_2__["MagasinService"], angular_web_storage__WEBPACK_IMPORTED_MODULE_3__["SessionStorageService"]])
     ], CreateMagasinDialogComponent);
     return CreateMagasinDialogComponent;
 }());
@@ -30375,6 +30770,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var app_service_produit_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/service/produit.service */ "./src/app/service/produit.service.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -30388,6 +30784,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 //  export class AppComponent {
 //    constructor(private afStorage: AngularFireStorage) { }
 //    upload(event) {
@@ -30395,15 +30792,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //    }
 //  }
 var CreateProduitDialogComponent = /** @class */ (function () {
-    function CreateProduitDialogComponent(produitService) {
+    function CreateProduitDialogComponent(produitService, session) {
         this.produitService = produitService;
+        this.session = session;
         this.hide = true;
         this.produit = {};
+        this.utilisateur = {};
         this.code = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.designation = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.prixUnitaire = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.descriptionProduit = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.zoneGeographiqueId = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
+        this.utilisateur = this.session.get("utilisateur");
+        console.log("idFrouniss ", this.session.get("utilisateur"));
     }
     CreateProduitDialogComponent.prototype.detectFiles = function (event) {
         this.selectedFiles = event.target.files;
@@ -30428,7 +30829,9 @@ var CreateProduitDialogComponent = /** @class */ (function () {
             descriptionProduit: this.produit.descriptionProduit,
             zoneGeographiqueId: 0,
             isValid: false,
-            image: this.currentUpload.url
+            image: this.currentUpload.url,
+            fidBoutique: "",
+            fidProprietaire: this.utilisateur.fkey
         });
         this.produit = {};
     };
@@ -30438,7 +30841,7 @@ var CreateProduitDialogComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create-produit-dialog.component.html */ "./src/app/shared-front/shared/crudPopups/crudPopup/create-produit-dialog/create-produit-dialog.component.html"),
             styles: [__webpack_require__(/*! ./create-produit-dialog.component.scss */ "./src/app/shared-front/shared/crudPopups/crudPopup/create-produit-dialog/create-produit-dialog.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_produit_service__WEBPACK_IMPORTED_MODULE_2__["ProduitService"]])
+        __metadata("design:paramtypes", [app_service_produit_service__WEBPACK_IMPORTED_MODULE_2__["ProduitService"], angular_web_storage__WEBPACK_IMPORTED_MODULE_3__["SessionStorageService"]])
     ], CreateProduitDialogComponent);
     return CreateProduitDialogComponent;
 }());
@@ -32671,7 +33074,7 @@ var UpdateServiceDialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-slider\">\n  <div class=\"swiper-container\" [swiper]=\"config\">\n    <div class=\"swiper-wrapper\">      \n      <div *ngFor=\"let slide of slides\" class=\"swiper-slide\">\n        <div [attr.data-background]=\"slide.image\" class=\"slide-item swiper-lazy\">\n            <div class=\"swiper-lazy-preloader swiper-lazy-preloader-white\"></div>\n            <div class=\"mask\"></div>  \n            <div fxLayout=\"column\" fxLayoutAlign=\"center center\" class=\"content\">\n              <h1>{{slide.title}}</h1>\n              <h3>{{slide.subtitle}}</h3>\n              <button mat-raised-button color=\"primary\">Acheter maintenant</button>\n            </div> \n        </div>\n      </div>\n    </div>\n    <div class=\"swiper-pagination white\"></div>\n    <button color=\"primary\" class=\"swiper-button-prev\"><!-- <mat-icon>keyboard_arrow_left </mat-icon> --></button>\n    <button color=\"primary\" class=\"swiper-button-next\"><!-- <mat-icon>keyboard_arrow_right</mat-icon> --></button>\n  </div>\n</div>"
+module.exports = "\n <div class=\"main-slider\">\n <div class=\"swiper-container\" [swiper]=\"config\">\n <!--   <div class=\"swiper-wrapper\">      \n       <div *ngFor=\"let slide of slides\" class=\"swiper-slide\">\n        <div [attr.data-background]=\"slide.image\" class=\"slide-item swiper-lazy\">\n            <div class=\"swiper-lazy-preloader swiper-lazy-preloader-white\"></div>\n            <div class=\"mask\"></div>  \n            <div fxLayout=\"column\" fxLayoutAlign=\"center center\" class=\"content\">\n              <h1>{{slide.title}}</h1>\n              <h3>{{slide.subtitle}}</h3>\n              <button mat-raised-button color=\"primary\">Acheter maintenant</button>\n            </div> \n        </div>\n      </div>\n    </div>\n    <div class=\"swiper-pagination white\">\n\n    </div>\n    <button color=\"primary\" class=\"swiper-button-prev\"><!-- <mat-icon>keyboard_arrow_left </mat-icon> --><!--</button>-->\n   <!-- <button color=\"primary\" class=\"swiper-button-next\"><!-- <mat-icon>keyboard_arrow_right</mat-icon> --><!--</button>-->\n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -33709,7 +34112,7 @@ var RouterEffects = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/store/index.ts ***!
   \********************************/
-/*! exports provided: reducers, getRouterState, CustomSerializer, effects, GO, BACK, FORWARD, Go, Back, Forward, RouterEffects */
+/*! exports provided: reducers, getRouterState, CustomSerializer, GO, BACK, FORWARD, Go, Back, Forward, effects, RouterEffects */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

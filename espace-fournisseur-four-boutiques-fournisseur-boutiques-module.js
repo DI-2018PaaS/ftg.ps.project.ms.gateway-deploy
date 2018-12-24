@@ -35,6 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/service/boutique.service */ "./src/app/service/boutique.service.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,10 +48,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var FoBoutiqueListComponent = /** @class */ (function () {
-    function FoBoutiqueListComponent(boutiqueService) {
+    function FoBoutiqueListComponent(boutiqueService, session) {
         var _this = this;
         this.boutiqueService = boutiqueService;
+        this.session = session;
         this.displayedColumns = ['nom', 'ref', 'description', 'ville', 'Details', 'Modifier', 'Supprimer'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"]();
         this.boutiqueList = [];
@@ -61,6 +64,7 @@ var FoBoutiqueListComponent = /** @class */ (function () {
             _this.dataSource.data = res;
         });
         console.log("boutiques: ", this.boutiqueList);
+        console.log(this.session.get("utilisateur"));
     }
     FoBoutiqueListComponent.prototype.ngOnInit = function () {
         this.dataSource.paginator = this.paginator;
@@ -86,7 +90,7 @@ var FoBoutiqueListComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./fourn-boutique-list.component.html */ "./src/app/espace/fournisseur/four-boutiques/boutique-list/fourn-boutique-list.component.html"),
             styles: [__webpack_require__(/*! ./fourn-boutique-list.component.scss */ "./src/app/espace/fournisseur/four-boutiques/boutique-list/fourn-boutique-list.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__["BoutiqueService"]])
+        __metadata("design:paramtypes", [app_service_boutique_service__WEBPACK_IMPORTED_MODULE_2__["BoutiqueService"], angular_web_storage__WEBPACK_IMPORTED_MODULE_3__["SessionStorageService"]])
     ], FoBoutiqueListComponent);
     return FoBoutiqueListComponent;
 }());
