@@ -35,7 +35,9 @@
                 <div class="content p-24">
                     <!--admin-sidebar></admin-sidebar-->
                     <mat-grid-list cols="1" rowHeight="2:1">
-                            <button (click)="ajoutDemandeAgrement()" disabled="{{buttonDisabled}}"  mat-raised-button color="accent" style="margin-top:1%">Soumettre une demande</button>
+                            <div class="content p-24" [hidden]="buttonDisabled">
+                                <button (click)="ajoutDemandeAgrement()"  mat-raised-button color="accent" style="margin-top:1%">Soumettre une demande</button>
+                            </div>
                             <mat-grid-tile><button mat-button class="block" (click)="openCreateBoutique()"><mat-icon>brightness_low</mat-icon> Creer Boutique</button></mat-grid-tile>
                             <mat-grid-tile><button mat-button class="block" (click)="openCreateProduit()"><mat-icon>done_outline</mat-icon> Creer Produit</button></mat-grid-tile>
                             <mat-grid-tile><button mat-button class="block" (click)="openCreateMagasin()"><mat-icon>graphic_eq</mat-icon> Creer Magasin</button></mat-grid-tile>
