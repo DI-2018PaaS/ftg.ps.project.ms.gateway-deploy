@@ -60,7 +60,7 @@
             <mat-card>
                 <div style="width:100%">
                     <mat-form-field style="width:100%">
-                        <mat-select style="width:100%" placeholder="Mode livraison" [(ngModel)]="financement.modeLivraison" [formControl]="modeLivraison">
+                        <mat-select style="width:100%" placeholder="Mode livraison" [(ngModel)]="financement.modeLivraison" (ngModelChange)="onChangeMl($event)" [formControl]="modeLivraison">
                           <mat-option value="express">Express</mat-option>
                           <mat-option value="normal">Normal</mat-option>
                         </mat-select>
@@ -71,9 +71,9 @@
             <mat-card>
                 <div style="width:100%">
                     <mat-form-field style="width:100%">
-                        <mat-select placeholder="livreur" [(ngModel)]="financement.livreur" [formControl]="livreur">
-                          <mat-option value="animateur">livreur Ndour</mat-option>
-                          <mat-option value="banque">livreur Dieng</mat-option>
+                        <mat-select placeholder="livreur" [(ngModel)]="financement.livreur" (ngModelChange)="onChangeLv($event)" [formControl]="livreur">
+                          <mat-option value="lv-ndour">livreur Ndour</mat-option>
+                          <mat-option value="lv-dieng">livreur Dieng</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

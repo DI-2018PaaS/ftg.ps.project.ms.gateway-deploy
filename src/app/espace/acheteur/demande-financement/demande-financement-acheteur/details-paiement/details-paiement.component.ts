@@ -38,12 +38,15 @@ export class DetailsPaiementComponent implements OnInit {
   livreur = new FormControl();
   produitDemande  = [];
   produitList = [];
-
-
+  lv_dieng : number;
+  lv_ndour : number;
+  express : number;
+  normal : number;
+  frais : number;
   constructor(private activatedRoute: ActivatedRoute,public db: AngularFireDatabase,
     private  demandeFinancementService : DemandeFinancementService,
     private listProduitServ : ListProduitService) { 
-
+    
     this.demandeFinancementServ =  demandeFinancementService;  
     this.listProduitServ = listProduitServ;
     var key = this.activatedRoute.snapshot.paramMap.get('id');
@@ -87,7 +90,22 @@ export class DetailsPaiementComponent implements OnInit {
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
+  onChangeLv(value){
+    if(value ==="lv_ndour"){
+    }
+  }
+
+  onChangeMl(value){
+    if(value ==="express"){
+      console.log(this.lv_ndour =+this.frais)
+    }
+  }
+
   ngOnInit() {
+    this.express = 10000;
+    this.normal  = 7000;
+    this.lv_dieng = 2000;
+    this.lv_ndour = 2500;
   }
 
 }
