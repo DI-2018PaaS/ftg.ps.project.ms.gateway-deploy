@@ -44,6 +44,10 @@ export class MagasinComponent implements OnInit {
  
  
   ELEMENT_DATA: MagasinElement[] = this.magasinList;
+
+  iSvalidate(key: string): void{
+    this.magasinService.updateMagasin(key,{isValid:true});
+   }
 }
 
 export interface MagasinElement {

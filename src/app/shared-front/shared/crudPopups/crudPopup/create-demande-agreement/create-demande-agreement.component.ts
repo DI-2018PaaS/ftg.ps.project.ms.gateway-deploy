@@ -4,8 +4,7 @@ import {FormControl, Validators} from '@angular/forms';
 import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
-
-
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 
 
 @Component({
@@ -19,18 +18,29 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
   iDTypeActeur: number;
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
-  constructor(private agreementService : AgreementService, private session:SessionStorageService) { }
+  utilisateur = {} as Utilisateur;
+  destinataire: string
+  constructor(private agreementService : AgreementService, private session:SessionStorageService) { 
+    this.utilisateur = this.session.get("utilisateur")
+    
+    if (this.utilisateur.userActeurID == 3){
+       this.destinataire = "animateur"
+    }
+    else {
+      this.destinataire = "banque"
+    }
+  }
 
   ngOnInit() {
-   this.username=this.session.get('Key').loginUser;
-   this.iDTypeActeur=this.session.get('Key').idTypeActeur;
+   //this.username=this.session.get('Key').loginUser;
+   //this.iDTypeActeur=this.session.get('Key').idTypeActeur;
   }
 
   onFileChanged(event) {
     const file = event.target.files[0]
   }
 
-  destinataireID = new FormControl();
+  //destinataireID = new FormControl();
   niveauAgreement = new FormControl();
   description = new FormControl();
  
@@ -52,7 +62,7 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
       niveauAgreement: 0,
       animateurID:"animateur",
       fournisseurID:"",
-      destinataireID:this.agreement.destinataireID,
+      destinataireID:this.destinataire,
       description:this.agreement.description,
       statutDemande:"",
       plafond:""

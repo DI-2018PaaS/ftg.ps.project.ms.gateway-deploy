@@ -46,7 +46,8 @@ constructor(private magazinService : MagasinService, public db: AngularFireDatab
       this.magasinList.push(res);
       this.dataSource.data = res;
     })
-    
+    console.log("utilisateur: ", this.utilisateur.fkey)
+    console.log("magasins: ", this.magasinList)
 	}
 	
   ngOnInit(){

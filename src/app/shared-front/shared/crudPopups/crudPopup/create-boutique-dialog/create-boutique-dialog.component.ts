@@ -28,7 +28,8 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   constructor(private boutiqueService : BoutiqueService, public db: AngularFireDatabase,private session: SessionStorageService) { 
 
     this.getMagasin();
-
+    this.utilisateur = this.session.get("utilisateur")
+    console.log("idFrouniss ",this.session.get("utilisateur"))
   }
 
   getMagasin(){
@@ -90,7 +91,7 @@ export class CreateBoutiqueDialogComponent implements OnInit {
      rue: this.boutique.no,
      codep: this.boutique.codep,
      ville: this.boutique.ville,
-     nIdProprietaire: "",
+     nIdProprietaire: this.utilisateur.fkey,
      idBoutique: "",
      fidMagasin: this.magasin.idMagasin,
      isValid:false
