@@ -4,6 +4,8 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { RegistrationService } from 'app/service/registration.service';
 
 @Component({
   selector: 'app-demande-agremment',
@@ -12,22 +14,33 @@ import { AgreementService } from 'app/service/agreement.service';
 })
 export class DemandeAgremmentComponent implements OnInit {
 
-  displayedColumns: string[] = ['description', 'destinataireID','dateCreated', 'Supprimer'];
+  displayedColumns: string[] = ['userName','userPrenom','description','dateCreated', 'status','Approuver','Rejeter'];
   dataSource = new MatTableDataSource<any>();
   agreementList = []
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   crudComp: CrudPopupComponent;
+  private dbPath = 'agreement-db';
 
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
-  constructor(private agreementService: AgreementService, private parCrud: CrudPopupComponent) {
+  constructor(private agreementService: AgreementService, private parCrud: CrudPopupComponent, public db: AngularFireDatabase) {
     console.log(this.agreementService.getAgreementList())
     this.crudComp = this.parCrud;
-    this.agreementService.getAgreementList().valueChanges().subscribe(res => {
-      this.agreementList.push(res);
-      this.dataSource.data = res;
-    })
+    // this.agreementService.getAgreementList().valueChanges().subscribe(res => {
+    //   this.agreementList.push(res);
+    //   this.dataSource.data = res;
+    // })
+    
+    this.db.list(this.dbPath, ref => ref
+      .orderByChild('destinataireID')
+      .equalTo("animateur"))
+      .valueChanges()
+      .subscribe(res => {
+        this.agreementList.push(res);
+        this.dataSource.data = res;
+      })
+
    }
 
 
@@ -48,6 +61,16 @@ export class DemandeAgremmentComponent implements OnInit {
 
 }
   ELEMENT_DATA: AgreementElement[] = this.agreementList;
+
+  approuverDemande(key: string): void{
+    this.agreementService.updateAgreement(key,{status:"approuver"});
+    ///this.utilisateurService.isAgreeUtilisateur(key,{isagreer:true});
+   }
+   
+   rejeterDemande(key: string): void{
+    this.agreementService.updateAgreement(key,{status:"rejeter"});
+   }
+
 }
 export interface AgreementElement {
     description: string;

@@ -12,8 +12,9 @@ export class Agreement
     dateCreated: string;
     dateLastModif: string;
     niveauAgreement: number;
-    animateurID: string;
-    fournisseurID: string;
+    userID: string;
+    userName: String;
+    userPrenom: String;
     destinataireID:string;
     description:string;
     statutDemande:string;
