@@ -21,13 +21,17 @@ export class BoutiqueService {
   }
 
  
-  createBoutique(p: Boutique): void {
+  createBoutique(p: Boutique) {
+    console.log('creation boutique service', p);
     const key = this.db.createPushId();
     p.key = key;
+    p.idBoutique = key;
     p.isValid= false;
-    this.boutiqueRef.set(key,p)
+    let ref = this.boutiqueRef.push(p)
+    ref.update({key : ref.key})
+    return ref;
   }
- 
+
   updateBoutique(key: string, value: any): void {
     this.boutiqueRef.update(key, value).catch(error => this.handleError(error));
   }

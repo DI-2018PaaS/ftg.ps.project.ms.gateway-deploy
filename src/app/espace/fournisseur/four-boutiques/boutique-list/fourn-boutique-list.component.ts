@@ -3,7 +3,10 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Boutique } from 'app/models/msmagasindomains/boutique/boutique.model';
 import { AngularFireList } from 'angularfire2/database';
 import { BoutiqueService } from 'app/service/boutique.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import {SessionStorageService } from 'angular-web-storage';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 
 @Component({
   selector: 'app-foboutique-list',
@@ -19,17 +22,32 @@ export class FoBoutiqueListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   hide = true;
-
+  crudComp: CrudPopupComponent;
   boutique = {} as Boutique;
   boutiqueRef$ : AngularFireList<Boutique>;
-	constructor(private boutiqueService : BoutiqueService, private session: SessionStorageService)
+  utilisateur = {} as Utilisateur;
+  private dbPath = 'boutiques-db';
+
+	constructor(private boutiqueService : BoutiqueService, public db: AngularFireDatabase,private parCrud: CrudPopupComponent, private session: SessionStorageService)
 	{
-    this.boutiqueService.getBoutiqueList().valueChanges().subscribe(res => {
+    // this.boutiqueService.getBoutiqueList().valueChanges().subscribe(res => {
+    //   this.boutiqueList.push(res);
+    //   this.dataSource.data = res;
+    // })
+
+    this.utilisateur = this.session.get("utilisateur")
+    this.crudComp = parCrud;
+    this.db.list(this.dbPath, ref => ref
+    .orderByChild('nIdProprietaire')
+    .equalTo(this.utilisateur.fkey))
+    .valueChanges()
+    .subscribe(res => {
       this.boutiqueList.push(res);
       this.dataSource.data = res;
     })
+    console.log("utilisateur: ", this.utilisateur.fkey)	
     console.log("boutiques: ", this.boutiqueList)	
-    console.log(this.session.get("utilisateur"))
+
   }
 
   ngOnInit(){
