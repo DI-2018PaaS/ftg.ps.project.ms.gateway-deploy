@@ -11,4 +11,5 @@ export class Utilisateur {
     lastConnectionDate: string;
     userActeurID: number;
     fkey:string;
+    isagreer: string
 }

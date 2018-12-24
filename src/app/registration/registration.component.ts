@@ -76,7 +76,8 @@ export class RegistrationComponent implements OnInit {
           creationDateUser: null,
           lastConnectionDate: null,
           userActeurID: this.typeActeurs[0].idActeurType,
-          fkey: AFK.key
+          fkey: AFK.key,
+          isagreer: "false"
         });
         let navigationExtras: NavigationExtras = {
           queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[0].idActeurType},
@@ -110,7 +111,9 @@ export class RegistrationComponent implements OnInit {
           creationDateUser: null,
           lastConnectionDate: null,
           userActeurID: this.typeActeurs[1].idActeurType,
-          fkey:ACFK.key
+          fkey:ACFK.key,
+          isagreer: "false"
+
         });
       
       let navigationExtras: NavigationExtras = {
@@ -145,7 +148,9 @@ export class RegistrationComponent implements OnInit {
           creationDateUser: null,
           lastConnectionDate: null,
           userActeurID: this.typeActeurs[2].idActeurType,
-          fkey:FFK.key
+          fkey:FFK.key,
+          isagreer: "false"
+
         });
       
 
@@ -160,6 +165,5 @@ export class RegistrationComponent implements OnInit {
       console.log("type doesn't exit");
     }
   }
-
 
 }
