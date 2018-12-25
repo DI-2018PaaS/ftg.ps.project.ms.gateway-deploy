@@ -92,6 +92,9 @@
                     </span-->
                 </div>
                 <div content class="content p-24">
+                <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-left-sidebar-1')">
+                    <mat-icon>menu</mat-icon>
+                </button>
                   <router-outlet></router-outlet>  
                 </div>
             </div>
