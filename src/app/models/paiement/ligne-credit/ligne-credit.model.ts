@@ -8,8 +8,8 @@ export class LigneCredit {
     description: string;
     dateCreation: string;
     dateMisAjour: string;
-    montant: string;
-    idOwner: number;
+    montant: number;
+    idOwner: string;
     nomFinancier:string;
     // ligneCredits?: IPret[];
 }
