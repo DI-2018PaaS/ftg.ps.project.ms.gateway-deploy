@@ -8,7 +8,7 @@
           <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5px">
               <div>
                   <mat-form-field>
-                      <input matInput placeholder=" Libelle" >
+                      <input matInput placeholder="Libelle" [(ngModel)]="ligneCredit.libelle" name="libelle">
                     </mat-form-field>
                  
               </div>
@@ -17,7 +17,7 @@
           <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                 <div>
                       <mat-form-field style="width: 200%;">
-                              <textarea matInput placeholder="Description"></textarea>
+                              <textarea matInput placeholder="Description" [(ngModel)]="ligneCredit.description" name="description"></textarea>
                        </mat-form-field>
                    
                 </div>
@@ -26,7 +26,7 @@
             <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                 <div>
                     <mat-form-field>
-                        <input matInput placeholder="Montant" type="number" >
+                        <input matInput placeholder="Montant" type="number" [(ngModel)]="ligneCredit.montant" name="montant">
                         <span matPrefix>$&nbsp;</span>
                       </mat-form-field>
                 </div>
@@ -64,5 +64,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial (click)="createNewLigneCredit()"><mat-icon matPrefix>save_alt</mat-icon>Enregistrer</button>
 </mat-dialog-actions>

@@ -54,19 +54,20 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
       dateAttibution: "",
       dateDebValidite: "",
       dateFinValidite: "",
-      status: true,
+      status: false,
       userCreated: 0,
       userLastModif: 0,
       dateCreated: new Date().toString(),
       dateLastModif: "",
       niveauAgreement: 0,
-      animateurID:"animateur",
-      fournisseurID:"",
+      userID:this.utilisateur.key,
+      userName: this.utilisateur.lastName,
+      userPrenom: this.utilisateur.firstName,
       destinataireID:this.destinataire,
       description:this.agreement.description,
       statutDemande:"",
       plafond:""
-
+    
     });
     this.agreement = {} as Agreement;
      }

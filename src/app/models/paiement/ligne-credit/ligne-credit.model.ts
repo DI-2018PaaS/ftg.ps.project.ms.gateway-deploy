@@ -2,16 +2,16 @@ import { Moment } from 'moment';
 import { IPret } from '../pret/pret.model';
 
 export class LigneCredit {
-    id?: number;
-    key:string;
-    idLigneCredit?: string;
-    libelle?: string;
-    description?: string;
-    dateCreation?: string;
-    dateMisAjour?: string;
-    montant?: number;
-    idOwner?: number;
-    nomFinancier?: string;
+
+    key?:string;
+    idLigneCredit: number;
+    libelle: string;
+    description: string;
+    dateCreation: string;
+    dateMisAjour: string;
+    montant: number;
+    idOwner: string;
+    nomFinancier:string;
     // ligneCredits?: IPret[];
 }
 
