@@ -3,14 +3,14 @@ import { IPret } from '../pret/pret.model';
 
 export class LigneCredit {
     key?:string;
-    idLigneCredit: string;
+    idLigneCredit: number;
     libelle: string;
     description: string;
     dateCreation: string;
     dateMisAjour: string;
     montant: string;
     idOwner: number;
-    nomFinancier: string;
+    nomFinancier:string;
     // ligneCredits?: IPret[];
 }
 
