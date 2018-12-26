@@ -21,4 +21,20 @@ export class LigneCreditService {
     ref.update({key : ref.key})
     return ref;
   }
+
+  getListLigneCredit():AngularFireList<LigneCredit>{
+    return this.refLigneCreditRef;
+  }
+
+  updateLigneCreit(key:string, value:any):void{
+    this.refLigneCreditRef.update(key,value).catch(error => this.handleError(error));
+  }
+
+  deleteLigneCredit(key:string):void{
+    this.refLigneCreditRef.remove(key).catch(error => this.handleError(error));
+  }
+
+  private handleError(error) {
+    console.log(error);
+  }
 }
