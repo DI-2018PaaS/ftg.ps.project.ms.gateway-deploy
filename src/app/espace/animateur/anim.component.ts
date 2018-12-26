@@ -47,9 +47,10 @@ export class AnimateurComponent {
         console.log("AnimateurComponent role:"+this.role);
         this.utilisateur = this.session.get("utilisateur")
 
-        console.log(this.utilisateur.isagreer)     
+        console.log("isagreer ",this.utilisateur.isagreer)     
 
-        if (this.utilisateur.isagreer){
+
+        if (this.utilisateur.isagreer == "true"){
             //this.isagreer = true
             this.buttonDisabled = true;   
         }else{
