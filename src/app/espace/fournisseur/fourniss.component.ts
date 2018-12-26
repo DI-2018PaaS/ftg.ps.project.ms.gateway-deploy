@@ -48,7 +48,7 @@ export class FournisseurComponent {
         this.utilisateur = this.session.get("utilisateur")
         console.log("isagreer: ", this.utilisateur)	
 
-        if (this.utilisateur.isagreer == "true"){
+        if (this.utilisateur.isagreer){
             this.isagreer = true
             this.buttonDisabled = true;        
         }else{

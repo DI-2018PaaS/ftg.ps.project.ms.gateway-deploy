@@ -49,10 +49,9 @@ export class AnimateurComponent {
 
         console.log("isagreer ",this.utilisateur.isagreer)     
 
-
-        if (this.utilisateur.isagreer == "true"){
+        if (this.utilisateur.isagreer){
             //this.isagreer = true
-            this.buttonDisabled = true;   
+            this.buttonDisabled = true;  
         }else{
             //this.isagreer = false
             this.buttonDisabled = false;
