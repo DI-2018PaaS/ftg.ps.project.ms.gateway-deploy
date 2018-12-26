@@ -37,11 +37,9 @@
 
                 <!-- CONTENT TOOLBAR -->
                <div class="toolbar px-24 py-8">
-                <ng-marquee duration="20">
-                    <mark>
-                        Echec remboursement<mat-icon>error</mat-icon>    Fin de Stock produit<mat-icon>error</mat-icon>    Retard livraison<mat-icon>error</mat-icon>   Retard Paiement<mat-icon>error</mat-icon>    Echéance Pret<mat-icon>error</mat-icon>
-                    </mark>
-                </ng-marquee>
+                    <div class="content p-24" [hidden]="buttonDisabled">
+                        <button (click)="ajoutDemandeAgrement()"  mat-raised-button color="accent" style="margin-top:1%">Soumettre une demande</button>
+                     </div>
                     <!--button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-left-sidebar-1')">
                         <mat-icon>menu</mat-icon>
                     </button>
