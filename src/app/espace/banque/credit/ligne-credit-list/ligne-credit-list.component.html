@@ -12,28 +12,41 @@
   <table mat-table [dataSource]="dataSource" matSort>
 
     <!-- ID Column -->
-    <ng-container matColumnDef="Denomination">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Denomination </th>
-      <td mat-cell *matCellDef="let row"> {{row.Denomination}} </td>
+    <ng-container matColumnDef="Libellé">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Libellé </th>
+      <td mat-cell *matCellDef="let row"> {{row.libelle}} </td>
     </ng-container>
 
     <!-- Progress Column -->
     <ng-container matColumnDef="Montant_Initial">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Montant_Initial </th>
-      <td mat-cell *matCellDef="let row"> {{row.Montant_Initial}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.montant}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="Nom_Financier">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom_Financier </th>
+    <td mat-cell *matCellDef="let row"> {{row.nomFinancier}} </td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="Date_Creation">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date_Creation </th>
-      <td mat-cell *matCellDef="let row"> {{row.Date_Creation}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.dateCreation}} </td>
+    </ng-container>
+
+     <!-- Name Column -->
+     <ng-container matColumnDef="Date_MiseAjour" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date_MisAjour </th>
+      <td mat-cell *matCellDef="let row"> {{row.dateMisAjour}} </td>
     </ng-container>
 
     <!-- Color Column -->
-    <ng-container matColumnDef="Attribue">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Attribue </th>
-      <td mat-cell *matCellDef="let row"> {{row.Attribue}} </td>
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+    <td mat-cell *matCellDef="let row"> {{row.description}} </td>
     </ng-container>
+    
 
     <!-- Color Column -->
     <ng-container matColumnDef="Modifier">
@@ -49,7 +62,7 @@
     <ng-container matColumnDef="Supprimer">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>
       <td mat-cell *matCellDef="let row"> {{row.Supprimer}}
-        <button mat-raised-button>
+        <button mat-raised-button (click)="deleteLigneCredit(row.key)">
           <mat-icon class="red600">delete</mat-icon>
         </button>
       </td>

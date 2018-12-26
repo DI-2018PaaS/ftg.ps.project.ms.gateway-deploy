@@ -49,13 +49,13 @@
                     <!-- CONTENT -->
                     <div fxLayout="row" fxLayoutGap="60px" fxLayout.xs="column" fxLayoutAlign="space-between center">
                         <div fxLayout="column" fxLayoutGap="20px" class="py-2">
-                            <mat-accordion>
+                           <!-- <mat-accordion>
                                 <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
+                                    <mat-expansion-panel-header>-->
                                         <mat-panel-title>
                                             <h4>Produits & services</h4>
                                         </mat-panel-title>
-                                    </mat-expansion-panel-header>
+                                    <!--</mat-expansion-panel-header>-->
                                     <div fxLayout="row" fxFlex="100" fxLayoutGap="3px">
                                         <div fxFlex="50" fxLayout="row" fxLayoutGap="1px" class="prodServBackground">
                                             <mat-card class="product-item text-center">
@@ -142,13 +142,13 @@
                                             </mat-card>
                                         </div>
                                     </div>
-                                </mat-expansion-panel>
-                                <mat-expansion-panel>
-                                    <mat-expansion-panel-header>
+                              <!---  </mat-expansion-panel>
+                               <mat-expansion-panel>
+                                    <mat-expansion-panel-header>-->
                                         <mat-panel-title>
                                             <h4>Appels d'offres</h4>
                                         </mat-panel-title>
-                                    </mat-expansion-panel-header>
+                                   <!--- </mat-expansion-panel-header>-->
                                     <mat-card fxFlex="100">
                                         <div fxLayout="row" fxLayoutGap="30px">
                                             <div>
@@ -262,13 +262,13 @@
                                         </mat-card-footer>
                                     </mat-card>
                                     <br>
-                                </mat-expansion-panel>
+                             <!---   </mat-expansion-panel>
                                 <mat-expansion-panel >
-                                    <mat-expansion-panel-header>
+                                    <mat-expansion-panel-header>-->
                                         <mat-panel-title>
                                             <h4>Enchère en cours</h4>
                                         </mat-panel-title>
-                                    </mat-expansion-panel-header>
+                                  <!---  </mat-expansion-panel-header>-->
                                     <mat-card>
                                         <mat-card-title>
                                             <div fxLayout="row" fxLayoutGap="100px">
@@ -416,16 +416,21 @@
                                         </mat-card-footer>
                                     </mat-card>
                                     <br>
-                                </mat-expansion-panel>
-                            </mat-accordion>
+                           <!--    </mat-expansion-panel>
+                          </mat-accordion>-->
                         </div>
                     </div>
                     <br>
                     </div>
+                    
+                    <div class=swip>
                     <div fxLayout="row">
                         <h2>Top Recherches</h2>
                     </div>
+                    <div class="contain-swip">
                     <app-products-carousel [products]="topRatedProducts"></app-products-carousel>
+                    </div>
+                </div>
                     <!-- / CONTENT -->
                 </div>
                 

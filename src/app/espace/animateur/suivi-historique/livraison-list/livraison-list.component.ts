@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+import { BlivraisonService } from 'app/service/blivraison.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @Component({
@@ -9,15 +12,28 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
   styleUrls: ['./livraison-list.component.scss']
 })
 export class LivraisonListComponent implements OnInit {
-  displayedColumns: string[] = ['NoLivraison', 'Emetteur', 'Date_Emission', 'Reglement', 'Details', 'Modifier', 'Supprimer'];
-  dataSource = new MatTableDataSource<CommandeElement>(ELEMENT_DATA);
-crudComp: CrudPopupComponent;
+  displayedColumns: string[] = ['objet', 'nomAcheteur', 'date', 'Details', 'valider'];
+  dataSource = new MatTableDataSource<any>();
+ 
+  crudComp: CrudPopupComponent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  blivraisonService : BlivraisonService;
 
-constructor(private parCrud: CrudPopupComponent)
+constructor(private parCrud: CrudPopupComponent, 
+  private   blivraisonServ: BlivraisonService,
+  public db: AngularFireDatabase)
 	{
-		this.crudComp=this.parCrud;
+    this.crudComp=this.parCrud;
+    this.blivraisonService = blivraisonServ; 
+    this.db.list("blivraison-db", ref => ref
+      .orderByChild('isApprovedByAnim')
+      .equalTo(false))
+      .valueChanges()
+      .subscribe(res => {
+        console.log(res)
+        this.dataSource.data = res;
+      });
 	}
   ngOnInit() {
 
@@ -32,29 +48,12 @@ constructor(private parCrud: CrudPopupComponent)
       this.dataSource.paginator.firstPage();
     }
   }
-}
-const ELEMENT_DATA: CommandeElement[] = [
-  { NoLivraison: '12340UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12350UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoLivraison: '12370UIXS', Emetteur: 'NLS', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-];
+
+  validate(key){
+    this.blivraisonServ.updateBlivraison(key,{isApprovedByAnim:true})
+  }
+  ELEMENT_DATA: CommandeElement[] = [];
+} 
 
 export interface CommandeElement {
   NoLivraison: string;

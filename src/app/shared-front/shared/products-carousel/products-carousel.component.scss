@@ -4,9 +4,27 @@
     padding: 16px 2px 2px 2px;
     .swiper-slide{
         text-align: center;
+        color:white;
+      
     }
 }
 .swiper-button-next.swiper-button-disabled, 
 .swiper-button-prev.swiper-button-disabled{
     pointer-events: auto;
+}
+img{
+    max-width:70%
+}
+.product-item{
+    background: #2e3807 !important;
+}
+.swiper-button-next{
+    right: 26px;
+    margin-top: 82%;
+    left: auto;
+}
+.swiper-button-prev{
+    left:27px;
+    right: auto;
+    margin-top: 82%;
 }

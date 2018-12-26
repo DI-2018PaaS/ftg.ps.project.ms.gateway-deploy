@@ -115,7 +115,7 @@ export class ValidationPretComponent implements OnInit {
       .valueChanges()
       .subscribe(val => {
         val.forEach(vl => {
-          // this.listProduitServ.updateProduit(vl.key ,{approved:true})
+          // this.listProduitServ.updateProduit(val.key,{approved:true})
         })
       })
     })

@@ -11,6 +11,7 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 import {SessionStorageService } from 'angular-web-storage';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 import {MatSnackBar} from '@angular/material';
+import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class FournisseurComponent {
         { Name: 'Animateur', value: '4',routing:'/main-anim'},
         { Name: 'Administrateur', value: '5',routing:'/main'}
         ];
-    constructor(private _fuseNavigationService: FuseNavigationService, public snackBar: MatSnackBar,
+    constructor(private _fuseNavigationService: FuseNavigationService,private _fuseSidebarService: FuseSidebarService, public snackBar: MatSnackBar,
         private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
         this.navigation = fournissNavigation;
 		this.role=this.globals.role;
@@ -142,6 +143,12 @@ export class FournisseurComponent {
                 this.crudComp.openCreateDemandeAgreement()
               })        
             }
+    }
+
+    toggleSidebar(name): void
+    {
+        // TODO 
+    this._fuseSidebarService.getSidebar(name).toggleOpen();
     }
 }
 

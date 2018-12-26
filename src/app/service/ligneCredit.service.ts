@@ -8,15 +8,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LigneCreditService {
   private dbPath = 'ligneCredit-db';
-  refAcheteurRef: AngularFireList<LigneCredit> = null;
+  refLigneCreditRef: AngularFireList<LigneCredit> = null;
 
   constructor(public http: HttpClient,public db: AngularFireDatabase) { 
-    this.refAcheteurRef=this.db.list(this.dbPath);
+    this.refLigneCreditRef=this.db.list(this.dbPath);
   }
 
-  createLigneCredit(c: LigneCredit): void{
+  createLigneCredit(c: LigneCredit){
     const key = this.db.createPushId();
     c.key = key;
-    this.refAcheteurRef.set(key,c)
+    let ref  = this.refLigneCreditRef.push(c);
+    ref.update({key : ref.key})
+    return ref;
+  }
+
+  getListLigneCredit():AngularFireList<LigneCredit>{
+    return this.refLigneCreditRef;
+  }
+
+  updateLigneCreit(key:string, value:any):void{
+    this.refLigneCreditRef.update(key,value).catch(error => this.handleError(error));
+  }
+
+  deleteLigneCredit(key:string):void{
+    this.refLigneCreditRef.remove(key).catch(error => this.handleError(error));
+  }
+
+  private handleError(error) {
+    console.log(error);
   }
 }

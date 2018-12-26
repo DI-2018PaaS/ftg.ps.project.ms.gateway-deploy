@@ -307,6 +307,7 @@ body.theme-pink-dark {
 .fuse-navy-900 {
     background-color: #270D0D !important;
     color: white !important;
+    margin-top: 2.2%
 }
 .fuse-navy-700 {
     background-color: #f9f7e1 !important;
@@ -323,6 +324,9 @@ body.theme-default .mat-toolbar {
 }
 
 body.theme-default .accent {
-    background-color: #dc0030 !important;
+    background-color: #6c4600 !important;
     color: white !important;
+}
+body.theme-default .mat-card{
+    //background-color: #6c4600 !important;
 }

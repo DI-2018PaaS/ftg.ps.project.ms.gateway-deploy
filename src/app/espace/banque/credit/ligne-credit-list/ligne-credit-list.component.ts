@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import { LigneCreditService } from 'app/service/ligneCredit.service';
 
 
 @Component({
@@ -9,20 +10,25 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
   styleUrls: ['./ligne-credit-list.component.scss']
 })
 export class LigneCreditListComponent implements OnInit {
-  displayedColumns: string[] = ['Denomination', 'Montant_Initial', 'Date_Creation', 'Attribue', 'Modifier', 'Supprimer'];
-  dataSource = new MatTableDataSource<CommandeElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['Libellé', 'Montant_Initial', 'Nom_Financier','Date_Creation', 'Date_MiseAjour','Description', 'Modifier', 'Supprimer'];
+  dataSource = new MatTableDataSource<any>();
   crudComp: CrudPopupComponent;
+  ligneCreditList = []
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private parCrud: CrudPopupComponent){
+  constructor(private parCrud: CrudPopupComponent,private ligneCreditService:LigneCreditService){
     this.crudComp = this.parCrud;
   }
 
   ngOnInit() {
-
+    this.ligneCreditService.getListLigneCredit().valueChanges().subscribe(res => {
+      this.ligneCreditList.push(res);
+      this.dataSource.data = res;
+    });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
   }
 
   applyFilter(filterValue: string) {
@@ -32,27 +38,24 @@ export class LigneCreditListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-const ELEMENT_DATA: CommandeElement[] = [
-  { Denomination: '12340UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12350UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-  { Denomination: '12370UIXS', Montant_Initial: 'NLS', Date_Creation: '10/01/18', Attribue: 'ncp', Modifier: '', Supprimer: '' },
-];
+  ELEMENT_DATA: LigneCreditListElement[] = this.ligneCreditList;
 
-export interface CommandeElement {
-  Denomination: string;
-  Montant_Initial: string;
-  Date_Creation: string;
-  Attribue: string;
+  deleteLigneCredit(key:string):void{
+    this.ligneCreditService.deleteLigneCredit(key);
+  }
+}
+
+
+export interface LigneCreditListElement {
+  key:string;
+  idLigneCredit: number;
+  libelle: string;
+  description: string;
+  dateCreation: string;
+  dateMisAjour: string;
+  montant: number;
+  idOwner: string;
+  nomFinancier:string;
   Modifier: string;
   Supprimer: string;
 }

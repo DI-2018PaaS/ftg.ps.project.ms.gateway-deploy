@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 
+
 export interface PeriodicElement {
   montant: number;
   denomination: string;
@@ -28,4 +29,5 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AjoutLigneCreditComponent {
   displayedColumns: string[] = ['denomination', 'montant', 'dateCreation', 'attribue','modifier','supprimer'];
   dataSource = ELEMENT_DATA;
+
 }
