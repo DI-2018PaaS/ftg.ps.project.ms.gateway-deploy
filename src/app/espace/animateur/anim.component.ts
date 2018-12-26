@@ -46,14 +46,17 @@ export class AnimateurComponent {
         this._fuseNavigationService.setCurrentNavigation('anim');
         console.log("AnimateurComponent role:"+this.role);
         this.utilisateur = this.session.get("utilisateur")
-        console.log(this.utilisateur.fkey)
 
-        if (this.utilisateur.isagreer == "true"){
-            this.isagreer = true
-            this.buttonDisabled = true;        
+        console.log(this.utilisateur.isagreer)     
+
+        if (this.utilisateur.isagreer){
+            //this.isagreer = true
+            this.buttonDisabled = true;   
         }else{
-            this.isagreer = false
+            //this.isagreer = false
             this.buttonDisabled = false;
+            console.log("false")     
+
         }
 
     }
@@ -65,7 +68,7 @@ export class AnimateurComponent {
     ajoutDemandeAgrement(){
         this.crudComp.openCreateDemandeAgreement();
     }
-    
+
     changeNavigation(value):void
     {
         console.log("AnimateurComponent changeNavigation :"+value);
