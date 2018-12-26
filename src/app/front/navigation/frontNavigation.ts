@@ -2,6 +2,13 @@ import { FuseNavigation } from '@fuse/types';
 
 export const frontNavigation: FuseNavigation[] = [
     {
+        id: 'accueil',
+        title: 'Accueil',
+        type: 'item',
+        icon: 'home',
+        url: '/'
+    },
+    {
         id: 'domaines',
         title: 'Domaine',
         type: 'collapsable',
