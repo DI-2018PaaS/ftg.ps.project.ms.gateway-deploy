@@ -11,13 +11,14 @@ export class Agreement
     userLastModif: number;
     dateCreated: string;
     dateLastModif: string;
-    niveauAgreement: number;
+    niveauAgreement: string;
     userID: string;
     userName: String;
     userPrenom: String;
     destinataireID:string;
     description:string;
     statutDemande:string;
-    plafond:string
-
+    plafond:string;
+    juridique:string;
+    ninea:string;
 }

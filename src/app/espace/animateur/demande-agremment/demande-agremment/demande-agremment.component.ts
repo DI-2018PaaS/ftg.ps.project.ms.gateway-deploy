@@ -15,7 +15,7 @@ import {MatSnackBar} from '@angular/material';
 })
 export class DemandeAgremmentComponent implements OnInit {
 
-  displayedColumns: string[] = ['userName','userPrenom','description','dateCreated', 'status','Approuver','Rejeter'];
+  displayedColumns: string[] = ['userName','userPrenom','juridique','ninea','description','dateCreated', 'status','Approuver','Rejeter'];
   dataSource = new MatTableDataSource<any>();
   agreementList = []
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -61,8 +61,7 @@ export class DemandeAgremmentComponent implements OnInit {
   }
   ajoutDemandeAgrement(){
     this.crudComp.openCreateDemandeAgreement();
-
-}
+  }
   ELEMENT_DATA: AgreementElement[] = this.agreementList;
 
   approuverDemande(key: string,userID: string): void{
