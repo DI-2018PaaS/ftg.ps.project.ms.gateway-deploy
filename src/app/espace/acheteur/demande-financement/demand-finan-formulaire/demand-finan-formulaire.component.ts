@@ -127,8 +127,8 @@ export class DemandFinanFormulaireComponent implements OnInit {
       userLastModif: 0,
       dateCreated: new Date().toString(),
       dateLastModif: "",
-      modeLivraison: 0,
-      livreur : 0,
+      modeLivraison: "",
+      livreur : "",
       isValid : false,
       validatedBy:""
     })
