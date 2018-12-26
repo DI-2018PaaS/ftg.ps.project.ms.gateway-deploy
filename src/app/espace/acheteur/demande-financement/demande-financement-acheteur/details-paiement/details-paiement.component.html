@@ -53,42 +53,41 @@
     </div>
   </div>
   <div fxFlex="30">
-        <div fxLayout="column" fxLayouAlign="center center">
-            <div fxLayoutAlign="center center">
-                <h2>Detais paiement</h2>
-            </div>
-            <mat-card>
-                <div style="width:100%">
-                    <mat-form-field style="width:100%">
-                        <mat-select style="width:100%" placeholder="Mode livraison" [(ngModel)]="financement.modeLivraison" (ngModelChange)="onChangeMl($event)" [formControl]="modeLivraison">
-                          <mat-option value="express">Express</mat-option>
-                          <mat-option value="normal">Normal</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div> 
-            </mat-card>
+      <div fxLayout="column" fxLayouAlign="center center">
+          <div fxLayoutAlign="center center">
+              <h2>Detais paiement</h2>
+          </div>
+          <mat-card>
+              <div style="width:100%">
+                  <mat-form-field style="width:100%">
+                      <mat-select style="width:100%" placeholder="Mode livraison" [(ngModel)]="financement.modeLivraison" [formControl]="modeLivraison">
+                        <mat-option value="express">Express <span class="price"> - 5000 XOF</span> </mat-option>
+                        <mat-option value="normal">Normal  <span class="price"> - 4000 XOF</span></mat-option>
+                      </mat-select>
+                  </mat-form-field>
+              </div> 
+          </mat-card>
+          &nbsp;
+          <mat-card>
+              <div style="width:100%">
+                  <mat-form-field style="width:100%">
+                      <mat-select placeholder="livreur" [(ngModel)]="financement.livreur" [formControl]="livreur">
+                        <mat-option value="lv_ndour">livreur Ndour <span class="price"> - 2000 XOF</span></mat-option>
+                        <mat-option value="lv_dieng">livreur Dieng <span class="price"> - 2500 XOF</span></mat-option>
+                      </mat-select>
+                  </mat-form-field>
+              </div>
+          </mat-card>
             &nbsp;
-            <mat-card>
-                <div style="width:100%">
-                    <mat-form-field style="width:100%">
-                        <mat-select placeholder="livreur" [(ngModel)]="financement.livreur" (ngModelChange)="onChangeLv($event)" [formControl]="livreur">
-                          <mat-option value="lv-ndour">livreur Ndour</mat-option>
-                          <mat-option value="lv-dieng">livreur Dieng</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-            </mat-card>
-            &nbsp;
-            <mat-card>
-                <div style="width:100%">
-                    <mat-form-field style="width:100%" appearance="outline">
-                        <mat-label>Frais</mat-label>
-                        <input matInput placeholder="Placeholder">
-                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                      </mat-form-field>
-                </div>
-            </mat-card> 
-        </div>
+          <mat-card>
+              <div style="width:100%">
+                  <mat-checkbox>à la charge de l'acheteur</mat-checkbox>
+              </div>
+          </mat-card>
+          <div style="margin-top:2%">
+              <button mat-raised-button (click)="validerPaimement()" color="accent">Valider le paiement</button>
+          </div>
+      </div>
   </div>
 </div>
 

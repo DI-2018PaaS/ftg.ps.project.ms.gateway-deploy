@@ -8,8 +8,8 @@ export class Financement {
     userLastModif: number;
     dateCreated: string;
     dateLastModif: string;
-    modeLivraison: number;
-    livreur : number;
+    modeLivraison: string;
+    livreur : string;
     isValid : boolean;
     validatedBy:string;
 }

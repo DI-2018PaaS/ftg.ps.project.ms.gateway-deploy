@@ -7,6 +7,11 @@ import {MatTableDataSource} from '@angular/material';
 import { FormControl ,Validators} from '@angular/forms';
 import { ListProduitService } from 'app/service/list-produit.service';
 import { ActivatedRoute } from '@angular/router';
+import { BlivraisonService } from 'app/service/blivraison.service';
+import { flattenStyles } from '@angular/platform-browser/src/dom/dom_renderer';
+import {SessionStorageService } from 'angular-web-storage';
+import {MatSnackBar} from '@angular/material';
+
 
 export interface PeriodicElement {
   code: string;
@@ -32,6 +37,7 @@ export class DetailsPaiementComponent implements OnInit {
   private selectedProduitPath = 'produits-db'
   demandeFinancementServ : DemandeFinancementService;
   listProduitService : ListProduitService;
+  blivraisonService : BlivraisonService;
   finance :  any;
   financement = {} as Financement;
   modeLivraison = new FormControl();
@@ -43,12 +49,20 @@ export class DetailsPaiementComponent implements OnInit {
   express : number;
   normal : number;
   frais : number;
+  utilisateur : any;
   constructor(private activatedRoute: ActivatedRoute,public db: AngularFireDatabase,
     private  demandeFinancementService : DemandeFinancementService,
-    private listProduitServ : ListProduitService) { 
-    
+    private listProduitServ : ListProduitService, private blivraisonServ : BlivraisonService,
+    private session: SessionStorageService, public snackBar: MatSnackBar) { 
+      this.lv_ndour = 2000;
+      this.lv_dieng = 2500;
+      this.express = 4000;
+      this.normal = 3000;
+      this.frais = 0;
+    this.utilisateur = this.session.get('utilisateur');
     this.demandeFinancementServ =  demandeFinancementService;  
     this.listProduitServ = listProduitServ;
+    this.blivraisonService = blivraisonServ;
     var key = this.activatedRoute.snapshot.paramMap.get('id');
     this.db.list(this.dbPath, ref => ref
       .orderByChild('key')
@@ -90,22 +104,33 @@ export class DetailsPaiementComponent implements OnInit {
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  onChangeLv(value){
-    if(value ==="lv_ndour"){
-    }
-  }
+  ngOnInit() {}
 
-  onChangeMl(value){
-    if(value ==="express"){
-      console.log(this.lv_ndour =+this.frais)
-    }
-  }
+  validerPaimement(){
+    // let ref = this.demandeFinancementServ
+    // .updateFinancement(this.activatedRoute.snapshot.paramMap.get('id'), {
 
-  ngOnInit() {
-    this.express = 10000;
-    this.normal  = 7000;
-    this.lv_dieng = 2000;
-    this.lv_ndour = 2500;
+    // })
+
+
+     this.blivraisonServ.createBlivraison({
+      key: "",
+      numero: 0,
+      acteurUserId: this.utilisateur.key,
+      dateCreation: new Date().toString(),
+      isValid:false,
+      demandeId:this.activatedRoute.snapshot.paramMap.get('id'),
+      isApprovedByAnim: false,
+      isApprovedByFourniss: false,
+      livreur: this.financement.livreur,
+      modeLivraison: this.financement.modeLivraison,
+      objet:this.finance.objet,
+      acheteurNom:this.utilisateur.firstName,
+      acheteurPrenom:this.utilisateur.lastName
+    })
+    let refSnack = this.snackBar.open('demande envoyé','merci', {
+      duration: 3000
+    });
   }
 
 }
