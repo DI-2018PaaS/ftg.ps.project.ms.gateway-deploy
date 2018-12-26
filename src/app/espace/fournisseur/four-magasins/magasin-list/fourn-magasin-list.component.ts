@@ -27,6 +27,7 @@ export class FoMagasinListComponent implements OnInit {
   crudComp: CrudPopupComponent;
   magasin = {} as Magasin;
   magasinRef$ : AngularFireList<Magasin>;
+
 constructor(private magazinService : MagasinService, public db: AngularFireDatabase,private parCrud: CrudPopupComponent,private session: SessionStorageService)
 	{
 		// this.magazinService.getMagasinList().valueChanges().subscribe(res => {
@@ -45,13 +46,11 @@ constructor(private magazinService : MagasinService, public db: AngularFireDatab
       this.magasinList.push(res);
       this.dataSource.data = res;
     })
-
-    console.log("magasins: ", this.utilisateur.fkey)
-    
+    console.log("utilisateur: ", this.utilisateur.fkey)
+    console.log("magasins: ", this.magasinList)
 	}
 	
   ngOnInit(){
-
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

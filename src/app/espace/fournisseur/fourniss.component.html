@@ -35,9 +35,12 @@
                 <div class="content p-24">
                     <!--admin-sidebar></admin-sidebar-->
                     <mat-grid-list cols="1" rowHeight="2:1">
-                            <mat-grid-tile><button mat-button class="block" (click)="crudComp.openCreateBoutique()"><mat-icon>brightness_low</mat-icon> Creer Boutique</button></mat-grid-tile>
-                            <mat-grid-tile><button mat-button class="block" (click)="crudComp.openCreateProduit()"><mat-icon>done_outline</mat-icon> Creer Produit</button></mat-grid-tile>
-                            <mat-grid-tile><button mat-button class="block" (click)="crudComp.openCreateMagasin()"><mat-icon>graphic_eq</mat-icon> Creer Magasin</button></mat-grid-tile>
+                            <div class="content p-24" [hidden]="buttonDisabled">
+                                <button (click)="ajoutDemandeAgrement()"  mat-raised-button color="accent" style="margin-top:1%">Soumettre une demande</button>
+                            </div>
+                            <mat-grid-tile><button mat-button class="block" (click)="openCreateBoutique()"><mat-icon>brightness_low</mat-icon> Creer Boutique</button></mat-grid-tile>
+                            <mat-grid-tile><button mat-button class="block" (click)="openCreateProduit()"><mat-icon>done_outline</mat-icon> Creer Produit</button></mat-grid-tile>
+                            <mat-grid-tile><button mat-button class="block" (click)="openCreateMagasin()"><mat-icon>graphic_eq</mat-icon> Creer Magasin</button></mat-grid-tile>
                           </mat-grid-list>
                           <filter-sidebar></filter-sidebar>
                 </div>
@@ -89,6 +92,9 @@
                     </span-->
                 </div>
                 <div content class="content p-24">
+                <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-right-sidebar-1')">
+                    <mat-icon>menu</mat-icon>
+                </button>
                   <router-outlet></router-outlet>  
                 </div>
             </div>

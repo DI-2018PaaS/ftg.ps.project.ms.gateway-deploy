@@ -1,5 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild , Input} from '@angular/core';
+import { AngularFireList } from 'angularfire2/database';
+import { AgreementService } from 'app/service/agreement.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { query } from '@angular/core/src/render3/query';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+import { DemandeFinancementService } from 'app/service/demandeFinancement.service';
 
 @Component({
   selector: 'app-demande-pret-list',
@@ -8,19 +15,36 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class DemandePretListComponent implements OnInit {
 
-   displayedColumns: string[] = ['Animateur', 'Montant_Plafond', 'Date_Creation', 'Montant', 'Statut', 'Details', 'Supprimer'];
-  dataSource = new MatTableDataSource<CommandeElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['objet', 'date','destinataire','statut','details', 'Supprimer'];
+  dataSource = new MatTableDataSource<any>();
+  private dbPath = 'demandeFinancement-db';
+  demandeFinancementList = []
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @Input() rowProperty: any;
+  crudComp: CrudPopupComponent;
 
 
-  ngOnInit() {
+  constructor(public db: AngularFireDatabase, private session: SessionStorageService, 
+    private  demandeFinancementService : DemandeFinancementService) {
+    this.demandeFinancementService = demandeFinancementService;
 
+    this.db.list(this.dbPath, ref => ref
+      .orderByChild('destinataire')
+      .equalTo('banque'))
+      .valueChanges()
+      .subscribe(res => {
+        this.demandeFinancementList.push(res);
+        this.dataSource.data = res;
+      })
+   }
+
+   ngOnInit() {
+    
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -28,26 +52,16 @@ export class DemandePretListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-const ELEMENT_DATA: CommandeElement[] = [
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
-  { Animateur: 'NCP', Montant_Plafond: '100 000', Date_Creation: '20/01/18', Montant: '20 000', Statut: 'En cours', Details: '', Supprimer: '' },
- 
-];
 
-export interface CommandeElement {
-  Animateur: string;
-  Montant_Plafond: string;
-  Date_Creation: string;
-  Montant: string;
-  Statut: string;
-  Details: string;
+  ELEMENT_DATA: demandeFinancementElement[] = this.demandeFinancementList;
+
+}
+
+export interface demandeFinancementElement {
+  objet:string;
+  date: string;
+  destinataire: string;
+  statut:string;
+  details: string;
   Supprimer: string;
 }

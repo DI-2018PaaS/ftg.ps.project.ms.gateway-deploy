@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import {SessionStorageService } from 'angular-web-storage';
+import { BlivraisonService } from 'app/service/blivraison.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-suivi-produit',
@@ -8,38 +12,57 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 })
 export class SuiviProduitComponent implements OnInit {
 
-  displayedColumns: string[] = ['Numero', 'Quantite', 'Client', 'Statut', 'Reglement'];
-  dataSource = new MatTableDataSource<CommandeElement>(ELEMENT_DATA);
-
+  displayedColumns: string[] = ['objet', 'nomAcheteur', 'date', 'Details', 'valider'];
+  dataSource = new MatTableDataSource<any>();
+ 
+  crudComp: CrudPopupComponent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  blivraisonService : BlivraisonService;
 
 
-  ngOnInit() {
-
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  constructor(private parCrud: CrudPopupComponent, 
+    private   blivraisonServ: BlivraisonService,
+    public db: AngularFireDatabase)
+    {
+      this.crudComp=this.parCrud;
+      this.blivraisonService = blivraisonServ; 
+      this.db.list("blivraison-db", ref => ref
+        .orderByChild('isValid')
+        .equalTo(true))
+        .valueChanges()
+        .subscribe(res => {
+          console.log(res)
+          this.dataSource.data = res;
+        });
     }
+    ngOnInit() {
+  
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }
+  
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
+    }
+  
+    validate(key){
+      this.blivraisonServ.updateBlivraison(key,{isApprovedByAnim:true})
+    }
+    ELEMENT_DATA: CommandeElement[] = [];
+  } 
+  
+  export interface CommandeElement {
+    NoLivraison: string;
+    Emetteur: string;
+    Date_Emission: string;
+    Reglement: string;
+    Details: string;
+    Modifier: string;
+    Supprimer: string;
   }
-}
-const ELEMENT_DATA: CommandeElement[] = [
-  { Numero: '500XA', Quantite: '58', Client: 'NDT', Statut: 'Livré', Reglement: '' },
-  { Numero: 'Y855', Quantite: '89', Client: 'NDT', Statut: 'Livré', Reglement: '' },
-  { Numero: 'z500', Quantite: '89', Client: 'NDT', Statut: 'Livré', Reglement: '' },
-
-];
-
-export interface CommandeElement {
-  Numero: string;
-  Quantite: string;
-  Client: string;
-  Statut: string;
-  Reglement: string;
-}
+  

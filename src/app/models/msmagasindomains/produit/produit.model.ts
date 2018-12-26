@@ -8,5 +8,5 @@ export class Produit {
     isValid:boolean;
     image: string;
     fidBoutique: string;
-    
+    fidProprietaire: string;
 }

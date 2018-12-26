@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LigneCreditService } from 'app/service/ligneCredit.service';
 import { LigneCredit } from 'app/models/paiement/ligne-credit/ligne-credit.model';
 import { AngularFireList } from 'angularfire2/database';
+import { SessionStorageService } from 'angular-web-storage';
 
 
 @Component({
@@ -14,9 +15,10 @@ export class CreateLigneCreditDialogComponent implements OnInit {
   ligneCredit = {} as LigneCredit;
   ligneCreditRef$ : AngularFireList<LigneCredit>;
 
-  constructor(private ligneCreditService  : LigneCreditService) { }
+  constructor(private ligneCreditService  : LigneCreditService,private session:SessionStorageService) { }
 
   ngOnInit() {
+    console.log(this.session.get('utilisateur'))
   }
   
   onFileChanged(event) {
@@ -25,18 +27,15 @@ export class CreateLigneCreditDialogComponent implements OnInit {
 
   createNewLigneCredit(){
     this.ligneCreditService.createLigneCredit({
-      id: 0,
-      key:"",
-      idLigneCredit: "",
+      idLigneCredit: 0,
       libelle: this.ligneCredit.libelle,
       description: this.ligneCredit.description,
-      dateCreation: new Date().toString(),
-      dateMisAjour: new Date().toString(),
+      dateCreation: null,
+      dateMisAjour: null,
       montant: this.ligneCredit.montant,
-      idOwner: 0,
-      nomFinancier: ""
+      idOwner: this.session.get('utilisateur').key,
+      nomFinancier: this.session.get('utilisateur').firstName,
     });
     this.ligneCredit = {} as LigneCredit;
      }
- 
 }

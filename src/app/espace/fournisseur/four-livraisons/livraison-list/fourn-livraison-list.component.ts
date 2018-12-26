@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
-
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import {SessionStorageService } from 'angular-web-storage';
+import { BlivraisonService } from 'app/service/blivraison.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-folivraison-list',
@@ -10,15 +12,28 @@ import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup
 })
 
 export class FoLivraisonListComponent implements OnInit {
-  displayedColumns: string[] = ['NoFoLivraison', 'Emetteur', 'Date_Emission', 'Reglement', 'Details', 'Modifier', 'Supprimer'];
-  dataSource = new MatTableDataSource<FoLivraisonElement>(ELEMENT_DATA);
-crudComp: CrudPopupComponent;
+  displayedColumns: string[] = ['objet', 'nomAcheteur', 'date', 'Details', 'valider'];
+  dataSource = new MatTableDataSource<any>();
+ 
+  crudComp: CrudPopupComponent;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  blivraisonService : BlivraisonService;
 
-constructor(private parCrud: CrudPopupComponent)
+constructor(private parCrud: CrudPopupComponent,
+  private   blivraisonServ: BlivraisonService,
+  public db: AngularFireDatabase)
 	{
-		this.crudComp=this.parCrud;
+    this.crudComp=this.parCrud;
+    this.blivraisonService = blivraisonServ; 
+    this.db.list("blivraison-db", ref => ref
+      .orderByChild('isApprovedByFourniss')
+      .equalTo(false))
+      .valueChanges()
+      .subscribe(res => {
+        console.log(res)
+        this.dataSource.data = res;
+      });
 	}
   ngOnInit(){
 
@@ -33,36 +48,20 @@ constructor(private parCrud: CrudPopupComponent)
       this.dataSource.paginator.firstPage();
     }
   }
+  validate(key){
+    this.blivraisonServ.updateBlivraison(key,{isApprovedByFourniss:true})
+  }
+  ELEMENT_DATA: CommandeElement[] = [];
 }
-const ELEMENT_DATA: FoLivraisonElement[] = [
-  { NoFoLivraison: '12340UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12350UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-  { NoFoLivraison: '12370UIXS', Emetteur: 'H. FL', Date_Emission: '10/01/18', Reglement: '10/01/18', Details: '', Modifier: '', Supprimer: '' },
-];
 
-export interface FoLivraisonElement {
-  NoFoLivraison: string;
-  Emetteur: string;
-  Date_Emission: string;
-  Reglement: string;
-  Details: string;
-  Modifier: string;
-  Supprimer: string;
+
+export interface CommandeElement {
+NoLivraison: string;
+Emetteur: string;
+Date_Emission: string;
+Reglement: string;
+Details: string;
+Modifier: string;
+Supprimer: string;
 }
+

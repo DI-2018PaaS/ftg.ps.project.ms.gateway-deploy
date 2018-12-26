@@ -9,6 +9,9 @@ import { animNavigation } from '../animateur/navigation/anim-navigation';
 import { adminNavigation } from '../administrateur/navigation/admin-navigation';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import {SessionStorageService } from 'angular-web-storage';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import {MatSnackBar} from '@angular/material';
+import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 
 @Component({
@@ -19,7 +22,10 @@ import {SessionStorageService } from 'angular-web-storage';
 export class FournisseurComponent {  
     navigation: any;
 	crudComp: CrudPopupComponent;
-	role:string;
+    role:string;
+    utilisateur = {} as Utilisateur;
+    isagreer: boolean
+    buttonDisabled: boolean = false;
 	roles = [
         { Name: 'Acheteur', value: '1',routing:'/shopping'},
         { Name: 'Banque', value: '2',routing:'/banque'},
@@ -27,7 +33,8 @@ export class FournisseurComponent {
         { Name: 'Animateur', value: '4',routing:'/main-anim'},
         { Name: 'Administrateur', value: '5',routing:'/main'}
         ];
-    constructor(private _fuseNavigationService: FuseNavigationService, private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
+    constructor(private _fuseNavigationService: FuseNavigationService,private _fuseSidebarService: FuseSidebarService, public snackBar: MatSnackBar,
+        private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
         this.navigation = fournissNavigation;
 		this.role=this.globals.role;
         this.crudComp=this.parCrud;
@@ -37,6 +44,18 @@ export class FournisseurComponent {
         // Set the main navigation as our current navigation
         this._fuseNavigationService.setCurrentNavigation('fourniss');
         console.log("FournisseurComponent role:"+this.role);
+
+        this.utilisateur = this.session.get("utilisateur")
+        console.log("isagreer: ", this.utilisateur)	
+
+        if (this.utilisateur.isagreer == "true"){
+            this.isagreer = true
+            this.buttonDisabled = true;        
+        }else{
+            this.isagreer = false
+            this.buttonDisabled = false;
+        }
+
     }
    
     ngOnInit() { }
@@ -79,6 +98,57 @@ export class FournisseurComponent {
 			this._fuseNavigationService.setCurrentNavigation('fourniss-admin');
             this.router.navigate(['']);
         }
+    }
+    ajoutDemandeAgrement(){
+        this.crudComp.openCreateDemandeAgreement();
+    }
+
+    openCreateBoutique(){
+        if (this.isagreer == true){
+            this.crudComp.openCreateBoutique();
+        }else{
+            let refSnack = this.snackBar.open('Vous netes pas autorisé a faire cette action','merci', {
+                duration: 3000
+              });
+          
+              refSnack.afterDismissed().subscribe(()=>{
+                this.crudComp.openCreateDemandeAgreement()
+              })        
+            }
+    }
+
+    openCreateProduit(){
+        if (this.isagreer == true){
+            this.crudComp.openCreateProduit();
+        }else{
+            let refSnack = this.snackBar.open('Vous netes pas autorisé a faire cette action','merci', {
+                duration: 3000
+              });
+          
+              refSnack.afterDismissed().subscribe(()=>{
+                this.crudComp.openCreateDemandeAgreement()
+              })        
+            }
+    }
+
+    openCreateMagasin(){
+        if (this.isagreer == true){
+            this.crudComp.openCreateMagasin();
+        }else{
+            let refSnack = this.snackBar.open('Vous netes pas autorisé a faire cette action','merci', {
+                duration: 3000
+              });
+          
+              refSnack.afterDismissed().subscribe(()=>{
+                this.crudComp.openCreateDemandeAgreement()
+              })        
+            }
+    }
+
+    toggleSidebar(name): void
+    {
+        // TODO 
+    this._fuseSidebarService.getSidebar(name).toggleOpen();
     }
 }
 

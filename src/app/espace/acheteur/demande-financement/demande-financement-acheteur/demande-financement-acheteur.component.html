@@ -2,127 +2,63 @@
   <div>
     <button mat-raised-button color="accent" [routerLink]="['nouvelle-demande-Formulaire']">Nouvelle demande</button>
   </div>
-  <div fxLayout="row" fxLayoutGap="10px" fxLayout.xs="column">
-    <div fxFlex="100">
-      <div class="table-container mat-elevation-z8">
-        <div class="mat-table cart-table">
-          <div class="mat-header-row">
-            <div class="mat-header-cell">No DEMANDE</div>
-            <div class="mat-header-cell">OBJECTIF</div>
-            <div class="mat-header-cell">DATE DEMANDE</div>
-            <div class="mat-header-cell">INSTITUT DESTINATAIRE</div>
-            <div class="mat-header-cell">ETAT DEMANDE</div>
-            <div class="mat-header-cell">VOIR DETAILS</div>
-          </div>
-          <div class="mat-row">
-            <div class="mat-cell">
-              25841111
+<!-- <div class="py-8"><button mat-raised-button color="accent" (click)="crudComp.openCreateLigneCredit()">Ajouter une ligne de credit</button></div> -->
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrer">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="objet">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Objet </th>
+        <td mat-cell *matCellDef="let row">  {{row.objet}} </td>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+        <td mat-cell *matCellDef="let row"> {{row.dateCreated | date : format : shortDate}}</td>
+      </ng-container>
+  
+      <!-- Color Column -->
+      <ng-container matColumnDef="destinataire">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Destinataire</th>
+        <td mat-cell *matCellDef="let row"> {{row.destinataire}} </td>
+      </ng-container>
+  
+  
+      
+        <!-- Color Column -->
+        <ng-container matColumnDef="statut">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>
+          <td mat-cell *matCellDef="let row"> 
+            <div *ngIf="row.isValid === false">
+              <span style="color:red">en attente</span> 
             </div>
-            <div class="mat-cell">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. consectetur.
-            </div>
-            <div class="mat-cell">
-              25/02/18
-            </div>
-            <div class="mat-cell">
-              FINETECH
-            </div>
-            <div class="mat-cell">
-              ACCORDE
-            </div>
-            <div class="mat-cell">
-              <button [routerLink]="['detailsDemande-fiancement',1]" mat-raised-button color="warn">
-                <mat-icon>details</mat-icon>details</button>
-            </div>
-          </div>
-          <div class="mat-row">
-            <div class="mat-cell">
-              25841111
-            </div>
-            <div class="mat-cell">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. consectetur.
-            </div>
-            <div class="mat-cell">
-              25/02/18
-            </div>
-            <div class="mat-cell">
-              FINETECH
-            </div>
-            <div class="mat-cell">
-              EN PREPARATION
-            </div>
-            <div class="mat-cell">
-              <button mat-raised-button color="warn">
-                <mat-icon>details</mat-icon>details
-              </button>
-            </div>
-          </div>
-          <div class="mat-row">
-            <div class="mat-cell">
-              25841111
-            </div>
-            <div class="mat-cell">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. consectetur.
-            </div>
-            <div class="mat-cell">
-              25/02/18
-            </div>
-            <div class="mat-cell">
-              FINETECH
-            </div>
-            <div class="mat-cell">
-              REJETE
-            </div>
-            <div class="mat-cell">
-              <button mat-raised-button color="warn">
-                <mat-icon>details</mat-icon>details</button>
-            </div>
-          </div>
-          <div class="mat-row">
-            <div class="mat-cell">
-              25841111
-            </div>
-            <div class="mat-cell">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. consectetur.
-            </div>
-            <div class="mat-cell">
-              25/02/18
-            </div>
-            <div class="mat-cell">
-              FINETECH
-            </div>
-            <div class="mat-cell">
-              EN ATTENTE D'APPROBATION
-            </div>
-            <div class="mat-cell">
-              <button mat-raised-button color="warn">
-                <mat-icon>details</mat-icon>details</button>
-            </div>
-          </div>
-          <div class="mat-row">
-            <div class="mat-cell">
-              25841111
-            </div>
-            <div class="mat-cell">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. consectetur.
-            </div>
-            <div class="mat-cell">
-              25/02/18
-            </div>
-            <div class="mat-cell">
-              FINETECH
-            </div>
-            <div class="mat-cell">
-              EN ATTENTE DE VALIDATION
-            </div>
-            <div class="mat-cell">
-              <button mat-raised-button color="warn">
-                <mat-icon>details</mat-icon>details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div *ngIf="row.isValid === true">
+                <span style="color:green">validé &nbsp;<a [routerLink]="['/demande-financement/details-paiement',row.key]"><mat-icon>zoom_out_map</mat-icon></a></span>
+              </div>
+          </td>
+        </ng-container>
+  
+      <!-- Color Column -->
+      <ng-container matColumnDef="Supprimer">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>
+        <td mat-cell *matCellDef="let row" > {{row.Supprimer}}
+          <button mat-raised-button>
+            <mat-icon class="red600">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
 </div>
 

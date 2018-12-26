@@ -8,6 +8,18 @@
     
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+            <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+          </ng-container>
+
+          <!-- ID Column -->
+        <ng-container matColumnDef="userPrenom">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+            <td mat-cell *matCellDef="let row"> {{row.userPrenom}} </td>
+          </ng-container>
     
         <!-- ID Column -->
         <ng-container matColumnDef="description">
@@ -16,10 +28,10 @@
         </ng-container>
 
         <!-- ID Column -->
-        <ng-container matColumnDef="destinataireID">
+        <!-- <ng-container matColumnDef="destinataireID">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Destinataire </th>
             <td mat-cell *matCellDef="let row"> {{row.destinataireID}} </td>
-          </ng-container>
+          </ng-container> -->
 
           <!-- ID Column -->
         <ng-container matColumnDef="dateCreated">
@@ -28,15 +40,34 @@
           </ng-container>
     
         <!-- Color Column -->
-        <ng-container matColumnDef="Supprimer">
+        <!-- <ng-container matColumnDef="Supprimer">
           <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>
           <td mat-cell *matCellDef="let row" > {{row.Supprimer}}
             <button mat-raised-button>
               <mat-icon class="red600">delete</mat-icon>
             </button>
           </td>
-        </ng-container>
-    
+        </ng-container> -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>
+            <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+          </ng-container>
+        <ng-container matColumnDef="Approuver">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Approuver </th>
+            <td mat-cell *matCellDef="let row" > {{row.Approuver}}
+              <button mat-raised-button (click)="approuverDemande(row.key)">
+                <mat-icon class="green">done_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Rejeter">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header > Rejeter </th>
+              <td mat-cell *matCellDef="let row" > {{row.Rejeter}}
+                <button mat-raised-button (click)="rejeterDemande(row.key)">
+                  <mat-icon class="red600">delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;">
         </tr>

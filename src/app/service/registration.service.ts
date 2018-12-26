@@ -22,4 +22,13 @@ createUser(u: Utilisateur){
     ref.update({key : ref.key})
     return ref;
   }
+
+  isAgreeUtilisateur(key: string, value: any): void {
+    this.utilisateurRef.update(key, value).catch(error => this.handleError(error));
+  }
+
+  private handleError(error) {
+    console.log(error);
+  }
+
 }
