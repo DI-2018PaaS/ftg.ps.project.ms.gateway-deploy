@@ -67,7 +67,7 @@ export class DemandeAgremmentComponent implements OnInit {
 
   approuverDemande(key: string,userID: string): void{
     this.agreementService.updateAgreement(key,{status:"approuver"});
-    this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:true});
+    this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
     let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
       duration: 3000
     });
