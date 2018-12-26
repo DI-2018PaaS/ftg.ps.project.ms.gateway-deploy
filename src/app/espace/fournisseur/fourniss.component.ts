@@ -8,9 +8,9 @@ import { banqueNavigation } from '../banque/navigation/banqueNavigation';
 import { animNavigation } from '../animateur/navigation/anim-navigation';
 import { adminNavigation } from '../administrateur/navigation/admin-navigation';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
-import {SessionStorageService } from 'angular-web-storage';
+import { SessionStorageService } from 'angular-web-storage';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar} from '@angular/material';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 
@@ -46,9 +46,9 @@ export class FournisseurComponent {
         console.log("FournisseurComponent role:"+this.role);
 
         this.utilisateur = this.session.get("utilisateur")
-        console.log("isagreer: ", this.utilisateur)	
+        console.log("isagreer: ", this.utilisateur.isagreer)	
 
-        if (this.utilisateur.isagreer == "true"){
+        if (this.utilisateur.isagreer){
             this.isagreer = true
             this.buttonDisabled = true;        
         }else{

@@ -24,7 +24,9 @@ export class AnimateurComponent {
     title = "empty";
     role:string;
     utilisateur : Utilisateur;
-	crudComp: CrudPopupComponent;
+    crudComp: CrudPopupComponent;
+    isagreer: boolean
+    buttonDisabled: boolean = false;
     roles = [
         { Name: 'Acheteur', value: '1',routing:'/shopping'},
         { Name: 'Banque', value: '2',routing:'/banque'},
@@ -44,13 +46,30 @@ export class AnimateurComponent {
         this._fuseNavigationService.setCurrentNavigation('anim');
         console.log("AnimateurComponent role:"+this.role);
         this.utilisateur = this.session.get("utilisateur")
-        console.log(this.utilisateur.fkey)
+
+        console.log("isagreer ",this.utilisateur.isagreer)     
+
+
+        if (this.utilisateur.isagreer == "true"){
+            //this.isagreer = true
+            this.buttonDisabled = true;   
+        }else{
+            //this.isagreer = false
+            this.buttonDisabled = false;
+            console.log("false")     
+
+        }
+
     }
 
     ngOnInit() { 
 
     }
-	 
+     
+    ajoutDemandeAgrement(){
+        this.crudComp.openCreateDemandeAgreement();
+    }
+
     changeNavigation(value):void
     {
         console.log("AnimateurComponent changeNavigation :"+value);
