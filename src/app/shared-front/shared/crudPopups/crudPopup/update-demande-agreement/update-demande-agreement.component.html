@@ -1,13 +1,13 @@
 
 <mat-dialog-content class="mat-typography">
     <div class="title">
-        <h2 mat-dialog-title >Modification Agreement</h2>
+        <h2 mat-dialog-title >Valider Agreement</h2>
     </div>
-    <button href="#" class="edit"><mat-icon matPrefix>how_to_reg</mat-icon>Editer</button>
-    
+    <!-- <button href="#" class="edit"><mat-icon matPrefix>how_to_reg</mat-icon>Editer</button>
+     -->
     <form class="example-container">
             <div fxLayout="column" fxFlex="50px">
-                    <div fxLayout="row"fxLayout.xs="column" fxLayoutGap="5px">
+                    <!-- <div fxLayout="row"fxLayout.xs="column" fxLayoutGap="5px">
                           <div style="margin-top:-9%">
                                       <mat-form-field>
                                           <mat-select placeholder="Emetteu" >
@@ -22,25 +22,27 @@
                                       </mat-select>
                                   </mat-form-field>
                         </div>
-                    </div>
+                    </div> -->
                  
                       <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
-                        <div>
+                        <!-- <div>
                               <mat-form-field>
                                   <mat-select placeholder="Role demandé" >
                                     <mat-option value="option">Fournisseur</mat-option>
                                   </mat-select>
                               </mat-form-field>
-                        </div> 
+                        </div>  -->
                          <div >
                                    <mat-form-field >
                                        <mat-select placeholder="Niveau Agreement" [(ngModel)]="agreement.niveauAgreement" [formControl]="niveauAgreement">
-                                         <mat-option value="option">Niveau agreement 3</mat-option>
+                                         <mat-option value="Découvert périodiqu">Découvert périodique</mat-option>
+                                         <mat-option value="Refinancement crédit">Refinancement crédit</mat-option>
+                                         <mat-option value="Dépôt périodique">Dépôt périodique</mat-option>
                                        </mat-select>
                                    </mat-form-field>
                          </div> 
                       </div>
-                      <div fxLayout="row" >
+                      <!-- <div fxLayout="row" >
                             <div style="margin-top:15%;">
                                     <mat-slide-toggle> Urgent</mat-slide-toggle>
                             </div>
@@ -54,7 +56,7 @@
                                     <mat-icon matSuffix>date_range</mat-icon>
                                 </mat-form-field>
                             </div>
-                        </div>
+                        </div> -->
                   </div>
          
         
@@ -62,6 +64,7 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
-    <button mat-raised-button color="warn" mat-dialog-close >Delete</button>
-    <button mat-raised-button class="save" color="" [mat-dialog-close]="true"cdkFocusInitial (click)="updateNewAgreement()">Enregistrer</button>
+    <!-- <button mat-raised-button color="warn" mat-dialog-close >Delete</button> -->
+    <button mat-raised-button class="save" color="" [mat-dialog-close]="true"cdkFocusInitial (click)="approuverDemande(row.key,row.userID)">Enregistrer</button>
+    
 </mat-dialog-actions>

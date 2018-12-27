@@ -50,12 +50,26 @@
                     </div>  -->
                   </div>
                     <div fxLayout="row" style="margin-top: 40%;"fxLayout.xs="column" fxLayoutGap="5px">
-                        <div style="margin-left: 287%;margin-top: -68%;">
-                            <mat-form-field class="example-full-width">
-                                <textarea matInput placeholder="Description*" [(ngModel)]="agreement.description" [formControl]="description"></textarea>
-                            </mat-form-field>
+                            <div style="margin-left: 287%;margin-top: -68%;">
+                                <mat-form-field class="example-full-width">
+                                    <textarea matInput placeholder="Statut Juridique*" [(ngModel)]="agreement.juridique" [formControl]="juridique"></textarea>
+                                </mat-form-field>
+                            </div>
                         </div>
-                    </div>
+                        <div fxLayout="row" style="margin-top: 40%;"fxLayout.xs="column" fxLayoutGap="5px">
+                                <div style="margin-left: 287%;margin-top: -68%;">
+                                    <mat-form-field class="example-full-width">
+                                        <textarea matInput placeholder="Ninéa*" [(ngModel)]="agreement.ninea" [formControl]="ninea"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div fxLayout="row" style="margin-top: 40%;"fxLayout.xs="column" fxLayoutGap="5px">
+                                    <div style="margin-left: 287%;margin-top: -68%;">
+                                        <mat-form-field class="example-full-width">
+                                            <textarea matInput placeholder="Description*" [(ngModel)]="agreement.description" [formControl]="description"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
               </div>
   
 </form>

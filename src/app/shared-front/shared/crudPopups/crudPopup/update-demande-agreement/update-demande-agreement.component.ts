@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
+import { RegistrationService } from 'app/service/registration.service';
+import {MatSnackBar} from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-update-demande-agreement',
@@ -13,7 +16,13 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
   hide = true;
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
-  constructor(private agreementService : AgreementService) { }
+  row :any;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private agreementService : AgreementService,public snackBar: MatSnackBar,private utilisateurService: RegistrationService) { 
+    this.row = data.row;
+    console.log("row ",this.row)
+
+  }
 
   ngOnInit() {
   }
@@ -29,5 +38,17 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
     console.log(this.agreement);
     this.agreement = {} as Agreement;
      }
-    
+   
+     approuverDemande(key: string,userID: string): void{
+      this.agreementService.updateAgreement(key,{status:"approuver"});
+      this.agreementService.updateAgreement(key,{niveauAgreement: this.agreement.niveauAgreement});
+      this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
+
+      console.log(key,userID)
+      let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
+        duration: 3000
+      });
+      refSnack.afterDismissed().subscribe(()=>{
+      }) 
+     }   
 }

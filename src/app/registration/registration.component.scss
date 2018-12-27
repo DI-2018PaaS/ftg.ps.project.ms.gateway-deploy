@@ -1,3 +1,10 @@
+.container{
+  background-image: url("../../assets/images/others/inscription.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 105%;
+}
 .mat-card-img {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -16,20 +23,22 @@
  h2 {
    text-align:center;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   color : #27e8c1;
+   color : #6c4600;
  }
 
  .color-button-validate{
-  background-color: #0d904f !important;
-  color: white !important;
+  background-color: #e2fea6 !important;
+  color:  #6c4600!important;
 }
 
 .mat-card-resgistration{
   margin-right: 15%;
   margin-top: 70px;
   padding: 16px;
-  margin-left: -40px;
+  margin-left: 36%;
   margin-bottom: 25px;
+  width: 33%;
+
 }
 .example-full-width {
   width: 100%;
@@ -43,4 +52,8 @@
 .mat-card-actions{
    margin: 0px;
    padding: 8px;
+}
+.color-button-cancel{
+  background-color: #f9f7da !important;
+  color:  red!important; 
 }

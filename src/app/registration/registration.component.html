@@ -1,12 +1,8 @@
-<div fxLayout="row">
+<div class="container">
         <mat-card fxLex="30" fxFlexOffset="15"  class="mat-card-img back-img">
-          <img mat-card-image class="img-card" src="../../assets/images/cards/registration.png">
+        <!--  <img mat-card-image class="img-card" src="../../assets/images/others/inscription.jpg">-->
         </mat-card>  
         <mat-card fxLex="40" class="mat-card-resgistration">
-            <mat-card-title>
-               <h2>Inscription</h2>
-            </mat-card-title>
-            
             <mat-card-content>
                 <form>
                 <mat-form-field class="example-full-width">
@@ -43,7 +39,7 @@
             
               <mat-card-actions>
                 <button mat-raised-button class="color-button-validate" (click)="createUser()">Enregistrer</button>
-                <button mat-button color="warn">Annuler</button>
+                <button mat-raised-button color="warn" class="color-button-cancel">Annuler</button>
               </mat-card-actions>
             
         </mat-card> 
