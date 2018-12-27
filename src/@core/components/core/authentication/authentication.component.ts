@@ -53,7 +53,9 @@ export class AuthenticationComponent implements OnInit {
   }
     
   
- 
+  profile(){
+    this.router.navigate(['profile']);
+  }
   signUp (): void {
     this.router.navigate(['registration']);
   }
