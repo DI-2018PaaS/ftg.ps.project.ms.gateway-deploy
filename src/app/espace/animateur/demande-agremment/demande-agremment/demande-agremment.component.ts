@@ -7,6 +7,7 @@ import { AgreementService } from 'app/service/agreement.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { RegistrationService } from 'app/service/registration.service';
 import {MatSnackBar} from '@angular/material';
+import * as Lodash from 'lodash';
 
 @Component({
   selector: 'app-demande-agremment',
@@ -43,14 +44,13 @@ export class DemandeAgremmentComponent implements OnInit {
         this.dataSource.data = res;
       })
 
+      console.log(this.agreementList.filter(item => item.Statut === "") )
 
    }
 
-
   ngOnInit() {
-    
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort; 
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
