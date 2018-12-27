@@ -69,7 +69,7 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   codep = new FormControl();
   ville = new FormControl();
   idMagasin = new FormControl();
-  isService = new FormControl();
+  isServices = new FormControl();
 
 
   onChange() {
