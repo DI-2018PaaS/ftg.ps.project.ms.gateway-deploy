@@ -150,7 +150,6 @@ export class RegistrationComponent implements OnInit {
           userActeurID: this.typeActeurs[2].idActeurType,
           fkey:FFK.key,
           isagreer: "false"
-
         });
       
 

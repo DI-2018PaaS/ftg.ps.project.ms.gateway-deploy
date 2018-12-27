@@ -11,4 +11,5 @@ export class Boutique {
     ville: String;
     isValid:boolean;
     fidMagasin: string;
+    isService: boolean;
 }

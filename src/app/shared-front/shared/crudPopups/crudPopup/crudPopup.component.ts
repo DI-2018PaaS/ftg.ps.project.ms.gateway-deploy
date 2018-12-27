@@ -400,8 +400,12 @@ export class CrudPopupComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openUpdateDemandeAgreement () {
-    const dialogCreateCpt = this.dialog.open(UpdateDemandeAgrementDialogComponent);
+  openUpdateDemandeAgreement (row) {
+    const dialogCreateCpt = this.dialog.open(UpdateDemandeAgrementDialogComponent,{
+      data : {
+        row : row
+      }
+    });
 
     dialogCreateCpt.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import { Agreement } from 'app/models/acteur/agreement/agreement.model';
@@ -6,6 +6,8 @@ import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { RegistrationService } from 'app/service/registration.service';
+import {MatSnackBar} from '@angular/material';
+import * as Lodash from 'lodash';
 
 @Component({
   selector: 'app-demande-agremment',
@@ -14,7 +16,7 @@ import { RegistrationService } from 'app/service/registration.service';
 })
 export class DemandeAgremmentComponent implements OnInit {
 
-  displayedColumns: string[] = ['userName','userPrenom','description','dateCreated', 'status','Approuver','Rejeter'];
+  displayedColumns: string[] = ['userName','userPrenom','juridique','ninea','description','dateCreated', 'status','Approuver','Rejeter'];
   dataSource = new MatTableDataSource<any>();
   agreementList = []
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -24,7 +26,8 @@ export class DemandeAgremmentComponent implements OnInit {
 
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
-  constructor(private agreementService: AgreementService, private parCrud: CrudPopupComponent, public db: AngularFireDatabase) {
+
+  constructor(private agreementService: AgreementService,public snackBar: MatSnackBar,private utilisateurService: RegistrationService, private parCrud: CrudPopupComponent, public db: AngularFireDatabase) {
     console.log(this.agreementService.getAgreementList())
     this.crudComp = this.parCrud;
     // this.agreementService.getAgreementList().valueChanges().subscribe(res => {
@@ -41,13 +44,13 @@ export class DemandeAgremmentComponent implements OnInit {
         this.dataSource.data = res;
       })
 
+      console.log(this.agreementList.filter(item => item.Statut === "") )
+
    }
 
-
   ngOnInit() {
-    
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort; 
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -58,20 +61,31 @@ export class DemandeAgremmentComponent implements OnInit {
   }
   ajoutDemandeAgrement(){
     this.crudComp.openCreateDemandeAgreement();
-
-}
+  }
   ELEMENT_DATA: AgreementElement[] = this.agreementList;
 
-  approuverDemande(key: string): void{
+  approuverDemande(key: string,userID: string): void{
     this.agreementService.updateAgreement(key,{status:"approuver"});
-    ///this.utilisateurService.isAgreeUtilisateur(key,{isagreer:true});
+    this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
+    let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
+      duration: 3000
+    });
+    refSnack.afterDismissed().subscribe(()=>{
+    }) 
    }
-   
-   rejeterDemande(key: string): void{
+
+   rejeterDemande(key: string,userID: string): void{
     this.agreementService.updateAgreement(key,{status:"rejeter"});
+    this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"rejeter"});
+    let refSnack = this.snackBar.open('Agrément rejeté','merci', {
+      duration: 3000
+    });
+    refSnack.afterDismissed().subscribe(()=>{
+    }) 
    }
 
 }
+
 export interface AgreementElement {
     description: string;
     destinataireID: string;

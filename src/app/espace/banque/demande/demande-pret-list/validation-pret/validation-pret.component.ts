@@ -4,10 +4,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { DemandeFinancementService } from 'app/service/demandeFinancement.service';
 import { Financement } from 'app/models/acteur/demande/Financement.model';
 import {SelectionModel} from '@angular/cdk/collections';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource, MatSnackBar} from '@angular/material';
 import { FormControl ,Validators} from '@angular/forms';
 import { ListProduitService } from 'app/service/list-produit.service';
-
+import { Produit } from 'app/models/msmagasindomains/produit/produit.model'
 
 export interface PeriodicElement {
   code: string;
@@ -17,13 +17,15 @@ export interface PeriodicElement {
 
 }
 
+
 @Component({
   selector: 'app-validation-pret',
   templateUrl: './validation-pret.component.html',
   styleUrls: ['./validation-pret.component.scss']
 })
+
 export class ValidationPretComponent implements OnInit {
-  displayedColumns: string[] = ['select','code', 'designation', 'descriptionProduit', 'prixUnitaire'];
+  displayedColumns: string[] = ['select','code', 'designation', 'descriptionProduit', 'prixUnitaire','quantite'];
   dataSource = new MatTableDataSource<any>();
   selection = new SelectionModel<PeriodicElement>(true, []);
   private dbPath = 'demandeFinancement-db';
@@ -37,9 +39,9 @@ export class ValidationPretComponent implements OnInit {
   fkeyProd : string;
   produitDemande  = [];
   selectedProd = [];
-  produitList = [];
-  demande = {} as Financement;
+  produitList = {};
   selectedProduit = [];
+  demande = {} as Financement;
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -59,7 +61,7 @@ export class ValidationPretComponent implements OnInit {
     public db: AngularFireDatabase,
     private  demandeFinancementService : DemandeFinancementService,
     private listProduitServ : ListProduitService,
-    private router : Router) {
+    private router : Router, public snackBar: MatSnackBar) {
     this.rto = router;
     this.demandeFinancementServ =  demandeFinancementService;  
     this.listProduitServ = listProduitServ;
@@ -83,13 +85,18 @@ export class ValidationPretComponent implements OnInit {
                 .equalTo(t.keyProd))
                 .valueChanges()
                 .subscribe(prod =>{
-                  this.dataSource.data = prod;
-                  this.produitList.push(prod);
+                  prod[0]['zoneGeographiqueId'] = t.quantite;
+                  const data = this.dataSource.data;
+                  data.push(prod[0]);
+                  this.dataSource.data = data;
                 })
             })
           })
       })
   }
+
+ 
+
   getSelectedProducts(){
     this.dataSource.data.forEach(row => {
       if (this.selection.isSelected(row)===true){
@@ -101,7 +108,8 @@ export class ValidationPretComponent implements OnInit {
   
   }
 
-  submit(){
+  submit(e){
+    e.stopPropagation();
     this.getSelectedProducts();
     this.demandeFinancementServ
     .updateFinancement(this.activatedRoute.snapshot.paramMap.get('id')
@@ -115,10 +123,19 @@ export class ValidationPretComponent implements OnInit {
       .valueChanges()
       .subscribe(val => {
         val.forEach(vl => {
-          // this.listProduitServ.updateProduit(val.key,{approved:true})
+          this.listProduitServ.updateProduit(vl['key'],{approved:true})
         })
       })
     })
+    let refSnack = this.snackBar.open('Opération effectuée','merci', {
+      duration: 3000
+    });
+
+    refSnack.afterDismissed().subscribe(()=>{
+      this.router.navigate(['demande'])
+    })
+    
+
   }
 
 }

@@ -83,7 +83,9 @@ export class DetailsPaiementComponent implements OnInit {
                 .equalTo(t.keyProd))
                 .valueChanges()
                 .subscribe(prod =>{
-                  this.dataSource.data = prod;
+                  const data = this.dataSource.data;
+                  data.push(prod[0]);
+                  this.dataSource.data = data;
                 })
             })
           })

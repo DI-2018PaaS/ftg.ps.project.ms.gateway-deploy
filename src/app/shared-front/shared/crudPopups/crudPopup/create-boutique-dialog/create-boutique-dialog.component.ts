@@ -9,6 +9,7 @@ import {SessionStorageService } from 'angular-web-storage';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Magasin } from 'app/models/msmagasindomains/magasin/magasin.model';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-create-boutique-dialog',
@@ -24,7 +25,9 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   utilisateur = {} as Utilisateur;
   magasin = {} as Magasin;
   magasinList = [];
-  
+  checked: Boolean 
+  isService = true;
+
   constructor(private boutiqueService : BoutiqueService, public db: AngularFireDatabase,private session: SessionStorageService) { 
 
     this.getMagasin();
@@ -66,6 +69,12 @@ export class CreateBoutiqueDialogComponent implements OnInit {
   codep = new FormControl();
   ville = new FormControl();
   idMagasin = new FormControl();
+  isServices = new FormControl();
+
+
+  onChange() {
+    console.log(this.boutique.isService);
+  } 
 
   // getListeBoutique(){
   //   this.utilisateur = this.session.get("utilisateur")
@@ -94,7 +103,8 @@ export class CreateBoutiqueDialogComponent implements OnInit {
      nIdProprietaire: this.utilisateur.fkey,
      idBoutique: "",
      fidMagasin: this.magasin.idMagasin,
-     isValid:false
+     isValid:false,
+     isService:this.boutique.isService
     });
     this.boutique = {} as Boutique;
      }
