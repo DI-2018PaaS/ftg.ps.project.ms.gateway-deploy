@@ -34,7 +34,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date_Creation </th>
       <td mat-cell *matCellDef="let row"> {{row.dateCreation}} </td>
     </ng-container>
-
+    
      <!-- Name Column -->
      <ng-container matColumnDef="Date_MiseAjour" >
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date_MisAjour </th>
@@ -52,7 +52,7 @@
     <ng-container matColumnDef="Modifier">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>
       <td mat-cell *matCellDef="let row"> {{row.Modifier}}
-        <button mat-raised-button (click)="crudComp.openUpdateLigneCredit()">
+        <button mat-raised-button (click)="crudComp.openUpdateLigneCredit(row)">
           <mat-icon class="orange600">edit</mat-icon>
         </button>
       </td>

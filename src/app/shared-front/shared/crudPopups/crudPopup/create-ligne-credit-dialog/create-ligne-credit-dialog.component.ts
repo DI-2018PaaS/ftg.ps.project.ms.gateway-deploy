@@ -12,6 +12,7 @@ import { SessionStorageService } from 'angular-web-storage';
 })
 export class CreateLigneCreditDialogComponent implements OnInit {
   hide = true;
+  today: string= new Date().toLocaleDateString();
   ligneCredit = {} as LigneCredit;
   ligneCreditRef$ : AngularFireList<LigneCredit>;
 
@@ -30,7 +31,7 @@ export class CreateLigneCreditDialogComponent implements OnInit {
       idLigneCredit: 0,
       libelle: this.ligneCredit.libelle,
       description: this.ligneCredit.description,
-      dateCreation: null,
+      dateCreation: new Date().toLocaleDateString(),
       dateMisAjour: null,
       montant: this.ligneCredit.montant,
       idOwner: this.session.get('utilisateur').key,
