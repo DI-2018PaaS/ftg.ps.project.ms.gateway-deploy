@@ -2,6 +2,7 @@ import { Component, OnInit , ViewChild} from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { banqueNavigation } from 'app/espace/banque/navigation/banqueNavigation';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-banque',
@@ -14,7 +15,7 @@ export class BanqueComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private _fuseNavigationService: FuseNavigationService) { 
+  constructor(private _fuseNavigationService: FuseNavigationService,private _fuseSidebarService: FuseSidebarService) { 
     
       this.navigation = banqueNavigation;
 
@@ -26,6 +27,6 @@ export class BanqueComponent implements OnInit {
     }
 	toggleSidebar(name): void
     {
-        // TODO this._fuseSidebarService.getSidebar(name).toggleOpen();
+        this._fuseSidebarService.getSidebar(name).toggleOpen();
     }
   }
