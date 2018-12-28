@@ -4,6 +4,7 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import {SessionStorageService } from 'angular-web-storage';
 import { BlivraisonService } from 'app/service/blivraison.service';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 
 @Component({
   selector: 'app-folivraison-list',
@@ -19,16 +20,17 @@ export class FoLivraisonListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   blivraisonService : BlivraisonService;
-
+  utilisateur = {} as Utilisateur;
 constructor(private parCrud: CrudPopupComponent,
   private   blivraisonServ: BlivraisonService,
-  public db: AngularFireDatabase)
+  public db: AngularFireDatabase,private session: SessionStorageService)
 	{
     this.crudComp=this.parCrud;
     this.blivraisonService = blivraisonServ; 
+    this.utilisateur = this.session.get('utilisateur');
     this.db.list("blivraison-db", ref => ref
-      .orderByChild('isApprovedByFourniss')
-      .equalTo(false))
+      .orderByChild('fournisseurId')
+      .equalTo(this.utilisateur.fkey))
       .valueChanges()
       .subscribe(res => {
         console.log(res)

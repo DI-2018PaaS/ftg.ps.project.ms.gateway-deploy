@@ -46,7 +46,12 @@
                 <button mat-icon-button (click)="validate(row.key)">
                   <mat-icon>done_all</mat-icon>
                 </button>
-              </div>
+            </div>
+            <div *ngIf="row.isValid == true">
+                <button mat-icon-button>
+                  <mat-icon style="color:greenyellow !important">done_all</mat-icon>
+                </button>
+            </div>
           <!-- <button mat-icon-button (click)="validate(row.key)">
             <mat-icon>done_all</mat-icon>
           </button> -->

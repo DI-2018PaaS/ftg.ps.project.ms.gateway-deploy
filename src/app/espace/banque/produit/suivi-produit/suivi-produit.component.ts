@@ -29,7 +29,7 @@ export class SuiviProduitComponent implements OnInit {
       this.blivraisonService = blivraisonServ; 
       this.db.list("blivraison-db", ref => ref
         .orderByChild('isValid')
-        .equalTo(true))
+        .equalTo(false))
         .valueChanges()
         .subscribe(res => {
           console.log(res)
@@ -51,7 +51,7 @@ export class SuiviProduitComponent implements OnInit {
     }
   
     validate(key){
-      this.blivraisonServ.updateBlivraison(key,{isApprovedByAnim:true})
+      this.blivraisonServ.updateBlivraison(key,{isValid:true})
     }
     ELEMENT_DATA: CommandeElement[] = [];
   } 

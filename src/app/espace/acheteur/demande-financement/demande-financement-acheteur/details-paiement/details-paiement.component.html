@@ -72,7 +72,7 @@
               <div style="width:100%">
                   <mat-form-field style="width:100%">
                       <mat-select placeholder="livreur" [(ngModel)]="financement.livreur" [formControl]="livreur">
-                        <mat-option *ngFor="let livreur of fournisseurList" value={{livreur.key}}>{{livreur.nom}} {{livreur.nom}} - {{livreur.telephone}}</mat-option>
+                        <mat-option *ngFor="let livreur of fournisseurList" value={{livreur.key}}>{{livreur.prenom}} {{livreur.nom}} - {{livreur.telephone}}</mat-option>
                       </mat-select>
                   </mat-form-field>
               </div>

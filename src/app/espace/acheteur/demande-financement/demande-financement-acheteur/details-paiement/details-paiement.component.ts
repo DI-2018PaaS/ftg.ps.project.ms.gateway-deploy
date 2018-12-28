@@ -11,6 +11,7 @@ import { BlivraisonService } from 'app/service/blivraison.service';
 import { flattenStyles } from '@angular/platform-browser/src/dom/dom_renderer';
 import {SessionStorageService } from 'angular-web-storage';
 import {MatSnackBar} from '@angular/material';
+import { Router } from '@angular/router';
 
 
 export interface PeriodicElement {
@@ -52,15 +53,18 @@ export class DetailsPaiementComponent implements OnInit {
   normal : number;
   frais : number;
   utilisateur : any;
+  selectedProduit = [];
+
   constructor(private activatedRoute: ActivatedRoute,public db: AngularFireDatabase,
     private  demandeFinancementService : DemandeFinancementService,
     private listProduitServ : ListProduitService, private blivraisonServ : BlivraisonService,
-    private session: SessionStorageService, public snackBar: MatSnackBar) { 
+    private session: SessionStorageService, public snackBar: MatSnackBar,private router : Router) { 
     this.lv_ndour = 2000;
     this.lv_dieng = 2500;
     this.express = 4000;
     this.normal = 3000;
     this.frais = 0;
+    this.router = router;
     this.utilisateur = this.session.get('utilisateur');
     this.demandeFinancementServ =  demandeFinancementService;  
     this.listProduitServ = listProduitServ;
@@ -108,7 +112,6 @@ export class DetailsPaiementComponent implements OnInit {
                   .equalTo(rst.nIdProprietaire))
                   .valueChanges()
                   .subscribe(tkl => {
-                    console.log(tkl)
                     this.fournisseurList = tkl;
                 })
             })
@@ -133,11 +136,10 @@ export class DetailsPaiementComponent implements OnInit {
   ngOnInit() {}
 
   validerPaimement(){
-    // let ref = this.demandeFinancementServ
-    // .updateFinancement(this.activatedRoute.snapshot.paramMap.get('id'), {
+    var idx = 0;
 
-    // })
-
+    var prop = Object.keys(this.dataSource.data)[idx];    
+    var value = this.dataSource.data[prop];
 
      this.blivraisonServ.createBlivraison({
       key: "",
@@ -152,11 +154,15 @@ export class DetailsPaiementComponent implements OnInit {
       modeLivraison: this.financement.modeLivraison,
       objet:this.finance.objet,
       acheteurNom:this.utilisateur.firstName,
-      acheteurPrenom:this.utilisateur.lastName
+      acheteurPrenom:this.utilisateur.lastName,
+      fournisseurId : value.fidProprietaire
     })
     let refSnack = this.snackBar.open('demande envoyé','merci', {
       duration: 3000
     });
+    refSnack.afterDismissed().subscribe(()=>{
+      this.router.navigate(['demande-financement'])
+    })  
   }
 
 }

@@ -12,6 +12,7 @@ export class BonLivraison {
     objet:string;
     acheteurNom:string;
     acheteurPrenom :string;
+    fournisseurId : string;
 
 
 }
