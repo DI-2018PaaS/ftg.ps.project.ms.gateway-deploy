@@ -128,13 +128,13 @@
 }
 
 .chrono-content{
-    border: 2px solid red;
+    border: 2px solid #6c4600;
     padding: 9px;
     border-radius: 25px;
 }
 
 .title-enchere{
-    color: red;
+    color:#6c4600
 }
 
 .quantite{
@@ -167,4 +167,32 @@
          margin-left: -20px;
          background: #260d0b !important;
     }
+}
+img{
+max-width: 51%;
+height: auto;
+vertical-align: top;
+border: none;
+}
+.product-item {
+    background-color: #FCF8E3 !important; 
+}
+.contain{
+    margin-top: -3%;
+}
+.title1{
+    margin-top: -3%;
+}
+.title2{
+        margin-top: -3%;
+    }
+
+.details{
+    color: white !important;
+}
+.repondre{
+    color: white !important;
+} 
+.appeloffre{
+    margin-top: -3%; 
 }

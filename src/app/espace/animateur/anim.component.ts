@@ -14,6 +14,7 @@ import { adminNavigation } from '../administrateur/navigation/admin-navigation';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import {SessionStorageService } from 'angular-web-storage';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 @Component({
     selector: 'app-anim',
@@ -35,7 +36,7 @@ export class AnimateurComponent {
         { Name: 'Animateur', value: '4',routing:'/main-anim'},
         { Name: 'Administrateur', value: '5',routing:'/main'}
         ];
-    constructor(private _fuseNavigationService: FuseNavigationService,private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
+    constructor(private _fuseNavigationService: FuseNavigationService,private _fuseSidebarService: FuseSidebarService,private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
 
         console.log("AnimateurComponent role:"+this.role);
         this.utilisateur = this.session.get("utilisateur")
@@ -112,6 +113,12 @@ export class AnimateurComponent {
 			this._fuseNavigationService.setCurrentNavigation('anim-admin');
             this.router.navigate(['']);
         }
+    }
+
+    toggleSidebar(name): void
+    {
+        // TODO 
+    this._fuseSidebarService.getSidebar(name).toggleOpen();
     }
 }
 

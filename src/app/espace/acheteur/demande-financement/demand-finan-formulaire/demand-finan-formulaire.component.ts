@@ -35,7 +35,7 @@ export interface PeriodicElement {
 
 export class DemandFinanFormulaireComponent implements OnInit {
   
-  displayedColumns: string[] = ['select','code', 'designation', 'descriptionProduit', 'prixUnitaire'];
+  displayedColumns: string[] = ['select','code', 'designation', 'descriptionProduit', 'prixUnitaire','quantite'];
   dataSource = new MatTableDataSource<any>();
   selection = new SelectionModel<PeriodicElement>(true, []);
   produitService : ProduitService;
@@ -134,11 +134,13 @@ export class DemandFinanFormulaireComponent implements OnInit {
     })
 
     this.selectedProduit.forEach(res =>{
+      
       this.listProduitService.addToList({
         key:"",
         keyProd: res.key,
         approved :false,
-        keyDemande : ref.key
+        keyDemande : ref.key,
+        quantite:res.zoneGeographiqueId
       })
     })
     let refSnack = this.snackBar.open('demande envoyé','merci', {

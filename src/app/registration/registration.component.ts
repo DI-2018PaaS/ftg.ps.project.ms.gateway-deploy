@@ -153,7 +153,6 @@ export class RegistrationComponent implements OnInit {
           userActeurID: this.typeActeurs[2].idActeurType,
           fkey:FFK.key,
           isagreer: "false"
-
         });
       
         this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.utilisateur.username).limitToFirst(1))

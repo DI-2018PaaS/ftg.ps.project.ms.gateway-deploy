@@ -26,7 +26,7 @@ export class LigneCreditService {
     return this.refLigneCreditRef;
   }
 
-  updateLigneCreit(key:string, value:any):void{
+  updateLigneCredit(key:string, value:any):void{
     this.refLigneCreditRef.update(key,value).catch(error => this.handleError(error));
   }
 
