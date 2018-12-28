@@ -52,23 +52,25 @@
                            <!-- <mat-accordion>
                                 <mat-expansion-panel>
                                     <mat-expansion-panel-header>-->
-                                        <mat-panel-title>
+                                        <mat-panel-title class="title1">
                                             <h4>Produits & services</h4>
                                         </mat-panel-title>
                                     <!--</mat-expansion-panel-header>-->
-                                    <div fxLayout="row" fxFlex="100" fxLayoutGap="3px">
-                                        <div fxFlex="50" fxLayout="row" fxLayoutGap="1px" class="prodServBackground">
+                                    <div fxLayout="row" fxFlex="100" fxLayoutGap="3px" class="contain">
+                                        <div fxFlex="50" fxLayout="row" fxLayoutGap="1px" class="prodServBackground" style="max-width: 29%;">
                                             <mat-card class="product-item text-center">
                                                 <mat-chip-list>
-                                                    <mat-chip color="warn" selected="true">0% OFF</mat-chip>
+                                                    <mat-chip color="warn" selected="true" style="margin-left: 25%">0% OFF</mat-chip>
                                                 </mat-chip-list>
                                                 <a [routerLink]="['detailsProduit', 1]" class="image-link">
                                                     <img src="assets/images/Produit/cirot.jpg" alt="">
                                                 </a>
                                                 <h4 class="category text-muted">Agriculture</h4>
-                                                <span>Quantité</span>
-                                                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices">
-                                                    <div fxLayout="column" fxFlex="50" fxLayoutAlign="center start">
+                                                <a [routerLink]="['#']" class="title text-truncate">
+                                                    Cirot
+                                                </a>
+                                                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices" style="margin-left: 3%">
+                                                    <div fxLayout="column" fxLayoutAlign="center start">
                                                         <p class=" text-muted">
                                                             <span>12500 CFA</span>
                                                         </p>
@@ -98,10 +100,10 @@
                                                 </div>
                                             </mat-card>
                                         </div>
-                                        <div fxFlex="50" fxLayout="row" fxLayoutGap="1px">
+                                        <div fxFlex="50" fxLayout="row" fxLayoutGap="1px" style="max-width: 29%;">
                                             <mat-card class="product-item text-center">
                                                 <mat-chip-list>
-                                                    <mat-chip color="warn" selected="true">0% OFF</mat-chip>
+                                                    <mat-chip color="warn" selected="true" style="margin-left: 25%">0% OFF</mat-chip>
                                                 </mat-chip-list>
                                                 <a [routerLink]="['detailsProduit', 1]" class="image-link">
                                                     <img src="assets/images/Produit/cirot.jpg" alt="">
@@ -110,7 +112,50 @@
                                                 <a [routerLink]="['#']" class="title text-truncate">
                                                     Cirot
                                                 </a>
-                                                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices">
+                                                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices" style="margin-left: 3%">
+                                                    <div fxLayout="column" fxLayoutAlign="center start">
+                                                        <p class=" text-muted">
+                                                            <span>12500 CFA</span>
+                                                        </p>
+                                                    </div>
+                                                    <div fxLayout="row" fxLayoutAlign='center end'>
+                                                        <div class="ratings">
+                                                            <mat-icon class="mat-icon-xs">star</mat-icon>
+                                                            <mat-icon class="mat-icon-xs">star</mat-icon>
+                                                            <mat-icon class="mat-icon-xs">star</mat-icon>
+                                                            <mat-icon class="mat-icon-xs">star</mat-icon>
+                                                        </div>
+                                                        <p class="ratings-count text-muted">4 ratings</p>
+                                                    </div>
+                                                </div>
+                                                <div class="divider mt-2"></div>
+                                                <div class="icons">
+                                                    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="align" class="text-muted">
+                                                        <div>
+                                                            <button mat-icon-button matTooltip="Ajouter au panier">
+                                                                <mat-icon>shopping_cart</mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button matTooltip="Detail produit">
+                                                                <mat-icon>remove_red_eye</mat-icon>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </mat-card>
+                                        </div>
+                                        <div fxFlex="50" fxLayout="row" fxLayoutGap="1px" style="max-width: 29%;">
+                                            <mat-card class="product-item text-center">
+                                                <mat-chip-list>
+                                                    <mat-chip color="warn" selected="true" style="margin-left: 25%">0% OFF</mat-chip>
+                                                </mat-chip-list>
+                                                <a [routerLink]="['detailsProduit', 1]" class="image-link">
+                                                    <img src="assets/images/Produit/cirot.jpg" alt="">
+                                                </a>
+                                                <h4 class="category text-muted">Agriculture</h4>
+                                                <a [routerLink]="['#']" class="title text-truncate">
+                                                    Cirot
+                                                </a>
+                                                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices" style="margin-left: 3%">
                                                     <div fxLayout="column" fxLayoutAlign="center start">
                                                         <p class=" text-muted">
                                                             <span>12500 CFA</span>
@@ -145,17 +190,17 @@
                               <!---  </mat-expansion-panel>
                                <mat-expansion-panel>
                                     <mat-expansion-panel-header>-->
-                                        <mat-panel-title>
+                                        <mat-panel-title class="title2">
                                             <h4>Appels d'offres</h4>
                                         </mat-panel-title>
                                    <!--- </mat-expansion-panel-header>-->
-                                    <mat-card fxFlex="100">
+                                    <mat-card fxFlex="100" class="appeloffre">
                                         <div fxLayout="row" fxLayoutGap="30px">
                                             <div>
                                                 <img mat-card-image src="assets/images/AppelOffre/FineTech_PS_Elmt_AppelOffre_Seller_Bg.png" style="width:48px">
                                             </div>
                                             <div>
-                                                <span  style="font-size:16px; color:red"> (Appels d'offres N)</span>
+                                                <span  style="font-size:16px; color:#6c4600"> (Appels d'offres N)</span>
                                                 <br>
                                                 
                                             </div>
@@ -175,7 +220,7 @@
                                                     </div>
                                                     <div fxLayout="column">
                                                         <div style="font-size:13px">Date limite</div>
-                                                        <div style="color:red">09.09.2018</div>
+                                                        <div style="color:#6c4600">09.09.2018</div>
                                                     </div>
                                                     <div fxLayout="column">
                                                         <div style="font-size:13px">Budget</div>
@@ -253,10 +298,10 @@
                                         <mat-card-footer>
                                             <div fxLayout="row" fxFlex="100" fxLayoutGap="2px">
                                                 <div fxFlex="50">
-                                                    <a style="float:left; width:100%" color="warn" mat-raised-button routerLink=".">Details de l'offre</a>
+                                                    <a style="float:left; width:100%" style="float:left; background-color:#87856C; width: 100%" class="details" mat-raised-button routerLink=".">Details de l'offre</a>
                                                 </div>
                                                 <div fxFlex="50">
-                                                    <a style="float:right; width:100%" color="primary" mat-raised-button routerLink=".">repondre à l'offre</a>
+                                                    <a style="float:right; width:100%" style="float:left; background-color:#333; width: 100%" class="repondre" mat-raised-button routerLink=".">Repondre à l'offre</a>
                                                 </div>
                                             </div>
                                         </mat-card-footer>
@@ -303,7 +348,7 @@
                                                     <div fxLayout="row" fxLayoutAlign="space-between left" fxLayoutGap="30px">
                                                         <div fxLayout="column">
                                                             <div style="font-size:10px; font-weight:bold; color:rgb(182, 177, 177)">Enchère courante</div>
-                                                            <div style="color:red ; font-size:14px; font-weight:bold">1 800 000
+                                                            <div style="color:#6c4600 ; font-size:14px; font-weight:bold">1 800 000
                                                                 <SUP style="text-transform:lowercase; font-size: 10px;" class="expo">XOF</SUP>
                                                             </div>
                                                         </div>
@@ -402,13 +447,13 @@
                                         <mat-card-footer>
                                             <div fxLayout="row" fxLayoutGap="5px" fxFlex="100">
                                                 <div fxFlex="50" >
-                                                    <button style="float:left; background-color:black; width: 100%" class="enchere-btn" mat-raised-button routerLink=".">
+                                                    <button style="float:left; background-color:#87856C; width: 100%" class="enchere-btn" mat-raised-button routerLink=".">
                                                         <span class="bottom-text-enchere">Details de l'offre</span>
                                                     </button>
                                                 </div>
                                                 <div fxFlex="50">
-                                                    <button style="float:right ; background-color:green; width: 100%" class="enchere-btn-success" fxLayoutAlign="right" mat-raised-button routerLink=".">
-                                                        <span class="bottom-text-enchere">repondre à l'offre </span>
+                                                    <button style="float:right ; background-color:#333; width: 100%" class="enchere-btn-success" fxLayoutAlign="center" mat-raised-button routerLink=".">
+                                                        <span class="bottom-text-enchere">Repondre à l'offre </span>
                                                         <mat-icon style="color:white">done</mat-icon>
                                                     </button>
                                                 </div>
@@ -428,7 +473,7 @@
                         <h2>Top Recherches</h2>
                     </div>
                     <div class="contain-swip">
-                    <app-products-carousel [products]="topRatedProducts"></app-products-carousel>
+                     <app-products-carousel [products]="topRatedProducts"></app-products-carousel>
                     </div>
                 </div>
                     <!-- / CONTENT -->
