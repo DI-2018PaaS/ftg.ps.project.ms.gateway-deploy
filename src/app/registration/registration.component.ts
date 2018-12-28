@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { RegistrationService } from 'app/service/registration.service';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
-import { AngularFireList } from 'angularfire2/database';
+import { AngularFireList,AngularFireDatabase } from 'angularfire2/database';
 import { ActeurType } from 'app/models/acteur/acteur-type/acteur-type.model';
 import { Acheteur } from 'app/models/acteur/acheteur/acheteur.model';
 import { Animateur } from 'app/models/acteur/animateur/animateur.model';
@@ -12,6 +12,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { AcheteurService } from 'app/service/acheteur.service';
 import { FournisseurService } from 'app/service/fournisseur.service';
 import { RoleService } from 'app/service/role.service';
+import {SessionStorageService } from 'angular-web-storage';
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +20,8 @@ import { RoleService } from 'app/service/role.service';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  
+  private dbPath = 'utilisateur-db';
+
   hide: boolean = true;
   utilisateur = {} as Utilisateur;
   acheteur = {} as Acheteur;
@@ -33,7 +35,7 @@ export class RegistrationComponent implements OnInit {
 
   typeActeurs: ActeurType []=[
     {idActeurType: 1,libelleActeur: "Animateur"},
-    {idActeurType: 2,libelleActeur:"Acheteur"},
+    {idActeurType: 2,libelleActeur: "Acheteur"},
     {idActeurType: 3,libelleActeur: "Fournisseur"}
   ];
 
@@ -42,8 +44,8 @@ export class RegistrationComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
 
 
-  constructor(private registrationService: RegistrationService, private animateurService: AnimateurService, private acheteurService: AcheteurService
-     , private fournisseurService: FournisseurService, private serviceRole: RoleService,private router:Router) { }
+  constructor(private registrationService: RegistrationService, private session: SessionStorageService, private animateurService: AnimateurService, private acheteurService: AcheteurService
+     , private fournisseurService: FournisseurService, private serviceRole: RoleService,private router:Router, private db: AngularFireDatabase) { }
 
   ngOnInit() {
     this.typeActeurs;
@@ -79,6 +81,7 @@ export class RegistrationComponent implements OnInit {
           fkey: AFK.key,
           isagreer: "false"
         });
+
         let navigationExtras: NavigationExtras = {
           queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[0].idActeurType},
           fragment: 'animateur'
@@ -153,6 +156,13 @@ export class RegistrationComponent implements OnInit {
 
         });
       
+        this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.utilisateur.username).limitToFirst(1))
+        .valueChanges()
+        .subscribe(res => {
+          this.utilisateur=res[0] as Utilisateur;  
+          this.session.set('utilisateur', res[0])
+        });
+        console.log("user",this.session)
 
       let navigationExtras: NavigationExtras = {
         queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[2].idActeurType},
@@ -161,9 +171,11 @@ export class RegistrationComponent implements OnInit {
       this.fournisseur = {} as Fournisseur;
       this.utilisateur = {} as Utilisateur;
       this.router.navigate(['main-magasin'],navigationExtras);
+
     }else{
       console.log("type doesn't exit");
     }
+
   }
 
 }

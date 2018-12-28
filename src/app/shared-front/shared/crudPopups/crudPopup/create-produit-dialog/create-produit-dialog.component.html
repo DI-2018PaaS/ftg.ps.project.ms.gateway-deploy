@@ -1,7 +1,7 @@
 
 <mat-dialog-content class="mat-typography">
         <div class="title">
-            <h2 mat-dialog-title >Creation Produit</h2>
+            <h2 mat-dialog-title >Creation Produit/Service</h2>
             </div>
     <form class="example-container">
           <div fxLayout="column" fxFlex="100px">
@@ -28,7 +28,17 @@
                      
                   </div>
                   
-                 
+                  <div style="margin-left: 130%;">
+                        <mat-form-field>
+                                <mat-select placeholder="Boutique" [(ngModel)]="boutique.idBoutique" [formControl]="idBoutique">
+
+                                    <mat-option *ngFor="let b of boutiqueList" [value]="b.idBoutique" >{{b.nom}}</mat-option>
+
+                                </mat-select>
+                           </mat-form-field>
+                           
+                    </div>
+
               </div>
               <div fxLayout="row" style="margin-top: -3%;"fxLayout.xs="column" fxLayoutGap="5px">
                     <div>

@@ -38,6 +38,7 @@ export class FournisseurComponent {
         this.navigation = fournissNavigation;
 		this.role=this.globals.role;
         this.crudComp=this.parCrud;
+
         // Register the navigation to the service
         this._fuseNavigationService.register('fourniss', this.navigation);
 
@@ -46,14 +47,23 @@ export class FournisseurComponent {
         console.log("FournisseurComponent role:"+this.role);
 
         this.utilisateur = this.session.get("utilisateur")
-        console.log("isagreer: ", this.utilisateur.isagreer)	
 
-        if (this.utilisateur.isagreer == "true"){
-            this.isagreer = true
-            this.buttonDisabled = true;        
+
+        if (this.utilisateur != null){
+
+            if (this.utilisateur.isagreer == "true"){
+                this.isagreer = true
+                this.buttonDisabled = true;        
+            }else {
+                this.isagreer = false
+                this.buttonDisabled = false;
+            }
+            console.log("userr ",this.utilisateur)
+
         }else{
             this.isagreer = false
             this.buttonDisabled = false;
+            console.log("user is null",this.utilisateur)
         }
 
     }

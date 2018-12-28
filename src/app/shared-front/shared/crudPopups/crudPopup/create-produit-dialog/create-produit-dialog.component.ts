@@ -6,7 +6,8 @@ import { ProduitService } from 'app/service/produit.service';
 import { Upload } from 'app/service/produit.service';
 import {SessionStorageService } from 'angular-web-storage';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Boutique } from 'app/models/msmagasindomains/boutique/boutique.model';
 
 //  export class AppComponent {
 //    constructor(private afStorage: AngularFireStorage) { }
@@ -25,17 +26,35 @@ export class CreateProduitDialogComponent implements OnInit {
   hide = true;
   produit = {} as Produit;
   produitRef$ : AngularFireList<Produit>;
-
+  boutique = {} as Boutique;
   selectedFiles: FileList;
   currentUpload: Upload;
   utilisateur = {} as Utilisateur;
+  private dbPath = 'boutiques-db';
+  boutiqueList = [];
 
-  constructor(private produitService : ProduitService,private session: SessionStorageService) { 
+  constructor(private produitService : ProduitService,public db: AngularFireDatabase,private session: SessionStorageService) { 
+    
+    this.getBoutique();
+
+
     this.utilisateur = this.session.get("utilisateur")
     console.log("idFrouniss ",this.session.get("utilisateur"))
-
   }
 
+  getBoutique(){
+
+    this.utilisateur = this.session.get("utilisateur")
+    this.db.list(this.dbPath, ref => ref
+    .orderByChild('nIdProprietaire')
+    .equalTo(this.utilisateur.fkey))
+    .valueChanges()
+    .subscribe(res => {
+      this.boutiqueList.push(res);
+      this.boutiqueList = res;
+
+    })
+  }
   detectFiles(event) {
     this.selectedFiles = event.target.files;
     console.log("selected picture", this.selectedFiles)
@@ -61,7 +80,7 @@ uploadSingle() {
   prixUnitaire = new FormControl();
   descriptionProduit = new FormControl();
   zoneGeographiqueId = new FormControl();
-  
+  idBoutique = new FormControl();
 
   createNewProduit(){
     console.log(this.produit);
@@ -73,7 +92,7 @@ uploadSingle() {
      zoneGeographiqueId: 0,
      isValid:false,
      image:this.currentUpload.url,
-     fidBoutique: "",
+     fidBoutique: this.boutique.idBoutique,
      fidProprietaire : this.utilisateur.fkey
     });
     this.produit = {} as Produit;
