@@ -44,6 +44,8 @@ export class DetailsPaiementComponent implements OnInit {
   livreur = new FormControl();
   produitDemande  = [];
   produitList = [];
+  fournisseurList = [];
+  serviceList = [];
   lv_dieng : number;
   lv_ndour : number;
   express : number;
@@ -54,16 +56,17 @@ export class DetailsPaiementComponent implements OnInit {
     private  demandeFinancementService : DemandeFinancementService,
     private listProduitServ : ListProduitService, private blivraisonServ : BlivraisonService,
     private session: SessionStorageService, public snackBar: MatSnackBar) { 
-      this.lv_ndour = 2000;
-      this.lv_dieng = 2500;
-      this.express = 4000;
-      this.normal = 3000;
-      this.frais = 0;
+    this.lv_ndour = 2000;
+    this.lv_dieng = 2500;
+    this.express = 4000;
+    this.normal = 3000;
+    this.frais = 0;
     this.utilisateur = this.session.get('utilisateur');
     this.demandeFinancementServ =  demandeFinancementService;  
     this.listProduitServ = listProduitServ;
     this.blivraisonService = blivraisonServ;
     var key = this.activatedRoute.snapshot.paramMap.get('id');
+
     this.db.list(this.dbPath, ref => ref
       .orderByChild('key')
       .equalTo(key))
@@ -82,14 +85,35 @@ export class DetailsPaiementComponent implements OnInit {
                 .orderByChild('key')
                 .equalTo(t.keyProd))
                 .valueChanges()
-                .subscribe(prod =>{
+                .subscribe(prod => {
                   const data = this.dataSource.data;
                   data.push(prod[0]);
-                  this.dataSource.data = data;
+                  this.dataSource.data = data;    
                 })
             })
           })
       })
+
+      this.db.list('boutiques-db', ls => ls
+        .orderByChild('isService')
+        .equalTo(true)
+        .limitToFirst(1))
+        .valueChanges()
+        .subscribe(fn => {
+          this.serviceList = fn;
+          this.serviceList.forEach(rst => {
+            this.db.list('fournisseur-db', fr => fr
+                  .orderByChild('key')
+                  .limitToFirst(1)
+                  .equalTo(rst.nIdProprietaire))
+                  .valueChanges()
+                  .subscribe(tkl => {
+                    console.log(tkl)
+                    this.fournisseurList = tkl;
+                })
+            })
+        });
+      
   }
 
   /** Whether the number of selected elements matches the total number of rows. */
