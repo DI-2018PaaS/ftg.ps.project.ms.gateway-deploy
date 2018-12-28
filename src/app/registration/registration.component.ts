@@ -158,18 +158,15 @@ export class RegistrationComponent implements OnInit {
         this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.utilisateur.username).limitToFirst(1))
         .valueChanges()
         .subscribe(res => {
-          this.utilisateur=res[0] as Utilisateur;  
-          this.session.set('utilisateur', res[0])
+          this.session.set('utilisateur', res[0])            
+          let navigationExtras: NavigationExtras = {
+            queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[2].idActeurType},
+            fragment: 'fournisseur'
+          };
+          this.fournisseur = {} as Fournisseur;
+          this.utilisateur = {} as Utilisateur;
+          this.router.navigate(['main-magasin'],navigationExtras);
         });
-        console.log("user",this.session)
-
-      let navigationExtras: NavigationExtras = {
-        queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[2].idActeurType},
-        fragment: 'fournisseur'
-      };
-      this.fournisseur = {} as Fournisseur;
-      this.utilisateur = {} as Utilisateur;
-      this.router.navigate(['main-magasin'],navigationExtras);
 
     }else{
       console.log("type doesn't exit");
