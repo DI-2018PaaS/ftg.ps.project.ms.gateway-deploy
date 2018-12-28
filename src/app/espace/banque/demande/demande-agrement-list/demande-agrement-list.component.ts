@@ -15,7 +15,7 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./demande-agrement-list.component.scss']
 })
 export class DemandeAgrementListComponent implements OnInit {
-  displayedColumns: string[] = ['userName','userPrenom', 'description','createdDate','status','Approuver','Rejeter'];
+  displayedColumns: string[] = ['userName','userPrenom', 'juridique','ninea','description','createdDate','status','Approuver','Rejeter'];
   dataSource = new MatTableDataSource<any>();
   private dbPath = 'agreement-db';
   agreementList = []
@@ -55,6 +55,10 @@ export class DemandeAgrementListComponent implements OnInit {
     
   }
   ELEMENT_DATA: AgreementElement[] = this.agreementList;
+
+  validerAgrement(row){
+    this.crudComp.openUpdateDemandeAgreement(row);
+  }
 
   approuverDemande(key: string,userID: string): void{
     this.agreementService.updateAgreement(key,{status:"approuver"});

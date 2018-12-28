@@ -64,6 +64,7 @@ import { DemandeFinancementService } from './service/demandeFinancement.service'
 import { ListProduitService } from './service/list-produit.service';
 import { LigneCreditService } from './service/ligneCredit.service';
 import { BlivraisonService } from 'app/service/blivraison.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -124,6 +125,10 @@ const appRoutes: Routes = [
     {
         path: 'registration',
         component: RegistrationComponent
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent
     },
     {
         path: '',
@@ -389,6 +394,7 @@ const appRoutes: Routes = [
         AnimateurComponent,
         FournisseurComponent,
         RegistrationComponent,
+        ProfileComponent
         
        //,
         //MultiUserComponent

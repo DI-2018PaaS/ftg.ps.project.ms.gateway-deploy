@@ -3,4 +3,5 @@ export class ListProduit {
     keyDemande:string;
     keyProd :string;
     approved :boolean;
+    quantite:number;
 }

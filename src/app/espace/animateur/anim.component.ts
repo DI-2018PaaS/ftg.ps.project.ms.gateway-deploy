@@ -3,6 +3,7 @@ import { Component} from '@angular/core';
 //import { Product } from '../../front/app.models';
 //import { MatDialog } from '@angular/material';
 import { animNavigation } from 'app/espace/animateur/navigation/anim-navigation';
+import { animNavigationfake } from 'app/espace/animateur/navigation/anim-navigationfake';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { Globals } from 'app/globals/Globals.element';
 import { Router } from '@angular/router';
@@ -13,6 +14,7 @@ import { adminNavigation } from '../administrateur/navigation/admin-navigation';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import {SessionStorageService } from 'angular-web-storage';
 import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
+import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 @Component({
     selector: 'app-anim',
@@ -34,30 +36,33 @@ export class AnimateurComponent {
         { Name: 'Animateur', value: '4',routing:'/main-anim'},
         { Name: 'Administrateur', value: '5',routing:'/main'}
         ];
-    constructor(private _fuseNavigationService: FuseNavigationService,private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
+    constructor(private _fuseNavigationService: FuseNavigationService,private _fuseSidebarService: FuseSidebarService,private globals: Globals,private router: Router,private parCrud: CrudPopupComponent,  private session: SessionStorageService){
 
-        this.navigation = animNavigation;
-        this.role=this.globals.role;
-		this.crudComp=this.parCrud;
-        // Register the navigation to the service
-        this._fuseNavigationService.register('anim', this.navigation);
-
-        // Set the main navigation as our current navigation
-        this._fuseNavigationService.setCurrentNavigation('anim');
         console.log("AnimateurComponent role:"+this.role);
         this.utilisateur = this.session.get("utilisateur")
 
         console.log("isagreer ",this.utilisateur.isagreer)     
 
 
-        if (this.utilisateur.isagreer == "true"){
-            //this.isagreer = true
+        if (this.utilisateur.isagreer == "true") {
+            this.navigation = animNavigation;
+            this.role=this.globals.role;
+            this.crudComp=this.parCrud;
+            // Register the navigation to the service
+            this._fuseNavigationService.register('anim', this.navigation);
+            // Set the main navigation as our current navigation
+            this._fuseNavigationService.setCurrentNavigation('anim');
             this.buttonDisabled = true;   
-        }else{
-            //this.isagreer = false
+        }else {
+            this.navigation = animNavigationfake;
+            this.role=this.globals.role;
+            this.crudComp=this.parCrud;
+            // Register the navigation to the service
+            this._fuseNavigationService.register('anim', this.navigation);
+            // Set the main navigation as our current navigation
+            this._fuseNavigationService.setCurrentNavigation('anim');            
             this.buttonDisabled = false;
             console.log("false")     
-
         }
 
     }
@@ -108,6 +113,12 @@ export class AnimateurComponent {
 			this._fuseNavigationService.setCurrentNavigation('anim-admin');
             this.router.navigate(['']);
         }
+    }
+
+    toggleSidebar(name): void
+    {
+        // TODO 
+    this._fuseSidebarService.getSidebar(name).toggleOpen();
     }
 }
 

@@ -23,6 +23,17 @@
         <td mat-cell *matCellDef="let row"> {{row.userPrenom}} </td>
       </ng-container>
 
+      <!-- Progress Column -->
+    <ng-container matColumnDef="juridique">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut juridique </th>
+        <td mat-cell *matCellDef="let row"> {{row.juridique}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+    <ng-container matColumnDef="ninea">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ninea </th>
+        <td mat-cell *matCellDef="let row"> {{row.ninea}} </td>
+      </ng-container>
 
     <!-- Progress Column -->
     <ng-container matColumnDef="description">
@@ -46,7 +57,7 @@
       <ng-container matColumnDef="Approuver">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Approuver </th>
         <td mat-cell *matCellDef="let row"> {{row.Approuver}}
-          <button mat-raised-button (click)="approuverDemande(row.key,row.userID)">
+          <button mat-raised-button (click)="validerAgrement(row)">
               <mat-icon class="green">done_outline</mat-icon>
             </button>
         </td>

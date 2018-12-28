@@ -69,14 +69,17 @@
                     </div-->
                 </div>
                 <div content class="content p-24">
-                  <router-outlet></router-outlet>  
+                <button mat-icon-button class="sidebar-toggle" fxHide.gt-md (click)="toggleSidebar('carded-right-sidebar-1')">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <router-outlet></router-outlet>  
                 </div>
             </div>
         </div>
         <!-- / CONTENT CARD -->
         <!-- / CENTER -->
         <!-- SIDEBAR -->
-        <fuse-sidebar class="sidebar" name="carded-right-sidebar-1" position="end" lockedOpen="gt-md">
+        <fuse-sidebar class="sidebar" name="carded-right-sidebar-1" position="start" lockedOpen="gt-md">
             <!-- SIDEBAR CONTENT -->
             <div class="content p-24">
                 <admin-sidebar></admin-sidebar>

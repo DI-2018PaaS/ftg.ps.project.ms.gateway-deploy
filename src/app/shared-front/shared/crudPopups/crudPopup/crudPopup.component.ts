@@ -46,6 +46,7 @@ import { SuiviReglementCommandeComponent } from './Suivi-reglement-commande/Suiv
 import { RechercherProduitComponent } from './Rechercher-produit/rechercher-produit-dialog.component';
 import { ListeDemandeAgrementDialogComponent } from './liste-demande-agreement/liste-demande-agreement.component';
 
+
 @Component({
   selector: 'app-crudpopup',
   templateUrl: './crudPopup.component.html',
@@ -360,16 +361,20 @@ export class CrudPopupComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openUpdateLigneCredit() {
-    const dialogCreateCpt = this.dialog.open(UpdateLigneCreditDialogComponent);
+  openUpdateLigneCredit(row) {
+    const dialogCreateCpt = this.dialog.open(UpdateLigneCreditDialogComponent,{
+      data:{
+        row: row}
+      });
+  
 
     dialogCreateCpt.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
   openUpdateLigneDepot() {
-    const dialogCreateCpt = this.dialog.open(UpdateLigneDepotDialogComponent);
-
+    const dialogCreateCpt = this.dialog.open(UpdateLigneDepotDialogComponent)
+    
     dialogCreateCpt.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
@@ -395,8 +400,12 @@ export class CrudPopupComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  openUpdateDemandeAgreement () {
-    const dialogCreateCpt = this.dialog.open(UpdateDemandeAgrementDialogComponent);
+  openUpdateDemandeAgreement (row) {
+    const dialogCreateCpt = this.dialog.open(UpdateDemandeAgrementDialogComponent,{
+      data : {
+        row : row
+      }
+    });
 
     dialogCreateCpt.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

@@ -29,6 +29,7 @@
                     </div>
 
               </div>
+              <div fxLayout="row">
               <div fxLayout="row" style="margin-top: -38%;"fxLayout.xs="column" fxLayoutGap="5px">
                   <div>
                         <mat-form-field style="width: 200%;">
@@ -38,6 +39,12 @@
                   </div>
                   
               </div>
+
+              <div>
+                    <mat-slide-toggle [(ngModel)]="boutique.isService" [formControl]="isServices" [checked]="isService" style="margin-left: 160%;margin-top: 24%" (change)="onChange()"> Est un service</mat-slide-toggle>
+                    
+            </div>
+        </div>
               <!-- <div fxLayout="row" style="margin-top: 40%;">
                    
                     <div>     <h4 mat-dialog-title >Ajout Logo</h4>

@@ -43,7 +43,9 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
   //destinataireID = new FormControl();
   niveauAgreement = new FormControl();
   description = new FormControl();
- 
+  ninea = new FormControl();
+  juridique = new FormControl();
+  
 
  
   createNewAgreement (){
@@ -59,15 +61,16 @@ export class CreateDemandeAgrementDialogComponent implements OnInit {
       userLastModif: 0,
       dateCreated: new Date().toString(),
       dateLastModif: "",
-      niveauAgreement: 0,
+      niveauAgreement: "",
       userID:this.utilisateur.key,
       userName: this.utilisateur.lastName,
       userPrenom: this.utilisateur.firstName,
       destinataireID:this.destinataire,
       description:this.agreement.description,
       statutDemande:"",
-      plafond:""
-    
+      plafond:"",
+      juridique:this.agreement.juridique,
+      ninea: this.agreement.ninea
     });
     this.agreement = {} as Agreement;
      }
