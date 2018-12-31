@@ -21,7 +21,7 @@ export class FoLivraisonListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   blivraisonService : BlivraisonService;
   utilisateur = {} as Utilisateur;
-constructor(private parCrud: CrudPopupComponent,
+  constructor(private parCrud: CrudPopupComponent,
   private   blivraisonServ: BlivraisonService,
   public db: AngularFireDatabase,private session: SessionStorageService)
 	{
@@ -33,9 +33,19 @@ constructor(private parCrud: CrudPopupComponent,
       .equalTo(this.utilisateur.fkey))
       .valueChanges()
       .subscribe(res => {
-        console.log(res)
         this.dataSource.data = res;
       });
+
+      this.db.list("blivraison-db", ref => ref
+      .orderByChild('livreur')
+      .equalTo(this.utilisateur.fkey))
+      .valueChanges()
+      .subscribe(res => {
+        var datas = this.dataSource.data;
+        datas = res;
+        this.dataSource.data = datas;
+      });
+      
 	}
   ngOnInit(){
 

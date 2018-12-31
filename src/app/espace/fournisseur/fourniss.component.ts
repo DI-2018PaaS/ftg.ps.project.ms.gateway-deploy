@@ -47,7 +47,7 @@ export class FournisseurComponent {
         console.log("FournisseurComponent role:"+this.role);
 
         this.utilisateur = this.session.get("utilisateur")
-
+        console.log(this.utilisateur)
 
         if (this.utilisateur != null){
 
