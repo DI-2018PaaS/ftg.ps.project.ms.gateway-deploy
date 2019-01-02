@@ -33,9 +33,16 @@ constructor(private parCrud: CrudPopupComponent,
       .equalTo(this.utilisateur.fkey))
       .valueChanges()
       .subscribe(res => {
-        console.log(res)
-        this.dataSource.data = res;
+          this.dataSource.data = res;
       });
+
+      // this.db.list("fournisseur-db", ref => ref
+      // .orderByChild('livreur')
+      // .equalTo(this.utilisateur.fkey))
+      // .valueChanges()
+      // .subscribe(res => {
+      //   console.log(res)
+      // });
 	}
   ngOnInit(){
 

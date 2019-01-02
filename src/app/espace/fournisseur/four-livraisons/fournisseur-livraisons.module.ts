@@ -6,10 +6,13 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { FoLivraisonListComponent } from './livraison-list/fourn-livraison-list.component';
+import { VisuLivraisonComponent } from './visu-livraison/visu-livraison.component';
 
 
 export const routes = [
-  { path: '', component: FoLivraisonListComponent, pathMatch: 'full' }
+  { path: '', component: FoLivraisonListComponent, pathMatch: 'full' },
+  { path: 'visu-livraison/:id', component: VisuLivraisonComponent, pathMatch: 'full' }
+
 ];
 
 @NgModule({
@@ -21,6 +24,6 @@ export const routes = [
     MatInputModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [FoLivraisonListComponent]
+  declarations: [FoLivraisonListComponent, VisuLivraisonComponent]
 })
 export class LivraisonsFournisseurModule { }
