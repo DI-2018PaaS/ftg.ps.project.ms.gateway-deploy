@@ -42,7 +42,7 @@
       <ng-container matColumnDef="valider">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> valider </th>
         <td mat-cell *matCellDef="let row">
-            <div *ngIf="row.isValid === false">
+            <div *ngIf="row.isValid === true">
                 <button mat-icon-button (click)="validate(row.key)">
                   <mat-icon>done_all</mat-icon>
                 </button>

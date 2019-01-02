@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisuLivraisonComponent } from './visu-livraison.component';
+import { VisuBlivraisonComponent } from './visu-blivraison.component';
 
-describe('VisuLivraisonComponent', () => {
-  let component: VisuLivraisonComponent;
-  let fixture: ComponentFixture<VisuLivraisonComponent>;
+describe('VisuBlivraisonComponent', () => {
+  let component: VisuBlivraisonComponent;
+  let fixture: ComponentFixture<VisuBlivraisonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisuLivraisonComponent ]
+      declarations: [ VisuBlivraisonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VisuLivraisonComponent);
+    fixture = TestBed.createComponent(VisuBlivraisonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
