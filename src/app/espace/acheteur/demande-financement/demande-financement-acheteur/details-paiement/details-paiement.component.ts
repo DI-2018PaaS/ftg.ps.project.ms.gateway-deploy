@@ -113,6 +113,7 @@ export class DetailsPaiementComponent implements OnInit {
                   .valueChanges()
                   .subscribe(tkl => {
                     this.fournisseurList = tkl;
+                    console.log(tkl)
                 })
             })
         });
