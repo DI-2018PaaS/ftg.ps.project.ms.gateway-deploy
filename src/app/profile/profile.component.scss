@@ -1,16 +1,75 @@
 .image-header {
-    background-image: url('../../assets/images/cards/img_profile.png');
-    background-size: cover;
-  }
+  background-size: cover;
+  margin-top: -64px;
+  border: 2px solid #ad1455;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  
+}
 
 .width{
-  width:100%;
+width:100%;
 }
 .margin {
-  margin-top: 50px;
+margin-top: 50px;
 }
 
 .margin1{
-  margin-left:200px;
-  margin-right:200px;
+margin-left:200px;
+margin-right:200px;
+}
+
+.profile-back {
+background-color: #ad1455;
+height: 120px;
+}
+.card-padding {
+padding: 0px;
+}
+.mat-card-image {
+width:none;
+margin-left: 140px;
+margin-right: 140px;
+}
+
+.title-color {
+color: #ad1455;
+}
+
+h3 {
+text-align: center;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+font-weight: bold;
+font-size: 24px;
+}
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none;
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+padding-inline-start: 0px;
+}
+
+li {
+border-bottom: 1px solid #eee;
+padding: 10px 0;
+}
+
+.align-right {
+float: right;
+}
+
+.mat-card-actions {
+margin-left: 0px;
+margin-right: 0px;
+padding:10px;
 }
