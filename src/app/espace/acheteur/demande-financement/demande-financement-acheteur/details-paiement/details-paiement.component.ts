@@ -100,23 +100,12 @@ export class DetailsPaiementComponent implements OnInit {
 
       this.db.list('boutiques-db', ls => ls
         .orderByChild('isService')
-        .equalTo(true)
-        .limitToFirst(1))
+        .equalTo(true))
         .valueChanges()
         .subscribe(fn => {
           this.serviceList = fn;
-          this.serviceList.forEach(rst => {
-            this.db.list('fournisseur-db', fr => fr
-                  .orderByChild('key')
-                  .limitToFirst(1)
-                  .equalTo(rst.nIdProprietaire))
-                  .valueChanges()
-                  .subscribe(tkl => {
-                    this.fournisseurList = tkl;
-                    console.log(tkl)
-                })
-            })
         });
+
       
   }
 
@@ -141,7 +130,6 @@ export class DetailsPaiementComponent implements OnInit {
 
     var prop = Object.keys(this.dataSource.data)[idx];    
     var value = this.dataSource.data[prop];
-
      this.blivraisonServ.createBlivraison({
       key: "",
       numero: 0,

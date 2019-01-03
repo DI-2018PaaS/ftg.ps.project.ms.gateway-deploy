@@ -44,13 +44,14 @@ export class VisuBlivraisonComponent implements OnInit {
       this.router = router;
       var key = this.activatedRoute.snapshot.paramMap.get('id');
       this.utilisateur = session.get("utilisateur");
-
       this.db.list('agreement-db', tr =>tr
       .orderByChild("userID")
       .equalTo(this.utilisateur.key))
       .valueChanges()
       .subscribe(tf => {
         this.agreement = tf[0];
+        console.log("eeeeeeeeeeeee", this.agreement)
+
       })
 
       this.db.list("blivraison-db", ref => ref
@@ -113,5 +114,4 @@ masterToggle() {
 }
   ngOnInit() {
   }
-
 }

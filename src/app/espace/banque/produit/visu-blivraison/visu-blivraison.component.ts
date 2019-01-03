@@ -24,6 +24,7 @@ export interface PeriodicElement {
   styleUrls: ['./visu-blivraison.component.scss']
 })
 export class VisuBlivraisonComponent implements OnInit {
+
   displayedColumns: string[] = ['code', 'designation', 'descriptionProduit', 'prixUnitaire', 'quantite'];
   dataSource = new MatTableDataSource<any>();
   selection = new SelectionModel<PeriodicElement>(true, []);
@@ -45,20 +46,22 @@ export class VisuBlivraisonComponent implements OnInit {
       var key = this.activatedRoute.snapshot.paramMap.get('id');
       this.utilisateur = session.get("utilisateur");
 
-      this.db.list('agreement-db', tr =>tr
-      .orderByChild("userID")
-      .equalTo(this.utilisateur.key))
-      .valueChanges()
-      .subscribe(tf => {
-        this.agreement = tf[0];
-      })
-
       this.db.list("blivraison-db", ref => ref
       .orderByChild('key')
       .equalTo(key))
       .valueChanges()
       .subscribe(res => {
         this.bonLivraison =  res[0] as BonLivraison;
+        console.log(this.bonLivraison.acteurUserId)
+        
+        this.db.list('agreement-db', tr =>tr
+        .orderByChild("userID")
+        .equalTo(this.bonLivraison.acteurUserId))
+        .valueChanges()
+        .subscribe(tf => {
+        this.agreement = tf[0];
+        console.log(this.agreement)
+      })
 
       this.db.list("fournisseur-db", db => db
       .orderByChild('key')
