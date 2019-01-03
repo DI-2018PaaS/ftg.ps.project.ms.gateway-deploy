@@ -1,22 +1,22 @@
 [    
     { 
         "id": 1,
-        "name": "Product 1",
+        "name": "Produit 1",
         "images": [
             {
-                "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 1",
-                "medium": "https://via.placeholder.com/480x365/00838F/fff/?text=Rated Product 1",
-                "big": "https://via.placeholder.com/960x720/00838F/fff/?text=Rated Product 1"
+                "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Produit 1",
+                "medium": "https://via.placeholder.com/480x365/00838F/fff/?text=Rated Produit 1",
+                "big": "https://via.placeholder.com/960x720/00838F/fff/?text=Rated Produit 1"
             },
             {
-                "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 1",
-                "medium": "https://via.placeholder.com/480x365/00838F/fff/?text=Rated Product 1",
-                "big": "https://via.placeholder.com/960x720/00838F/fff/?text=Rated Product 1"
+                "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Produit 1",
+                "medium": "https://via.placeholder.com/480x365/00838F/fff/?text=Rated Produit 1",
+                "big": "https://via.placeholder.com/960x720/00838F/fff/?text=Rated Produit 1"
             },
             {
-                "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 1",
-                "medium": "https://via.placeholder.com/480x365/00838F/fff/?text=Rated Product 1",
-                "big": "https://via.placeholder.com/960x720/00838F/fff/?text=Rated Product 1"
+                "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Produit 1",
+                "medium": "https://via.placeholder.com/480x365/00838F/fff/?text=Rated Produit 1",
+                "big": "https://via.placeholder.com/960x720/00838F/fff/?text=Rated Produit 1"
             }
         ],
         "oldPrice": null,
@@ -30,7 +30,7 @@
     },
     { 
         "id": 2,
-        "name": "Product 2",
+        "name": "Produit 2",
         "images": [
             {
                 "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 2",
@@ -59,7 +59,7 @@
     },    
     { 
         "id": 3,
-        "name": "Product 3",
+        "name": "Produit 3",
         "images": [
             {
                 "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 3",
@@ -88,7 +88,7 @@
     },   
     { 
         "id": 4,
-        "name": "Product 4",
+        "name": "Produit 4",
         "images": [
             {
                 "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 4",
@@ -117,7 +117,7 @@
     },
     { 
         "id": 5,
-        "name": "Product 5",
+        "name": "Produit 5",
         "images": [
             {
                 "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 5",
@@ -146,7 +146,7 @@
     },
     { 
         "id": 6,
-        "name": "Product 6",
+        "name": "Produit 6",
         "images": [
             {
                 "small": "https://via.placeholder.com/180x135/00838F/fff/?text=Rated Product 6",

@@ -49,7 +49,7 @@ export class ControlsComponent implements OnInit {
       this.changeQuantity(obj);
     }
     else{
-      this.snackBar.open('You can not choose more items than available. In stock ' + this.count + ' items.', '×', { panelClass: 'error', verticalPosition: 'top', duration: 3000 });
+      this.snackBar.open('Quantité maximal limite en Stock atteint. En stock ' + this.count + ' items.', '×', { panelClass: 'error', verticalPosition: 'top', duration: 3000 });
     }    
   }
 

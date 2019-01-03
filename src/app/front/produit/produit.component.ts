@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { Product } from '../../front/app.models';
+
 
 @Component({
     selector: 'app-produit',
@@ -11,6 +13,7 @@ export class ProduitsComponent {
   @ViewChild('sidenav') sidenav: any;
   public sidenavOpen: boolean = true;
   public brands = [];
+  public produit: Product;
 
   /**
      * Constructor

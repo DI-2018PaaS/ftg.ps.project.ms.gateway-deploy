@@ -16,6 +16,7 @@ export class HomeComponent {
   @ViewChild('sidenav') sidenav: any;
   public sidenavOpen: boolean = true;
   public brands = [];
+  public product: Product;
 
   /**
      * Constructor

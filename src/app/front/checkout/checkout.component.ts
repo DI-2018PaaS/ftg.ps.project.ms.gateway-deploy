@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material';
 import { Data, AppService } from '../../front/app.service';
+import { CommandeProduit } from 'app/models/msmagasindomains/panier/commande-produit.model';
+import { CommandePanierService } from 'app/service/commande.panier.service';
+import { AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'app-checkout',
@@ -19,8 +22,10 @@ export class CheckoutComponent implements OnInit {
   years = [];
   deliveryMethods = [];
   grandTotal = 0;
+  commandeProduit = {} as CommandeProduit;
+  commandeProduitRef$ : AngularFireList<CommandeProduit>;
 
-  constructor(public appService:AppService, public formBuilder: FormBuilder) { }
+  constructor(public appService:AppService, public formBuilder: FormBuilder,private commandeproduitService : CommandePanierService) { }
 
   ngOnInit() {    
     this.appService.Data.cartList.forEach(product=>{
@@ -56,9 +61,34 @@ export class CheckoutComponent implements OnInit {
   }
 
   public placeOrder(){
-    this.horizontalStepper._steps.forEach(step => step.editable = false);
+    this.createNewPanier();
+	this.horizontalStepper._steps.forEach(step => step.editable = false);
     this.verticalStepper._steps.forEach(step => step.editable = false);
     this.appService.Data.cartList.length = 0;
   }
+  createNewPanier(){
+    console.log(this.commandeProduit);
+	this.appService.Data.cartList.forEach(product=>
+		{
+			this.commandeproduitService.createCommandeProduit(
+			{
+			 code: product.id,
+			 designation: product.name,
+			 prixUnitaire: ""||product.newPrice,
+			 descriptionProduit: product.description,
+			 zoneGeographiqueId: 0,
+			 isValid:false,
+			 image:"",
+			 fidBoutique: "12",
+			 fidProprietaire : "fourniss",
+			 fidAcheteur : "currentBuyer",
+			 quantite : "2",
+			 commandId : "1234"
+			}
+			);
+			this.commandeProduit = {} as CommandeProduit;
+		}
+	);
+   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, HostListener  } from '@angular/core';
-
+import { Product } from '../../../front/app.models';
 
 @Component({
   selector: 'app-produit',
@@ -12,6 +12,7 @@ export class ProduitComponent implements OnInit {
   public brands = [];
   constructor() { }
   public viewCol: number = 25;
+  public produit: Product;
 
   public slides = [
   { title: 'The biggest sale', subtitle: '...   ...', image: 'assets/images/carousel/FineTech_PS_Elmt_Main_Advertisement_FalseContent.png' },

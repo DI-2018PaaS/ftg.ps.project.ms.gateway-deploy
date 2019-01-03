@@ -14,7 +14,7 @@
             <!-- <div fxLayout="row" fxLayoutAlign="start center" *ngIf="horizontalNavbar"> -->
                 <div class="logo ml-16">
                     <a [routerLink]="['/']">
-                        <img class="logo-icon" src="assets/images/header/cncas2.png" style="width:73px">
+                        <img class="logo-icon" src="assets/images/header/FineTech_PS_Elmt_Header_Logo_Cofina.png" style="width:214px">
                     </a>
                 </div>
             <!-- </div> -->
@@ -61,10 +61,14 @@
             </mat-menu>
             <div class="toolbar-separator"></div>
             <div fxLayout="row" style="margin-right: 50px;">
-                <mat-icon matBadge="4" matBadgeOverlap="false" style=" color: #fff;">shopping_cart</mat-icon>
-              <!-- <div style=" color: white; font-size: 16px; "></div>--> 
+				<a [routerLink]="['/cart']">
+					<button mat-icon-button [routerLink]="['/cart']">
+							<!--mat-icon matBadge="{{dataCoountValue}}" matBadgeOverlap="false" style=" color: #fff;">shopping_cart</mat-icon-->
+							<mat-icon matBadge="{{appService.Data.cartList.length}}" matBadgeOverlap="false" style=" color: #fff;">shopping_cart</mat-icon>
+					</button>
+				</a>
+				<!-- <div style=" color: white; font-size: 16px; "></div>--> 
             </div>
-
             <div class="toolbar-separator" fxHide fxShow.gt-xs></div>
 
             <!-- <button mat-icon-button fxHide.gt-md
