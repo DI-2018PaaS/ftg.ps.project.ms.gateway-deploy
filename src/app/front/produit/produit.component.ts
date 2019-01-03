@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { BreadcrumbsService } from 'ng6-breadcrumbs';
 
 @Component({
     selector: 'app-produit',
@@ -19,7 +20,7 @@ export class ProduitsComponent {
      * @param {FuseSidebarService} _fuseSidebarService
      * 
      */
-  constructor(private _fuseSidebarService: FuseSidebarService) { }
+  constructor(private _fuseSidebarService: FuseSidebarService,private breadcrumbsService:BreadcrumbsService) { }
   public viewCol: number = 25;
 
   public slides = [
