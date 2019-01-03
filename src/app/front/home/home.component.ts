@@ -4,8 +4,12 @@ import { Product } from '../../front/app.models';
 import { MatDialog } from '@angular/material';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { frontNavigation } from 'app/front/navigation/frontNavigation';
-
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { ProduitService } from 'app/service/produit.service';
+import { AngularFireList } from 'angularfire2/database';
+import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { ListProduit } from 'app/models/acteur/demande/ListProduit.model';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +29,14 @@ export class HomeComponent {
      * 
      */
 
-  constructor(public appService: AppService, 
+    private dbPath = 'produits-db';
+    produitRef: AngularFireList<Produit> = null;
+    produitList = [];
+    produit = {} as Produit;
+
+  constructor(private produitService : ProduitService, 
+    public db: AngularFireDatabase,
+    public appService: AppService, 
     private _fuseNavigationService: FuseNavigationService,
     private _fuseSidebarService: FuseSidebarService) {
 
@@ -36,6 +47,19 @@ export class HomeComponent {
 
     // Set the main navigation as our current navigation
     this._fuseNavigationService.setCurrentNavigation('home');
+
+
+    this.db.list(this.dbPath, ref => ref
+      .orderByChild('isValid')
+      .equalTo(true)
+      .limitToFirst(3))
+      .valueChanges()
+      .subscribe(res => {
+        this.produitList = res;
+        console.log("produits: ", this.produitList)
+      })
+
+      //this.produit = this.ListProduit as Produit
 
 
    }
