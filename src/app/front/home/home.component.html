@@ -62,14 +62,14 @@
                                                 <!-- <mat-chip-list>
                                                     <mat-chip color="warn" selected="true" style="margin-left: 25%">0% OFF</mat-chip>
                                                 </mat-chip-list> -->
-                                                <a [routerLink]="['detailsProduit', 1]" class="image-link">
+                                                <a [routerLink]="['#']" class="image-link">
                                                     <img src={{p.image}} alt="">
                                                 </a>
                                                 
                                                 <a [routerLink]="['#']" class="title text-truncate">
                                                     {{p.designation}} 
                                                 </a>
-                                                <h4 class="category text-muted">Agriculture</h4>
+                                                <h4 class="category text-muted">{{p.domaine}}</h4>
                                                 <div fxLayout="row" fxLayoutAlign="space-between center" class="prices" style="margin-left: 3%">
                                                     <div fxLayout="column" fxLayoutAlign="center start">
                                                         <p class=" text-muted">
