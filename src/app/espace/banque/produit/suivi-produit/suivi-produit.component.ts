@@ -12,7 +12,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class SuiviProduitComponent implements OnInit {
 
-  displayedColumns: string[] = ['objet', 'nomAcheteur', 'date', 'Details', 'valider'];
+  displayedColumns: string[] = ['objet', 'nomAcheteur', 'date', 'Details', 'paiement','valider'];
   dataSource = new MatTableDataSource<any>();
  
   crudComp: CrudPopupComponent;
@@ -29,10 +29,9 @@ export class SuiviProduitComponent implements OnInit {
       this.blivraisonService = blivraisonServ; 
       this.db.list("blivraison-db", ref => ref
         .orderByChild('isValid')
-        .equalTo(false))
+        .equalTo(true))
         .valueChanges()
         .subscribe(res => {
-          console.log(res)
           this.dataSource.data = res;
         });
     }
@@ -62,6 +61,7 @@ export class SuiviProduitComponent implements OnInit {
     Date_Emission: string;
     Reglement: string;
     Details: string;
+    paiement :string;
     Modifier: string;
     Supprimer: string;
   }

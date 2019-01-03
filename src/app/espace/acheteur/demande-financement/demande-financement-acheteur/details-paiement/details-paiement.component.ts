@@ -70,7 +70,6 @@ export class DetailsPaiementComponent implements OnInit {
     this.listProduitServ = listProduitServ;
     this.blivraisonService = blivraisonServ;
     var key = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.db.list(this.dbPath, ref => ref
       .orderByChild('key')
       .equalTo(key))

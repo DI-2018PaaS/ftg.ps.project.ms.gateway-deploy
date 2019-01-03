@@ -38,7 +38,7 @@ export class VisuBlivraisonComponent implements OnInit {
   private produitPath = 'list-produits-db'
   private selectedProduitPath = 'produits-db'
 
-  constructor(private   blivraisonServ: BlivraisonService,
+  constructor(private blivraisonServ: BlivraisonService,
     public db: AngularFireDatabase,private session: SessionStorageService, private router : Router, private activatedRoute : ActivatedRoute) { 
       
       this.router = router;

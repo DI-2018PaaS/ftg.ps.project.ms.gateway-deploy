@@ -5,10 +5,13 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { SharedModule } from '../../../shared-front/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { VisuBlivraisonComponent } from './visu-blivraison/visu-blivraison.component';
+import { PaiementBlivraisonComponent } from './paiement-blivraison/paiement-blivraison.component';
 
 export const routes = [
   { path: '', component: SuiviProduitComponent, pathMatch: 'full' },
-  { path: 'visu-blivraison/:id', component: VisuBlivraisonComponent, pathMatch: 'full' }
+  { path: 'visu-blivraison/:id', component: VisuBlivraisonComponent, pathMatch: 'full' },
+  { path: 'paiement-blivraison/:id', component: PaiementBlivraisonComponent, pathMatch: 'full' }
+
 
 ];
 
@@ -21,6 +24,6 @@ export const routes = [
     SharedModule,
   
   ],
-  declarations: [SuiviProduitComponent, VisuBlivraisonComponent]
+  declarations: [SuiviProduitComponent, VisuBlivraisonComponent, PaiementBlivraisonComponent]
 })
 export class ProduitModule { }

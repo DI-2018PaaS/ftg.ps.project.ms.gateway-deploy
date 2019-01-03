@@ -8,6 +8,7 @@ import { BonLivraison } from 'app/models/msmagasindomains/bon-livraison/bon-livr
 import { Fournisseur } from 'app/models/acteur/fournisseur/fournisseur.model';
 import { MatTableDataSource } from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
+import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 
 
 export interface PeriodicElement {
@@ -52,15 +53,21 @@ export class VisuBlivraisonComponent implements OnInit {
       .valueChanges()
       .subscribe(res => {
         this.bonLivraison =  res[0] as BonLivraison;
-        console.log(this.bonLivraison.acteurUserId)
         
+        this.db.list('utilisateur-db', tr =>tr
+        .orderByChild("fkey")
+        .equalTo(this.bonLivraison.acteurUserId))
+        .valueChanges()
+        .subscribe(tf => {
+        console.log(tf)
+      })
+
         this.db.list('agreement-db', tr =>tr
         .orderByChild("userID")
         .equalTo(this.bonLivraison.acteurUserId))
         .valueChanges()
         .subscribe(tf => {
         this.agreement = tf[0];
-        console.log(this.agreement)
       })
 
       this.db.list("fournisseur-db", db => db
@@ -77,6 +84,20 @@ export class VisuBlivraisonComponent implements OnInit {
       .valueChanges()
       .subscribe(res => {
         this.fournisseur = res[0] as Fournisseur;
+        this.db.list('utilisateur-db', tr =>tr
+        .orderByChild("fkey")
+        .equalTo(this.fournisseur.key))
+        .valueChanges()
+        .subscribe(tf => {        
+            this.db.list("agreement-db", db => db
+            .orderByChild('userID')
+            .equalTo(tf[0]['key']))
+            .valueChanges()
+            .subscribe(res => {
+              this.agreement = res[0] as Agreement;
+            })
+      })
+
 
         this.db.list(this.produitPath, ref => ref
           .orderByChild('keyDemande')
