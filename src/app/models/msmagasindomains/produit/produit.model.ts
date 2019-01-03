@@ -9,4 +9,5 @@ export class Produit {
     image: string;
     fidBoutique: String;
     fidProprietaire: string;
+    domaine: string;
 }
