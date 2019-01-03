@@ -95,11 +95,13 @@ const appRoutes: Routes = [
         loadChildren: './front/domaines/domaines.module#DomaineModule'
     },
     {   path        : 'produit', 
-        loadChildren: './front/produit/produit.module#ProduitModule'
+        loadChildren: './front/produit/produit.module#ProduitModule',
+        data: {  breadcrumb: 'produit' } 
     },
     { 
         path        : 'Enchere', 
         loadChildren: './front/Encheres/Enchere.module#EnchereModule'
+        
     },
     { 
         path        : 'services', 
