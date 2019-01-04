@@ -47,6 +47,7 @@ export class AnimateurComponent {
         if (this.utilisateur.isagreer == "true") {
             console.log(this.utilisateur)
             this.navigation = animNavigation;
+            console.log(this.navigation)
             this.role=this.globals.role;
             this.crudComp=this.parCrud;
             // Register the navigation to the service

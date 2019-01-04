@@ -73,9 +73,7 @@ export class VisuBlivraisonComponent implements OnInit {
         .orderByChild("fkey")
         .equalTo(this.fournisseur.key))
         .valueChanges()
-        .subscribe(tf => {
-          console.log(tf)
-        
+        .subscribe(tf => {        
             this.db.list("agreement-db", db => db
             .orderByChild('userID')
             .equalTo(tf[0]['key']))

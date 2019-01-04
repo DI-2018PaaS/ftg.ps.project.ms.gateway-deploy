@@ -17,10 +17,11 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
   agreement = {} as Agreement;
   agreementRef$ : AngularFireList<Agreement>;
   row :any;
+  utilisateurServ :RegistrationService;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private agreementService : AgreementService,public snackBar: MatSnackBar,private utilisateurService: RegistrationService) { 
     this.row = data.row;
-    console.log("row ",this.row)
+    this.utilisateurServ = utilisateurService;
 
   }
 
@@ -35,20 +36,16 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
   niveauAgreement = new FormControl();
 
   updateNewAgreement (){
-    console.log(this.agreement);
     this.agreement = {} as Agreement;
-     }
+  }
    
-     approuverDemande(key: string,userID: string): void{
-      this.agreementService.updateAgreement(key,{status:"approuver"});
-      this.agreementService.updateAgreement(key,{niveauAgreement: this.agreement.niveauAgreement});
-      this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
+  approuverDemande(key: string,userID: string): void{
+    this.agreementService.updateAgreement(key,{status:"approuver", niveauAgreement: this.agreement.niveauAgreement});
+    this.utilisateurServ.isAgreeUtilisateur(userID,{isagreer:"true"});
 
-      console.log(key,userID)
       let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
         duration: 3000
       });
-      refSnack.afterDismissed().subscribe(()=>{
-      }) 
-     }   
+      
+  }   
 }

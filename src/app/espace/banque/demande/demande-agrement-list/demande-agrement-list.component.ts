@@ -60,15 +60,15 @@ export class DemandeAgrementListComponent implements OnInit {
     this.crudComp.openUpdateDemandeAgreement(row);
   }
 
-  approuverDemande(key: string,userID: string): void{
-    this.agreementService.updateAgreement(key,{status:"approuver"});
-    this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
-    let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
-      duration: 3000
-    });
-    refSnack.afterDismissed().subscribe(()=>{
-    }) 
-   }
+  // approuverDemande(key: string,userID: string): void{
+  //   this.agreementService.updateAgreement(key,{status:"approuver"});
+  //   this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
+  //   let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
+  //     duration: 3000
+  //   });
+  //   refSnack.afterDismissed().subscribe(()=>{
+  //   }) 
+  //  }
 
    rejeterDemande(key: string,userID: string): void{
     this.agreementService.updateAgreement(key,{status:"rejeter"});
