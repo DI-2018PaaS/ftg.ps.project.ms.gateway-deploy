@@ -45,6 +45,7 @@ export class AnimateurComponent {
 
 
         if (this.utilisateur.isagreer == "true") {
+            console.log(this.utilisateur)
             this.navigation = animNavigation;
             this.role=this.globals.role;
             this.crudComp=this.parCrud;
