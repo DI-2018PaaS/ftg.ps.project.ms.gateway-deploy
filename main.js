@@ -27864,13 +27864,18 @@ var RegistrationComponent = /** @class */ (function () {
                 fkey: AFK.key,
                 isagreer: "false"
             });
-            var navigationExtras = {
-                queryParams: { 'login': this.utilisateur.username, 'typeActeur': this.typeActeurs[0].idActeurType },
-                fragment: 'animateur'
-            };
-            this.utilisateur = {};
-            this.animateur = {};
-            this.router.navigate(['main-anim'], navigationExtras);
+            this.db.list(this.dbPath, function (ref) { return ref.orderByChild('username').equalTo(_this.utilisateur.username).limitToFirst(1); })
+                .valueChanges()
+                .subscribe(function (res) {
+                _this.session.set('utilisateur', res[0]);
+                var navigationExtras = {
+                    queryParams: { 'login': _this.utilisateur.username, 'typeActeur': _this.typeActeurs[0].idActeurType },
+                    fragment: 'animateur'
+                };
+                _this.utilisateur = {};
+                _this.animateur = {};
+                _this.router.navigate(['main-anim'], navigationExtras);
+            });
         }
         else if (this.selectedType == "Acheteur") {
             var ACFK = this.acheteurService.createAcheteur({
@@ -27899,13 +27904,18 @@ var RegistrationComponent = /** @class */ (function () {
                 fkey: ACFK.key,
                 isagreer: "false"
             });
-            var navigationExtras = {
-                queryParams: { 'login': this.utilisateur.username, 'typeActeur': this.typeActeurs[1].idActeurType },
-                fragment: 'acheteur'
-            };
-            this.acheteur = {};
-            this.utilisateur = {};
-            this.router.navigate(['shopping'], navigationExtras);
+            this.db.list(this.dbPath, function (ref) { return ref.orderByChild('username').equalTo(_this.utilisateur.username).limitToFirst(1); })
+                .valueChanges()
+                .subscribe(function (res) {
+                _this.session.set('utilisateur', res[0]);
+                var navigationExtras = {
+                    queryParams: { 'login': _this.utilisateur.username, 'typeActeur': _this.typeActeurs[1].idActeurType },
+                    fragment: 'acheteur'
+                };
+                _this.acheteur = {};
+                _this.utilisateur = {};
+                _this.router.navigate(['shopping'], navigationExtras);
+            });
         }
         else if (this.selectedType == "Fournisseur") {
             var FFK = this.fournisseurService.createFournisseur({
@@ -34524,7 +34534,7 @@ var RouterEffects = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/app/store/index.ts ***!
   \********************************/
-/*! exports provided: reducers, getRouterState, CustomSerializer, GO, BACK, FORWARD, Go, Back, Forward, effects, RouterEffects */
+/*! exports provided: reducers, getRouterState, CustomSerializer, effects, GO, BACK, FORWARD, Go, Back, Forward, RouterEffects */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
