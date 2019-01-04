@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n  <div>\n    <h2 class=\"title\">LISTE DEMANDE AGREEMENT</h2>\n  </div>\n</div>\n<!-- <div class=\"py-8\"><button mat-raised-button color=\"accent\" (click)=\"crudComp.openCreateLigneCredit()\">Ajouter une ligne de credit</button></div> -->\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrer\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"emetteur\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Emetteur </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.animateurID}} {{row.fournisseurID}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"createdDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.dateCreated | date : format : shortDate}} </td>\n    </ng-container>\n\n\n    \n      <!-- Color Column -->\n      <ng-container matColumnDef=\"Details\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.Details}}\n          <button mat-raised-button (click)=\"edit(row)\" >\n            <mat-icon class=\"orange600\">details</mat-icon>\n          </button>\n        </td>\n      </ng-container>\n\n    <!-- Color Column -->\n    <!-- <ng-container matColumnDef=\"Modifier\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}\n        <button mat-raised-button (click)=\"crudComp.openUpdateLigneCredit()\">\n          <mat-icon class=\"orange600\">edit</mat-icon>\n        </button>\n      </td>\n    </ng-container> -->\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Supprimer\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>\n      <td mat-cell *matCellDef=\"let row\" > {{row.Supprimer}}\n        <button mat-raised-button>\n          <mat-icon class=\"red600\">delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
+module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n  <div>\n    <h2 class=\"title\">LISTE DEMANDE AGREEMENT</h2>\n  </div>\n</div>\n<!-- <div class=\"py-8\"><button mat-raised-button color=\"accent\" (click)=\"crudComp.openCreateLigneCredit()\">Ajouter une ligne de credit</button></div> -->\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrer\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n     <!-- ID Column -->\n     <ng-container matColumnDef=\"userName\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.userName}} </td>\n      </ng-container>\n\n      <!-- ID Column -->\n    <ng-container matColumnDef=\"userPrenom\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.userPrenom}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"juridique\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut juridique </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.juridique}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"ninea\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ninea </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.ninea}} </td>\n      </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"createdDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.dateCreated | date : format : shortDate}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"status\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.status}} </td>\n      </ng-container>\n    \n      <!-- Color Column -->\n      <ng-container matColumnDef=\"Approuver\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Approuver </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.Approuver}}\n          <button mat-raised-button (click)=\"validerAgrement(row)\">\n              <mat-icon class=\"green\">done_outline</mat-icon>\n            </button>\n        </td>\n      </ng-container>\n\n    <!-- Color Column -->\n    <!-- <ng-container matColumnDef=\"Modifier\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}\n        <button mat-raised-button (click)=\"crudComp.openUpdateLigneCredit()\">\n          <mat-icon class=\"orange600\">edit</mat-icon>\n        </button>\n      </td>\n    </ng-container> -->\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Rejeter\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header > Rejeter </th>\n      <td mat-cell *matCellDef=\"let row\" > {{row.Rejeter}}\n          <button mat-raised-button (click)=\"rejeterDemande(row.key,row.userID)\">\n              <mat-icon class=\"red600\">delete</mat-icon>\n            </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -38,6 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
+/* harmony import */ var app_service_registration_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/service/registration.service */ "./src/app/service/registration.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,13 +53,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var DemandeAgrementListComponent = /** @class */ (function () {
-    function DemandeAgrementListComponent(agreementService, db, parCrud) {
+    function DemandeAgrementListComponent(agreementService, snackBar, utilisateurService, db, parCrud) {
         var _this = this;
         this.agreementService = agreementService;
+        this.snackBar = snackBar;
+        this.utilisateurService = utilisateurService;
         this.db = db;
         this.parCrud = parCrud;
-        this.displayedColumns = ['emetteur', 'description', 'createdDate', 'Details', 'Supprimer'];
+        this.displayedColumns = ['userName', 'userPrenom', 'juridique', 'ninea', 'description', 'createdDate', 'status', 'Approuver', 'Rejeter'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"]();
         this.dbPath = 'agreement-db';
         this.agreementList = [];
@@ -88,6 +93,27 @@ var DemandeAgrementListComponent = /** @class */ (function () {
     DemandeAgrementListComponent.prototype.edit = function (row) {
         this.crudComp.openListeDemandeAgreement(row);
     };
+    DemandeAgrementListComponent.prototype.validerAgrement = function (row) {
+        this.crudComp.openUpdateDemandeAgreement(row);
+    };
+    DemandeAgrementListComponent.prototype.approuverDemande = function (key, userID) {
+        this.agreementService.updateAgreement(key, { status: "approuver" });
+        this.utilisateurService.isAgreeUtilisateur(userID, { isagreer: "true" });
+        var refSnack = this.snackBar.open('Agrément avalidé avec succès', 'merci', {
+            duration: 3000
+        });
+        refSnack.afterDismissed().subscribe(function () {
+        });
+    };
+    DemandeAgrementListComponent.prototype.rejeterDemande = function (key, userID) {
+        this.agreementService.updateAgreement(key, { status: "rejeter" });
+        this.utilisateurService.isAgreeUtilisateur(userID, { isagreer: "rejeter" });
+        var refSnack = this.snackBar.open('Agrément rejeté', 'merci', {
+            duration: 3000
+        });
+        refSnack.afterDismissed().subscribe(function () {
+        });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
@@ -106,7 +132,7 @@ var DemandeAgrementListComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./demande-agrement-list.component.html */ "./src/app/espace/banque/demande/demande-agrement-list/demande-agrement-list.component.html"),
             styles: [__webpack_require__(/*! ./demande-agrement-list.component.scss */ "./src/app/espace/banque/demande/demande-agrement-list/demande-agrement-list.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_agreement_service__WEBPACK_IMPORTED_MODULE_1__["AgreementService"], angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_4__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [app_service_agreement_service__WEBPACK_IMPORTED_MODULE_1__["AgreementService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"], app_service_registration_service__WEBPACK_IMPORTED_MODULE_5__["RegistrationService"], angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_4__["CrudPopupComponent"]])
     ], DemandeAgrementListComponent);
     return DemandeAgrementListComponent;
 }());
@@ -412,7 +438,7 @@ var DemandePretListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"50px\">\n    <div fxLayoutAlign=\"center center\" >\n      <h2>LISTE DES PRODUITS A VALIDER</h2>\n    </div>\n    \n      <form>\n        <div fxLayout=\"row\" fxLayoutGap=\"50px\" fxLayoutAlign=\"center center\">\n           <div>\n              <mat-form-field style=\"width:100%\">\n                  <mat-select style=\"width:100%\" placeholder=\"statut\" [(ngModel)]=\"demande.isValid\" [formControl]=\"statut\">\n                    <mat-option value=\"none\">statut</mat-option>\n                    <mat-option value=\"animateur\">Valider</mat-option>\n                    <mat-option value=\"banque\">Rejeter</mat-option>\n                  </mat-select>\n              </mat-form-field>\n           </div> \n        </div>\n      </form> \n    \n    <div>\n        <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n            <!-- Checkbox Column -->\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                              [checked]=\"selection.hasValue() && isAllSelected()\"\n                              [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\"\n                              (change)=\"$event ? selection.toggle(row) : null\"\n                              [checked]=\"selection.isSelected(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n          \n            <!-- Name Column -->\n            <ng-container matColumnDef=\"code\">\n              <th mat-header-cell *matHeaderCellDef> Code </th>\n              <td mat-cell *matCellDef=\"let element\"> {{element.code}} </td>\n            </ng-container>\n          \n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"designation\">\n              <th mat-header-cell *matHeaderCellDef> Designation </th>\n              <td mat-cell *matCellDef=\"let element\"> {{element.designation}} </td>\n            </ng-container>\n          \n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"descriptionProduit\">\n              <th mat-header-cell *matHeaderCellDef> Description </th>\n              <td mat-cell *matCellDef=\"let element\"> {{element.descriptionProduit}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"prixUnitaire\">\n                <th mat-header-cell *matHeaderCellDef> Prix </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.prixUnitaire}} </td>\n              </ng-container>\n          \n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n                (click)=\"selection.toggle(row)\">\n            </tr>\n        </table>\n    </div>\n    <div fxLayout=\"row\" class=\"px-4\" fxLayoutAlign=\"center center\" fxLayout.xs=\"column\" fxLayoutGap=\"40px\">\n      <button mat-raised-button color=\"warn\">annuler</button>  \n      <button [disabled] mat-raised-button color=\"accent\" (click)=\"submit()\">Enregistrer</button>\n      </div>\n</div>\n"
+module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"50px\">\n    <div fxLayoutAlign=\"center center\" >\n      <h2>LISTE DES PRODUITS A VALIDER</h2>\n    </div>\n    \n      <form>\n        <div fxLayout=\"row\" fxLayoutGap=\"50px\" fxLayoutAlign=\"center center\">\n           <div>\n              <mat-form-field style=\"width:100%\">\n                  <mat-select style=\"width:100%\" placeholder=\"statut\" [(ngModel)]=\"demande.isValid\" [formControl]=\"statut\">\n                    <mat-option value=\"none\">statut</mat-option>\n                    <mat-option value=\"animateur\">Valider</mat-option>\n                    <mat-option value=\"banque\">Rejeter</mat-option>\n                  </mat-select>\n              </mat-form-field>\n           </div> \n        </div>\n      </form> \n    \n    <div>\n        <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n            <!-- Checkbox Column -->\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                              [checked]=\"selection.hasValue() && isAllSelected()\"\n                              [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\"\n                              (change)=\"$event ? selection.toggle(row) : null\"\n                              [checked]=\"selection.isSelected(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n          \n            <!-- Name Column -->\n            <ng-container matColumnDef=\"code\">\n              <th mat-header-cell *matHeaderCellDef> Code </th>\n              <td mat-cell *matCellDef=\"let element\"> {{element.code}} </td>\n            </ng-container>\n          \n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"designation\">\n              <th mat-header-cell *matHeaderCellDef> Designation </th>\n              <td mat-cell *matCellDef=\"let element\"> {{element.designation}} </td>\n            </ng-container>\n          \n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"descriptionProduit\">\n              <th mat-header-cell *matHeaderCellDef> Description </th>\n              <td mat-cell *matCellDef=\"let element\"> {{element.descriptionProduit}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"prixUnitaire\">\n                <th mat-header-cell *matHeaderCellDef> Prix </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.prixUnitaire}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"quantite\">\n                <th mat-header-cell *matHeaderCellDef> Quantite </th>\n                <td mat-cell *matCellDef=\"let element\"> {{element.zoneGeographiqueId}} </td>\n            </ng-container>\n          \n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"\n                (click)=\"selection.toggle(row)\">\n            </tr>\n        </table>\n    </div>\n    <div fxLayout=\"row\" class=\"px-4\" fxLayoutAlign=\"center center\" fxLayout.xs=\"column\" fxLayoutGap=\"40px\">\n      <button mat-raised-button color=\"warn\">annuler</button>  \n      <button [disabled] mat-raised-button color=\"accent\" (click)=\"submit()\">Enregistrer</button>\n      </div>\n</div>\n"
 
 /***/ }),
 
@@ -464,14 +490,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var ValidationPretComponent = /** @class */ (function () {
-    function ValidationPretComponent(activatedRoute, db, demandeFinancementService, listProduitServ, router) {
+    function ValidationPretComponent(activatedRoute, db, demandeFinancementService, listProduitServ, router, snackBar) {
         var _this = this;
         this.activatedRoute = activatedRoute;
         this.db = db;
         this.demandeFinancementService = demandeFinancementService;
         this.listProduitServ = listProduitServ;
         this.router = router;
-        this.displayedColumns = ['select', 'code', 'designation', 'descriptionProduit', 'prixUnitaire'];
+        this.snackBar = snackBar;
+        this.displayedColumns = ['select', 'code', 'designation', 'descriptionProduit', 'prixUnitaire', 'quantite'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"]();
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
         this.dbPath = 'demandeFinancement-db';
@@ -480,9 +507,9 @@ var ValidationPretComponent = /** @class */ (function () {
         this.statut = new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]();
         this.produitDemande = [];
         this.selectedProd = [];
-        this.produitList = [];
-        this.demande = {};
+        this.produitList = {};
         this.selectedProduit = [];
+        this.demande = {};
         this.rto = router;
         this.demandeFinancementServ = demandeFinancementService;
         this.listProduitServ = listProduitServ;
@@ -505,8 +532,10 @@ var ValidationPretComponent = /** @class */ (function () {
                         .equalTo(t.keyProd); })
                         .valueChanges()
                         .subscribe(function (prod) {
-                        _this.dataSource.data = prod;
-                        _this.produitList.push(prod);
+                        prod[0]['zoneGeographiqueId'] = t.quantite;
+                        var data = _this.dataSource.data;
+                        data.push(prod[0]);
+                        _this.dataSource.data = data;
                     });
                 });
             });
@@ -535,8 +564,9 @@ var ValidationPretComponent = /** @class */ (function () {
     };
     ValidationPretComponent.prototype.ngOnInit = function () {
     };
-    ValidationPretComponent.prototype.submit = function () {
+    ValidationPretComponent.prototype.submit = function (e) {
         var _this = this;
+        e.stopPropagation();
         this.getSelectedProducts();
         this.demandeFinancementServ
             .updateFinancement(this.activatedRoute.snapshot.paramMap.get('id'), ({ 'isValid': true }));
@@ -547,9 +577,15 @@ var ValidationPretComponent = /** @class */ (function () {
                 .valueChanges()
                 .subscribe(function (val) {
                 val.forEach(function (vl) {
-                    // this.listProduitServ.updateProduit(val.key,{approved:true})
+                    _this.listProduitServ.updateProduit(vl['key'], { approved: true });
                 });
             });
+        });
+        var refSnack = this.snackBar.open('Opération effectuée', 'merci', {
+            duration: 3000
+        });
+        refSnack.afterDismissed().subscribe(function () {
+            _this.router.navigate(['demande']);
         });
     };
     ValidationPretComponent = __decorate([
@@ -562,7 +598,7 @@ var ValidationPretComponent = /** @class */ (function () {
             angularfire2_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"],
             app_service_demandeFinancement_service__WEBPACK_IMPORTED_MODULE_3__["DemandeFinancementService"],
             app_service_list_produit_service__WEBPACK_IMPORTED_MODULE_7__["ListProduitService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSnackBar"]])
     ], ValidationPretComponent);
     return ValidationPretComponent;
 }());

@@ -83,7 +83,7 @@ module.exports = "<div fxFlex=\"100\" fxLayoutAlign=\"center center\" fxLayout=\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".card-acces-user {\n  height: 10em;\n  background-color: rgba(247, 65, 45, 0.58) !important; }\n\n.card-acces-role {\n  height: 10em;\n  background-color: rgba(247, 65, 45, 0.58) !important; }\n"
+module.exports = ".card-acces-user {\n  height: 10em;\n  background-color: #2e3807 !important;\n  color: white !important; }\n\n.card-acces-role {\n  height: 10em;\n  background-color: #2e3807 !important;\n  color: white !important; }\n"
 
 /***/ }),
 
@@ -146,7 +146,7 @@ module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.title {\n  font-weight: bold; }\n\n.title-top {\n  background-color: #9a3838ba; }\n"
+module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.title {\n  font-weight: bold; }\n\n.title-top {\n  background-color: #d0cebc; }\n"
 
 /***/ }),
 
@@ -254,7 +254,7 @@ module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.title {\n  font-weight: bold; }\n\n.title-top {\n  background-color: #9a3838ba; }\n"
+module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.title {\n  font-weight: bold; }\n\n.title-top {\n  background-color: #d0cebc; }\n"
 
 /***/ }),
 

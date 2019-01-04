@@ -97,6 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
+/* harmony import */ var angular_web_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-web-storage */ "./node_modules/angular-web-storage/fesm5/angular-web-storage.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -111,33 +112,37 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ProduitListComponent = /** @class */ (function () {
-    function ProduitListComponent(produitService, db, parCrud) {
+    function ProduitListComponent(produitService, db, parCrud, session) {
+        // this.produitService.getProduitList().valueChanges().subscribe(res => {
+        //   this.produitList.push(res);
+        //   this.dataSource.data = res;
+        // })
         var _this = this;
         this.produitService = produitService;
         this.db = db;
         this.parCrud = parCrud;
+        this.session = session;
         this.displayedColumns = ['image', 'code', 'designation', 'prixUnitaire', 'descriptionProduit', 'Details', 'Modifier', 'Supprimer'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"]();
         this.produitList = [];
-        this.dbPath = 'produit-db';
+        this.dbPath = 'produits-db';
+        this.utilisateur = {};
         this.produitRef = null;
         this.hide = true;
         this.produit = {};
+        this.utilisateur = this.session.get("utilisateur");
         this.crudComp = parCrud;
-        this.produitService.getProduitList().valueChanges().subscribe(function (res) {
+        this.db.list(this.dbPath, function (ref) { return ref
+            .orderByChild('fidProprietaire')
+            .equalTo(_this.utilisateur.fkey); })
+            .valueChanges()
+            .subscribe(function (res) {
             _this.produitList.push(res);
             _this.dataSource.data = res;
         });
-        // this.crudComp = parCrud;
-        // this.db.list(this.dbPath, ref => ref
-        // .orderByChild('')
-        // .equalTo(''))
-        // .valueChanges()
-        // .subscribe(res => {
-        //   this.agreementList.push(res);
-        //   this.dataSource.data = res;
-        // })
+        console.log("utilisateur: ", this.utilisateur.fkey);
         console.log("produits: ", this.produitList);
     }
     ProduitListComponent.prototype.ngOnInit = function () {
@@ -167,7 +172,7 @@ var ProduitListComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./produit-list.component.html */ "./src/app/espace/fournisseur/four-produit/produit-list/produit-list.component.html"),
             styles: [__webpack_require__(/*! ./produit-list.component.scss */ "./src/app/espace/fournisseur/four-produit/produit-list/produit-list.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_produit_service__WEBPACK_IMPORTED_MODULE_2__["ProduitService"], angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_4__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [app_service_produit_service__WEBPACK_IMPORTED_MODULE_2__["ProduitService"], angularfire2_database__WEBPACK_IMPORTED_MODULE_3__["AngularFireDatabase"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_4__["CrudPopupComponent"], angular_web_storage__WEBPACK_IMPORTED_MODULE_5__["SessionStorageService"]])
     ], ProduitListComponent);
     return ProduitListComponent;
 }());

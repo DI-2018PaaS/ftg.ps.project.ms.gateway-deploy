@@ -142,6 +142,8 @@ var FoMagasinListComponent = /** @class */ (function () {
             _this.magasinList.push(res);
             _this.dataSource.data = res;
         });
+        console.log("utilisateur: ", this.utilisateur.fkey);
+        console.log("magasins: ", this.magasinList);
     }
     FoMagasinListComponent.prototype.ngOnInit = function () {
         this.dataSource.paginator = this.paginator;

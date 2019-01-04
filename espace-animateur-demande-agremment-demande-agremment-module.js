@@ -70,7 +70,7 @@ var DemandeAgremmentModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n    <div><h2 class=\"title\">Liste des demandes d'agrément</h2></div>\n  </div>\n  <a (click)=\"ajoutDemandeAgrement()\" mat-raised-button color=\"accent\" style=\"margin-top:1%\">Ajouter une demande</a>\n  <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrer\">\n    </mat-form-field>\n    \n    <div class=\"mat-elevation-z8\">\n      <table mat-table [dataSource]=\"dataSource\" matSort>\n    \n        <!-- ID Column -->\n        <ng-container matColumnDef=\"description\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n          <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n        </ng-container>\n\n        <!-- ID Column -->\n        <ng-container matColumnDef=\"destinataireID\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destinataire </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.destinataireID}} </td>\n          </ng-container>\n\n          <!-- ID Column -->\n        <ng-container matColumnDef=\"dateCreated\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de creation </th>\n            <td mat-cell *matCellDef=\"let row\"> {{ row.dateCreated | date : format : shortDate}} </td>\n          </ng-container>\n    \n        <!-- Color Column -->\n        <ng-container matColumnDef=\"Supprimer\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>\n          <td mat-cell *matCellDef=\"let row\" > {{row.Supprimer}}\n            <button mat-raised-button>\n              <mat-icon class=\"red600\">delete</mat-icon>\n            </button>\n          </td>\n        </ng-container>\n    \n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n        </tr>\n      </table>\n    \n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>"
+module.exports = "  <div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n    <div><h2 class=\"title\">Liste des demandes d'agrément</h2></div>\n  </div>\n  <mat-form-field>\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrer\">\n    </mat-form-field>\n    \n    <div class=\"mat-elevation-z8\">\n      <table mat-table [dataSource]=\"dataSource\" matSort>\n\n        <!-- ID Column -->\n        <ng-container matColumnDef=\"userName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.userName}} </td>\n          </ng-container>\n\n          <!-- ID Column -->\n        <ng-container matColumnDef=\"userPrenom\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.userPrenom}} </td>\n          </ng-container>\n    \n          <!-- Progress Column -->\n    <ng-container matColumnDef=\"juridique\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut juridique </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.juridique}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"ninea\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ninea </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.ninea}} </td>\n      </ng-container>\n        <!-- ID Column -->\n        <ng-container matColumnDef=\"description\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n          <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n        </ng-container>\n\n        <!-- ID Column -->\n        <!-- <ng-container matColumnDef=\"destinataireID\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destinataire </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.destinataireID}} </td>\n          </ng-container> -->\n\n          <!-- ID Column -->\n        <ng-container matColumnDef=\"dateCreated\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de creation </th>\n            <td mat-cell *matCellDef=\"let row\"> {{ row.dateCreated | date : format : shortDate}} </td>\n          </ng-container>\n    \n        <!-- Color Column -->\n        <!-- <ng-container matColumnDef=\"Supprimer\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header > Supprimer </th>\n          <td mat-cell *matCellDef=\"let row\" > {{row.Supprimer}}\n            <button mat-raised-button>\n              <mat-icon class=\"red600\">delete</mat-icon>\n            </button>\n          </td>\n        </ng-container> -->\n        <ng-container matColumnDef=\"status\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.status}} </td>\n          </ng-container>\n        <ng-container matColumnDef=\"Approuver\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header > Approuver </th>\n            <td mat-cell *matCellDef=\"let row\" > {{row.Approuver}}\n              <button mat-raised-button (click)=\"approuverDemande(row.key,row.userID)\">\n                <mat-icon class=\"green\">done_outline</mat-icon>\n              </button>\n            </td>\n          </ng-container>\n          <ng-container matColumnDef=\"Rejeter\">\n              <th mat-header-cell *matHeaderCellDef mat-sort-header > Rejeter </th>\n              <td mat-cell *matCellDef=\"let row\" > {{row.Rejeter}}\n                <button mat-raised-button (click)=\"rejeterDemande(row.key,row.userID)\">\n                  <mat-icon class=\"red600\">delete</mat-icon>\n                </button>\n              </td>\n            </ng-container>\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n        </tr>\n      </table>\n    \n      <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>"
 
 /***/ }),
 
@@ -99,6 +99,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared-front/shared/crudPopups/crudPopup/crudPopup.component */ "./src/app/shared-front/shared/crudPopups/crudPopup/crudPopup.component.ts");
 /* harmony import */ var app_service_agreement_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/service/agreement.service */ "./src/app/service/agreement.service.ts");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var app_service_registration_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/service/registration.service */ "./src/app/service/registration.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -112,22 +115,38 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var DemandeAgremmentComponent = /** @class */ (function () {
-    function DemandeAgremmentComponent(agreementService, parCrud) {
+    function DemandeAgremmentComponent(agreementService, snackBar, utilisateurService, parCrud, db) {
         var _this = this;
         this.agreementService = agreementService;
+        this.snackBar = snackBar;
+        this.utilisateurService = utilisateurService;
         this.parCrud = parCrud;
-        this.displayedColumns = ['description', 'destinataireID', 'dateCreated', 'Supprimer'];
+        this.db = db;
+        this.displayedColumns = ['userName', 'userPrenom', 'juridique', 'ninea', 'description', 'dateCreated', 'status', 'Approuver', 'Rejeter'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"]();
         this.agreementList = [];
+        this.dbPath = 'agreement-db';
         this.agreement = {};
         this.ELEMENT_DATA = this.agreementList;
         console.log(this.agreementService.getAgreementList());
         this.crudComp = this.parCrud;
-        this.agreementService.getAgreementList().valueChanges().subscribe(function (res) {
+        // this.agreementService.getAgreementList().valueChanges().subscribe(res => {
+        //   this.agreementList.push(res);
+        //   this.dataSource.data = res;
+        // })
+        this.db.list(this.dbPath, function (ref) { return ref
+            .orderByChild('destinataireID')
+            .equalTo("animateur"); })
+            .valueChanges()
+            .subscribe(function (res) {
             _this.agreementList.push(res);
             _this.dataSource.data = res;
         });
+        console.log(this.agreementList.filter(function (item) { return item.Statut === ""; }));
     }
     DemandeAgremmentComponent.prototype.ngOnInit = function () {
         this.dataSource.paginator = this.paginator;
@@ -141,6 +160,24 @@ var DemandeAgremmentComponent = /** @class */ (function () {
     };
     DemandeAgremmentComponent.prototype.ajoutDemandeAgrement = function () {
         this.crudComp.openCreateDemandeAgreement();
+    };
+    DemandeAgremmentComponent.prototype.approuverDemande = function (key, userID) {
+        this.agreementService.updateAgreement(key, { status: "approuver" });
+        this.utilisateurService.isAgreeUtilisateur(userID, { isagreer: "true" });
+        var refSnack = this.snackBar.open('Agrément avalidé avec succès', 'merci', {
+            duration: 3000
+        });
+        refSnack.afterDismissed().subscribe(function () {
+        });
+    };
+    DemandeAgremmentComponent.prototype.rejeterDemande = function (key, userID) {
+        this.agreementService.updateAgreement(key, { status: "rejeter" });
+        this.utilisateurService.isAgreeUtilisateur(userID, { isagreer: "rejeter" });
+        var refSnack = this.snackBar.open('Agrément rejeté', 'merci', {
+            duration: 3000
+        });
+        refSnack.afterDismissed().subscribe(function () {
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
@@ -156,7 +193,7 @@ var DemandeAgremmentComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./demande-agremment.component.html */ "./src/app/espace/animateur/demande-agremment/demande-agremment/demande-agremment.component.html"),
             styles: [__webpack_require__(/*! ./demande-agremment.component.scss */ "./src/app/espace/animateur/demande-agremment/demande-agremment/demande-agremment.component.scss")]
         }),
-        __metadata("design:paramtypes", [app_service_agreement_service__WEBPACK_IMPORTED_MODULE_3__["AgreementService"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__["CrudPopupComponent"]])
+        __metadata("design:paramtypes", [app_service_agreement_service__WEBPACK_IMPORTED_MODULE_3__["AgreementService"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBar"], app_service_registration_service__WEBPACK_IMPORTED_MODULE_5__["RegistrationService"], app_shared_front_shared_crudPopups_crudPopup_crudPopup_component__WEBPACK_IMPORTED_MODULE_2__["CrudPopupComponent"], angularfire2_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"]])
     ], DemandeAgremmentComponent);
     return DemandeAgremmentComponent;
 }());
