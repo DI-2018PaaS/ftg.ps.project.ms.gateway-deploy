@@ -12,3 +12,24 @@
 .toolbar{
     background-color: #dadad2;
 }
+
+ .container-fluid.fluid-bread {
+    margin: 20px;
+}
+
+:host ::ng-deep ol {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+    margin-bottom: 14px;
+}
+
+:host ::ng-deep ol li{
+    display: inline;
+}
+
+:host ::ng-deep ol li+li:before{
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
