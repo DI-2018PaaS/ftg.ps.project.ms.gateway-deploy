@@ -15,8 +15,7 @@ import { FuseDemoModule } from '@fuse/components/demo/demo.module';
 import { FuseSharedModule } from '@fuse/shared.module';
 
 export const routes = [
-  { path: '', component: ProduitsComponent, pathMatch: 'full' },
-  { path: ':name', component: ProduitComponent},
+  { path: ':name/', component: ProduitComponent},
   { path: 'detailsProduit/:id', component: DetailsProduitComponent}
 ];
 

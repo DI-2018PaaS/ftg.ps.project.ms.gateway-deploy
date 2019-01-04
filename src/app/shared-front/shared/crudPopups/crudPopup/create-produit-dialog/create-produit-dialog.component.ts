@@ -32,8 +32,12 @@ export class CreateProduitDialogComponent implements OnInit {
   utilisateur = {} as Utilisateur;
   private dbPath = 'boutiques-db';
   boutiqueList = [];
-
-  constructor(private produitService : ProduitService,public db: AngularFireDatabase,private session: SessionStorageService) { 
+  public active = false;
+  public value = 0
+  
+  constructor(private produitService : ProduitService,
+    public db: AngularFireDatabase,
+    private session: SessionStorageService) { 
     
     this.getBoutique();
 
@@ -58,14 +62,18 @@ export class CreateProduitDialogComponent implements OnInit {
   detectFiles(event) {
     this.selectedFiles = event.target.files;
     console.log("selected picture", this.selectedFiles)
+    this.active = true
 }
 
 uploadSingle() {
+
+  console.log("1",this.active)
   let file = this.selectedFiles.item(0)
   this.currentUpload = new Upload(file);
-
   this.produitService.pushUpload(this.currentUpload)
 
+  this.active = false
+  this.value = 50
 }
 
   ngOnInit() {
@@ -81,6 +89,7 @@ uploadSingle() {
   descriptionProduit = new FormControl();
   zoneGeographiqueId = new FormControl();
   idBoutique = new FormControl();
+  domaine = new FormControl();
 
   createNewProduit(){
     console.log(this.produit);
@@ -93,7 +102,9 @@ uploadSingle() {
      isValid:false,
      image:this.currentUpload.url,
      fidBoutique: this.boutique.idBoutique,
-     fidProprietaire : this.utilisateur.fkey
+     fidProprietaire : this.utilisateur.fkey,
+     domaine : this.produit.domaine,
+
     });
     this.produit = {} as Produit;
      }

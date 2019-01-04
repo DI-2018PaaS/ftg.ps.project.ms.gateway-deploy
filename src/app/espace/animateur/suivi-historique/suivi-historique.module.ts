@@ -17,6 +17,8 @@ import { GDemandeListComponent } from './g-demande-list/g-demande-list.component
 import { DepotListComponent } from './depot-list/depot-list.component';
 import { NotationsListComponent } from './notations-list/notations-list.component';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
+import { SuiviBlivraisonComponent } from './livraison-list/suivi-blivraison/suivi-blivraison.component';
+import { VisuBlivraisonComponent } from './livraison-list/visu-blivraison/visu-blivraison.component';
 
 
 export const routes = [
@@ -26,6 +28,7 @@ export const routes = [
       { path: 'pret-list', component: PretListComponent, pathMatch: 'full' },
       { path: 'devis-list', component: DevisListComponent, pathMatch: 'full' },
       { path: 'livraison-list', component: LivraisonListComponent, pathMatch: 'full' },
+      { path: 'visu-livraison/:id', component: VisuBlivraisonComponent, pathMatch: 'full' },
       { path: 'credit-list', component: CreditListComponent, pathMatch: 'full' },
       { path: 'enchere-list', component: EncheresListComponent, pathMatch: 'full' },
       { path: 'gdemande-list', component: GDemandeListComponent, pathMatch: 'full' },
@@ -52,7 +55,7 @@ export const routes = [
     EncheresListComponent, 
     GDemandeListComponent, 
     DepotListComponent, 
-    NotationsListComponent],
+    NotationsListComponent, SuiviBlivraisonComponent, VisuBlivraisonComponent],
     providers   : [CrudPopupComponent ]
 })
 export class SuiviHistoriqueModule { }

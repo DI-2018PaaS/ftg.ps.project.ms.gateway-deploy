@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { AngularFireList } from 'angularfire2/database';
+import { Produit } from 'app/models/msmagasindomains/produit/produit.model';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
     selector: 'app-produit',
@@ -11,7 +14,10 @@ export class ProduitsComponent {
   @ViewChild('sidenav') sidenav: any;
   public sidenavOpen: boolean = true;
   public brands = [];
-
+  private dbPath = 'produits-db';
+  produitRef: AngularFireList<Produit> = null;
+  produitList = [];
+  produit = {} as Produit;
   /**
      * Constructor
      *
@@ -19,7 +25,18 @@ export class ProduitsComponent {
      * @param {FuseSidebarService} _fuseSidebarService
      * 
      */
-  constructor(private _fuseSidebarService: FuseSidebarService) { }
+  constructor(private _fuseSidebarService: FuseSidebarService,public db: AngularFireDatabase) { 
+
+    this.db.list(this.dbPath, ref => ref
+      .orderByChild('isValid')
+      .equalTo(true))
+      .valueChanges()
+      .subscribe(res => {
+        this.produitList = res;
+        console.log("produitsrr: ", this.produitList)
+      })
+
+  }
   public viewCol: number = 25;
 
   public slides = [

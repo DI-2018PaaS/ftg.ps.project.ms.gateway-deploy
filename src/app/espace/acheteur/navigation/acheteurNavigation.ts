@@ -31,6 +31,13 @@ export const acheteurNavigation: FuseNavigation[] = [
         url     : 'demande-financement'
     },
     {
+        id      : 'suivi-livraison',
+        title   : 'Suiv livraison',
+        icon    : 'send',
+        type    : 'group',
+        url     : 'livraisons'
+    },
+    {
         id      : 'historique-commandes',
         title   : 'Historique Commande',
         icon    : 'history',
