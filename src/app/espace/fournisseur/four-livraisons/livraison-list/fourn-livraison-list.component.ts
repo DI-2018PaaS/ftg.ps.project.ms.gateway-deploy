@@ -28,22 +28,34 @@ export class FoLivraisonListComponent implements OnInit {
     this.crudComp=this.parCrud;
     this.blivraisonService = blivraisonServ; 
     this.utilisateur = this.session.get('utilisateur');
+
     this.db.list("blivraison-db", ref => ref
       .orderByChild('fournisseurId')
       .equalTo(this.utilisateur.fkey))
       .valueChanges()
       .subscribe(res => {
-        this.dataSource.data = res;
+        res.forEach(response =>{
+          if (response['isApprovedByAnim'] ==true){
+            var data = this.dataSource.data;
+            data = res;
+            this.dataSource.data = data;
+          }
+        })
+        
       });
 
       this.db.list("blivraison-db", ref => ref
       .orderByChild('livreur')
       .equalTo(this.utilisateur.fkey))
       .valueChanges()
-      .subscribe(res => {
-        var datas = this.dataSource.data;
-        datas = res;
-        this.dataSource.data = datas;
+      .subscribe(rest => {
+        rest.forEach(response =>{
+          if (response['isApprovedByAnim'] ==true){
+          var datas = this.dataSource.data;
+          datas.push(rest);
+          this.dataSource.data=datas[0];
+          }
+        })
       });
       
 	}

@@ -7,6 +7,9 @@ import { query } from '@angular/core/src/render3/query';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import {SessionStorageService } from 'angular-web-storage';
 import { DemandeFinancementService } from 'app/service/demandeFinancement.service';
+import { BlivraisonService } from 'app/service/blivraison.service';
+import { BonLivraison } from 'app/models/msmagasindomains/bon-livraison/bon-livraison.model';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 @Component({
@@ -19,7 +22,7 @@ export class DemandeFinancementAcheteurComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
   private dbPath = 'demandeFinancement-db';
   demandeFinancementList = []
-
+  bonLivraison : any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @Input() rowProperty: any;
@@ -27,9 +30,9 @@ export class DemandeFinancementAcheteurComponent implements OnInit {
 
 
   constructor(public db: AngularFireDatabase, private session: SessionStorageService, 
-    private  demandeFinancementService : DemandeFinancementService) {
+    private  demandeFinancementService : DemandeFinancementService, private   blivraisonServ: BlivraisonService) {
     this.demandeFinancementService = demandeFinancementService;
-
+     
     this.db.list(this.dbPath, ref => ref
       .orderByChild('acteurID')
       .equalTo(this.session.get('utilisateur').fkey))
@@ -54,7 +57,18 @@ export class DemandeFinancementAcheteurComponent implements OnInit {
   }
 
   ELEMENT_DATA: demandeFinancementElement[] = this.demandeFinancementList;
+  validationFinal(row){
 
+    this.db.list("blivraison-db", ref => ref
+      .orderByChild('demandeId')
+      .equalTo(row.key))
+      .valueChanges()
+      .subscribe(res => {
+        this.bonLivraison =  res[0] as BonLivraison;
+        this.blivraisonServ.updateBlivraison(this.bonLivraison.key,{isValid:true})
+      })
+
+  }
 }
 
 export interface demandeFinancementElement {

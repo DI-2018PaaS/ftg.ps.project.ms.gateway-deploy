@@ -82,6 +82,11 @@ export class RegistrationComponent implements OnInit {
           isagreer: "false"
         });
 
+        this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.utilisateur.username).limitToFirst(1))
+        .valueChanges()
+        .subscribe(res => {
+          this.session.set('utilisateur', res[0]) 
+
         let navigationExtras: NavigationExtras = {
           queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[0].idActeurType},
           fragment: 'animateur'
@@ -89,6 +94,7 @@ export class RegistrationComponent implements OnInit {
         this.utilisateur = {} as Utilisateur;
         this.animateur = {} as Animateur;
         this.router.navigate(['main-anim'],navigationExtras);
+      });
     }else if (this.selectedType=="Acheteur"){
       var ACFK =  this.acheteurService.createAcheteur({
         acheteurId: 0,
@@ -118,7 +124,10 @@ export class RegistrationComponent implements OnInit {
           isagreer: "false"
 
         });
-      
+        this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.utilisateur.username).limitToFirst(1))
+        .valueChanges()
+        .subscribe(res => {
+          this.session.set('utilisateur', res[0]) 
       let navigationExtras: NavigationExtras = {
         queryParams: { 'login': this.utilisateur.username,'typeActeur':this.typeActeurs[1].idActeurType},
         fragment: 'acheteur'
@@ -126,6 +135,7 @@ export class RegistrationComponent implements OnInit {
       this.acheteur = {} as Acheteur;  
       this.utilisateur = {} as Utilisateur;
       this.router.navigate(['shopping'],navigationExtras);
+    });
     }else if(this.selectedType=="Fournisseur"){
       var FFK =  this.fournisseurService.createFournisseur({
         fournisseurId: 0,

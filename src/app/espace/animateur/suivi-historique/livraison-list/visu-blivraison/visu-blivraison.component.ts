@@ -8,6 +8,7 @@ import { BonLivraison } from 'app/models/msmagasindomains/bon-livraison/bon-livr
 import { Fournisseur } from 'app/models/acteur/fournisseur/fournisseur.model';
 import { MatTableDataSource } from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
+import { Agreement } from 'app/models/acteur/agreement/agreement.model';
 
 
 export interface PeriodicElement {
@@ -38,20 +39,13 @@ export class VisuBlivraisonComponent implements OnInit {
   private produitPath = 'list-produits-db'
   private selectedProduitPath = 'produits-db'
 
-  constructor(private blivraisonServ: BlivraisonService,
+  constructor(private   blivraisonServ: BlivraisonService,
     public db: AngularFireDatabase,private session: SessionStorageService, private router : Router, private activatedRoute : ActivatedRoute) { 
       
       this.router = router;
       var key = this.activatedRoute.snapshot.paramMap.get('id');
-      this.utilisateur = session.get("utilisateur");
+      // this.utilisateur = session.get("utilisateur");
 
-      this.db.list('agreement-db', tr =>tr
-      .orderByChild("userID")
-      .equalTo(this.utilisateur.key))
-      .valueChanges()
-      .subscribe(tf => {
-        this.agreement = tf[0];
-      })
 
       this.db.list("blivraison-db", ref => ref
       .orderByChild('key')
@@ -74,6 +68,22 @@ export class VisuBlivraisonComponent implements OnInit {
       .valueChanges()
       .subscribe(res => {
         this.fournisseur = res[0] as Fournisseur;
+
+        this.db.list('utilisateur-db', tr =>tr
+        .orderByChild("fkey")
+        .equalTo(this.fournisseur.key))
+        .valueChanges()
+        .subscribe(tf => {
+          console.log(tf)
+        
+            this.db.list("agreement-db", db => db
+            .orderByChild('userID')
+            .equalTo(tf[0]['key']))
+            .valueChanges()
+            .subscribe(res => {
+              this.agreement = res[0] as Agreement;
+            })
+      })
 
         this.db.list(this.produitPath, ref => ref
           .orderByChild('keyDemande')
@@ -113,5 +123,4 @@ masterToggle() {
 }
   ngOnInit() {
   }
-
 }
