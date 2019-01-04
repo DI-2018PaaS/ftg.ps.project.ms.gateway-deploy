@@ -60,12 +60,7 @@ import { AcheteurService } from './service/acheteur.service';
 import { AnimateurService } from './service/animateur.service';
 import { FournisseurService } from './service/fournisseur.service';
 import { RegistrationService } from './service/registration.service';
-import { DemandeFinancementService } from './service/demandeFinancement.service';
-import { ListProduitService } from './service/list-produit.service';
-import { LigneCreditService } from './service/ligneCredit.service';
-import { BlivraisonService } from 'app/service/blivraison.service';
-import { ProfileComponent } from './profile/profile.component';
-
+import { CommandePanierService } from './service/commande.panier.service';
 
 
 
@@ -108,6 +103,11 @@ const appRoutes: Routes = [
     {   path        : 'cart', 
         loadChildren: './front/cart/cart.module#CartModule'
     },
+	{ 
+		path: 'checkout', 
+		loadChildren: './front/checkout/checkout.module#CheckoutModule', 
+		data: { breadcrumb: 'Checkout' } 
+	},
     {   path: 'ratings', 
         loadChildren: './front/rating/rating.module#RatingModule'
     },
@@ -125,10 +125,6 @@ const appRoutes: Routes = [
     {
         path: 'registration',
         component: RegistrationComponent
-    },
-    {
-        path: 'profile',
-        component: ProfileComponent
     },
     {
         path: '',
@@ -394,7 +390,6 @@ const appRoutes: Routes = [
         AnimateurComponent,
         FournisseurComponent,
         RegistrationComponent,
-        ProfileComponent
         
        //,
         //MultiUserComponent
@@ -449,7 +444,7 @@ const appRoutes: Routes = [
     ],
     providers: [AppService,AnimHomeService,ProjectDashboardService,FournissHomeService,MuserHomeService,Globals,CrudPopupComponent,
         ProduitService,MagasinService,BoutiqueService, AgreementService,RoleService,RegistrationService,
-        AcheteurService,AnimateurService,FournisseurService, DemandeFinancementService, ListProduitService, LigneCreditService, BlivraisonService
+        AcheteurService,AnimateurService,FournisseurService,CommandePanierService
     ] 
 })
 export class AppModule

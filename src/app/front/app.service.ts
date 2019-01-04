@@ -48,7 +48,7 @@ export class AppService {
         }
         else{
             this.Data.compareList.push(product);
-            message = 'The product ' + product.name + ' has been added to comparison list.'; 
+            message = 'Le produit ' + product.name + ' a été ajouté à la liste de comparaison.'; 
             status = 'success';  
         }
         this.snackBar.open(message, '×', { panelClass: [status], verticalPosition: 'top', duration: 3000 });
@@ -62,7 +62,7 @@ export class AppService {
         }
         else{
             this.Data.wishList.push(product);
-            message = 'The product ' + product.name + ' has been added to wish list.'; 
+            message = 'Le produit ' + product.name + ' a été ajouté à la wish list.'; 
             status = 'success';  
         }
         this.snackBar.open(message, '×', { panelClass: [status], verticalPosition: 'top', duration: 3000 });
@@ -80,7 +80,7 @@ export class AppService {
             this.Data.cartList.forEach(product=>{
                 this.Data.totalPrice = this.Data.totalPrice + product.newPrice;
             })
-            message = 'The product ' + product.name + ' has been added to cart.'; 
+            message = 'Le produit ' + product.name + ' a été ajouté au panier.'; 
             status = 'success';  
         }
         this.snackBar.open(message, '×', { panelClass: [status], verticalPosition: 'top', duration: 3000 });
@@ -372,9 +372,10 @@ export class AppService {
 
     public getDeliveryMethods(){
         return [
-            { value: 'free', name: 'Free Delivery', desc: '$0.00 / Delivery in 7 to 14 business Days' },
-            { value: 'standard', name: 'Standard Delivery', desc: '$7.99 / Delivery in 5 to 7 business Days' },
-            { value: 'express', name: 'Express Delivery', desc: '$29.99 / Delivery in 1 business Days' }
+            { value: 'Gratuit', name: 'Livraison Gratuite', desc: '0.00 XOF/ Livraison entre 3 to 8 jours' },
+            { value: 'Standard', name: 'Poste Standard Adresse de livraison', desc: '3000 XOF / Livraison entre 5 to 10 jours' },
+            { value: 'Express', name: 'Poste Express Adresse de livraison', desc: '6000 XOF / Livraison entre 2 to 4 jours' },
+			{ value: 'Point de retrait', name: 'Point de retrait', desc: '6000 XOF / Livraison entre 2 to 4 jours' }
         ]
     }
 

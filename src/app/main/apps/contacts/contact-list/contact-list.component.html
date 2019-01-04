@@ -37,9 +37,9 @@
         </mat-cell>
     </ng-container>
 
-    <!-- Phone Column -->
+    <!-- Téléphone Column -->
     <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Phone</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Téléphone</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-md>
             <p class="phone text-truncate">
                 {{contact.phone}}
@@ -57,9 +57,9 @@
         </mat-cell>
     </ng-container>
 
-    <!-- Company Column -->
+    <!-- Entreprise Column -->
     <ng-container matColumnDef="company">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Company</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Entreprise</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-lg>
             <p class="company text-truncate">
                 {{contact.company}}

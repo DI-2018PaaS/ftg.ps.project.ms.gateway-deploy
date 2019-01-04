@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { Product } from '../../../front/app.models';
 
 @Component({
   selector: 'app-domaine-produit',
@@ -14,7 +15,7 @@ export class DomaineProduitComponent implements OnInit {
     { title: 'Summer collection', subtitle: 'New Arrivals On Sale', image: 'assets/images/carousel/FineTech_PS_Elmt_Main_Advertisement_FalseContent.png' },
     { title: 'The biggest sale', subtitle: 'Special for today', image: 'assets/images/carousel/FineTech_PS_Elmt_Main_Advertisement_FalseContent.png' }
   ];
-
+	public product: Product;
 
 /**
    * Constructor

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Product } from '../../../front/app.models';
 
 @Component({
   selector: 'app-domaine',
@@ -9,6 +10,7 @@ export class DomaineComponent implements OnInit {
   @ViewChild('sidenav') sidenav: any;
   public sidenavOpen: boolean = true;
   public viewCol: number = 25;
+  public product: Product;
 	panelOpenState = true;
   constructor() { }
 

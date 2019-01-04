@@ -8,6 +8,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
+import { AppService } from 'app/front/app.service';
 
 @Component({
     selector     : 'toolbar',
@@ -25,6 +26,7 @@ export class ToolbarComponent implements OnInit, OnDestroy
     navigation: any;
     selectedLanguage: any;
     userStatusOptions: any[];
+    dataCoountValue: number = 15;
 
     // Private
     private _unsubscribeAll: Subject<any>;
@@ -39,7 +41,8 @@ export class ToolbarComponent implements OnInit, OnDestroy
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _fuseSidebarService: FuseSidebarService,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+		public appService:AppService
     )
     {
         // Set the defaults
