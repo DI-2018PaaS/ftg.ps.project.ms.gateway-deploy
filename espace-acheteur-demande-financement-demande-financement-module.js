@@ -484,7 +484,7 @@ var DetailsPaiementComponent = /** @class */ (function () {
             acheteurPrenom: this.utilisateur.lastName,
             fournisseurId: value.fidProprietaire
         });
-        var refSnack = this.snackBar.open('demande envoyé', 'merci', {
+        var refSnack = this.snackBar.open('opération effectuée', 'merci', {
             duration: 3000
         });
         refSnack.afterDismissed().subscribe(function () {

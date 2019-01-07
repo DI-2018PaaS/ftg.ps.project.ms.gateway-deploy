@@ -928,7 +928,6 @@ var VisuBlivraisonComponent = /** @class */ (function () {
                     .equalTo(_this.fournisseur.key); })
                     .valueChanges()
                     .subscribe(function (tf) {
-                    console.log(tf);
                     _this.db.list("agreement-db", function (db) { return db
                         .orderByChild('userID')
                         .equalTo(tf[0]['key']); })

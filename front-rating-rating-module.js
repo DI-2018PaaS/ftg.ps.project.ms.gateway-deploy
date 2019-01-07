@@ -18,7 +18,7 @@ module.exports = "<div fxLayout=\"column\" fxFlex=\"100\">\n    <app-main-carous
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".panel-domaine {\n  width: 10em !important;\n  background-color: #ed7d31 !important; }\n\n.panel-domaine {\n  width: 10em !important;\n  background-color: #70ad47 !important; }\n\n.panel-domaine {\n  width: 10em !important;\n  background-color: #5b9bd5 !important; }\n\n.filter-sidenav {\n  width: 280px;\n  padding: 2px; }\n\n.filter-sidenav .mat-expansion-panel-header-title {\n    text-transform: uppercase; }\n\n.filter-row {\n  background: #fff;\n  padding: 8px 12px; }\n"
+module.exports = ".panel-domaine {\n  width: 10em !important;\n  background-color: #ed7d31 !important; }\n\n.panel-domaine {\n  width: 10em !important;\n  background-color: #70ad47 !important; }\n\n.panel-domaine {\n  width: 10em !important;\n  background-color: #5b9bd5 !important; }\n\n.filter-sidenav {\n  width: 280px;\n  padding: 2px; }\n\n.filter-sidenav .mat-expansion-panel-header-title {\n    text-transform: uppercase; }\n\n.filter-row {\n  background: #fff;\n  padding: 8px 12px; }\n\n.panel-domaine-ag {\n  background: #FCF8E3 !important; }\n"
 
 /***/ }),
 

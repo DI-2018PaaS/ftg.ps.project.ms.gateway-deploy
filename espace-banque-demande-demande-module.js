@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n  <div>\n    <h2 class=\"title\">LISTE DEMANDE AGREEMENT</h2>\n  </div>\n</div>\n<!-- <div class=\"py-8\"><button mat-raised-button color=\"accent\" (click)=\"crudComp.openCreateLigneCredit()\">Ajouter une ligne de credit</button></div> -->\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrer\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n     <!-- ID Column -->\n     <ng-container matColumnDef=\"userName\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.userName}} </td>\n      </ng-container>\n\n      <!-- ID Column -->\n    <ng-container matColumnDef=\"userPrenom\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.userPrenom}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"juridique\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut juridique </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.juridique}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"ninea\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ninea </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.ninea}} </td>\n      </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"createdDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.dateCreated | date : format : shortDate}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"status\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.status}} </td>\n      </ng-container>\n    \n      <!-- Color Column -->\n      <ng-container matColumnDef=\"Approuver\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Approuver </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.Approuver}}\n          <button mat-raised-button (click)=\"validerAgrement(row)\">\n              <mat-icon class=\"green\">done_outline</mat-icon>\n            </button>\n        </td>\n      </ng-container>\n\n    <!-- Color Column -->\n    <!-- <ng-container matColumnDef=\"Modifier\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}\n        <button mat-raised-button (click)=\"crudComp.openUpdateLigneCredit()\">\n          <mat-icon class=\"orange600\">edit</mat-icon>\n        </button>\n      </td>\n    </ng-container> -->\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Rejeter\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header > Rejeter </th>\n      <td mat-cell *matCellDef=\"let row\" > {{row.Rejeter}}\n          <button mat-raised-button (click)=\"rejeterDemande(row.key,row.userID)\">\n              <mat-icon class=\"red600\">delete</mat-icon>\n            </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
+module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"title-top\">\n  <div>\n    <h2 class=\"title\">LISTE DEMANDE AGREEMENT</h2>\n  </div>\n</div>\n<!-- <div class=\"py-8\"><button mat-raised-button color=\"accent\" (click)=\"crudComp.openCreateLigneCredit()\">Ajouter une ligne de credit</button></div> -->\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrer\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n     <!-- ID Column -->\n     <ng-container matColumnDef=\"userName\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.userName}} </td>\n      </ng-container>\n\n      <!-- ID Column -->\n    <ng-container matColumnDef=\"userPrenom\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.userPrenom}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"juridique\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut juridique </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.juridique}} </td>\n      </ng-container>\n\n      <!-- Progress Column -->\n    <ng-container matColumnDef=\"ninea\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ninea </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.ninea}} </td>\n      </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"description\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.description}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"createdDate\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de création </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.dateCreated | date : format : shortDate}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"status\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.status}} </td>\n      </ng-container>\n    \n      <!-- Color Column -->\n      <ng-container matColumnDef=\"Approuver\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header> Approuver </th>\n        <td mat-cell *matCellDef=\"let row\"> {{row.Approuver}}\n          <button mat-raised-button (click)=\"validerAgrement(row)\">\n              <mat-icon color=\"accent\">done_outline</mat-icon>\n            </button>\n        </td>\n      </ng-container>\n\n    <!-- Color Column -->\n    <!-- <ng-container matColumnDef=\"Modifier\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.Modifier}}\n        <button mat-raised-button (click)=\"crudComp.openUpdateLigneCredit()\">\n          <mat-icon class=\"orange600\">edit</mat-icon>\n        </button>\n      </td>\n    </ng-container> -->\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"Rejeter\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header > Rejeter </th>\n      <td mat-cell *matCellDef=\"let row\" > {{row.Rejeter}}\n          <button mat-raised-button (click)=\"rejeterDemande(row.key,row.userID)\">\n              <mat-icon class=\"red600\">delete</mat-icon>\n            </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "<div fxLayout=\"row\" fxLayoutAlign=\"center center\" class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.title {\n  font-weight: bold; }\n\n.title-top {\n  background-color: #9a3838ba; }\n"
+module.exports = "table {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.title {\n  font-weight: bold; }\n\n.title-top {\n  background-color: #748A53;\n  color: white; }\n"
 
 /***/ }),
 
@@ -90,28 +90,24 @@ var DemandeAgrementListComponent = /** @class */ (function () {
             this.dataSource.paginator.firstPage();
         }
     };
-    DemandeAgrementListComponent.prototype.edit = function (row) {
-        this.crudComp.openListeDemandeAgreement(row);
-    };
     DemandeAgrementListComponent.prototype.validerAgrement = function (row) {
         this.crudComp.openUpdateDemandeAgreement(row);
+        console.log(row);
     };
-    DemandeAgrementListComponent.prototype.approuverDemande = function (key, userID) {
-        this.agreementService.updateAgreement(key, { status: "approuver" });
-        this.utilisateurService.isAgreeUtilisateur(userID, { isagreer: "true" });
-        var refSnack = this.snackBar.open('Agrément avalidé avec succès', 'merci', {
-            duration: 3000
-        });
-        refSnack.afterDismissed().subscribe(function () {
-        });
-    };
+    // approuverDemande(key: string,userID: string): void{
+    //   this.agreementService.updateAgreement(key,{status:"approuver"});
+    //   this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"true"});
+    //   let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
+    //     duration: 3000
+    //   });
+    //   refSnack.afterDismissed().subscribe(()=>{
+    //   }) 
+    //  }
     DemandeAgrementListComponent.prototype.rejeterDemande = function (key, userID) {
         this.agreementService.updateAgreement(key, { status: "rejeter" });
         this.utilisateurService.isAgreeUtilisateur(userID, { isagreer: "rejeter" });
         var refSnack = this.snackBar.open('Agrément rejeté', 'merci', {
             duration: 3000
-        });
-        refSnack.afterDismissed().subscribe(function () {
         });
     };
     __decorate([
@@ -564,9 +560,8 @@ var ValidationPretComponent = /** @class */ (function () {
     };
     ValidationPretComponent.prototype.ngOnInit = function () {
     };
-    ValidationPretComponent.prototype.submit = function (e) {
+    ValidationPretComponent.prototype.submit = function () {
         var _this = this;
-        e.stopPropagation();
         this.getSelectedProducts();
         this.demandeFinancementServ
             .updateFinancement(this.activatedRoute.snapshot.paramMap.get('id'), ({ 'isValid': true }));
@@ -683,7 +678,7 @@ var DemandeModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"30px\" class=\"px-24\">\n\n  <div fxLayout=\"row\" fxLayoutGap=\"30px\" fxLayout.xs=\"column\">\n    <a [routerLink]=\"['demande-pret-list']\" fxFlex=\"50\" class=\"panel\">\n      <div>\n        <span class=\"title\">\n          <mat-icon>dialpad</mat-icon> Demande Pret</span>\n      </div>\n    </a>\n    <a [routerLink]=\"['demande-ligne-credit-list']\" fxFlex=\"50\" class=\"panel\">\n      <div>\n        <span class=\"title\">\n          <mat-icon>save_alt</mat-icon> Demande Ligne de Credit </span>\n      </div>\n    </a>\n  </div>\n  <div fxLayout=\"row\" fxLayoutGap=\"30px\" fxLayout.xs=\"column\">\n    <a [routerLink]=\"['demande-ligne-depot-list']\" fxFlex=\"50\" class=\"panel\">\n      <div>\n        <span class=\"title\">\n          <mat-icon>dialpad</mat-icon> Demande Ligne de Depot</span>\n      </div>\n    </a>\n    <a [routerLink]=\"['demande-agrement-list']\" fxFlex=\"50\" class=\"panel\">\n      <div>\n        <span class=\"title\">\n          <mat-icon>dialpad</mat-icon> Demande Agrement</span>\n      </div>\n    </a>\n  </div>\n\n</div>"
+module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"30px\" class=\"px-24\">\n\n  <div fxLayout=\"row\" fxLayoutGap=\"30px\" fxLayout.xs=\"column\" style=\"width:100%\">\n    <a [routerLink]=\"['demande-pret-list']\" fxFlex=\"50\" class=\"panel\">\n      <div>\n        <span class=\"title\">\n          <mat-icon>dialpad</mat-icon> Demande Pret</span>\n      </div>\n    </a>\n    <a [routerLink]=\"['demande-ligne-credit-list']\" fxFlex=\"50\" class=\"panel\">\n      <div>\n        <span class=\"title\">\n          <mat-icon>save_alt</mat-icon> Demande Ligne de Credit </span>\n      </div>\n    </a>\n    <a [routerLink]=\"['demande-ligne-depot-list']\" fxFlex=\"50\" class=\"panel\">\n        <div>\n          <span class=\"title\">\n            <mat-icon>dialpad</mat-icon> Demande Ligne de Depot</span>\n        </div>\n      </a>\n      <a [routerLink]=\"['demande-agrement-list']\" fxFlex=\"50\" class=\"panel\">\n        <div>\n          <span class=\"title\">\n            <mat-icon>dialpad</mat-icon> Demande Agrement</span>\n        </div>\n      </a>\n  </div>\n  \n\n</div>"
 
 /***/ }),
 
@@ -694,7 +689,7 @@ module.exports = "<div fxLayout=\"column\" fxLayoutGap=\"30px\" class=\"px-24\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title {\n  font-size: 100%;\n  font-weight: bold;\n  text-transform: uppercase; }\n\n.elmt-content {\n  padding: 5px;\n  background-color: rgba(131, 131, 182, 0.288); }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.panel {\n  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);\n  padding: 3%;\n  text-decoration: none;\n  background-color: #49565d;\n  color: white; }\n"
+module.exports = ".title {\n  font-size: 67%;\n  font-weight: bold;\n  text-transform: uppercase; }\n\n.elmt-content {\n  padding: 5px;\n  background-color: rgba(131, 131, 182, 0.288); }\n\n.orange600 {\n  color: #FB8C00;\n  padding-top: 7px; }\n\n.green600 {\n  color: #3ea80c;\n  padding-top: 7px; }\n\n.red600 {\n  color: #fb0000;\n  padding-top: 7px; }\n\n.panel {\n  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);\n  padding: 3%;\n  text-decoration: none;\n  background-color: #666a00;\n  color: white; }\n"
 
 /***/ }),
 
