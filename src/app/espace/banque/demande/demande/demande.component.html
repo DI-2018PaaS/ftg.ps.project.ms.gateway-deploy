@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutGap="30px" class="px-24">
 
-  <div fxLayout="row" fxLayoutGap="30px" fxLayout.xs="column">
+  <div fxLayout="row" fxLayoutGap="30px" fxLayout.xs="column" style="width:100%">
     <a [routerLink]="['demande-pret-list']" fxFlex="50" class="panel">
       <div>
         <span class="title">
@@ -13,20 +13,19 @@
           <mat-icon>save_alt</mat-icon> Demande Ligne de Credit </span>
       </div>
     </a>
-  </div>
-  <div fxLayout="row" fxLayoutGap="30px" fxLayout.xs="column">
     <a [routerLink]="['demande-ligne-depot-list']" fxFlex="50" class="panel">
-      <div>
-        <span class="title">
-          <mat-icon>dialpad</mat-icon> Demande Ligne de Depot</span>
-      </div>
-    </a>
-    <a [routerLink]="['demande-agrement-list']" fxFlex="50" class="panel">
-      <div>
-        <span class="title">
-          <mat-icon>dialpad</mat-icon> Demande Agrement</span>
-      </div>
-    </a>
+        <div>
+          <span class="title">
+            <mat-icon>dialpad</mat-icon> Demande Ligne de Depot</span>
+        </div>
+      </a>
+      <a [routerLink]="['demande-agrement-list']" fxFlex="50" class="panel">
+        <div>
+          <span class="title">
+            <mat-icon>dialpad</mat-icon> Demande Agrement</span>
+        </div>
+      </a>
   </div>
+  
 
 </div>
