@@ -1017,6 +1017,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var routes = [
+    { path: '', component: _produit_component__WEBPACK_IMPORTED_MODULE_3__["ProduitsComponent"] },
     { path: ':name/', component: _produit_produit_component__WEBPACK_IMPORTED_MODULE_4__["ProduitComponent"] },
     { path: 'detailsProduit/:id', component: _details_produit_details_produit_component__WEBPACK_IMPORTED_MODULE_5__["DetailsProduitComponent"] }
 ];
