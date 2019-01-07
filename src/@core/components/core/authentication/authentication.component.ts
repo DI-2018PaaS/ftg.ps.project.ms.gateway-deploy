@@ -68,6 +68,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   signIn(): void{
+    this.session.clear();
     this.db.list(this.dbPath, ref => ref.orderByChild('username').equalTo(this.username).limitToFirst(1))
     .valueChanges()
     .subscribe(res => {

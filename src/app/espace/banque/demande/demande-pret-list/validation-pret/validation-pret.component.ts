@@ -108,8 +108,7 @@ export class ValidationPretComponent implements OnInit {
   
   }
 
-  submit(e){
-    e.stopPropagation();
+  submit(){
     this.getSelectedProducts();
     this.demandeFinancementServ
     .updateFinancement(this.activatedRoute.snapshot.paramMap.get('id')

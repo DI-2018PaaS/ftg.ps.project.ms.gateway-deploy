@@ -4,7 +4,6 @@ import { AngularFireList } from 'angularfire2/database';
 import { AgreementService } from 'app/service/agreement.service';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { query } from '@angular/core/src/render3/query';
 import { CrudPopupComponent } from 'app/shared-front/shared/crudPopups/crudPopup/crudPopup.component';
 import { RegistrationService } from 'app/service/registration.service';
 import {MatSnackBar} from '@angular/material';
@@ -29,6 +28,7 @@ export class DemandeAgrementListComponent implements OnInit {
 
   constructor(private agreementService: AgreementService, public snackBar: MatSnackBar,private utilisateurService: RegistrationService,public db: AngularFireDatabase,private parCrud: CrudPopupComponent) {
     this.crudComp = parCrud;
+    
     this.db.list(this.dbPath, ref => ref
     .orderByChild('destinataireID')
     .equalTo('banque'))
@@ -50,15 +50,14 @@ export class DemandeAgrementListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  edit(row : any){
-    this.crudComp.openListeDemandeAgreement(row);
-    
-  }
-  ELEMENT_DATA: AgreementElement[] = this.agreementList;
 
   validerAgrement(row){
     this.crudComp.openUpdateDemandeAgreement(row);
+    console.log(row)
   }
+  ELEMENT_DATA: AgreementElement[] = this.agreementList;
+
+ 
 
   // approuverDemande(key: string,userID: string): void{
   //   this.agreementService.updateAgreement(key,{status:"approuver"});
@@ -75,9 +74,7 @@ export class DemandeAgrementListComponent implements OnInit {
     this.utilisateurService.isAgreeUtilisateur(userID,{isagreer:"rejeter"});
     let refSnack = this.snackBar.open('Agrément rejeté','merci', {
       duration: 3000
-    });
-    refSnack.afterDismissed().subscribe(()=>{
-    }) 
+    }); 
    }
 
 

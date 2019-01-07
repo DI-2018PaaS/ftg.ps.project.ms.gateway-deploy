@@ -18,6 +18,7 @@ export class BanqueComponent implements OnInit {
   constructor(private _fuseNavigationService: FuseNavigationService,private _fuseSidebarService: FuseSidebarService) { 
     
       this.navigation = banqueNavigation;
+      this._fuseNavigationService.unregister('banq')
 
       // Register the navigation to the service
       this._fuseNavigationService.register('banq', this.navigation);

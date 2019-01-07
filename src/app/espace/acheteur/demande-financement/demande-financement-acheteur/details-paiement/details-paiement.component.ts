@@ -145,7 +145,7 @@ export class DetailsPaiementComponent implements OnInit {
       acheteurPrenom:this.utilisateur.lastName,
       fournisseurId : value.fidProprietaire
     })
-    let refSnack = this.snackBar.open('demande envoyé','merci', {
+    let refSnack = this.snackBar.open('opération effectuée','merci', {
       duration: 3000
     });
     refSnack.afterDismissed().subscribe(()=>{

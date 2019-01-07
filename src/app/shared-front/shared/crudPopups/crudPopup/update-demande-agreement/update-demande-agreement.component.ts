@@ -6,6 +6,7 @@ import { AgreementService } from 'app/service/agreement.service';
 import { RegistrationService } from 'app/service/registration.service';
 import {MatSnackBar} from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { Utilisateur } from 'app/models/user/utilisateur/utilisateur.model';
 
 @Component({
   selector: 'app-update-demande-agreement',
@@ -18,10 +19,12 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
   agreementRef$ : AngularFireList<Agreement>;
   row :any;
   utilisateurServ :RegistrationService;
+  utilisateurRef: AngularFireList<Utilisateur> = null;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private agreementService : AgreementService,public snackBar: MatSnackBar,private utilisateurService: RegistrationService) { 
     this.row = data.row;
     this.utilisateurServ = utilisateurService;
+    
 
   }
 
@@ -43,9 +46,9 @@ export class UpdateDemandeAgrementDialogComponent implements OnInit {
     this.agreementService.updateAgreement(key,{status:"approuver", niveauAgreement: this.agreement.niveauAgreement});
     this.utilisateurServ.isAgreeUtilisateur(userID,{isagreer:"true"});
 
-      let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
-        duration: 3000
-      });
+      // let refSnack = this.snackBar.open('Agrément avalidé avec succès','merci', {
+      //   duration: 3000
+      // });
       
   }   
 }
